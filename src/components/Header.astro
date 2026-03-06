@@ -1,0 +1,68 @@
+---
+// Header.astro
+import LangToggle from './LangToggle.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navItems = [
+  { path: `/${lang}`, label: t('nav.home') },
+  { path: `/${lang}#experience`, label: t('nav.experience') },
+  { path: `/${lang}#projects`, label: t('nav.projects') },
+  { path: `/${lang}#contact`, label: t('nav.contact') },
+];
+---
+
+<header
+  class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent"
+>
+  <div class="max-w-7xl mx-auto">
+    <div
+      class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 px-4"
+    >
+      <div class="relative flex items-center justify-between">
+        <!-- Logo / Name -->
+        <a
+          class="mr-3 flex-none w-[2.0625rem] overflow-hidden md:w-auto font-bold text-xl tracking-tight text-slate-900 dark:text-white"
+          href={`/${lang}`}
+        >
+          Tan Phat Vo
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="relative hidden lg:flex items-center ml-auto">
+          <nav
+            class="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200"
+          >
+            <ul class="flex space-x-8">
+              {
+                navItems.map((item) => (
+                  <li>
+                    <a
+                      href={item.path}
+                      class="hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
+                    >
+                      {item.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+
+          <div
+            class="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800 space-x-4"
+          >
+            <LangToggle />
+          </div>
+        </div>
+
+        <!-- Mobile Actions (Hamburger would go here if needed) -->
+        <div class="flex items-center lg:hidden space-x-2">
+          <LangToggle />
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

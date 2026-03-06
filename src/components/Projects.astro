@@ -1,0 +1,269 @@
+---
+// Projects.astro
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import projectsData from '../data/projects.json';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section
+  id="projects"
+  class="py-24 sm:py-32 bg-gray-900 border-t border-gray-800 transition-colors duration-300"
+>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="flex items-end justify-between mb-16">
+      <div class="max-w-2xl">
+        <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          {t('projects.title')}
+        </h2>
+        <p class="mt-4 text-lg text-slate-400">
+          {t('projects.subtitle')}
+        </p>
+        <div class="mt-4 h-1 w-20 bg-primary-500 rounded"></div>
+      </div>
+
+      <!-- Desktop Nav Arrows -->
+      <div class="hidden sm:flex items-center gap-3">
+        <button
+          id="projects-prev"
+          aria-label="Previous projects"
+          class="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-gray-700 text-gray-400 hover:text-white hover:ring-primary-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path></svg
+          >
+        </button>
+        <button
+          id="projects-next"
+          aria-label="Next projects"
+          class="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-gray-700 text-gray-400 hover:text-white hover:ring-primary-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+        >
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            ><path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path></svg
+          >
+        </button>
+      </div>
+    </div>
+
+    <!-- Carousel Container -->
+    <div class="relative overflow-hidden">
+      <div
+        id="projects-track"
+        class="flex transition-transform duration-500 ease-in-out gap-8"
+      >
+        {
+          projectsData.map((project) => (
+            <article class="flex-shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] flex flex-col items-start justify-between bg-gray-800 rounded-2xl p-8 ring-1 ring-gray-700 hover:ring-primary-500 hover:shadow-xl transition-all duration-300">
+              <div class="flex items-center justify-between w-full gap-x-4 text-xs mb-4">
+                <div
+                  class="text-primary-400 bg-primary-900/20 p-2 rounded-full"
+                  set:html={project.icon}
+                />
+
+                {project.teamSize && (
+                  <span class="inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-slate-300 ring-1 ring-inset ring-slate-700">
+                    <svg
+                      class="h-3 w-3 text-slate-500"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path d="M10 9a3 3 0 100-6 3 3 0 000 6zM8 8a2 2 0 114 0 2 2 0 01-4 0z" />
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 11a5.998 5.998 0 00-5 2.684A2 2 0 006.84 17h6.32a2 2 0 001.84-1.316A5.998 5.998 0 0010 11zm-3 4a4 4 0 016 0H7z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                    {t('projects.team')}: {project.teamSize}
+                  </span>
+                )}
+              </div>
+
+              <div class="group relative flex-grow">
+                {/* @ts-ignore */}
+                <h3 class="mt-3 text-lg font-semibold leading-6 text-white">
+                  <span class="absolute inset-0" />
+                  {/* @ts-ignore */}
+                  {project.title[lang]}
+                </h3>
+                {project.role && (
+                  <p class="mt-1 text-sm font-medium text-primary-500">
+                    {/* @ts-ignore */}
+                    {project.role[lang]}
+                  </p>
+                )}
+                {/* @ts-ignore */}
+                <p class="mt-5 text-sm leading-6 text-slate-300">
+                  {/* @ts-ignore */}
+                  {project.description[lang]}
+                </p>
+              </div>
+
+              <div class="relative mt-8 flex items-center gap-2 flex-wrap pb-2">
+                {/* @ts-ignore */}
+                {project.tags.map((tag: string) => (
+                  <span class="inline-flex items-center rounded-md bg-slate-700/50 px-2 py-1 text-xs font-medium text-slate-300 ring-1 ring-inset ring-slate-400/20">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+
+    <!-- Mobile Nav Arrows -->
+    <div class="flex sm:hidden items-center justify-center gap-3 mt-8">
+      <button
+        id="projects-prev-mobile"
+        aria-label="Previous projects"
+        class="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-gray-700 text-gray-400 hover:text-white hover:ring-primary-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+      >
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"></path></svg
+        >
+      </button>
+      <button
+        id="projects-next-mobile"
+        aria-label="Next projects"
+        class="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-gray-700 text-gray-400 hover:text-white hover:ring-primary-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+      >
+        <svg
+          class="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"></path></svg
+        >
+      </button>
+    </div>
+
+    <!-- View All Button -->
+    <div class="mt-12 text-center">
+      <a
+        href={`/${lang}/projects`}
+        class="inline-flex items-center gap-2 rounded-full bg-primary-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 transition-all hover:scale-105 active:scale-95"
+      >
+        {t('projects.viewAll')}
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          ><path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg
+        >
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  function initCarousel() {
+    const track = document.getElementById('projects-track');
+    if (!track) return;
+
+    const cards = track.children;
+    const totalCards = cards.length;
+    let currentIndex = 0;
+
+    function getVisibleCount(): number {
+      const w = window.innerWidth;
+      if (w >= 1024) return 3;
+      if (w >= 640) return 2;
+      return 1;
+    }
+
+    function updatePosition() {
+      const visibleCount = getVisibleCount();
+      const maxIndex = Math.max(0, totalCards - visibleCount);
+      currentIndex = Math.min(currentIndex, maxIndex);
+
+      const card = cards[0] as HTMLElement;
+      const gap = 32; // 2rem = 32px
+      const cardWidth = card.offsetWidth + gap;
+      track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+
+      // Update button states
+      const prevBtns = document.querySelectorAll(
+        '#projects-prev, #projects-prev-mobile'
+      );
+      const nextBtns = document.querySelectorAll(
+        '#projects-next, #projects-next-mobile'
+      );
+
+      prevBtns.forEach((btn) => {
+        (btn as HTMLButtonElement).disabled = currentIndex === 0;
+      });
+      nextBtns.forEach((btn) => {
+        (btn as HTMLButtonElement).disabled = currentIndex >= maxIndex;
+      });
+    }
+
+    function goNext() {
+      const visibleCount = getVisibleCount();
+      const maxIndex = Math.max(0, totalCards - visibleCount);
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+        updatePosition();
+      }
+    }
+
+    function goPrev() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updatePosition();
+      }
+    }
+
+    document.getElementById('projects-next')?.addEventListener('click', goNext);
+    document.getElementById('projects-prev')?.addEventListener('click', goPrev);
+    document
+      .getElementById('projects-next-mobile')
+      ?.addEventListener('click', goNext);
+    document
+      .getElementById('projects-prev-mobile')
+      ?.addEventListener('click', goPrev);
+
+    window.addEventListener('resize', updatePosition);
+    updatePosition();
+  }
+
+  // Run on page load and after Astro page transitions
+  document.addEventListener('DOMContentLoaded', initCarousel);
+  document.addEventListener('astro:page-load', initCarousel);
+</script>

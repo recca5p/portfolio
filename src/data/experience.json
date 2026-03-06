@@ -1,0 +1,77 @@
+[
+    {
+        "company": "ANZ Bank (Australia) – Digital Banking Division",
+        "role": {
+            "en": "Senior Backend Engineer",
+            "vi": "Kỹ sư Backend Senior"
+        },
+        "period": {
+            "en": "Dec 2024 - Present",
+            "vi": "Tháng 12/2024 - Hiện tại"
+        },
+        "bullets": {
+            "en": [
+                "**AI-Augmented Engineering:** Spearheaded the integration of **GenAI tools (GitHub Copilot, Claude Code)** into the development workflow, accelerating Golang/.NET microservices implementation and automating boilerplate code generation, which reduced development cycle time by **~30%**.",
+                "**Intelligent Testing Strategy:** Leveraged AI agents to generate comprehensive unit test scenarios and edge cases for **gRPC contracts**, ensuring **90%+ code coverage** and robust reliability for the International Money Transfer (IMT) system.",
+                "**Core Banking Modernization:** Contributed to the design and scalability of the IMT and Apple Pay integration for ANZ Plus, collaborating effectively within a cross-functional Agile team spanning Vietnam, Australia, and India.",
+                "**Cloud-Native Architecture:** Architected and maintained high-performance microservices using **Golang and gRPC**, utilizing **GCP services (BigQuery, Pub/Sub, Cloud Run)** to handle high-volume transaction data securely.",
+                "**DevSecOps Excellence:** Managed infrastructure by **Kubernetes (GKE) and Helm**, implementing strict CI/CD pipelines with GitHub Actions. Enforced security compliance through automated **SonarQube and Fortify** scanning gates before every deployment."
+            ],
+            "vi": [
+                "**Kỹ thuật Tăng cường AI:** Dẫn dắt việc tích hợp **công cụ GenAI (GitHub Copilot, Claude Code)** vào quy trình phát triển, tăng tốc triển khai microservices Golang/.NET và tự động hóa tạo mã boilerplate, giảm thời gian chu kỳ phát triển **khoảng 30%**.",
+                "**Chiến lược Thử nghiệm Thông minh:** Tận dụng AI agents để tạo các kịch bản kiểm thử đơn vị toàn diện đối với các **hợp đồng gRPC**, đảm bảo **độ phủ mã >90%** và độ tin cậy cho hệ thống Chuyển tiền Quốc tế (IMT).",
+                "**Hiện đại hóa Core Banking:** Đóng góp vào thiết kế và khả năng mở rộng của IMT và tích hợp Apple Pay cho ANZ Plus, hợp tác hiệu quả trong đội ngũ Agile chéo chức năng Việt Nam, Úc, Ấn Độ.",
+                "**Kiến trúc Cloud-Native:** Thiết kế và duy trì các microservices hiệu suất cao bằng **Golang và gRPC**, sử dụng **GCP services (BigQuery, Pub/Sub, Cloud Run)** để xử lý an toàn dữ liệu giao dịch khối lượng lớn.",
+                "**Xuất sắc về DevSecOps:** Quản lý hạ tầng bằng **Kubernetes (GKE) và Helm**, triển khai pipeline CI/CD nghiêm ngặt bằng GitHub Actions. Thực thi tuân thủ bảo mật thông qua quét tự động **SonarQube và Fortify** trước mỗi đợt triển khai."
+            ]
+        }
+    },
+    {
+        "company": "FPT Software – Offshore for Halliburton (Oil & Gas)",
+        "role": {
+            "en": "Senior Backend Developer",
+            "vi": "Lập trình viên Backend Senior"
+        },
+        "period": {
+            "en": "Jan 2022 - Dec 2024",
+            "vi": "Tháng 1/2022 - Tháng 12/2024"
+        },
+        "bullets": {
+            "en": [
+                "**Enterprise System Development:** Led the backend development for mission-critical Oil & Gas desktop applications and shared libraries using **.NET Core and Golang**, ensuring high availability and fault tolerance.",
+                "**Event-Driven Microservices:** Designed a decoupled microservices architecture utilizing **Azure Service Bus**, enabling seamless and reliable asynchronous communication between complex distributed systems.",
+                "**Performance Optimization:** Optimized complex SQL queries and refactored legacy codebases to improve data processing speed for large-scale datasets. Implemented **gRPC** for low-latency inter-service communication, significantly enhancing application responsiveness.",
+                "**Automated Delivery Pipelines:** Engineered robust CI/CD workflows using **Azure DevOps**, automating build, test, and deployment processes. Integrated **MSTest** for rigorous TDD practice and Fortify for continuous security vulnerability assessment."
+            ],
+            "vi": [
+                "**Phát triển Hệ thống Doanh nghiệp:** Chịu trách nhiệm chính việc phát triển backend các ứng dụng desktop ngành Dầu khí và thư viện chia sẻ sử dụng **.NET Core và Golang**, đảm bảo tính sẵn sàng cao và khả năng chịu lỗi.",
+                "**Microservices Định hướng Sự kiện:** Thiết kế kiến trúc microservices tách rời sử dụng **Azure Service Bus**, hỗ trợ giao tiếp bất đồng bộ liền mạch, đáng tin cậy giữa các hệ thống phân tán phức tạp.",
+                "**Tối ưu Hóa Hiệu suất:** Tối ưu hóa các truy vấn SQL phức tạp và tái cấu trúc mã kế thừa để tăng tốc độ xử lý các bộ dữ liệu lớn. Triển khai **gRPC** để giao tiếp nội bộ có độ trễ cực thấp.",
+                "**Pipelines Giao hàng Tự động:** Các luồng CI/CD mạnh mẽ sử dụng **Azure DevOps**, tự động hóa quy trình test và triển khai mã. Tích hợp **MSTest** với TDD và Fortify cho đánh giá lỗ hổng bảo mật."
+            ]
+        }
+    },
+    {
+        "company": "Saigon Thuong Tin Commercial Joint Stock Bank (Sacombank)",
+        "role": {
+            "en": "Software Developer",
+            "vi": "Lập trình viên Phần mềm"
+        },
+        "period": {
+            "en": "May 2020 - Jan 2022",
+            "vi": "Tháng 5/2020 - Tháng 1/2022"
+        },
+        "bullets": {
+            "en": [
+                "**Fintech Product Development:** Played a key role in building the E-invoice system and CRM application, utilizing a hybrid stack of **.NET Core, Golang, and Java Spring Boot** to deliver scalable backend solutions.",
+                "**Full-Stack Contribution:** Delivered responsive web and mobile interfaces using **Angular and React Native**, ensuring seamless integration with RESTful APIs for a smooth user experience.",
+                "**System Reliability:** Participated in the full SDLC within an Agile environment, collaborating closely with frontend teams to optimize API response times and ensure data consistency across banking modules."
+            ],
+            "vi": [
+                "**Phát triển Sản phẩm Fintech:** Đóng vai trò then chốt trong xây dựng hệ thống Hóa đơn điện tử và CRM, sử dụng ngăn xếp hỗn hợp **.NET Core, Golang và Java Spring Boot** cho các giải pháp backend mở rộng.",
+                "**Đóng góp Full-Stack:** Xây dựng giao diện web và di động đáp ứng bằng **Angular và React Native**, đảm bảo tích hợp API RESTful mượt mà.",
+                "**Độ tin cậy của Hệ thống:** Tham gia vào toàn bộ vòng đời phát triển phần mềm (SDLC) trong môi trường Agile, hợp tác chặt chẽ với Frontend để tối ưu hóa thời gian phản hồi API."
+            ]
+        }
+    }
+]
