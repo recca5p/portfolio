@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio-tanphatvo.pages.dev/sitemap.xml
+Sitemap: https://portfolio-7j9.pages.dev/sitemap.xml

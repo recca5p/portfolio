@@ -1,4 +1,23 @@
 ---
-// Redirect to default language
-return Astro.redirect('/en');
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Skills from '../components/Skills.astro';
+import Experience from '../components/Experience.astro';
+import Education from '../components/Education.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
 ---
+
+<Layout
+  title="Tan Phat Vo - Senior Backend Engineer | .NET, Golang, Cloud Architecture"
+  description="Portfolio of Tan Phat Vo — Senior Backend Engineer with 5+ years building scalable Microservices in .NET, Golang, Java. Expert in GCP, AWS, Kubernetes, and AI-augmented engineering."
+  lang="en"
+  canonicalPath="/en"
+>
+  <Hero />
+  <Skills />
+  <Experience />
+  <Education />
+  <Projects />
+  <Contact />
+</Layout>
