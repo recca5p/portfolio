@@ -8,30 +8,140 @@ interface Props {
   title: string;
   description?: string;
   lang?: string;
+  canonicalPath?: string;
+  ogType?: string;
 }
 
 const {
   title,
-  description = 'Tan Phat Vo - Software Engineer Portfolio',
+  description = 'Senior Backend Engineer specializing in .NET, Golang, Java, Microservices, Cloud-Native Architecture (GCP, AWS), and AI-augmented development. 5+ years of experience.',
   lang = 'en',
+  canonicalPath,
+  ogType = 'website',
 } = Astro.props;
+
+// Derive the base URL — replace with your actual domain after deployment
+const siteUrl = import.meta.env.SITE || 'https://portfolio-tanphatvo.pages.dev';
+const currentPath = canonicalPath || Astro.url.pathname;
+const canonicalUrl = `${siteUrl}${currentPath}`;
+const altLang = lang === 'en' ? 'vi' : 'en';
+const altPath = currentPath.replace(`/${lang}`, `/${altLang}`);
+const altUrl = `${siteUrl}${altPath}`;
+
+// JSON-LD structured data for the person
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Tan Phat Vo',
+  alternateName: 'Võ Tấn Phát',
+  jobTitle: 'Senior Backend Engineer',
+  url: siteUrl,
+  sameAs: ['https://www.linkedin.com/in/tan-phat-vo-51ba10272/'],
+  email: 'phatvo73.dev@gmail.com',
+  knowsAbout: [
+    '.NET Core',
+    'Golang',
+    'Java',
+    'Python',
+    'Microservices',
+    'Cloud Architecture',
+    'GCP',
+    'AWS',
+    'Azure',
+    'Kubernetes',
+    'Docker',
+    'Kafka',
+    'gRPC',
+    'Redis',
+    'AI Engineering',
+  ],
+  alumniOf: {
+    '@type': 'EducationalOrganization',
+    name: 'Ton Duc Thang University',
+  },
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Software Engineering',
+  },
+};
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Tan Phat Vo - Portfolio',
+  url: siteUrl,
+  inLanguage: [lang, altLang],
+};
 ---
 
 <!doctype html>
 <html lang={lang} class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- SEO -->
+    <!-- Primary SEO -->
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content="Tan Phat Vo" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#111827" />
+
+    <!-- Canonical & Language Alternates -->
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+    <link rel="alternate" hreflang={altLang} href={altUrl} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/en`} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Tan Phat Vo - Portfolio" />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'vi_VN'} />
+    <meta
+      property="og:locale:alternate"
+      content={lang === 'en' ? 'vi_VN' : 'en_US'}
+    />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Keywords (still used by some engines) -->
+    <meta
+      name="keywords"
+      content="Tan Phat Vo, Võ Tấn Phát, Software Engineer, Backend Developer, .NET, Golang, Java, Python, Microservices, Cloud Architecture, GCP, AWS, Azure, Kubernetes, Docker, AI Engineering, Ho Chi Minh City, Vietnam"
+    />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(personSchema)}
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(websiteSchema)}
+    />
+
+    <!-- Preconnect for external resources -->
+    <link rel="preconnect" href="https://api.qrserver.com" />
+    <link rel="dns-prefetch" href="https://api.qrserver.com" />
   </head>
   <body class="min-h-screen bg-gray-900 text-gray-100 flex flex-col">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-md z-50"
+    >
+      {lang === 'en' ? 'Skip to content' : 'Chuyển đến nội dung'}
+    </a>
     <Header />
-    <main class="flex-grow">
+    <main id="main-content" class="flex-grow" role="main">
       <slot />
     </main>
     <Footer />
