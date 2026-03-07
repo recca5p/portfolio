@@ -70,13 +70,13 @@ const t = useTranslations(lang);
       >
         {
           projectsData.map((project) => (
-            <article class="flex-shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] flex flex-col items-start justify-between bg-gray-800 rounded-2xl p-8 ring-1 ring-gray-700 hover:ring-primary-500 hover:shadow-xl transition-all duration-300">
+            <article class="flex-shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] flex flex-col bg-gray-800 rounded-2xl p-8 ring-1 ring-gray-700 hover:ring-primary-500 hover:shadow-xl transition-all duration-300">
+              {/* Top row: icon + team size */}
               <div class="flex items-center justify-between w-full gap-x-4 text-xs mb-4">
                 <div
                   class="text-primary-400 bg-primary-900/20 p-2 rounded-full"
                   set:html={project.icon}
                 />
-
                 {project.teamSize && (
                   <span class="inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-slate-300 ring-1 ring-inset ring-slate-700">
                     <svg
@@ -97,10 +97,10 @@ const t = useTranslations(lang);
                 )}
               </div>
 
-              <div class="group relative flex-grow">
+              {/* Title + role + description */}
+              <div class="flex-grow">
                 {/* @ts-ignore */}
-                <h3 class="mt-3 text-lg font-semibold leading-6 text-white">
-                  <span class="absolute inset-0" />
+                <h3 class="text-lg font-semibold leading-6 text-white">
                   {/* @ts-ignore */}
                   {project.title[lang]}
                 </h3>
@@ -110,14 +110,39 @@ const t = useTranslations(lang);
                     {project.role[lang]}
                   </p>
                 )}
+                {/* Company link */}
+                {project.company && (
+                  <a
+                    href={project.company.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-2 inline-flex items-center gap-1 text-xs text-slate-400 hover:text-primary-400 transition-colors"
+                  >
+                    <svg
+                      class="w-3 h-3"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                    {project.company.name}
+                  </a>
+                )}
                 {/* @ts-ignore */}
-                <p class="mt-5 text-sm leading-6 text-slate-300">
+                <p class="mt-4 text-sm leading-6 text-slate-300 line-clamp-4">
                   {/* @ts-ignore */}
                   {project.description[lang]}
                 </p>
               </div>
 
-              <div class="relative mt-8 flex items-center gap-2 flex-wrap pb-2">
+              {/* Tags */}
+              <div class="mt-6 flex items-center gap-2 flex-wrap">
                 {/* @ts-ignore */}
                 {project.tags.map((tag: string) => (
                   <span class="inline-flex items-center rounded-md bg-slate-700/50 px-2 py-1 text-xs font-medium text-slate-300 ring-1 ring-inset ring-slate-400/20">

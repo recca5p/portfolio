@@ -1,194 +1,77 @@
 [
     {
         "title": {
-            "en": "AI-Augmented Code Generation Workflow",
-            "vi": "Luồng Công việc Tạo Mã Tăng cường AI"
+            "en": "Apollo English Vietnam — ERP System",
+            "vi": "Apollo English Việt Nam — Hệ thống ERP"
         },
         "role": {
-            "en": "Lead AI Engineer",
-            "vi": "Kỹ sư AI Chính"
-        },
-        "teamSize": 3,
-        "description": {
-            "en": "Spearheaded the integration of GitHub Copilot and Claude Code into the daily development cycle. Automated the generation of Golang/.NET microservices scaffolding and boilerplate, fundamentally shifting how the team initialized new backend architectures and reducing development cycle time by over 30%.",
-            "vi": "Tiên phong tích hợp GitHub Copilot và Claude Code vào chu kỳ phát triển hàng ngày. Tự động hóa việc tạo khung và mã cơ bản cho các dịch vụ vi mô Golang/.NET, thay đổi cơ bản cách nhóm khởi tạo kiến trúc backend mới và giảm >30% thời gian phát triển vòng đời."
-        },
-        "tags": [
-            "GenAI",
-            "Claude Code",
-            "GitHub Copilot",
-            "Golang",
-            ".NET",
-            "Architecture"
-        ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M13 10V3L4 14h7v7l9-11h-7z\"></path></svg>"
-    },
-    {
-        "title": {
-            "en": "Intelligent Testing Agent",
-            "vi": "Agent Thử nghiệm Thông minh"
-        },
-        "role": {
-            "en": "Backend Innovator",
-            "vi": "Nhà Đổi mới Backend"
-        },
-        "teamSize": 5,
-        "description": {
-            "en": "Designed prompts and leveraged AI agents to automatically generate exhaustive unit test scenarios and edge cases for critical gRPC contracts in the International Money Transfer (IMT) system. This automated verification suite allowed the framework to easily achieve and maintain over 90% code coverage reliably.",
-            "vi": "Thiết kế câu lệnh và sử dụng AI agents để tự động tạo các kịch bản kiểm thử đơn vị toàn diện đối với các hợp đồng gRPC trong hệ thống Chuyển tiền Quốc tế (IMT). Bộ xác minh tự động này cho phép khung dễ dàng đạt và duy trì độ phủ mã >90% một cách đáng tin cậy."
-        },
-        "tags": [
-            "AI Agents",
-            "Testing",
-            "gRPC",
-            "Automation",
-            "Unit Tests",
-            "Code Coverage"
-        ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z\"></path></svg>"
-    },
-    {
-        "title": {
-            "en": "Freelance & Open Source",
-            "vi": "Làm Việc Tự Do & Nguồn Mở"
-        },
-        "role": {
-            "en": "Architect Consultant",
-            "vi": "Tư vấn Kiến trúc"
-        },
-        "teamSize": 1,
-        "description": {
-            "en": "Outside of core development, I actively participate in open-source projects and freelance architectural consulting. I primarily help tech startups design secure, highly available, cloud-native backend systems using cutting-edge AWS and GCP managed services.",
-            "vi": "Ngoài công việc phát triển cốt lõi, tôi tích cực tham gia các dự án mã nguồn mở và tư vấn kiến trúc tự do. Chủ yếu là giúp các startup thiết kế các hệ thống backend cloud-native bảo mật, tính khả dụng cao bằng giải pháp AWS và GCP hiện đại."
-        },
-        "tags": [
-            "Consulting",
-            "System Design",
-            "GCP",
-            "AWS",
-            "Open Source",
-            "Microservices"
-        ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9\"></path></svg>"
-    },
-    {
-        "title": {
-            "en": "Real-Time Payment Gateway",
-            "vi": "Cổng Thanh Toán Thời Gian Thực"
-        },
-        "role": {
-            "en": "Senior Backend Engineer",
-            "vi": "Kỹ sư Backend Senior"
-        },
-        "teamSize": 8,
-        "description": {
-            "en": "Designed and built a high-throughput payment processing gateway handling 10,000+ TPS with sub-200ms latency. Implemented event-driven architecture with Kafka for real-time transaction streaming, Redis for idempotency caching, and Circuit Breaker patterns for downstream service resilience.",
-            "vi": "Thiết kế và xây dựng cổng xử lý thanh toán thông lượng cao xử lý 10.000+ TPS với độ trễ dưới 200ms. Triển khai kiến trúc event-driven với Kafka cho streaming giao dịch thời gian thực, Redis cho bộ nhớ đệm idempotency, và mẫu Circuit Breaker cho khả năng phục hồi dịch vụ downstream."
-        },
-        "tags": [
-            "Kafka",
-            ".NET Core",
-            "Redis",
-            "PostgreSQL",
-            "Circuit Breaker",
-            "High Throughput"
-        ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z\"></path></svg>"
-    },
-    {
-        "title": {
-            "en": "Cloud Migration & Kubernetes Platform",
-            "vi": "Di Chuyển Cloud & Nền Tảng Kubernetes"
-        },
-        "role": {
-            "en": "DevOps Lead",
-            "vi": "Trưởng nhóm DevOps"
+            "en": "Full-Stack Developer & DevOps Engineer",
+            "vi": "Lập trình viên Full-Stack & Kỹ sư DevOps"
         },
         "teamSize": 6,
+        "company": {
+            "name": "Apollo English Vietnam",
+            "url": "https://www.apollo.edu.vn",
+            "description": {
+                "en": "One of Vietnam's leading English language education centers with 70+ centers nationwide, pioneering e-learning technology in Vietnam since 1994.",
+                "vi": "Một trong những trung tâm Anh ngữ hàng đầu Việt Nam với 70+ cơ sở, tiên phong ứng dụng công nghệ e-learning tại Việt Nam từ năm 1994."
+            }
+        },
         "description": {
-            "en": "Led the migration of 15+ legacy monolithic services to GKE-based microservices architecture. Designed Terraform IaC modules for reproducible multi-environment provisioning. Built CI/CD pipelines with GitHub Actions achieving 99.5% deployment success rate and < 5 min rollback capability.",
-            "vi": "Dẫn dắt việc di chuyển 15+ dịch vụ monolithic legacy sang kiến trúc microservices trên GKE. Thiết kế các module Terraform IaC cho provisioning đa môi trường có thể tái tạo. Xây dựng pipeline CI/CD với GitHub Actions đạt tỷ lệ triển khai thành công 99.5% và khả năng rollback < 5 phút."
+            "en": "Maintained and developed new features for Apollo's internal ERP platform covering CRM, ATS (Applicant Tracking), class & student management, and financial reconciliation. Integrated third-party payment gateways (Payoo, VNPay) and recruitment platform (TopCV) via webhooks and REST APIs. Responsible for the full delivery pipeline: coding new features, designing CI/CD pipelines with GitHub Actions for IIS deployments, and implementing a monitoring & alerting system to ensure platform stability across 70+ English centers nationwide.",
+            "vi": "Duy trì và phát triển tính năng mới cho nền tảng ERP nội bộ của Apollo bao gồm CRM, ATS (theo dõi ứng viên), quản lý lớp học & học sinh, và hệ thống đối soát tài chính. Tích hợp cổng thanh toán bên thứ ba (Payoo, VNPay) và nền tảng tuyển dụng (TopCV) qua webhook và REST API. Chịu trách nhiệm toàn bộ pipeline vận hành: phát triển tính năng, thiết kế CI/CD với GitHub Actions cho triển khai IIS, và xây dựng hệ thống giám sát & cảnh báo đảm bảo ổn định nền tảng cho 70+ trung tâm toàn quốc."
         },
         "tags": [
-            "Kubernetes",
-            "GKE",
-            "Terraform",
-            "Docker",
+            "C# .NET",
+            "Angular",
+            "PostgreSQL",
+            "Stored Procedures",
             "GitHub Actions",
-            "Helm"
+            "IIS",
+            "Payoo",
+            "VNPay",
+            "TopCV",
+            "Webhook",
+            "CI/CD",
+            "Monitoring"
         ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z\"></path></svg>"
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4\"></path></svg>"
     },
     {
         "title": {
-            "en": "E-Commerce Analytics Dashboard",
-            "vi": "Bảng Phân Tích Thương Mại Điện Tử"
+            "en": "Rozitek — Smart Factory Racket Transfer Automation",
+            "vi": "Rozitek — Tự Động Hoá Vận Chuyển Vợt Trong Nhà Máy"
         },
         "role": {
-            "en": "Full-Stack Developer",
-            "vi": "Lập trình viên Full-Stack"
+            "en": "Lead Backend Developer",
+            "vi": "Lập trình viên Backend Chính"
         },
-        "teamSize": 4,
+        "teamSize": 5,
+        "company": {
+            "name": "Rozitek Intralogistic Solution",
+            "url": "https://rozitek.com",
+            "description": {
+                "en": "Vietnamese Smart Factory & intralogistics company specializing in IIoT, AI, and AMR (Autonomous Mobile Robots) solutions for manufacturing industries.",
+                "vi": "Công ty Smart Factory & nội địa logistics Việt Nam chuyên cung cấp giải pháp IIoT, AI và robot AMR (Autonomous Mobile Robots) cho ngành sản xuất."
+            }
+        },
         "description": {
-            "en": "Built a real-time analytics dashboard processing 2M+ daily events from multiple e-commerce platforms. Leveraged BigQuery for data warehousing, Pub/Sub for event ingestion, and React for a responsive frontend with interactive charts, filters, and exportable reports.",
-            "vi": "Xây dựng bảng phân tích thời gian thực xử lý 2 triệu+ sự kiện hàng ngày từ nhiều nền tảng thương mại điện tử. Sử dụng BigQuery cho lưu trữ dữ liệu, Pub/Sub cho thu thập sự kiện, và React cho frontend tương tác với biểu đồ, bộ lọc và báo cáo có thể xuất."
+            "en": "Led development of an end-to-end automated racket transfer system for a badminton/tennis racket manufacturing factory. Designed and implemented a fully automated workflow using scheduled cronjobs, real-time webhooks, and REST API integrations to orchestrate fleets of AMR robots through a complete factory circuit — from raw material pickup to finished racket collection. The system replaced manual transport, achieving a closed-loop, zero-human-intervention operation across the production floor. Deployed on Linux servers via Docker containers.",
+            "vi": "Dẫn dắt phát triển hệ thống vận chuyển vợt tự động end-to-end cho nhà máy sản xuất vợt cầu lông/tennis. Thiết kế và triển khai quy trình tự động hoàn chỉnh sử dụng cronjob định kỳ, webhook thời gian thực và tích hợp REST API để điều phối robot AMR chạy vòng hoàn chỉnh trong nhà máy — từ lấy nguyên liệu đến thu gom vợt thành phẩm. Hệ thống thay thế vận chuyển thủ công, đạt vận hành khép kín không cần con người trên toàn sàn sản xuất. Triển khai trên Linux server qua Docker container."
         },
         "tags": [
-            "BigQuery",
-            "Pub/Sub",
-            "React",
-            "GCP",
-            "Data Pipeline",
-            "Analytics"
+            "C# .NET",
+            "Java",
+            "Docker",
+            "Linux",
+            "Cronjob",
+            "Webhook",
+            "REST APIs",
+            "AMR Robots",
+            "IIoT",
+            "Smart Factory",
+            "Automation"
         ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z\"></path></svg>"
-    },
-    {
-        "title": {
-            "en": "Secure Document Management System",
-            "vi": "Hệ Thống Quản Lý Tài Liệu Bảo Mật"
-        },
-        "role": {
-            "en": "Backend Architect",
-            "vi": "Kiến trúc sư Backend"
-        },
-        "teamSize": 7,
-        "description": {
-            "en": "Architected a HIPAA-compliant document management platform for a financial services client. Implemented end-to-end encryption, role-based access control (RBAC), and audit logging with DynamoDB. Passed Fortify security scans with zero critical vulnerabilities.",
-            "vi": "Thiết kế kiến trúc nền tảng quản lý tài liệu tuân thủ HIPAA cho khách hàng dịch vụ tài chính. Triển khai mã hóa end-to-end, kiểm soát truy cập theo vai trò (RBAC), và ghi nhật ký kiểm toán với DynamoDB. Vượt qua quét bảo mật Fortify với 0 lỗ hổng nghiêm trọng."
-        },
-        "tags": [
-            "Security",
-            "RBAC",
-            "DynamoDB",
-            "Encryption",
-            "Fortify",
-            "HIPAA"
-        ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z\"></path></svg>"
-    },
-    {
-        "title": {
-            "en": "Multi-Tenant SaaS Notification Engine",
-            "vi": "Hệ Thống Thông Báo SaaS Đa Tenant"
-        },
-        "role": {
-            "en": "Backend Engineer",
-            "vi": "Kỹ sư Backend"
-        },
-        "teamSize": 4,
-        "description": {
-            "en": "Developed a multi-tenant notification engine supporting email, SMS, push, and in-app channels. Built with RabbitMQ for message queuing, rate-limiting per tenant, template rendering with Handlebars, and delivery tracking with retry logic and dead-letter queue management.",
-            "vi": "Phát triển hệ thống thông báo đa tenant hỗ trợ email, SMS, push và kênh trong ứng dụng. Xây dựng với RabbitMQ cho hàng đợi tin nhắn, giới hạn tốc độ theo tenant, render template với Handlebars, và theo dõi gửi với logic retry và quản lý dead-letter queue."
-        },
-        "tags": [
-            "RabbitMQ",
-            "Multi-Tenant",
-            "Spring Boot",
-            "Email",
-            "Push Notifications",
-            "DLQ"
-        ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9\"></path></svg>"
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15\"></path></svg>"
     }
 ]
