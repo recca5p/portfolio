@@ -73,5 +73,78 @@
             "Automation"
         ],
         "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15\"></path></svg>"
+    },
+    {
+        "title": {
+            "en": "Sacombank — E-Invoice System",
+            "vi": "Sacombank — Hệ Thống Hóa Đơn Điện Tử"
+        },
+        "role": {
+            "en": "Full-Stack Developer",
+            "vi": "Lập trình viên Full-Stack"
+        },
+        "teamSize": 8,
+        "company": {
+            "name": "Sacombank",
+            "url": "https://www.sacombank.com.vn",
+            "description": {
+                "en": "One of Vietnam's largest joint-stock commercial banks, serving millions of customers with a nationwide network of 600+ transaction points and 200,000+ POS terminals.",
+                "vi": "Một trong những ngân hàng TMCP lớn nhất Việt Nam, phục vụ hàng triệu khách hàng với mạng lưới 600+ điểm giao dịch và 200.000+ máy POS toàn quốc."
+            }
+        },
+        "description": {
+            "en": "Maintained and developed the Sacombank E-Invoice platform (hoadondientu.sacombank.com.vn) — a government-compliant electronic invoicing system covering all customer banking transactions including periodic fees, e-banking charges, loan interest, and foreign currency exchange. Built on ABP Framework with multi-database support (Oracle + MSSQL) and Azure cloud infrastructure. Responsibilities included bug fixes, new feature development, new UI pages in Angular, stored procedure optimization, and regulatory compliance updates aligned with Vietnamese Ministry of Finance e-invoice standards and partnerships with MISA and VNPAY.",
+            "vi": "Duy trì và phát triển nền tảng Hóa Đơn Điện Tử Sacombank (hoadondientu.sacombank.com.vn) — hệ thống hóa đơn điện tử tuân thủ quy định nhà nước cho toàn bộ giao dịch ngân hàng bao gồm phí định kỳ, phí e-banking, lãi vay và mua bán ngoại tệ. Xây dựng trên ABP Framework với đa cơ sở dữ liệu (Oracle + MSSQL) và hạ tầng Azure cloud. Trách nhiệm gồm sửa lỗi, phát triển tính năng mới, trang UI mới trong Angular, tối ưu stored procedure và cập nhật tuân thủ theo chuẩn hóa đơn điện tử của Bộ Tài chính."
+        },
+        "tags": [
+            "C# .NET",
+            "ABP Framework",
+            "Angular",
+            "Oracle",
+            "MSSQL",
+            "Stored Procedures",
+            "Azure",
+            "E-Invoice",
+            "FinTech",
+            "REST APIs"
+        ],
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z\"></path></svg>"
+    },
+    {
+        "title": {
+            "en": "Sacombank — POS Management System",
+            "vi": "Sacombank — Hệ Thống Quản Lý POS"
+        },
+        "role": {
+            "en": "Full-Stack Developer & DevOps Engineer",
+            "vi": "Lập trình viên Full-Stack & Kỹ sư DevOps"
+        },
+        "teamSize": 5,
+        "company": {
+            "name": "Sacombank",
+            "url": "https://www.sacombank.com.vn",
+            "description": {
+                "en": "One of Vietnam's largest joint-stock commercial banks with 200,000+ POS terminals deployed nationwide, pioneering Visa Tap to Phone technology in Vietnam.",
+                "vi": "Một trong những ngân hàng TMCP lớn nhất Việt Nam với 200.000+ máy POS trên toàn quốc, tiên phong triển khai công nghệ Visa Tap to Phone tại Việt Nam."
+            }
+        },
+        "description": {
+            "en": "Took over a POS management system originally built by an outsourced vendor and assumed full ownership of its maintenance, bug fixing, and feature expansion. The system manages Sacombank's merchant POS network spanning 200,000+ terminals supporting Visa, Mastercard, UnionPay, NAPAS, and QR payment methods including MoMo, ZaloPay, and VNPAY. Led DevOps responsibilities including Jenkins CI/CD pipeline setup, Azure cloud service management, and Oracle database administration. Coordinated cross-team handover documentation and implemented system stability improvements to reduce deployment incidents.",
+            "vi": "Tiếp nhận hệ thống quản lý POS từ nhà thầu outsource và chịu trách nhiệm toàn diện về bảo trì, sửa lỗi và mở rộng tính năng. Hệ thống quản lý mạng lưới POS của Sacombank với 200.000+ máy hỗ trợ Visa, Mastercard, UnionPay, NAPAS và các phương thức QR bao gồm MoMo, ZaloPay, VNPAY. Phụ trách DevOps gồm thiết kế Jenkins CI/CD pipeline, quản lý Azure cloud services và Oracle database. Điều phối tài liệu bàn giao liên nhóm và triển khai cải tiến ổn định hệ thống để giảm sự cố triển khai."
+        },
+        "tags": [
+            "C# .NET",
+            "Java",
+            "Jenkins",
+            "Azure",
+            "Oracle",
+            "CI/CD",
+            "POS",
+            "NAPAS",
+            "Visa",
+            "Mastercard",
+            "FinTech"
+        ],
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z\"></path></svg>"
     }
 ]
