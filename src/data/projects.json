@@ -248,5 +248,41 @@
             "Cost Optimization"
         ],
         "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z\"></path></svg>"
+    },
+    {
+        "title": {
+            "en": "Halliburton — eCompletion Tools Desktop Application",
+            "vi": "Halliburton — Ứng Dụng Desktop eCompletion Tools"
+        },
+        "role": {
+            "en": "Backend Engineer",
+            "vi": "Kỹ sư Backend"
+        },
+        "teamSize": 5,
+        "company": {
+            "name": "Halliburton (via FPT Software)",
+            "url": "https://www.halliburton.com",
+            "description": {
+                "en": "One of the world's largest oil & gas services companies operating in 70+ countries, providing drilling, evaluation, completion, and production solutions across the full reservoir lifecycle.",
+                "vi": "Một trong những công ty dịch vụ dầu khí lớn nhất thế giới hoạt động tại 70+ quốc gia, cung cấp giải pháp khoan, đánh giá, hoàn thiện và sản xuất cho toàn bộ vòng đời mỏ dầu."
+            }
+        },
+        "description": {
+            "en": "Developed and maintained a mission-critical offline-first WinForms desktop application used by engineers on offshore drilling rigs to record time-series drilling statistic data — in environments with no internet connectivity. The app uses LiteDB as a local embedded database to store data reliably offline, then automatically syncs to the central server the moment internet becomes available. Key contributions: implemented new features and modified existing modules, optimized stored procedures and EF Core queries, migrated the on-premise MS SQL database to Azure SQL, migrated authentication from legacy AD to Azure Active Directory (Azure AD), and optimized the document search pipeline — achieving a 20x improvement in search performance.",
+            "vi": "Phát triển và duy trì ứng dụng desktop WinForms offline-first quan trọng được kỹ sư sử dụng trên giàn khoan ngoài khơi để ghi dữ liệu thống kê khoan theo chuỗi thời gian — trong môi trường không có kết nối internet. Ứng dụng dùng LiteDB làm cơ sở dữ liệu nhúng cục bộ để lưu trữ dữ liệu offline đáng tin cậy, sau đó tự động đồng bộ lên máy chủ trung tâm khi có internet. Đóng góp chính: triển khai tính năng mới và chỉnh sửa module hiện có, tối ưu stored procedure và EF Core, di chuyển MS SQL on-premise lên Azure SQL, di chuyển xác thực từ AD cũ sang Azure Active Directory, và tối ưu pipeline tìm kiếm tài liệu — đạt cải thiện 20x về hiệu suất tìm kiếm."
+        },
+        "tags": [
+            "C# .NET",
+            "WinForms",
+            "MS SQL",
+            "Azure SQL",
+            "LiteDB",
+            "Entity Framework",
+            "Stored Procedures",
+            "Azure AD",
+            "Offline-First",
+            "Oil & Gas"
+        ],
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18\"></path></svg>"
     }
 ]
