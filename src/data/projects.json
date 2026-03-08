@@ -284,5 +284,74 @@
             "Oil & Gas"
         ],
         "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18\"></path></svg>"
+    },
+    {
+        "title": {
+            "en": "Halliburton — eCompletion Tools Sync Server",
+            "vi": "Halliburton — Máy Chủ Đồng Bộ eCompletion Tools"
+        },
+        "role": {
+            "en": "Backend Engineer",
+            "vi": "Kỹ sư Backend"
+        },
+        "teamSize": 5,
+        "company": {
+            "name": "Halliburton (via FPT Software)",
+            "url": "https://www.halliburton.com",
+            "description": {
+                "en": "One of the world's largest oil & gas services companies operating in 70+ countries, providing drilling, evaluation, completion, and production solutions across the full reservoir lifecycle.",
+                "vi": "Một trong những công ty dịch vụ dầu khí lớn nhất thế giới hoạt động tại 70+ quốc gia, cung cấp giải pháp khoan, đánh giá, hoàn thiện và sản xuất cho toàn bộ vòng đời mỏ dầu."
+            }
+        },
+        "description": {
+            "en": "Developed and maintained the central sync server that receives and processes data pushed from the offline eCompletion Tools desktop apps installed on offshore drilling rigs. Implemented new features and updated existing modules based on evolving client requirements. Actively participated in team discussions to identify client pain points and proactively proposed improvements to the platform architecture. A major initiative was migrating the messaging infrastructure from RabbitMQ to Azure Service Bus to publish events to downstream services — improving reliability, scalability, and cloud-native integration. Also maintained and enhanced the CI/CD pipeline to ensure fast, stable deployments.",
+            "vi": "Phát triển và duy trì máy chủ đồng bộ trung tâm nhận và xử lý dữ liệu được đẩy lên từ ứng dụng desktop eCompletion Tools offline trên các giàn khoan ngoài khơi. Triển khai tính năng mới và cập nhật module hiện có theo yêu cầu thay đổi của khách hàng. Tích cực tham gia thảo luận nhóm để xác định pain point của khách hàng và đề xuất cải tiến chủ động cho kiến trúc nền tảng. Sáng kiến lớn là di chuyển hạ tầng messaging từ RabbitMQ sang Azure Service Bus để publish event cho các dịch vụ downstream — cải thiện độ tin cậy, khả năng mở rộng và tích hợp cloud-native. Đồng thời duy trì và nâng cấp CI/CD pipeline để đảm bảo triển khai nhanh và ổn định."
+        },
+        "tags": [
+            "C# .NET",
+            "MS SQL",
+            "Azure Service Bus",
+            "RabbitMQ",
+            "Azure Blob Storage",
+            "CI/CD",
+            "Event-Driven",
+            "Microservices",
+            "Oil & Gas"
+        ],
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01\"></path></svg>"
+    },
+    {
+        "title": {
+            "en": "Halliburton — SAMS Data Verification Web Application",
+            "vi": "Halliburton — Ứng Dụng Web Kiểm Tra Dữ Liệu SAMS"
+        },
+        "role": {
+            "en": "Backend Engineer",
+            "vi": "Kỹ sư Backend"
+        },
+        "teamSize": 5,
+        "company": {
+            "name": "Halliburton (via FPT Software)",
+            "url": "https://www.halliburton.com",
+            "description": {
+                "en": "One of the world's largest oil & gas services companies, running specialized engineering analysis platforms that process and verify critical well data across global drilling operations.",
+                "vi": "Một trong những công ty dịch vụ dầu khí lớn nhất thế giới, vận hành các nền tảng phân tích kỹ thuật chuyên biệt xử lý và xác minh dữ liệu giếng khoan quan trọng trên toàn cầu."
+            }
+        },
+        "description": {
+            "en": "Maintained and enhanced SAMS (Sub-Atmospheric Mud System), a WebForms-based web application that ingests data from upstream services, transforms and normalizes it, then applies domain-specific analysis logic to determine whether a given dataset qualifies as a SAMS event or not. Responsibilities included new feature development, API integrations with internal data providers, bug fixes, query optimization on MS SQL, and general platform stability improvements. Worked closely with petroleum engineers to understand domain requirements and translate them into backend logic.",
+            "vi": "Duy trì và nâng cao SAMS (Sub-Atmospheric Mud System), ứng dụng web WebForms nhận dữ liệu từ các dịch vụ upstream, chuyển đổi và chuẩn hóa, sau đó áp dụng logic phân tích theo miền để xác định liệu tập dữ liệu có phải là sự kiện SAMS hay không. Trách nhiệm gồm phát triển tính năng mới, tích hợp API với nhà cung cấp dữ liệu nội bộ, sửa lỗi, tối ưu truy vấn MS SQL, và cải thiện ổn định nền tảng chung. Làm việc chặt chẽ với kỹ sư dầu khí để hiểu yêu cầu miền và chuyển thành logic backend."
+        },
+        "tags": [
+            "C# .NET",
+            "WebForms",
+            "MS SQL",
+            "REST APIs",
+            "API Integration",
+            "Data Transformation",
+            "Stored Procedures",
+            "Oil & Gas"
+        ],
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z\"></path></svg>"
     }
 ]
