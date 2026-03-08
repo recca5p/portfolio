@@ -353,5 +353,42 @@
             "Oil & Gas"
         ],
         "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z\"></path></svg>"
+    },
+    {
+        "title": {
+            "en": "IOGA.fr — AI-Powered Video Knowledge Platform",
+            "vi": "IOGA.fr — Nền Tảng Video Tri Thức Tích Hợp AI"
+        },
+        "role": {
+            "en": "Lead Backend Developer & DevOps Engineer",
+            "vi": "Lập trình viên Backend Chính & Kỹ sư DevOps"
+        },
+        "teamSize": 6,
+        "company": {
+            "name": "IOGA.fr",
+            "url": "https://ioga.fr",
+            "description": {
+                "en": "French AI-enhanced video platform that transforms field expertise into structured organizational knowledge — used primarily in the construction sector for automatic video transcription, AI chaptering, and multi-language translation.",
+                "vi": "Nền tảng video tích hợp AI của Pháp, chuyển đổi kinh nghiệm thực địa thành tri thức tổ chức có cấu trúc — chủ yếu dùng trong ngành xây dựng cho phiên âm video tự động, phân chương bằng AI và dịch đa ngôn ngữ."
+            }
+        },
+        "description": {
+            "en": "Served as the main backend developer and DevOps engineer for IOGA.fr — a French AI-powered platform that captures field knowledge via video and makes it searchable, translatable, and reusable across organizations. Led new feature development, proposed and implemented AI-driven workflows, and owned the entire cloud infrastructure. Key achievement: proposed and built an AI-powered subtitle translation pipeline using Azure OpenAI (GPT) and Azure AI Speech (transcription service) to automatically transcribe videos and translate subtitles into multiple languages — eliminating manual effort and significantly expanding the platform's accessibility. Managed a hybrid cloud architecture spanning AWS (Lambda, DynamoDB, S3, ECS, EKS, Load Balancer) and Azure (App Services, Azure DevOps CI/CD, Azure OpenAI, Azure AI Speech, Azure DevOps pipelines), ensuring high availability and scalable deployments.",
+            "vi": "Đảm nhận vai trò lập trình viên backend chính và kỹ sư DevOps cho IOGA.fr — nền tảng AI của Pháp nắm bắt tri thức thực địa qua video và giúp tìm kiếm, dịch thuật và tái sử dụng tri thức trong tổ chức. Dẫn dắt phát triển tính năng mới, đề xuất và triển khai quy trình AI, và sở hữu toàn bộ hạ tầng cloud. Thành tựu nổi bật: đề xuất và xây dựng pipeline dịch phụ đề bằng AI sử dụng Azure OpenAI (GPT) và Azure AI Speech (dịch vụ phiên âm) để tự động phiên âm video và dịch phụ đề sang nhiều ngôn ngữ — loại bỏ công sức thủ công và mở rộng đáng kể khả năng truy cập nền tảng. Quản lý kiến trúc cloud lai giữa AWS (Lambda, DynamoDB, S3, ECS, EKS, Load Balancer) và Azure (App Services, Azure DevOps CI/CD, Azure OpenAI, Azure AI Speech)."
+        },
+        "tags": [
+            "C# .NET",
+            "Azure OpenAI",
+            "Azure AI Speech",
+            "AWS Lambda",
+            "DynamoDB",
+            "AWS S3",
+            "AWS ECS/EKS",
+            "Azure DevOps",
+            "CI/CD",
+            "AI Workflow",
+            "Video Platform"
+        ],
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z\"></path></svg>"
     }
 ]
