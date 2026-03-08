@@ -38,16 +38,20 @@
         },
         "bullets": {
             "en": [
-                "**Enterprise System Development:** Led the backend development for mission-critical Oil & Gas desktop applications and shared libraries using **.NET Core and Golang**, ensuring high availability and fault tolerance.",
-                "**Event-Driven Microservices:** Designed a decoupled microservices architecture utilizing **Azure Service Bus**, enabling seamless and reliable asynchronous communication between complex distributed systems.",
-                "**Performance Optimization:** Optimized complex SQL queries and refactored legacy codebases to improve data processing speed for large-scale datasets. Implemented **gRPC** for low-latency inter-service communication, significantly enhancing application responsiveness.",
-                "**Automated Delivery Pipelines:** Engineered robust CI/CD workflows using **Azure DevOps**, automating build, test, and deployment processes. Integrated **MSTest** for rigorous TDD practice and Fortify for continuous security vulnerability assessment."
+                "**Offline-First Desktop Engineering:** Developed a mission-critical WinForms desktop app for **eCompletion Tools** — used by engineers on offshore oil & gas rigs with no internet access. Engineered an **offline-first architecture using LiteDB** for local data persistence, with automatic background synchronization to the central server upon connectivity restore.",
+                "**Cloud Migration & Auth Modernization:** Migrated the on-premise **MS SQL database to Azure SQL** and transitioned the authentication system from legacy Active Directory to **Azure Active Directory (Azure AD)**, improving security posture and enabling cloud-native identity management.",
+                "**Search Performance Optimization:** Redesigned the document search pipeline via stored procedure and EF Core query refactoring, achieving a **20x improvement in search response time** on large-scale drilling datasets.",
+                "**Messaging Infrastructure Migration:** Migrated the event-driven sync server from **RabbitMQ to Azure Service Bus**, enabling reliable asynchronous event publishing to downstream microservices with improved scalability, dead-lettering, and cloud-native observability.",
+                "**Domain Analytics System (SAMS):** Maintained and enhanced **SAMS (Sub-Atmospheric Mud System)** — a WebForms web application that ingests, transforms, and classifies well data from upstream services to determine SAMS events. Collaborated closely with petroleum engineers to translate complex domain requirements into precise backend logic.",
+                "**Quality Engineering & CI/CD:** Wrote comprehensive **MSTest unit tests and integration tests** across all three projects, supporting QA team regression cycles. Maintained and enhanced **Azure DevOps CI/CD pipelines** with automated Fortify security scanning gates. Also contributed to the **Reveal BI (Infragistics)** project as an automation tester — building Selenium WebDriver end-to-end test suites and authoring SDK documentation with Docusaurus."
             ],
             "vi": [
-                "**Phát triển Hệ thống Doanh nghiệp:** Chịu trách nhiệm chính việc phát triển backend các ứng dụng desktop ngành Dầu khí và thư viện chia sẻ sử dụng **.NET Core và Golang**, đảm bảo tính sẵn sàng cao và khả năng chịu lỗi.",
-                "**Microservices Định hướng Sự kiện:** Thiết kế kiến trúc microservices tách rời sử dụng **Azure Service Bus**, hỗ trợ giao tiếp bất đồng bộ liền mạch, đáng tin cậy giữa các hệ thống phân tán phức tạp.",
-                "**Tối ưu Hóa Hiệu suất:** Tối ưu hóa các truy vấn SQL phức tạp và tái cấu trúc mã kế thừa để tăng tốc độ xử lý các bộ dữ liệu lớn. Triển khai **gRPC** để giao tiếp nội bộ có độ trễ cực thấp.",
-                "**Pipelines Giao hàng Tự động:** Các luồng CI/CD mạnh mẽ sử dụng **Azure DevOps**, tự động hóa quy trình test và triển khai mã. Tích hợp **MSTest** với TDD và Fortify cho đánh giá lỗ hổng bảo mật."
+                "**Kỹ thuật Desktop Offline-First:** Phát triển ứng dụng desktop WinForms quan trọng cho **eCompletion Tools** — dùng bởi kỹ sư trên giàn khoan ngoài khơi không có internet. Thiết kế kiến trúc offline-first với **LiteDB** lưu trữ cục bộ và tự động đồng bộ lên máy chủ khi có kết nối.",
+                "**Di chuyển Cloud & Hiện đại hóa Xác thực:** Di chuyển **MS SQL on-premise lên Azure SQL** và chuyển xác thực từ Active Directory cũ sang **Azure Active Directory**, nâng cao bảo mật và quản lý danh tính cloud-native.",
+                "**Tối ưu Hiệu suất Tìm kiếm:** Thiết kế lại pipeline tìm kiếm tài liệu qua tối ưu stored procedure và EF Core, đạt **cải thiện 20x thời gian phản hồi** trên bộ dữ liệu khoan lớn.",
+                "**Di chuyển Hạ tầng Messaging:** Chuyển server đồng bộ event-driven từ **RabbitMQ sang Azure Service Bus**, đảm bảo publish event bất đồng bộ đáng tin cậy cho các microservice downstream với khả năng mở rộng và quan sát tốt hơn.",
+                "**Hệ thống Phân tích Miền (SAMS):** Duy trì và nâng cao **SAMS (Sub-Atmospheric Mud System)** — ứng dụng web WebForms nhận, chuyển đổi và phân loại dữ liệu giếng khoan để xác định sự kiện SAMS. Phối hợp chặt chẽ với kỹ sư dầu khí để chuyển yêu cầu miền phức tạp thành logic backend chính xác.",
+                "**Kỹ thuật Chất lượng & CI/CD:** Viết **MSTest unit test và integration test** toàn diện cho cả ba dự án, hỗ trợ chu kỳ regression của QA. Duy trì và nâng cấp **CI/CD pipeline Azure DevOps** với quét bảo mật Fortify tự động. Đồng thời đóng góp cho dự án **Reveal BI (Infragistics)** với tư cách tester tự động — xây dựng bộ test Selenium WebDriver end-to-end và viết tài liệu SDK bằng Docusaurus."
             ]
         }
     },
@@ -63,14 +67,18 @@
         },
         "bullets": {
             "en": [
-                "**Fintech Product Development:** Played a key role in building the E-invoice system and CRM application, utilizing a hybrid stack of **.NET Core, Golang, and Java Spring Boot** to deliver scalable backend solutions.",
-                "**Full-Stack Contribution:** Delivered responsive web and mobile interfaces using **Angular and React Native**, ensuring seamless integration with RESTful APIs for a smooth user experience.",
-                "**System Reliability:** Participated in the full SDLC within an Agile environment, collaborating closely with frontend teams to optimize API response times and ensure data consistency across banking modules."
+                "**E-Invoice Platform:** Developed and maintained Sacombank's government-compliant **E-Invoice system** built on **ABP Framework** (.NET + Angular), covering periodic fees, e-banking charges, loan interest, and FX transactions. Implemented new pages, fixed bugs, optimized **Oracle & MSSQL stored procedures**, and ensured regulatory alignment with Vietnamese Ministry of Finance e-invoice standards.",
+                "**POS Merchant Network:** Took full ownership of a **POS management system** serving Sacombank's network of **200,000+ terminals** supporting Visa, Mastercard, UnionPay, NAPAS, MoMo, ZaloPay, and VNPAY. Inherited the system from an outsourced vendor, stabilized it, and expanded functionality using **.NET C# and Java**.",
+                "**Mobile Platform Rescue (CRM App):** Led a critical migration of Sacombank's internal CRM mobile app from a crash-prone **.NET MAUI** codebase — plagued with build failures especially on iOS — to a unified **React Native (Expo)** codebase running smoothly on both iOS and Android from a single source of truth. Collaborated with BA and QA throughout to ensure full feature parity.",
+                "**DevOps & Cloud Infrastructure:** Managed **Jenkins CI/CD pipelines** for the POS system, handled **Azure cloud service** configurations and deployments, and maintained **Oracle** database administration — ensuring zero-downtime releases for banking-critical services.",
+                "**Quality & Integration:** Wrote unit tests and supported QA team with integration test scenarios across all Sacombank products, ensuring data consistency and API contract stability across core banking modules."
             ],
             "vi": [
-                "**Phát triển Sản phẩm Fintech:** Đóng vai trò then chốt trong xây dựng hệ thống Hóa đơn điện tử và CRM, sử dụng ngăn xếp hỗn hợp **.NET Core, Golang và Java Spring Boot** cho các giải pháp backend mở rộng.",
-                "**Đóng góp Full-Stack:** Xây dựng giao diện web và di động đáp ứng bằng **Angular và React Native**, đảm bảo tích hợp API RESTful mượt mà.",
-                "**Độ tin cậy của Hệ thống:** Tham gia vào toàn bộ vòng đời phát triển phần mềm (SDLC) trong môi trường Agile, hợp tác chặt chẽ với Frontend để tối ưu hóa thời gian phản hồi API."
+                "**Nền tảng Hóa đơn Điện tử:** Phát triển và duy trì hệ thống **Hóa đơn Điện tử Sacombank** tuân thủ quy định nhà nước trên **ABP Framework** (.NET + Angular), bao gồm phí định kỳ, phí e-banking, lãi vay và giao dịch ngoại tệ. Phát triển trang mới, sửa lỗi, tối ưu **stored procedure Oracle & MSSQL**, và đảm bảo tuân thủ chuẩn hóa đơn điện tử Bộ Tài chính.",
+                "**Mạng lưới POS Merchant:** Tiếp nhận toàn bộ hệ thống **quản lý POS** phục vụ mạng lưới **200.000+ máy** của Sacombank hỗ trợ Visa, Mastercard, UnionPay, NAPAS, MoMo, ZaloPay và VNPAY. Nhận bàn giao từ nhà thầu outsource, ổn định và mở rộng tính năng bằng **.NET C# và Java**.",
+                "**Cứu nền tảng Mobile CRM:** Dẫn dắt di chuyển ứng dụng CRM nội bộ Sacombank từ **.NET MAUI** lỗi build nghiêm trọng — đặc biệt iOS — sang một codebase **React Native (Expo)** chạy mượt mà trên cả iOS và Android từ một nguồn duy nhất. Phối hợp BA và QA đảm bảo tương đương tính năng hoàn toàn.",
+                "**DevOps & Hạ tầng Cloud:** Quản lý **CI/CD pipeline Jenkins** cho hệ thống POS, cấu hình và triển khai **Azure cloud services**, và quản trị **cơ sở dữ liệu Oracle** — đảm bảo release không gián đoạn cho dịch vụ ngân hàng quan trọng.",
+                "**Chất lượng & Tích hợp:** Viết unit test và hỗ trợ QA với các kịch bản integration test trên toàn bộ sản phẩm Sacombank, đảm bảo tính nhất quán dữ liệu và ổn định API contract giữa các module core banking."
             ]
         }
     }
