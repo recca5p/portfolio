@@ -268,8 +268,8 @@
             }
         },
         "description": {
-            "en": "Developed and maintained a mission-critical offline-first WinForms desktop application used by engineers on offshore drilling rigs to record time-series drilling statistic data — in environments with no internet connectivity. The app uses LiteDB as a local embedded database to store data reliably offline, then automatically syncs to the central server the moment internet becomes available. Key contributions: implemented new features and modified existing modules, optimized stored procedures and EF Core queries, migrated the on-premise MS SQL database to Azure SQL, migrated authentication from legacy AD to Azure Active Directory (Azure AD), and optimized the document search pipeline — achieving a 20x improvement in search performance.",
-            "vi": "Phát triển và duy trì ứng dụng desktop WinForms offline-first quan trọng được kỹ sư sử dụng trên giàn khoan ngoài khơi để ghi dữ liệu thống kê khoan theo chuỗi thời gian — trong môi trường không có kết nối internet. Ứng dụng dùng LiteDB làm cơ sở dữ liệu nhúng cục bộ để lưu trữ dữ liệu offline đáng tin cậy, sau đó tự động đồng bộ lên máy chủ trung tâm khi có internet. Đóng góp chính: triển khai tính năng mới và chỉnh sửa module hiện có, tối ưu stored procedure và EF Core, di chuyển MS SQL on-premise lên Azure SQL, di chuyển xác thực từ AD cũ sang Azure Active Directory, và tối ưu pipeline tìm kiếm tài liệu — đạt cải thiện 20x về hiệu suất tìm kiếm."
+            "en": "Developed and maintained a mission-critical offline-first WinForms desktop application used by engineers on offshore drilling rigs to record time-series drilling statistic data — in environments with no internet connectivity. The app uses LiteDB as a local embedded database to store data reliably offline, then automatically syncs to the central server the moment internet becomes available. Key contributions: implemented new features and modified existing modules, optimized stored procedures and EF Core queries, migrated the on-premise MS SQL database to Azure SQL, migrated authentication from legacy AD to Azure Active Directory (Azure AD), optimized the document search pipeline achieving a 20x improvement in search performance, and maintained high code quality through comprehensive unit tests (MSTest) and integration tests to support the QA team.",
+            "vi": "Phát triển và duy trì ứng dụng desktop WinForms offline-first quan trọng được kỹ sư sử dụng trên giàn khoan ngoài khơi để ghi dữ liệu thống kê khoan theo chuỗi thời gian — trong môi trường không có kết nối internet. Ứng dụng dùng LiteDB làm cơ sở dữ liệu nhúng cục bộ để lưu trữ dữ liệu offline đáng tin cậy, sau đó tự động đồng bộ lên máy chủ trung tâm khi có internet. Đóng góp chính: triển khai tính năng mới, tối ưu stored procedure và EF Core, di chuyển MS SQL on-premise lên Azure SQL, di chuyển xác thực sang Azure AD, tối ưu tìm kiếm tài liệu đạt 20x, và duy trì chất lượng code qua unit test (MSTest) và integration test hỗ trợ QA."
         },
         "tags": [
             "C# .NET",
@@ -280,6 +280,9 @@
             "Entity Framework",
             "Stored Procedures",
             "Azure AD",
+            "MSTest",
+            "Unit Testing",
+            "Integration Testing",
             "Offline-First",
             "Oil & Gas"
         ],
@@ -304,8 +307,8 @@
             }
         },
         "description": {
-            "en": "Developed and maintained the central sync server that receives and processes data pushed from the offline eCompletion Tools desktop apps installed on offshore drilling rigs. Implemented new features and updated existing modules based on evolving client requirements. Actively participated in team discussions to identify client pain points and proactively proposed improvements to the platform architecture. A major initiative was migrating the messaging infrastructure from RabbitMQ to Azure Service Bus to publish events to downstream services — improving reliability, scalability, and cloud-native integration. Also maintained and enhanced the CI/CD pipeline to ensure fast, stable deployments.",
-            "vi": "Phát triển và duy trì máy chủ đồng bộ trung tâm nhận và xử lý dữ liệu được đẩy lên từ ứng dụng desktop eCompletion Tools offline trên các giàn khoan ngoài khơi. Triển khai tính năng mới và cập nhật module hiện có theo yêu cầu thay đổi của khách hàng. Tích cực tham gia thảo luận nhóm để xác định pain point của khách hàng và đề xuất cải tiến chủ động cho kiến trúc nền tảng. Sáng kiến lớn là di chuyển hạ tầng messaging từ RabbitMQ sang Azure Service Bus để publish event cho các dịch vụ downstream — cải thiện độ tin cậy, khả năng mở rộng và tích hợp cloud-native. Đồng thời duy trì và nâng cấp CI/CD pipeline để đảm bảo triển khai nhanh và ổn định."
+            "en": "Developed and maintained the central sync server that receives and processes data pushed from the offline eCompletion Tools desktop apps installed on offshore drilling rigs. Implemented new features and updated existing modules based on evolving client requirements. Actively participated in team discussions to identify client pain points and proactively proposed platform improvements. A major initiative was migrating the messaging infrastructure from RabbitMQ to Azure Service Bus to publish events to downstream services — improving reliability, scalability, and cloud-native integration. Maintained and enhanced the CI/CD pipeline, and ensured backend reliability through comprehensive unit tests (MSTest) and integration tests, supporting the QA team in validating sync correctness and data integrity.",
+            "vi": "Phát triển và duy trì máy chủ đồng bộ trung tâm nhận và xử lý dữ liệu từ ứng dụng desktop eCompletion Tools offline trên các giàn khoan. Triển khai tính năng mới, thảo luận nhóm để xác định pain point và đề xuất cải tiến kiến trúc. Di chuyển messaging từ RabbitMQ sang Azure Service Bus. Duy trì CI/CD pipeline và đảm bảo độ tin cậy qua unit test (MSTest) và integration test hỗ trợ QA xác minh tính đúng đắn của đồng bộ dữ liệu."
         },
         "tags": [
             "C# .NET",
@@ -314,6 +317,9 @@
             "RabbitMQ",
             "Azure Blob Storage",
             "CI/CD",
+            "MSTest",
+            "Unit Testing",
+            "Integration Testing",
             "Event-Driven",
             "Microservices",
             "Oil & Gas"
@@ -339,8 +345,8 @@
             }
         },
         "description": {
-            "en": "Maintained and enhanced SAMS (Sub-Atmospheric Mud System), a WebForms-based web application that ingests data from upstream services, transforms and normalizes it, then applies domain-specific analysis logic to determine whether a given dataset qualifies as a SAMS event or not. Responsibilities included new feature development, API integrations with internal data providers, bug fixes, query optimization on MS SQL, and general platform stability improvements. Worked closely with petroleum engineers to understand domain requirements and translate them into backend logic.",
-            "vi": "Duy trì và nâng cao SAMS (Sub-Atmospheric Mud System), ứng dụng web WebForms nhận dữ liệu từ các dịch vụ upstream, chuyển đổi và chuẩn hóa, sau đó áp dụng logic phân tích theo miền để xác định liệu tập dữ liệu có phải là sự kiện SAMS hay không. Trách nhiệm gồm phát triển tính năng mới, tích hợp API với nhà cung cấp dữ liệu nội bộ, sửa lỗi, tối ưu truy vấn MS SQL, và cải thiện ổn định nền tảng chung. Làm việc chặt chẽ với kỹ sư dầu khí để hiểu yêu cầu miền và chuyển thành logic backend."
+            "en": "Maintained and enhanced SAMS (Sub-Atmospheric Mud System), a WebForms-based web application that ingests data from upstream services, transforms and normalizes it, then applies domain-specific analysis logic to determine whether a given dataset qualifies as a SAMS event or not. Responsibilities included new feature development, API integrations with internal data providers, bug fixes, query optimization on MS SQL, and general platform stability improvements. Worked closely with petroleum engineers to understand domain requirements and translate them into backend logic. Wrote unit tests (MSTest) covering the core classification and transformation logic, and provided integration tests to support the QA team in validating end-to-end data pipelines.",
+            "vi": "Duy trì và nâng cao SAMS (Sub-Atmospheric Mud System), ứng dụng web WebForms nhận dữ liệu từ các dịch vụ upstream, chuyển đổi và chuẩn hóa, rồi áp dụng logic phân tích theo miền để phân loại sự kiện SAMS. Phát triển tính năng mới, tích hợp API, sửa lỗi, tối ưu MS SQL, và cải thiện ổn định nền tảng. Viết unit test (MSTest) cho logic phân loại và chuyển đổi cốt lõi, cung cấp integration test hỗ trợ QA xác minh pipeline dữ liệu end-to-end."
         },
         "tags": [
             "C# .NET",
@@ -348,6 +354,9 @@
             "MS SQL",
             "REST APIs",
             "API Integration",
+            "MSTest",
+            "Unit Testing",
+            "Integration Testing",
             "Data Transformation",
             "Stored Procedures",
             "Oil & Gas"
@@ -390,5 +399,40 @@
             "Video Platform"
         ],
         "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M15 10l4.553-2.069A1 1 0 0121 8.87v6.26a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z\"></path></svg>"
+    },
+    {
+        "title": {
+            "en": "Infragistics Reveal BI — Embedded Analytics Platform (QA)",
+            "vi": "Infragistics Reveal BI — Nền Tảng Phân Tích Nhúng (Kiểm Thử)"
+        },
+        "role": {
+            "en": "Automation Tester",
+            "vi": "Kỹ sư Kiểm Thử Tự Động"
+        },
+        "teamSize": 15,
+        "company": {
+            "name": "Infragistics (Reveal BI)",
+            "url": "https://www.revealbi.io",
+            "description": {
+                "en": "Infragistics is a US software company behind Reveal BI — a leading embedded analytics SDK that enables developers to integrate interactive dashboards, 30+ chart types, and AI-powered insights directly into .NET, Java, React, and Angular applications.",
+                "vi": "Infragistics là công ty phần mềm Mỹ đứng sau Reveal BI — SDK analytics nhúng hàng đầu cho phép lập trình viên tích hợp dashboard tương tác, 30+ loại biểu đồ và phân tích AI trực tiếp vào ứng dụng .NET, Java, React và Angular."
+            }
+        },
+        "description": {
+            "en": "Worked as an automation tester on the Reveal BI embedded analytics platform — a product by Infragistics used by enterprises worldwide to embed interactive dashboards and data visualizations into their own applications. Collaborated with developers to write and maintain unit tests, designed and implemented end-to-end automation test suites using Selenium WebDriver and MSTest to validate dashboard rendering, chart interactions, cross-browser compatibility, and data source integrations. Also authored comprehensive user-facing documentation using Docusaurus, covering SDK setup guides, API references, and feature walkthroughs to improve developer experience.",
+            "vi": "Làm kỹ sư kiểm thử tự động cho nền tảng analytics nhúng Reveal BI của Infragistics — sản phẩm được doanh nghiệp toàn thế giới sử dụng để nhúng dashboard tương tác vào ứng dụng của họ. Phối hợp với lập trình viên viết và duy trì unit test, thiết kế và triển khai bộ test automation end-to-end bằng Selenium WebDriver và MSTest để kiểm tra render dashboard, tương tác biểu đồ, tương thích đa trình duyệt và tích hợp nguồn dữ liệu. Đồng thời biên soạn tài liệu người dùng toàn diện bằng Docusaurus, bao gồm hướng dẫn cài đặt SDK, tham chiếu API và walkthrough tính năng."
+        },
+        "tags": [
+            "Selenium WebDriver",
+            "MSTest",
+            "C# .NET",
+            "Automation Testing",
+            "Unit Testing",
+            "Docusaurus",
+            "BI & Analytics",
+            "Cross-Browser Testing",
+            "Technical Writing"
+        ],
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z\"></path></svg>"
     }
 ]
