@@ -3,32 +3,35 @@ import '../styles/global.css';
 
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import type { Lang } from '../i18n/utils';
 
 interface Props {
   title: string;
   description?: string;
-  lang?: string;
+  lang?: Lang;
+  /** Override the canonical URL path (defaults to current pathname) */
   canonicalPath?: string;
-  ogType?: string;
+  ogType?: 'website' | 'profile' | 'article';
 }
 
 const {
   title,
-  description = 'Senior Backend Engineer specializing in .NET, Golang, Java, Microservices, Cloud-Native Architecture (GCP, AWS), and AI-augmented development. 5+ years of experience.',
+  description = 'Senior Backend Engineer specializing in .NET, Golang, Java, Microservices, Cloud-Native Architecture (GCP, AWS, Azure), and AI-augmented development. 5+ years of experience.',
   lang = 'en',
   canonicalPath,
   ogType = 'website',
 } = Astro.props;
 
-// Derive the base URL — replace with your actual domain after deployment
-const siteUrl = import.meta.env.SITE || 'https://portfolio-7j9.pages.dev';
-const currentPath = canonicalPath || Astro.url.pathname;
+const siteUrl = 'https://portfolio-7j9.pages.dev';
+const currentPath = canonicalPath ?? Astro.url.pathname;
 const canonicalUrl = `${siteUrl}${currentPath}`;
 const altLang = lang === 'en' ? 'vi' : 'en';
 const altPath = currentPath.replace(`/${lang}`, `/${altLang}`);
 const altUrl = `${siteUrl}${altPath}`;
+const ogLocale = lang === 'en' ? 'en_US' : 'vi_VN';
+const ogLocaleAlt = lang === 'en' ? 'vi_VN' : 'en_US';
 
-// JSON-LD structured data for the person
+// JSON-LD: Person
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
@@ -36,8 +39,15 @@ const personSchema = {
   alternateName: 'Võ Tấn Phát',
   jobTitle: 'Senior Backend Engineer',
   url: siteUrl,
-  sameAs: ['https://www.linkedin.com/in/tan-phat-vo-51ba10272/'],
+  image: `${siteUrl}/favicon.svg`,
   email: 'phatvo73.dev@gmail.com',
+  telephone: '+84779342459',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Ho Chi Minh City',
+    addressCountry: 'VN',
+  },
+  sameAs: ['https://www.linkedin.com/in/tan-phat-vo-51ba10272/'],
   knowsAbout: [
     '.NET Core',
     'Golang',
@@ -58,19 +68,88 @@ const personSchema = {
   alumniOf: {
     '@type': 'EducationalOrganization',
     name: 'Ton Duc Thang University',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Ho Chi Minh City',
+      addressCountry: 'VN',
+    },
   },
+  hasCredential: [
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'Microsoft Power Platform Developer Associate',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'IELTS 6.5',
+      credentialCategory: 'English Proficiency',
+    },
+  ],
   worksFor: {
     '@type': 'Organization',
-    name: 'Software Engineering',
+    name: 'ANZ Bank (Australia) – Digital Banking Division',
   },
 };
 
+// JSON-LD: WebSite (enables sitelinks search on Google)
 const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  name: 'Tan Phat Vo - Portfolio',
+  name: 'Tan Phat Vo — Senior Backend Engineer',
   url: siteUrl,
-  inLanguage: [lang, altLang],
+  description,
+  inLanguage: ['en', 'vi'],
+  potentialAction: {
+    '@type': 'SearchAction',
+    target: { '@type': 'EntryPoint', urlTemplate: `${siteUrl}/en/projects` },
+  },
+};
+
+// JSON-LD: Work Experience (BreadcrumbList helps Google parse career history)
+const workHistorySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Work Experience',
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      item: {
+        '@type': 'OrganizationRole',
+        roleName: 'Senior Backend Engineer',
+        startDate: '2024-12',
+        worksFor: {
+          '@type': 'Organization',
+          name: 'ANZ Bank (Australia) – Digital Banking Division',
+        },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      item: {
+        '@type': 'OrganizationRole',
+        roleName: 'Senior Backend Developer',
+        startDate: '2022-01',
+        endDate: '2024-12',
+        worksFor: {
+          '@type': 'Organization',
+          name: 'FPT Software – Offshore for Halliburton',
+        },
+      },
+    },
+    {
+      '@type': 'ListItem',
+      position: 3,
+      item: {
+        '@type': 'OrganizationRole',
+        roleName: 'Software Developer',
+        startDate: '2020-05',
+        endDate: '2022-01',
+        worksFor: { '@type': 'Organization', name: 'Sacombank' },
+      },
+    },
+  ],
 };
 ---
 
@@ -83,43 +162,47 @@ const websiteSchema = {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- Primary SEO -->
+    <!-- === Primary SEO === -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Tan Phat Vo" />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
     <meta name="theme-color" content="#111827" />
+    <meta
+      name="keywords"
+      content="Tan Phat Vo, Võ Tấn Phát, Software Engineer, Backend Developer, .NET, Golang, Java, Microservices, Cloud Architecture, GCP, AWS, Azure, Kubernetes, Docker, AI Engineering, Ho Chi Minh City, Vietnam"
+    />
 
-    <!-- Canonical & Language Alternates -->
+    <!-- === Canonical & Language Alternates === -->
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={lang} href={canonicalUrl} />
     <link rel="alternate" hreflang={altLang} href={altUrl} />
     <link rel="alternate" hreflang="x-default" href={`${siteUrl}/en`} />
 
-    <!-- Open Graph / Facebook -->
+    <!-- === Open Graph (Facebook / LinkedIn) === -->
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="Tan Phat Vo - Portfolio" />
-    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'vi_VN'} />
-    <meta
-      property="og:locale:alternate"
-      content={lang === 'en' ? 'vi_VN' : 'en_US'}
-    />
+    <meta property="og:site_name" content="Tan Phat Vo — Portfolio" />
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogLocaleAlt} />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
+    <!-- === Twitter / X Card === -->
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <!-- Keywords (still used by some engines) -->
-    <meta
-      name="keywords"
-      content="Tan Phat Vo, Võ Tấn Phát, Software Engineer, Backend Developer, .NET, Golang, Java, Python, Microservices, Cloud Architecture, GCP, AWS, Azure, Kubernetes, Docker, AI Engineering, Ho Chi Minh City, Vietnam"
-    />
+    <!-- === Preconnect hints === -->
+    <link rel="preconnect" href="https://api.qrserver.com" />
+    <link rel="dns-prefetch" href="https://api.qrserver.com" />
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- === JSON-LD Structured Data === -->
     <script
       type="application/ld+json"
       set:html={JSON.stringify(personSchema)}
@@ -128,22 +211,27 @@ const websiteSchema = {
       type="application/ld+json"
       set:html={JSON.stringify(websiteSchema)}
     />
-
-    <!-- Preconnect for external resources -->
-    <link rel="preconnect" href="https://api.qrserver.com" />
-    <link rel="dns-prefetch" href="https://api.qrserver.com" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(workHistorySchema)}
+    />
   </head>
+
   <body class="min-h-screen bg-gray-900 text-gray-100 flex flex-col">
+    <!-- Skip-to-content for keyboard / screen-reader users -->
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-md z-50"
     >
-      {lang === 'en' ? 'Skip to content' : 'Chuyển đến nội dung'}
+      {lang === 'en' ? 'Skip to main content' : 'Chuyển đến nội dung chính'}
     </a>
+
     <Header />
+
     <main id="main-content" class="flex-grow" role="main">
       <slot />
     </main>
+
     <Footer />
   </body>
 </html>

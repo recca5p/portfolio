@@ -1,91 +1,66 @@
 ---
 import Layout from '../../../layouts/Layout.astro';
-import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+import { useTranslations } from '../../../i18n/utils';
+import type { Project } from '../../../types/project';
 import projectsData from '../../../data/projects.json';
 
 const lang = 'vi';
 const t = useTranslations(lang);
+const projects = projectsData as Project[];
 ---
 
 <Layout
   title="Tất cả dự án - Võ Tấn Phát | AI, Cloud, Microservices"
   description="Khám phá tất cả dự án của Võ Tấn Phát — workflow tăng cường AI, di chuyển cloud, cổng thanh toán, và đóng góp mã nguồn mở. Xây dựng với .NET, Golang, GCP, AWS."
-  lang="vi"
+  lang={lang}
 >
-  <section class="py-24 sm:py-32">
+  <section class="py-24 sm:py-32" aria-labelledby="projects-heading">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <!-- Header -->
+      <!-- Back link -->
       <div class="mb-6">
         <a
           href={`/${lang}`}
           class="inline-flex items-center gap-1.5 text-sm text-primary-400 hover:text-primary-300 transition-colors mb-8"
         >
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg
-          >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
           {t('projects.backHome')}
         </a>
       </div>
 
       <div class="mx-auto max-w-2xl lg:mx-0 mb-16">
-        <h1 class="text-4xl font-bold tracking-tight text-white sm:text-5xl">
+        <h1 id="projects-heading" class="text-4xl font-bold tracking-tight text-white sm:text-5xl">
           {t('projects.title')}
         </h1>
-        <p class="mt-4 text-lg text-slate-400">
-          {t('projects.viewAllSubtitle')}
-        </p>
+        <p class="mt-4 text-lg text-slate-400">{t('projects.viewAllSubtitle')}</p>
         <div class="mt-4 h-1 w-20 bg-primary-500 rounded"></div>
       </div>
 
       <!-- All Projects Grid -->
       <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {
-          projectsData.map((project) => (
-            <article class="flex flex-col items-start justify-between bg-gray-800 rounded-2xl p-8 ring-1 ring-gray-700 hover:ring-primary-500 hover:shadow-xl transition-all duration-300">
+          projects.map((project) => (
+            <article class="flex flex-col bg-gray-800 rounded-2xl p-8 ring-1 ring-gray-700 hover:ring-primary-500 hover:shadow-xl transition-all duration-300">
+              <!-- Icon + team size -->
               <div class="flex items-center justify-between w-full gap-x-4 text-xs mb-4">
-                <div
-                  class="text-primary-400 bg-primary-900/20 p-2 rounded-full"
-                  set:html={project.icon}
-                />
+                <div class="text-primary-400 bg-primary-900/20 p-2 rounded-full" set:html={project.icon} aria-hidden="true" />
                 {project.teamSize && (
                   <span class="inline-flex items-center gap-x-1.5 rounded-full px-2 py-1 text-xs font-medium text-slate-300 ring-1 ring-inset ring-slate-700">
-                    <svg
-                      class="h-3 w-3 text-slate-500"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      aria-hidden="true"
-                    >
+                    <svg class="h-3 w-3 text-slate-500" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                       <path d="M10 9a3 3 0 100-6 3 3 0 000 6zM8 8a2 2 0 114 0 2 2 0 01-4 0z" />
-                      <path
-                        fill-rule="evenodd"
-                        d="M10 11a5.998 5.998 0 00-5 2.684A2 2 0 006.84 17h6.32a2 2 0 001.84-1.316A5.998 5.998 0 0010 11zm-3 4a4 4 0 016 0H7z"
-                        clip-rule="evenodd"
-                      />
+                      <path fill-rule="evenodd" d="M10 11a5.998 5.998 0 00-5 2.684A2 2 0 006.84 17h6.32a2 2 0 001.84-1.316A5.998 5.998 0 0010 11zm-3 4a4 4 0 016 0H7z" clip-rule="evenodd" />
                     </svg>
                     {t('projects.team')}: {project.teamSize}
                   </span>
                 )}
               </div>
 
-              <div class="group relative flex-grow">
-                {/* @ts-ignore */}
-                <h3 class="mt-3 text-lg font-semibold leading-6 text-white">
-                  {/* @ts-ignore */}
-                  {project.title[lang]}
-                </h3>
+              <!-- Content -->
+              <div class="flex-grow">
+                <h2 class="text-lg font-semibold leading-6 text-white">{project.title[lang]}</h2>
                 {project.role && (
-                  <p class="mt-1 text-sm font-medium text-primary-500">
-                    {/* @ts-ignore */}
-                    {project.role[lang]}
-                  </p>
+                  <p class="mt-1 text-sm font-medium text-primary-500">{project.role[lang]}</p>
                 )}
                 {project.company && (
                   <a
@@ -93,46 +68,19 @@ const t = useTranslations(lang);
                     target="_blank"
                     rel="noopener noreferrer"
                     class="mt-3 inline-flex items-center gap-1.5 rounded-full bg-primary-900/40 px-3 py-1 text-xs font-medium text-primary-300 ring-1 ring-primary-500/40 hover:bg-primary-800/50 hover:text-primary-200 transition-all"
+                    aria-label={`Truy cập trang web ${project.company.name}`}
                   >
-                    <svg
-                      class="w-3 h-3 shrink-0"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                      />
-                    </svg>
+                    <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
                     {project.company.name}
-                    <svg
-                      class="w-3 h-3 shrink-0"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
+                    <svg class="w-3 h-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                   </a>
                 )}
-                {/* @ts-ignore */}
-                <p class="mt-5 text-sm leading-6 text-slate-300">
-                  {/* @ts-ignore */}
-                  {project.description[lang]}
-                </p>
+                <p class="mt-5 text-sm leading-6 text-slate-300">{project.description[lang]}</p>
               </div>
 
-              <div class="relative mt-8 flex items-center gap-2 flex-wrap pb-2">
-                {/* @ts-ignore */}
-                {project.tags.map((tag: string) => (
+              <!-- Tags -->
+              <div class="mt-8 flex items-center gap-2 flex-wrap">
+                {project.tags.map((tag) => (
                   <span class="inline-flex items-center rounded-md bg-slate-700/50 px-2 py-1 text-xs font-medium text-slate-300 ring-1 ring-inset ring-slate-400/20">
                     {tag}
                   </span>
