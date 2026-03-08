@@ -35,7 +35,7 @@
             "CI/CD",
             "Monitoring"
         ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4\"></path></svg>"
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4\"></path></svg>"
     },
     {
         "title": {
@@ -52,12 +52,12 @@
             "url": "https://rozitek.com",
             "description": {
                 "en": "Vietnamese Smart Factory & intralogistics company specializing in IIoT, AI, and AMR (Autonomous Mobile Robots) solutions for manufacturing industries.",
-                "vi": "Công ty Smart Factory & nội địa logistics Việt Nam chuyên cung cấp giải pháp IIoT, AI và robot AMR (Autonomous Mobile Robots) cho ngành sản xuất."
+                "vi": "Công ty Smart Factory & nội địa logistics Việt Nam chuyên cung cấp giải pháp IIoT, AI và robot AMR cho ngành sản xuất."
             }
         },
         "description": {
             "en": "Led development of an end-to-end automated racket transfer system for a badminton/tennis racket manufacturing factory. Designed and implemented a fully automated workflow using scheduled cronjobs, real-time webhooks, and REST API integrations to orchestrate fleets of AMR robots through a complete factory circuit — from raw material pickup to finished racket collection. The system replaced manual transport, achieving a closed-loop, zero-human-intervention operation across the production floor. Deployed on Linux servers via Docker containers.",
-            "vi": "Dẫn dắt phát triển hệ thống vận chuyển vợt tự động end-to-end cho nhà máy sản xuất vợt cầu lông/tennis. Thiết kế và triển khai quy trình tự động hoàn chỉnh sử dụng cronjob định kỳ, webhook thời gian thực và tích hợp REST API để điều phối robot AMR chạy vòng hoàn chỉnh trong nhà máy — từ lấy nguyên liệu đến thu gom vợt thành phẩm. Hệ thống thay thế vận chuyển thủ công, đạt vận hành khép kín không cần con người trên toàn sàn sản xuất. Triển khai trên Linux server qua Docker container."
+            "vi": "Dẫn dắt phát triển hệ thống vận chuyển vợt tự động end-to-end cho nhà máy sản xuất vợt cầu lông/tennis. Thiết kế và triển khai quy trình tự động hoàn chỉnh sử dụng cronjob định kỳ, webhook thời gian thực và REST API để điều phối robot AMR chạy vòng hoàn chỉnh trong nhà máy. Hệ thống thay thế vận chuyển thủ công, đạt vận hành khép kín không cần con người trên toàn sàn sản xuất."
         },
         "tags": [
             "C# .NET",
@@ -69,10 +69,9 @@
             "REST APIs",
             "AMR Robots",
             "IIoT",
-            "Smart Factory",
-            "Automation"
+            "Smart Factory"
         ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15\"></path></svg>"
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15\"></path></svg>"
     },
     {
         "title": {
@@ -89,12 +88,12 @@
             "url": "https://www.sacombank.com.vn",
             "description": {
                 "en": "One of Vietnam's largest joint-stock commercial banks, serving millions of customers with a nationwide network of 600+ transaction points and 200,000+ POS terminals.",
-                "vi": "Một trong những ngân hàng TMCP lớn nhất Việt Nam, phục vụ hàng triệu khách hàng với mạng lưới 600+ điểm giao dịch và 200.000+ máy POS toàn quốc."
+                "vi": "Một trong những ngân hàng TMCP lớn nhất Việt Nam với 600+ điểm giao dịch và 200.000+ máy POS toàn quốc."
             }
         },
         "description": {
-            "en": "Maintained and developed the Sacombank E-Invoice platform (hoadondientu.sacombank.com.vn) — a government-compliant electronic invoicing system covering all customer banking transactions including periodic fees, e-banking charges, loan interest, and foreign currency exchange. Built on ABP Framework with multi-database support (Oracle + MSSQL) and Azure cloud infrastructure. Responsibilities included bug fixes, new feature development, new UI pages in Angular, stored procedure optimization, and regulatory compliance updates aligned with Vietnamese Ministry of Finance e-invoice standards and partnerships with MISA and VNPAY.",
-            "vi": "Duy trì và phát triển nền tảng Hóa Đơn Điện Tử Sacombank (hoadondientu.sacombank.com.vn) — hệ thống hóa đơn điện tử tuân thủ quy định nhà nước cho toàn bộ giao dịch ngân hàng bao gồm phí định kỳ, phí e-banking, lãi vay và mua bán ngoại tệ. Xây dựng trên ABP Framework với đa cơ sở dữ liệu (Oracle + MSSQL) và hạ tầng Azure cloud. Trách nhiệm gồm sửa lỗi, phát triển tính năng mới, trang UI mới trong Angular, tối ưu stored procedure và cập nhật tuân thủ theo chuẩn hóa đơn điện tử của Bộ Tài chính."
+            "en": "Maintained and developed the Sacombank E-Invoice platform — a government-compliant electronic invoicing system covering all customer banking transactions including periodic fees, e-banking charges, loan interest, and foreign currency exchange. Built on ABP Framework with multi-database support (Oracle + MSSQL). Responsibilities included bug fixes, new feature development, new Angular UI pages, stored procedure optimization, and regulatory compliance updates aligned with Vietnamese Ministry of Finance e-invoice standards.",
+            "vi": "Duy trì và phát triển nền tảng Hóa Đơn Điện Tử Sacombank — hệ thống tuân thủ quy định nhà nước cho toàn bộ giao dịch ngân hàng bao gồm phí định kỳ, phí e-banking, lãi vay và mua bán ngoại tệ. Xây dựng trên ABP Framework với đa cơ sở dữ liệu (Oracle + MSSQL). Chịu trách nhiệm sửa lỗi, phát triển tính năng mới, trang Angular mới, tối ưu stored procedure và cập nhật tuân thủ chuẩn hóa đơn điện tử Bộ Tài chính."
         },
         "tags": [
             "C# .NET",
@@ -105,10 +104,9 @@
             "Stored Procedures",
             "Azure",
             "E-Invoice",
-            "FinTech",
             "REST APIs"
         ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z\"></path></svg>"
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z\"></path></svg>"
     },
     {
         "title": {
@@ -125,12 +123,12 @@
             "url": "https://www.sacombank.com.vn",
             "description": {
                 "en": "One of Vietnam's largest joint-stock commercial banks with 200,000+ POS terminals deployed nationwide, pioneering Visa Tap to Phone technology in Vietnam.",
-                "vi": "Một trong những ngân hàng TMCP lớn nhất Việt Nam với 200.000+ máy POS trên toàn quốc, tiên phong triển khai công nghệ Visa Tap to Phone tại Việt Nam."
+                "vi": "Một trong những ngân hàng TMCP lớn nhất Việt Nam với 200.000+ máy POS toàn quốc, tiên phong triển khai Visa Tap to Phone tại Việt Nam."
             }
         },
         "description": {
-            "en": "Took over a POS management system originally built by an outsourced vendor and assumed full ownership of its maintenance, bug fixing, and feature expansion. The system manages Sacombank's merchant POS network spanning 200,000+ terminals supporting Visa, Mastercard, UnionPay, NAPAS, and QR payment methods including MoMo, ZaloPay, and VNPAY. Led DevOps responsibilities including Jenkins CI/CD pipeline setup, Azure cloud service management, and Oracle database administration. Coordinated cross-team handover documentation and implemented system stability improvements to reduce deployment incidents.",
-            "vi": "Tiếp nhận hệ thống quản lý POS từ nhà thầu outsource và chịu trách nhiệm toàn diện về bảo trì, sửa lỗi và mở rộng tính năng. Hệ thống quản lý mạng lưới POS của Sacombank với 200.000+ máy hỗ trợ Visa, Mastercard, UnionPay, NAPAS và các phương thức QR bao gồm MoMo, ZaloPay, VNPAY. Phụ trách DevOps gồm thiết kế Jenkins CI/CD pipeline, quản lý Azure cloud services và Oracle database. Điều phối tài liệu bàn giao liên nhóm và triển khai cải tiến ổn định hệ thống để giảm sự cố triển khai."
+            "en": "Took over a POS management system originally built by an outsourced vendor and assumed full ownership of its maintenance, bug fixing, and feature expansion. The system manages Sacombank's merchant POS network spanning 200,000+ terminals supporting Visa, Mastercard, UnionPay, NAPAS, and QR payment methods including MoMo, ZaloPay, and VNPAY. Led DevOps responsibilities including Jenkins CI/CD pipeline setup, Azure cloud service management, and Oracle database administration.",
+            "vi": "Tiếp nhận hệ thống quản lý POS từ nhà thầu outsource và chịu trách nhiệm toàn diện về bảo trì, sửa lỗi và mở rộng tính năng. Hệ thống quản lý mạng lưới 200.000+ máy POS hỗ trợ Visa, Mastercard, UnionPay, NAPAS và QR bao gồm MoMo, ZaloPay, VNPAY. Phụ trách DevOps gồm Jenkins CI/CD pipeline, Azure cloud services và Oracle database."
         },
         "tags": [
             "C# .NET",
@@ -142,9 +140,113 @@
             "POS",
             "NAPAS",
             "Visa",
-            "Mastercard",
-            "FinTech"
+            "Mastercard"
         ],
-        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z\"></path></svg>"
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z\"></path></svg>"
+    },
+    {
+        "title": {
+            "en": "Sacombank — CRM Mobile App Migration (MAUI → React Native)",
+            "vi": "Sacombank — Di Chuyển Ứng Dụng CRM (MAUI → React Native)"
+        },
+        "role": {
+            "en": "Lead Mobile Developer",
+            "vi": "Lập trình viên Mobile Chính"
+        },
+        "teamSize": 5,
+        "company": {
+            "name": "Sacombank",
+            "url": "https://www.sacombank.com.vn",
+            "description": {
+                "en": "One of Vietnam's largest joint-stock commercial banks, digitally transforming its internal tooling for thousands of sales and relationship manager staff.",
+                "vi": "Một trong những ngân hàng TMCP lớn nhất Việt Nam, đang chuyển đổi số công cụ nội bộ cho hàng nghìn nhân viên kinh doanh và quản lý quan hệ khách hàng."
+            }
+        },
+        "description": {
+            "en": "Took the lead on a critical platform migration: rescued a Sacombank internal CRM app that was plagued with critical build failures in .NET MAUI — especially on iOS — and rewrote it as a single cross-platform React Native (Expo) codebase running smoothly on both iOS and Android. Replaced a platform that couldn't build reliably with a stable, maintainable solution deployable from one codebase. Collaborated closely with BA and QA teams throughout the full migration cycle to ensure feature parity and zero regression.",
+            "vi": "Dẫn dắt quá trình di chuyển nền tảng quan trọng: cứu ứng dụng CRM nội bộ Sacombank bị lỗi build nghiêm trọng trên .NET MAUI — đặc biệt iOS — và viết lại thành một codebase React Native (Expo) chạy mượt mà trên cả iOS và Android. Thay thế nền tảng không thể build ổn định bằng giải pháp duy trì được từ một codebase duy nhất. Phối hợp chặt chẽ với BA và QA trong toàn bộ chu kỳ di chuyển để đảm bảo tương đương tính năng và không có regression."
+        },
+        "tags": [
+            "React Native",
+            "Expo",
+            "iOS",
+            "Android",
+            ".NET MAUI",
+            "TypeScript",
+            "REST APIs",
+            "Cross-Platform"
+        ],
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z\"></path></svg>"
+    },
+    {
+        "title": {
+            "en": "Bolloré Logistics (CMA CGM) — Freight Quote System",
+            "vi": "Bolloré Logistics (CMA CGM) — Hệ Thống Báo Giá Vận Tải"
+        },
+        "role": {
+            "en": "Full-Stack Developer",
+            "vi": "Lập trình viên Full-Stack"
+        },
+        "teamSize": 10,
+        "company": {
+            "name": "Bolloré Logistics (now CMA CGM)",
+            "url": "https://www.cma-cgm.com",
+            "description": {
+                "en": "One of the world's top-5 logistics players after CMA CGM's €4.85B acquisition of Bolloré Logistics, operating in 109 countries with sea, air, rail, and road freight expertise.",
+                "vi": "Một trong 5 nhà cung cấp logistics hàng đầu thế giới sau thương vụ CMA CGM mua lại Bolloré Logistics với giá €4,85 tỷ, hoạt động tại 109 quốc gia với chuyên môn vận tải biển, hàng không, đường sắt và đường bộ."
+            }
+        },
+        "description": {
+            "en": "Developed and maintained the internal freight quote management system for Bolloré Logistics' global operations. Implemented new feature modules, built responsive UI pages, and significantly optimized the core search algorithm — achieving a 5x improvement in search query response time. Worked within a 10-person cross-functional team spanning frontend, backend, and QA, contributing to a complex logistics platform handling multi-modal shipment quotes across 109+ countries.",
+            "vi": "Phát triển và duy trì hệ thống quản lý báo giá vận tải nội bộ cho hoạt động toàn cầu của Bolloré Logistics. Triển khai module tính năng mới, xây dựng trang UI đáp ứng, và tối ưu đáng kể thuật toán tìm kiếm cốt lõi — đạt cải thiện 5x về thời gian phản hồi truy vấn tìm kiếm. Làm việc trong nhóm 10 người liên chức năng, đóng góp cho nền tảng logistics phức tạp xử lý báo giá vận tải đa phương thức cho 109+ quốc gia."
+        },
+        "tags": [
+            "C# .NET",
+            "Azure",
+            "Knockout.js",
+            "Blazor",
+            "MongoDB",
+            "MS SQL",
+            "CI/CD",
+            "Search Optimization",
+            "Logistics"
+        ],
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4\"></path></svg>"
+    },
+    {
+        "title": {
+            "en": "Bolloré Logistics (CMA CGM) — OpenTelemetry to Splunk Migration",
+            "vi": "Bolloré Logistics (CMA CGM) — Di Chuyển Observability từ App Insights sang Splunk"
+        },
+        "role": {
+            "en": "Backend Developer (Solo Initiative)",
+            "vi": "Lập trình viên Backend (Dự án cá nhân độc lập)"
+        },
+        "teamSize": 1,
+        "company": {
+            "name": "Bolloré Logistics (now CMA CGM)",
+            "url": "https://www.cma-cgm.com",
+            "description": {
+                "en": "Global top-5 logistics company with a vast Azure-based microservices platform requiring scalable, cost-effective observability across all services worldwide.",
+                "vi": "Công ty logistics top 5 toàn cầu với nền tảng microservices Azure quy mô lớn, yêu cầu observability hiệu quả và tiết kiệm chi phí cho toàn bộ dịch vụ trên toàn thế giới."
+            }
+        },
+        "description": {
+            "en": "Independently designed and executed a company-wide observability migration initiative that replaced Azure Application Insights with Splunk via OpenTelemetry — reducing observability infrastructure costs by over 60%. Architected a vendor-neutral instrumentation layer using the OpenTelemetry SDK for .NET, exporting traces, metrics, and logs via the OTLP protocol through an OpenTelemetry Collector to Splunk's HTTP Event Collector (HEC). Piloted the solution on the freight quote system first, presented a live demo, then led the rollout across all other microservices in the platform.",
+            "vi": "Độc lập thiết kế và thực thi sáng kiến di chuyển observability toàn công ty, thay thế Azure Application Insights bằng Splunk qua OpenTelemetry — giảm chi phí hạ tầng observability hơn 60%. Kiến trúc lớp instrument trung lập vendor sử dụng OpenTelemetry SDK cho .NET, xuất traces, metrics và logs qua giao thức OTLP thông qua OpenTelemetry Collector tới Splunk HEC. Thử nghiệm trên hệ thống báo giá vận tải trước, trình bày demo, sau đó dẫn dắt triển khai cho toàn bộ microservice còn lại."
+        },
+        "tags": [
+            "OpenTelemetry",
+            "Splunk",
+            "C# .NET",
+            "OTLP",
+            "OTel Collector",
+            "Application Insights",
+            "Azure",
+            "Microservices",
+            "Observability",
+            "Cost Optimization"
+        ],
+        "icon": "<svg class=\"w-6 h-6\" fill=\"none\" stroke=\"currentColor\" viewBox=\"0 0 24 24\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z\"></path></svg>"
     }
 ]
