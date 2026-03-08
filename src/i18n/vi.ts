@@ -8,8 +8,8 @@ export const vi = {
   home: {
     title: 'Kỹ sư phần mềm',
     greeting: 'Xin chào, tôi là Võ Tấn Phát',
-    tagline: 'Chuyên gia Kiến trúc Backend & Cloud Native',
-    bio: 'Kỹ sư Backend Senior với hơn 5 năm kinh nghiệm thiết kế và mở rộng các dịch vụ vi mô bằng .NET, Golang, Java và Python. Chuyên môn đã được chứng minh trong việc xây dựng các hệ thống an toàn sử dụng gRPC, Redis và Nền tảng Đám mây (GCP, AWS). Đam mê kỹ thuật tăng cường AI, tận dụng các công cụ GenAI để tăng tốc chu kỳ phát triển, tối ưu hóa chiến lược thử nghiệm và hợp lý hóa việc ra quyết định kiến trúc.',
+    tagline: 'Kỹ sư Backend · .NET · Golang · Cloud · AI',
+    bio: 'Kỹ sư Backend Senior với 5+ năm xây dựng hệ thống quan trọng cho <strong>ANZ Bank (Úc)</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong> — trải dài ngân hàng số, dầu khí, logistics và fintech. Hiện đang hiện đại hóa nền tảng Chuyển tiền Quốc tế &amp; Apple Pay của ANZ trên GCP. Chuyên sâu về microservices .NET / Golang, kiến trúc cloud-native và kỹ thuật tăng cường AI với kết quả đo lường được: tối ưu tìm kiếm 20x, giảm 60% chi phí qua OpenTelemetry, và tăng tốc 30% chu kỳ phát triển với GenAI.',
   },
   experience: {
     title: 'Kinh nghiệm làm việc',
@@ -98,6 +98,13 @@ export const vi = {
         ],
       },
     },
+  },
+  proficiency: {
+    title: 'Mức độ thành thạo',
+    subtitle: 'Tự đánh giá dựa trên sử dụng thực tế hàng ngày trong 5+ năm sản xuất.',
+    expert: 'Chuyên gia',
+    proficient: 'Thành thạo',
+    familiar: 'Quen thuộc',
   },
   education: {
     title: 'Học vấn',

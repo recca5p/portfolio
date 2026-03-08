@@ -8,8 +8,8 @@ export const en = {
   home: {
     title: 'Software Engineer',
     greeting: 'Hi, I am Tan Phat Vo',
-    tagline: 'Expert in Backend & Cloud Native Architecture',
-    bio: 'Senior Backend Engineer with over 5 years of experience designing and scaling microservices in .NET, Golang, Java and Python. Proven expertise in building secure systems using gRPC, Redis, and Cloud platforms (GCP, AWS). Passionate about AI-augmented engineering, leveraging GenAI tools and agents to accelerate development cycles, optimise testing strategies, and streamline architectural decision-making.',
+    tagline: 'Senior Backend Engineer · .NET · Golang · Cloud · AI',
+    bio: 'Senior Backend Engineer with 5+ years building mission-critical systems for <strong>ANZ Bank (Australia)</strong>, <strong>Halliburton</strong>, and <strong>Sacombank</strong> — spanning digital banking, oil &amp; gas, logistics, and fintech. Currently modernising ANZ\'s International Money Transfer &amp; Apple Pay platform on GCP. Specialised in .NET / Golang microservices, cloud-native architecture, and AI-augmented engineering with measurable impact: 20x search optimisation, 60% cost reduction via OpenTelemetry, and 30% faster dev cycles with GenAI tooling.',
   },
   experience: {
     title: 'Experience',
@@ -98,6 +98,13 @@ export const en = {
         ],
       },
     },
+  },
+  proficiency: {
+    title: 'Proficiency at a Glance',
+    subtitle: 'Self-assessed expertise levels based on daily production use across 5+ years.',
+    expert: 'Expert',
+    proficient: 'Proficient',
+    familiar: 'Familiar',
   },
   education: {
     title: 'Education',
