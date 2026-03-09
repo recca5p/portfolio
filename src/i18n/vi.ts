@@ -48,14 +48,14 @@ export const vi = {
       cloud: {
         title: 'Cloud & DevOps',
         description:
-          'Thực chiến GCP, AWS & Azure — thiết kế Serverless, container hóa và hybrid cloud với tự động CI/CD.',
+          'Chuyên gia AWS & Azure — thiết kế giải pháp Serverless, container hóa và hybrid cloud với tự động hóa CI/CD toàn diện trên GCP, AWS và Azure.',
         details: [
-          'GCP: GKE, Cloud Run, Cloud Functions, Pub/Sub, BigQuery, Cloud SQL, Firestore, Cloud Storage',
-          'AWS: Lambda, EC2, S3, DynamoDB, SQS, SNS, API Gateway, ECS/Fargate, CloudWatch',
-          'Azure: Azure DevOps, Azure Service Bus, Azure Functions, Azure SQL, App Service',
+          'AWS (Chuyên gia): Lambda, EC2, ECS, EKS, Fargate, S3, RDS, DynamoDB, SQS, SNS, API Gateway, CloudWatch, CloudFront, VPC, IAM, Secrets Manager, CodePipeline',
+          'Azure (Chuyên gia): Azure Service Bus, Azure DevOps, Azure SQL, Azure Functions, App Service, Azure AD, Azure OpenAI, Azure AI Speech, Azure Blob Storage, Azure Monitor, Key Vault, AKS',
+          'GCP: GKE, Cloud Run, Cloud Functions, Pub/Sub, BigQuery, Cloud SQL, Firestore, Cloud Storage, Secret Manager',
           'Infrastructure as Code: Module Terraform cho provisioning đa đám mây và đồng nhất môi trường',
-          'CI/CD: GitHub Actions, Azure DevOps Pipelines, automated testing gates và rollback',
-          'Container Orchestration: Docker, Kubernetes, Helm Charts, multi-stage builds',
+          'CI/CD: GitHub Actions, Azure DevOps Pipelines, Jenkins — automated testing gates và chiến lược rollback',
+          'Container Orchestration: Docker, Kubernetes, Helm Charts, multi-stage builds, container registries',
         ],
       },
       ai: {

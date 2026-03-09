@@ -17,9 +17,10 @@ const t = useTranslations(lang);
       <p class="mt-4 text-2xl text-primary-400 font-semibold mb-8">
         {t('home.title')}
       </p>
-      <p class="mt-4 text-xl text-slate-300 mx-auto max-w-3xl leading-relaxed">
-        {t('home.bio')}
-      </p>
+      <p
+        class="mt-4 text-xl text-slate-300 mx-auto max-w-3xl leading-relaxed"
+        set:html={t('home.bio')}
+      />
 
       <div class="mt-10 flex justify-center gap-x-6">
         <a

@@ -48,14 +48,14 @@ export const en = {
       cloud: {
         title: 'Cloud & DevOps',
         description:
-          'Hands-on with GCP, AWS & Azure — designing Serverless, containerized, and hybrid cloud solutions with CI/CD automation.',
+          'Expert in AWS & Azure — building Serverless, containerized, and hybrid cloud solutions with full CI/CD automation across GCP, AWS, and Azure.',
         details: [
-          'GCP: GKE, Cloud Run, Cloud Functions, Pub/Sub, BigQuery, Cloud SQL, Firestore, Cloud Storage',
-          'AWS: Lambda, EC2, S3, DynamoDB, SQS, SNS, API Gateway, ECS/Fargate, CloudWatch',
-          'Azure: Azure DevOps, Azure Service Bus, Azure Functions, Azure SQL, App Service',
+          'AWS (Expert): Lambda, EC2, ECS, EKS, Fargate, S3, RDS, DynamoDB, SQS, SNS, API Gateway, CloudWatch, CloudFront, VPC, IAM, Secrets Manager, CodePipeline',
+          'Azure (Expert): Azure Service Bus, Azure DevOps, Azure SQL, Azure Functions, App Service, Azure AD, Azure OpenAI, Azure AI Speech, Azure Blob Storage, Azure Monitor, Key Vault, AKS',
+          'GCP: GKE, Cloud Run, Cloud Functions, Pub/Sub, BigQuery, Cloud SQL, Firestore, Cloud Storage, Secret Manager',
           'Infrastructure as Code: Terraform modules for multi-cloud provisioning and environment parity',
-          'CI/CD: GitHub Actions, Azure DevOps Pipelines, automated testing gates and rollback',
-          'Container Orchestration: Docker, Kubernetes, Helm Charts, multi-stage builds',
+          'CI/CD: GitHub Actions, Azure DevOps Pipelines, Jenkins — automated testing gates and rollback strategies',
+          'Container Orchestration: Docker, Kubernetes, Helm Charts, multi-stage builds, container registries',
         ],
       },
       ai: {

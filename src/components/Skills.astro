@@ -20,7 +20,7 @@ const icons: Record<string, string> = {
 const skillTags: Record<string, string[]> = {
   backend: ['.NET Core', 'Golang', 'Java', 'Python', 'gRPC', 'REST', 'DDD', 'Microservices', 'Redis', 'SOLID'],
   database: ['SQL Server', 'PostgreSQL', 'Oracle', 'DynamoDB', 'BigQuery', 'Kafka', 'RabbitMQ', 'Pub/Sub', 'Redis'],
-  cloud: ['GCP', 'AWS', 'Azure', 'Kubernetes', 'Docker', 'Terraform', 'Helm', 'Cloud Run', 'Lambda', 'GitHub Actions'],
+  cloud: ['GCP', 'GKE', 'Cloud Run', 'Pub/Sub', 'BigQuery', 'AWS', 'Lambda', 'ECS/EKS', 'S3', 'SQS', 'API Gateway', 'CloudWatch', 'Azure', 'Azure Service Bus', 'AKS', 'Azure DevOps', 'Azure SQL', 'Azure Functions', 'Terraform', 'Docker', 'Kubernetes', 'Helm', 'GitHub Actions', 'Jenkins'],
   ai: ['Gemini API', 'AWS Bedrock', 'Claude API', 'GitHub Copilot', 'Claude Code', 'Cursor', 'LLMs', 'Prompt Engineering'],
   testing: ['xUnit', 'NUnit', 'JUnit', 'Selenium', 'Docker', 'SonarQube', 'Fortify', 'JMeter', 'TDD', 'BDD'],
   frontend: ['Angular', 'React', 'React Native', 'TypeScript', 'HTML5/CSS3', 'Git', 'Webpack', 'Vite', 'Postman'],
@@ -47,7 +47,7 @@ const skillTags: Record<string, string[]> = {
         <div class="flex items-start gap-4">
           <span class="shrink-0 mt-0.5 w-24 text-xs font-semibold text-emerald-400 uppercase tracking-wider">{t('proficiency.expert')}</span>
           <div class="flex flex-wrap gap-1.5">
-            {['C# .NET', 'Golang', 'gRPC', 'REST APIs', 'Microservices', 'MS SQL', 'PostgreSQL', 'Azure', 'Docker', 'GitHub Actions', 'Entity Framework', 'Stored Procedures'].map(s => (
+            {['C# .NET', 'Golang', 'gRPC', 'REST APIs', 'Microservices', 'MS SQL', 'PostgreSQL', 'Azure', 'Azure Service Bus', 'Azure DevOps', 'Azure SQL', 'Azure Functions', 'Azure AD', 'AKS', 'AWS', 'Lambda', 'ECS/EKS', 'S3', 'SQS', 'SNS', 'API Gateway', 'CloudWatch', 'Docker', 'GitHub Actions', 'Entity Framework', 'Stored Procedures'].map(s => (
               <span class="inline-flex items-center rounded-md bg-emerald-900/30 px-2.5 py-0.5 text-xs font-medium text-emerald-300 ring-1 ring-inset ring-emerald-500/30">{s}</span>
             ))}
           </div>
@@ -56,7 +56,7 @@ const skillTags: Record<string, string[]> = {
         <div class="flex items-start gap-4">
           <span class="shrink-0 mt-0.5 w-24 text-xs font-semibold text-primary-400 uppercase tracking-wider">{t('proficiency.proficient')}</span>
           <div class="flex flex-wrap gap-1.5">
-            {['Java', 'Python', 'GCP', 'AWS', 'Kubernetes', 'Terraform', 'Redis', 'Kafka', 'RabbitMQ', 'Azure Service Bus', 'Angular', 'React Native', 'Oracle', 'DynamoDB', 'Selenium', 'MSTest', 'OpenTelemetry'].map(s => (
+            {['Java', 'Python', 'GCP', 'GKE', 'Cloud Run', 'Pub/Sub', 'BigQuery', 'Kubernetes', 'Helm', 'Terraform', 'Redis', 'Kafka', 'RabbitMQ', 'Angular', 'React Native', 'Oracle', 'DynamoDB', 'Selenium', 'MSTest', 'OpenTelemetry', 'Jenkins'].map(s => (
               <span class="inline-flex items-center rounded-md bg-primary-900/25 px-2.5 py-0.5 text-xs font-medium text-primary-300 ring-1 ring-inset ring-primary-500/30">{s}</span>
             ))}
           </div>
