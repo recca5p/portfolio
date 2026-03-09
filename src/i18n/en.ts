@@ -17,8 +17,8 @@ export const en = {
   skills: {
     title: 'Technical Skills',
     subtitle:
-      'A comprehensive overview of my technical expertise. Hover each card to see detailed competencies.',
-    hoverHint: 'Hover for details',
+      'A comprehensive overview of my technical expertise. Tap or hover each card to see detailed competencies.',
+    hoverHint: 'Tap for details',
     categories: {
       backend: {
         title: 'Backend & Architecture',
@@ -127,10 +127,10 @@ export const en = {
     title: 'Contact Me',
     subtitle:
       'Interested in working together or have a question? Feel free to reach out via any channel below.',
-    clickToEmail: 'Click to send email',
+    clickToEmail: 'Tap to send email',
     viewProfile: 'View profile',
     scanToChat: 'Scan to chat',
-    hoverQrClick: 'Hover for QR · Click to chat',
+    hoverQrClick: 'Tap to chat · Scan QR',
   },
   footer: {
     rights: 'All rights reserved.',

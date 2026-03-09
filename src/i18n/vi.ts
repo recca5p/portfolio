@@ -17,8 +17,8 @@ export const vi = {
   skills: {
     title: 'Kỹ năng chuyên môn',
     subtitle:
-      'Tổng quan toàn diện về chuyên môn kỹ thuật. Di chuột vào thẻ để xem chi tiết.',
-    hoverHint: 'Di chuột để xem chi tiết',
+      'Tổng quan toàn diện về chuyên môn kỹ thuật. Nhấn hoặc di chuột vào thẻ để xem chi tiết.',
+    hoverHint: 'Nhấn để xem chi tiết',
     categories: {
       backend: {
         title: 'Backend & Kiến trúc',
@@ -130,7 +130,7 @@ export const vi = {
     clickToEmail: 'Nhấn để gửi email',
     viewProfile: 'Xem hồ sơ',
     scanToChat: 'Quét để nhắn tin',
-    hoverQrClick: 'Di chuột để xem QR · Nhấn để nhắn',
+    hoverQrClick: 'Nhấn để nhắn · Quét QR',
   },
   footer: {
     rights: 'Bảo lưu mọi quyền.',
