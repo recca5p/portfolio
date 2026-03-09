@@ -77,7 +77,7 @@ const skillTags: Record<string, string[]> = {
       {categoryKeys.map((key) => {
         const catTitle = t(`skills.categories.${key}.title`);
         const catDesc = t(`skills.categories.${key}.description`);
-        const catDetails: string[] = t(`skills.categories.${key}.details`);
+        const catDetails = Array.from(t(`skills.categories.${key}.details`) as string[]);
         const icon = icons[key];
         const tags = skillTags[key];
 
