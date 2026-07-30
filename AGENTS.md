@@ -10,7 +10,8 @@ with Tailwind CSS 4. There is no UI framework integration and no server
 runtime: all routes must remain compatible with static generation.
 
 Supported languages are English (`en`, the default) and Vietnamese (`vi`).
-The root route renders the English page and uses `/en` as its canonical URL.
+Cloudflare Pages permanently redirects the root route to the canonical English
+homepage at `/en/`.
 
 ## Runtime and package manager
 
@@ -26,8 +27,9 @@ The root route renders the English page and uses `/en` as its canonical URL.
 
 ## Repository structure
 
-- `src/pages/`: Astro file-based routes. `/en` and `/vi` contain localized
-  pages; the root page is the default English entry.
+- `src/pages/`: Astro file-based routes. `/en/` and `/vi/` contain localized
+  pages; the root source page is a local/static fallback for the production
+  redirect.
 - `src/layouts/Layout.astro`: shared document shell, SEO metadata, alternate
   language links, JSON-LD, header, footer, and global styles.
 - `src/components/`: page sections and shared UI. Components determine the
@@ -42,6 +44,8 @@ The root route renders the English page and uses `/en` as its canonical URL.
 - `src/types/project.ts`: the TypeScript contract for project JSON.
 - `src/styles/global.css`: Tailwind import, custom variants, theme tokens, and
   genuinely global styles.
+- `scripts/check-seo.mjs`: build-output validation for canonical pages,
+  localized alternates, structured data, robots, redirects, and sitemaps.
 - `public/`: files copied to the site root without processing.
 
 ## Coding style
@@ -103,11 +107,46 @@ The root route renders the English page and uses `/en` as its canonical URL.
   same data but have separate markup. Keep
   `src/pages/en/projects/index.astro` and
   `src/pages/vi/projects/index.astro` structurally aligned.
-- Preserve the root English page and `/en` page parity unless the routing
-  strategy is deliberately being changed.
+- Keep the root fallback source and `/en/` page content aligned unless the
+  routing strategy is deliberately being changed.
 - When changing canonical routes, page metadata, or deploy host, also review
   `astro.config.mjs`, `Layout.astro`, `public/robots.txt`, and
-  `public/sitemap.xml`.
+  `public/_redirects`.
+
+## SEO and crawlability
+
+- Critical content, headings, links, canonical tags, language alternates, and
+  JSON-LD must be present in build-time HTML. Do not require client JavaScript
+  for a crawler to discover or understand primary content.
+- Cloudflare Pages serves directory routes with a trailing slash. Canonical
+  URLs, `hreflang` links, sitemap URLs, and internal links must use the same
+  trailing-slash form to avoid redirect hops and conflicting signals.
+- `/` is a duplicate fallback page and permanently redirects to `/en/`.
+  Exclude it from the sitemap and do not use it as a canonical URL.
+- Every indexable page needs one descriptive, language-matched `<title>`, one
+  unique meta description, one visible `<h1>`, and a self-referencing
+  canonical URL.
+- English and Vietnamese equivalents must publish identical, reciprocal
+  `hreflang` sets: `en`, `vi`, and `x-default`. The fallback is `/en/`.
+- Sitemaps are generated from static routes by `@astrojs/sitemap`. Never add a
+  hand-maintained sitemap under `public/`; configure filtering in
+  `astro.config.mjs` and keep `robots.txt` pointed at `sitemap-index.xml`.
+- Structured data must describe visible content and real site capabilities.
+  Use `ProfilePage` with `Person` for localized homepages, `CollectionPage` and
+  visible `BreadcrumbList` navigation for project listings, and stable `@id`
+  values for shared entities. Do not advertise `SearchAction` without a real
+  query-driven search feature.
+- Google ignores the keywords meta tag. Put important terms naturally in
+  visible headings, summaries, project descriptions, and accessible link text
+  instead of adding keyword lists.
+- Keep social metadata page-specific and use absolute, crawlable URLs for Open
+  Graph and Twitter images.
+- Optimize crawl rendering and Core Web Vitals together: preserve static HTML,
+  explicit image dimensions, lazy-load below-the-fold images, and avoid
+  oversized assets or unnecessary client-side hydration.
+- After any SEO, route, metadata, or localization change, build first and run
+  `npm run seo:check`. After deployment, verify the canonical production URL
+  with Google Search Console URL Inspection and Rich Results Test.
 
 ## Validation
 
@@ -127,6 +166,7 @@ quality gate before handing off:
 - `npm run lint`
 - `npm run format:check`
 - `npm run build`
+- `npm run seo:check` (requires a current `dist/` build)
 
 There is currently no automated browser or unit-test suite. For visual or
 interaction changes, also inspect the affected English and Vietnamese routes

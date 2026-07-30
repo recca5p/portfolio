@@ -7,10 +7,10 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const navItems = [
-  { path: `/${lang}`, label: t('nav.home') },
-  { path: `/${lang}#experience`, label: t('nav.experience') },
-  { path: `/${lang}#projects`, label: t('nav.projects') },
-  { path: `/${lang}#contact`, label: t('nav.contact') },
+  { path: `/${lang}/`, label: t('nav.home') },
+  { path: `/${lang}/#experience`, label: t('nav.experience') },
+  { path: `/${lang}/#projects`, label: t('nav.projects') },
+  { path: `/${lang}/#contact`, label: t('nav.contact') },
 ];
 ---
 
@@ -25,13 +25,14 @@ const navItems = [
         <!-- Logo / Name -->
         <a
           class="mr-3 flex-none flex items-center gap-2.5 hover:opacity-80 transition-opacity"
-          href={`/${lang}`}
+          href={`/${lang}/`}
         >
           <img
-            src="/logo.png"
+            src="/logo-192.png"
             alt="Tan Phat Vo logo"
             width="32"
             height="32"
+            decoding="async"
             class="h-8 w-8 rounded-lg"
           />
           <span class="hidden sm:block font-bold text-xl tracking-tight text-white"
@@ -61,13 +62,13 @@ const navItems = [
           <div
             class="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800 space-x-4"
           >
-            <LangToggle />
+            <LangToggle menuId="language-menu-desktop" />
           </div>
         </div>
 
         <!-- Mobile Actions (Hamburger would go here if needed) -->
         <div class="flex items-center lg:hidden space-x-2">
-          <LangToggle />
+          <LangToggle menuId="language-menu-mobile" />
         </div>
       </div>
     </div>

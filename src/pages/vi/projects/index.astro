@@ -10,34 +10,24 @@ const projects = projectsData as Project[];
 ---
 
 <Layout
-  title="Tất cả dự án - Võ Tấn Phát | AI, Cloud, Microservices"
-  description="Khám phá tất cả dự án của Võ Tấn Phát — workflow tăng cường AI, di chuyển cloud, cổng thanh toán, và đóng góp mã nguồn mở. Xây dựng với .NET, Golang, GCP, AWS."
+  title="Dự án Backend & Cloud | Võ Tấn Phát"
+  description={`Khám phá ${projects.length} dự án backend, cloud, AI, fintech và tự động hóa của Võ Tấn Phát, sử dụng .NET, Golang, GCP, AWS, Azure, Kubernetes và OpenTelemetry.`}
   lang={lang}
+  pageType="collection"
 >
   <section class="py-24 sm:py-32" aria-labelledby="projects-heading">
     <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <!-- Back link -->
-      <div class="mb-6">
-        <a
-          href={`/${lang}`}
-          class="inline-flex items-center gap-1.5 text-sm text-primary-400 hover:text-primary-300 transition-colors mb-8"
-        >
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-          </svg>
-          {t('projects.backHome')}
-        </a>
-      </div>
+      <nav aria-label="Breadcrumb" class="mb-8 text-sm">
+        <ol class="flex items-center gap-2 text-slate-400">
+          <li>
+            <a href={`/${lang}/`} class="hover:text-primary-400 transition-colors">
+              {t('nav.home')}
+            </a>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page" class="text-slate-200">{t('projects.title')}</li>
+        </ol>
+      </nav>
 
       <div class="mx-auto max-w-2xl lg:mx-0 mb-16">
         <h1 id="projects-heading" class="text-4xl font-bold tracking-tight text-white sm:text-5xl">

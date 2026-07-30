@@ -9,6 +9,7 @@ and contact information in English and Vietnamese.
 - Astro 7
 - Tailwind CSS 4 through the Vite plugin
 - TypeScript in strict mode
+- Automatic route discovery through the official Astro sitemap integration
 - ESLint and Prettier
 - Static output for Cloudflare Pages
 
@@ -35,6 +36,7 @@ The development server is available at `http://localhost:4321`.
 | `npm run lint`         | Lint the repository                                         |
 | `npm run format`       | Format supported files with Prettier                        |
 | `npm run format:check` | Verify formatting without changing files                    |
+| `npm run seo:check`    | Validate built metadata, canonicals, hreflang, and sitemaps |
 | `npm run check`        | Run all required validation, including the production build |
 
 Run `npm run check` before opening a pull request or pushing a code change.
@@ -52,10 +54,10 @@ src/
 └── types/            Shared TypeScript data contracts
 ```
 
-The root page serves the English version and declares `/en` as its canonical
-route. Content changes should preserve parity between English and Vietnamese.
-See `AGENTS.md` for the repository conventions and the expected change
-workflow.
+The production root route permanently redirects to the canonical English page
+at `/en/`. Content changes should preserve parity between English and
+Vietnamese. See `AGENTS.md` for the repository conventions and the expected
+change workflow.
 
 ## Deployment
 
@@ -65,4 +67,6 @@ The Astro configuration produces a static build:
 - Output directory: `dist`
 - Node.js: 24
 
-The canonical site URL is configured in `astro.config.mjs`.
+The canonical site URL and generated sitemap are configured in
+`astro.config.mjs`. Cloudflare Pages permanently redirects `/` to the canonical
+English homepage at `/en/`.

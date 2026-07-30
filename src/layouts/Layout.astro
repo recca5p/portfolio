@@ -11,7 +11,7 @@ interface Props {
   lang?: Lang;
   /** Override the canonical URL path (defaults to current pathname) */
   canonicalPath?: string;
-  ogType?: 'website' | 'profile' | 'article';
+  pageType: 'profile' | 'collection';
 }
 
 const {
@@ -19,34 +19,46 @@ const {
   description = 'Senior Backend Engineer specializing in .NET, Golang, Java, Microservices, Cloud-Native Architecture (GCP, AWS, Azure), and AI-augmented development. 5+ years of experience.',
   lang = 'en',
   canonicalPath,
-  ogType = 'website',
+  pageType,
 } = Astro.props;
 
-const siteUrl = 'https://portfolio-7j9.pages.dev';
-const currentPath = canonicalPath ?? Astro.url.pathname;
-const canonicalUrl = `${siteUrl}${currentPath}`;
+const site = Astro.site ?? new URL('https://portfolio-7j9.pages.dev');
+const siteUrl = site.origin;
+const normalizePath = (path: string): string => {
+  const pathname = path.startsWith('/') ? path : `/${path}`;
+  return pathname === '/' ? pathname : `${pathname.replace(/\/+$/, '')}/`;
+};
+
+const currentPath = normalizePath(canonicalPath ?? Astro.url.pathname);
+const canonicalUrl = new URL(currentPath, site).href;
 const altLang = lang === 'en' ? 'vi' : 'en';
 const altPath = currentPath.replace(`/${lang}`, `/${altLang}`);
-const altUrl = `${siteUrl}${altPath}`;
+const altUrl = new URL(altPath, site).href;
+const xDefaultUrl = new URL('/en/', site).href;
 const ogLocale = lang === 'en' ? 'en_US' : 'vi_VN';
 const ogLocaleAlt = lang === 'en' ? 'vi_VN' : 'en_US';
+const ogType = pageType === 'profile' ? 'profile' : 'website';
+const socialImageUrl = new URL('/logo.png', site).href;
+const socialImageAlt =
+  lang === 'en' ? 'Tan Phat Vo portfolio logo' : 'Logo portfolio của Võ Tấn Phát';
 
-// JSON-LD: Person
+const personId = `${siteUrl}/#person`;
+const websiteId = `${siteUrl}/#website`;
+const webpageId = `${canonicalUrl}#webpage`;
+const breadcrumbId = `${canonicalUrl}#breadcrumb`;
+
+// Shared entity referenced by each localized page.
 const personSchema = {
-  '@context': 'https://schema.org',
   '@type': 'Person',
+  '@id': personId,
   name: 'Tan Phat Vo',
   alternateName: 'Võ Tấn Phát',
+  description:
+    lang === 'en'
+      ? 'Senior Backend Engineer specializing in .NET, Golang, cloud-native microservices, and AI-augmented engineering.'
+      : 'Kỹ sư Backend Senior chuyên về .NET, Golang, microservices cloud-native và kỹ thuật tăng cường AI.',
   jobTitle: 'Senior Backend Engineer',
-  url: siteUrl,
-  image: `${siteUrl}/favicon.svg`,
-  email: 'phatvo73.dev@gmail.com',
-  telephone: '+84779342459',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Ho Chi Minh City',
-    addressCountry: 'VN',
-  },
+  url: new URL('/en/', site).href,
   sameAs: ['https://www.linkedin.com/in/tan-phat-vo-51ba10272/'],
   knowsAbout: [
     '.NET Core',
@@ -91,66 +103,70 @@ const personSchema = {
   },
 };
 
-// JSON-LD: WebSite (enables sitelinks search on Google)
+// Site identity. Do not add SearchAction unless a real query-driven search exists.
 const websiteSchema = {
-  '@context': 'https://schema.org',
   '@type': 'WebSite',
+  '@id': websiteId,
   name: 'Tan Phat Vo — Senior Backend Engineer',
-  url: siteUrl,
-  description,
+  alternateName: 'Võ Tấn Phát — Kỹ sư Backend Senior',
+  url: xDefaultUrl,
+  description:
+    'Bilingual portfolio of Senior Backend Engineer Tan Phat Vo, covering backend, cloud, fintech, AI, and automation work.',
   inLanguage: ['en', 'vi'],
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: { '@type': 'EntryPoint', urlTemplate: `${siteUrl}/en/projects` },
-  },
+  publisher: { '@id': personId },
 };
 
-// JSON-LD: Work Experience (BreadcrumbList helps Google parse career history)
-const workHistorySchema = {
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Work Experience',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      item: {
-        '@type': 'OrganizationRole',
-        roleName: 'Senior Backend Engineer',
-        startDate: '2024-12',
-        worksFor: {
-          '@type': 'Organization',
-          name: 'ANZ Bank (Australia) – Digital Banking Division',
-        },
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      item: {
-        '@type': 'OrganizationRole',
-        roleName: 'Senior Backend Developer',
-        startDate: '2022-01',
-        endDate: '2024-12',
-        worksFor: {
-          '@type': 'Organization',
-          name: 'FPT Software – Offshore for Halliburton',
-        },
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      item: {
-        '@type': 'OrganizationRole',
-        roleName: 'Software Developer',
-        startDate: '2020-05',
-        endDate: '2022-01',
-        worksFor: { '@type': 'Organization', name: 'Sacombank' },
-      },
-    },
-  ],
+const breadcrumbSchema =
+  pageType === 'collection'
+    ? {
+        '@type': 'BreadcrumbList',
+        '@id': breadcrumbId,
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: lang === 'en' ? 'Home' : 'Trang chủ',
+            item: new URL(`/${lang}/`, site).href,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: lang === 'en' ? 'Projects' : 'Dự án',
+            item: canonicalUrl,
+          },
+        ],
+      }
+    : undefined;
+
+const webpageSchema = {
+  '@type': pageType === 'profile' ? 'ProfilePage' : 'CollectionPage',
+  '@id': webpageId,
+  url: canonicalUrl,
+  name: title,
+  description,
+  inLanguage: lang,
+  isPartOf: { '@id': websiteId },
+  ...(pageType === 'profile'
+    ? { mainEntity: { '@id': personId } }
+    : {
+        about: { '@id': personId },
+        breadcrumb: { '@id': breadcrumbId },
+      }),
 };
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [websiteSchema, personSchema, webpageSchema, breadcrumbSchema].filter(Boolean),
+};
+
+const profileMeta =
+  pageType === 'profile'
+    ? {
+        firstName: 'Tan Phat',
+        lastName: 'Vo',
+        username: 'Tan Phat Vo',
+      }
+    : undefined;
 ---
 
 <!doctype html>
@@ -158,10 +174,9 @@ const workHistorySchema = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/logo-192.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" href="/logo-192.png" />
-    <meta name="generator" content={Astro.generator} />
+    <link rel="apple-touch-icon" sizes="192x192" href="/logo-192.png" />
 
     <!-- === Primary SEO === -->
     <title>{title}</title>
@@ -171,19 +186,14 @@ const workHistorySchema = {
       name="robots"
       content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="bingbot" content="index, follow" />
     <meta name="theme-color" content="#111827" />
-    <meta
-      name="keywords"
-      content="Tan Phat Vo, Võ Tấn Phát, Software Engineer, Backend Developer, .NET, Golang, Java, Microservices, Cloud Architecture, GCP, AWS, Azure, Kubernetes, Docker, AI Engineering, Ho Chi Minh City, Vietnam"
-    />
 
     <!-- === Canonical & Language Alternates === -->
     <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={lang} href={canonicalUrl} />
     <link rel="alternate" hreflang={altLang} href={altUrl} />
-    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/en`} />
+    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+    <link rel="me" href="https://www.linkedin.com/in/tan-phat-vo-51ba10272/" />
 
     <!-- === Open Graph (Facebook / LinkedIn) === -->
     <meta property="og:type" content={ogType} />
@@ -193,20 +203,41 @@ const workHistorySchema = {
     <meta property="og:site_name" content="Tan Phat Vo — Portfolio" />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:locale:alternate" content={ogLocaleAlt} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:secure_url" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="640" />
+    <meta property="og:image:height" content="640" />
+    <meta property="og:image:alt" content={socialImageAlt} />
+    {
+      profileMeta && (
+        <>
+          <meta property="profile:first_name" content={profileMeta.firstName} />
+          <meta property="profile:last_name" content={profileMeta.lastName} />
+          <meta property="profile:username" content={profileMeta.username} />
+        </>
+      )
+    }
 
     <!-- === Twitter / X Card === -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content={socialImageAlt} />
 
     <!-- === Preconnect hints === -->
-    <link rel="preconnect" href="https://api.qrserver.com" />
-    <link rel="dns-prefetch" href="https://api.qrserver.com" />
+    {
+      pageType === 'profile' && (
+        <>
+          <link rel="preconnect" href="https://api.qrserver.com" />
+          <link rel="dns-prefetch" href="https://api.qrserver.com" />
+        </>
+      )
+    }
 
     <!-- === JSON-LD Structured Data === -->
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(workHistorySchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
 
   <body class="min-h-screen bg-gray-900 text-gray-100 flex flex-col">
