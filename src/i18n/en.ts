@@ -4,12 +4,24 @@ export const en = {
     experience: 'Experience',
     projects: 'Projects',
     contact: 'Contact',
+    menu: 'Menu',
   },
   home: {
-    title: 'Software Engineer',
+    title: 'Senior Backend Engineer',
     greeting: 'Hi, I am Tan Phat Vo',
-    tagline: 'Senior Backend Engineer · .NET · Golang · Cloud · AI',
-    bio: "Senior Backend Engineer with 5+ years building mission-critical systems for <strong>ANZ Bank (Australia)</strong>, <strong>Halliburton</strong>, and <strong>Sacombank</strong> — spanning digital banking, oil &amp; gas, logistics, and fintech. Currently modernising ANZ's International Money Transfer &amp; Apple Pay platform on GCP. Specialised in .NET / Golang microservices, cloud-native architecture, and AI-augmented engineering with measurable impact: 20x search optimisation, 60% cost reduction via OpenTelemetry, and 30% faster dev cycles with GenAI tooling.",
+    tagline: 'Senior Backend Engineer, .NET, Golang, Cloud, AI',
+    heroSummary:
+      'I design .NET and Golang platforms for banking, cloud, and industrial automation.',
+    experienceCta: 'View experience',
+    emailCta: 'Email me',
+    imageCaption: 'A closer look at the physical layer behind cloud systems.',
+    summaryTitle: 'Backend engineering with measurable outcomes',
+    bio: "Senior Backend Engineer with 5+ years building mission-critical systems for <strong>ANZ Bank (Australia)</strong>, <strong>Halliburton</strong>, and <strong>Sacombank</strong>, spanning digital banking, oil &amp; gas, logistics, and fintech. Currently modernising ANZ's International Money Transfer &amp; Apple Pay platform on GCP. Specialised in .NET / Golang microservices, cloud-native architecture, and AI-augmented engineering with measurable impact: 20x search optimisation, 60% cost reduction via OpenTelemetry, and 30% faster dev cycles with GenAI tooling.",
+    metrics: [
+      { value: '5+', label: 'Years in production engineering' },
+      { value: '20x', label: 'Search performance improvement' },
+      { value: '60%', label: 'Cloud cost reduction' },
+    ],
   },
   experience: {
     title: 'Experience',
@@ -17,7 +29,7 @@ export const en = {
   skills: {
     title: 'Technical Skills',
     subtitle:
-      'A comprehensive overview of my technical expertise. Tap or hover each card to see detailed competencies.',
+      'Select a discipline to review the systems, tools, and production practices behind my work.',
     hoverHint: 'Tap for details',
     categories: {
       backend: {
@@ -38,7 +50,7 @@ export const en = {
         description:
           'Advanced proficiency in RDBMS, NoSQL, and real-time message broker architectures.',
         details: [
-          'RDBMS Mastery: SQL Server, PostgreSQL, Oracle — Query Optimization, Indexing, Stored Procedures',
+          'RDBMS Mastery: SQL Server, PostgreSQL, Oracle - Query Optimization, Indexing, Stored Procedures',
           'Complex Schema Design for high-volume transactional systems',
           'NoSQL & Big Data: DynamoDB (Serverless), Google BigQuery for analytics',
           'Message Brokers: Kafka, RabbitMQ, Azure Service Bus, GCP Pub/Sub',
@@ -48,13 +60,13 @@ export const en = {
       cloud: {
         title: 'Cloud & DevOps',
         description:
-          'Expert in AWS & Azure — building Serverless, containerized, and hybrid cloud solutions with full CI/CD automation across GCP, AWS, and Azure.',
+          'Expert in AWS & Azure, building Serverless, containerized, and hybrid cloud solutions with full CI/CD automation across GCP, AWS, and Azure.',
         details: [
           'AWS (Expert): Lambda, EC2, ECS, EKS, Fargate, S3, RDS, DynamoDB, SQS, SNS, API Gateway, CloudWatch, CloudFront, VPC, IAM, Secrets Manager, CodePipeline',
           'Azure (Expert): Azure Service Bus, Azure DevOps, Azure SQL, Azure Functions, App Service, Azure AD, Azure OpenAI, Azure AI Speech, Azure Blob Storage, Azure Monitor, Key Vault, AKS',
           'GCP: GKE, Cloud Run, Cloud Functions, Pub/Sub, BigQuery, Cloud SQL, Firestore, Cloud Storage, Secret Manager',
           'Infrastructure as Code: Terraform modules for multi-cloud provisioning and environment parity',
-          'CI/CD: GitHub Actions, Azure DevOps Pipelines, Jenkins — automated testing gates and rollback strategies',
+          'CI/CD: GitHub Actions, Azure DevOps Pipelines, Jenkins - automated testing gates and rollback strategies',
           'Container Orchestration: Docker, Kubernetes, Helm Charts, multi-stage builds, container registries',
         ],
       },
@@ -128,7 +140,8 @@ export const en = {
     clickToEmail: 'Tap to send email',
     viewProfile: 'View profile',
     scanToChat: 'Scan to chat',
-    hoverQrClick: 'Tap to chat · Scan QR',
+    hoverQrClick: 'Tap to chat, or scan the QR code',
+    showQr: 'Show QR code',
   },
   footer: {
     rights: 'All rights reserved.',

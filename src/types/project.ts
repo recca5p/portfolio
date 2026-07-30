@@ -19,6 +19,4 @@ export interface Project {
   company: ProjectCompany;
   description: BilingualText;
   tags: string[];
-  /** Raw SVG string for the project icon */
-  icon: string;
 }

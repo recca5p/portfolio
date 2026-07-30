@@ -1,0 +1,101 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const metrics = t('home.metrics') as unknown as Array<{ value: string; label: string }>;
+---
+
+<section class="profile-summary" aria-labelledby="profile-summary-heading">
+  <div class="site-container summary-grid" data-reveal>
+    <div>
+      <h2 id="profile-summary-heading" class="section-heading">{t('home.summaryTitle')}</h2>
+      <p class="profile-bio" set:html={t('home.bio')} />
+    </div>
+
+    <dl class="metrics">
+      {
+        metrics.map((metric) => (
+          <div>
+            <dt>{metric.label}</dt>
+            <dd>{metric.value}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<style>
+  .profile-summary {
+    border-block: 1px solid var(--line);
+    background: var(--surface);
+    padding-block: clamp(3.5rem, 7vw, 5.5rem);
+  }
+
+  .summary-grid {
+    display: grid;
+    gap: 3rem;
+  }
+
+  .profile-bio {
+    max-width: 68ch;
+    margin-top: 1.5rem;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.85;
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-self: start;
+    margin: 0;
+    border-top: 1px solid var(--line-strong);
+  }
+
+  .metrics div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 0.65rem;
+    padding: 1.25rem 0.5rem 0 0;
+  }
+
+  .metrics dt {
+    color: var(--muted);
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+
+  .metrics dd {
+    margin: 0;
+    color: var(--accent-strong);
+    font-family: var(--font-mono);
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    font-variant-numeric: tabular-nums;
+    font-weight: 650;
+    letter-spacing: -0.05em;
+  }
+
+  @media (min-width: 900px) {
+    .summary-grid {
+      grid-template-columns: minmax(0, 1.35fr) minmax(24rem, 0.65fr);
+      align-items: start;
+      gap: clamp(4rem, 8vw, 8rem);
+    }
+  }
+
+  @media (max-width: 540px) {
+    .metrics {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .metrics div {
+      display: grid;
+      grid-template-columns: 5rem minmax(0, 1fr);
+      align-items: baseline;
+      padding-top: 1.25rem;
+    }
+  }
+</style>

@@ -39,9 +39,10 @@ homepage at `/en/`.
 - `src/i18n/utils.ts`: supported-language types, URL language detection, and
   dot-notation translation lookup.
 - `src/data/experience.json`: bilingual employment-history content.
-- `src/data/projects.json`: bilingual project records and trusted inline SVG
-  icon strings.
+- `src/data/projects.json`: bilingual project records.
 - `src/types/project.ts`: the TypeScript contract for project JSON.
+- `src/assets/backend-infrastructure.png`: generated editorial infrastructure
+  photography used by the optimized Astro hero image.
 - `src/styles/global.css`: Tailwind import, custom variants, theme tokens, and
   genuinely global styles.
 - `scripts/check-seo.mjs`: build-output validation for canonical pages,
@@ -76,9 +77,9 @@ homepage at `/en/`.
 - Add `is:inline` explicitly to scripts that Astro intentionally leaves
   unprocessed, including JSON-LD scripts with attributes.
 - Treat `set:html` as an exception. It is allowed only for trusted, static
-  repository content such as the current inline icons and controlled
-  formatting helpers. Never pass user input or fetched third-party text to it
-  without sanitization.
+  repository content such as the controlled biography and bold-formatting
+  helpers. Never pass user input or fetched third-party text to it without
+  sanitization.
 - Keep the site statically buildable. Do not add an SSR adapter, server-only
   API, or runtime secret unless the task explicitly changes the deployment
   model.
@@ -95,6 +96,43 @@ homepage at `/en/`.
   Hover-only affordances must still have a usable touch/mobile behavior.
 - Avoid introducing a UI component library for a small, existing pattern.
 
+## UI and design quality
+
+For substantial frontend redesigns, use these three installed Codex skills in
+order:
+
+1. `design-taste-frontend` for the audit, design read, visual direction, and
+   final anti-template preflight.
+2. `emil-design-eng` for typography, easing, transition timing, press feedback,
+   and motion performance.
+3. `web-design-guidelines` for the final UX and accessibility audit. Fetch its
+   latest guidelines before each audit because the upstream checklist changes.
+
+Preserve the current technical-editorial direction unless the user asks for a
+new brand:
+
+- Dark graphite surfaces, Manrope for interface/content typography, JetBrains
+  Mono for compact technical metadata, and teal as the only UI accent.
+- Use the shared `--radius` shape token. Avoid mixed card and control radii.
+- Prefer asymmetric editorial layouts, sparse borders, and whitespace over
+  repeated equal card grids.
+- Do not hide substantive portfolio content behind hover. Native `details`
+  disclosures are preferred when a categorized list needs progressive
+  disclosure.
+- Use real project assets or optimized local imagery. Do not construct fake
+  screenshots from decorative `div` elements.
+- Every pressable needs visible hover, active, and focus-visible states. Keep
+  routine UI transitions under 300 ms, list transition properties explicitly,
+  and animate only `transform` and `opacity`.
+- Gate pointer-specific hover motion behind
+  `@media (hover: hover) and (pointer: fine)`. Honor
+  `prefers-reduced-motion`, avoid scroll event listeners, and prefer CSS motion
+  or `IntersectionObserver`.
+- Keep the page theme consistent from header through footer. Avoid gradient
+  blobs, decorative status dots, section-number labels, scroll cues, excessive
+  pills, and handwritten SVG icon sets.
+- Use a normal hyphen instead of an em dash or en dash in visible copy.
+
 ## Content and localization
 
 - Every user-facing content change must be reviewed in both English and
@@ -104,9 +142,8 @@ homepage at `/en/`.
 - For project data changes, update `src/types/project.ts` whenever the JSON
   shape changes.
 - The landing-page project section and both full project-list routes share the
-  same data but have separate markup. Keep
-  `src/pages/en/projects/index.astro` and
-  `src/pages/vi/projects/index.astro` structurally aligned.
+  same data. Keep localized project routes thin and render their archive
+  through `src/components/ProjectsArchive.astro`.
 - Keep the root fallback source and `/en/` page content aligned unless the
   routing strategy is deliberately being changed.
 - When changing canonical routes, page metadata, or deploy host, also review
@@ -144,6 +181,15 @@ homepage at `/en/`.
 - Optimize crawl rendering and Core Web Vitals together: preserve static HTML,
   explicit image dimensions, lazy-load below-the-fold images, and avoid
   oversized assets or unnecessary client-side hydration.
+- Treat visual redesign and SEO as one quality gate. Hero copy, project
+  summaries, headings, internal links, and disclosure content must remain
+  server-rendered HTML. Never move crawl-critical copy into a client-only
+  carousel, modal, canvas, or animation state.
+- Load critical above-the-fold imagery eagerly with explicit dimensions and
+  responsive sizing. Use Astro image optimization for local raster assets.
+  Lazy-load external QR codes and other below-the-fold images.
+- Self-host fonts, use `font-display: swap`, and preload only the critical
+  locale subset. Do not add render-blocking third-party font requests.
 - After any SEO, route, metadata, or localization change, build first and run
   `npm run seo:check`. After deployment, verify the canonical production URL
   with Google Search Console URL Inspection and Rich Results Test.

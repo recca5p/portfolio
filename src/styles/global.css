@@ -1,37 +1,273 @@
+@import '@fontsource-variable/manrope/wght.css';
+@import '@fontsource-variable/jetbrains-mono/wght.css';
 @import 'tailwindcss';
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary-50: #f0fdfa;
-  --color-primary-100: #ccfbf1;
-  --color-primary-500: #14b8a6;
-  --color-primary-600: #0d9488;
-  --color-primary-900: #134e4a;
+  --color-primary-50: #ecfdf9;
+  --color-primary-100: #c9f7ed;
+  --color-primary-200: #91ecdc;
+  --color-primary-300: #51d8c6;
+  --color-primary-400: #24bcae;
+  --color-primary-500: #129b91;
+  --color-primary-600: #0d7d77;
+  --color-primary-700: #0e635f;
+  --color-primary-800: #104f4d;
+  --color-primary-900: #10413f;
+  --font-sans: 'Manrope Variable', 'Avenir Next', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'SFMono-Regular', monospace;
 }
 
 @layer base {
   :root {
-    --bg-color: #ffffff;
-    --text-color: #111827;
-    --border-color: #e5e7eb;
+    color-scheme: dark;
+    --page: #0b1014;
+    --surface: #11181e;
+    --surface-raised: #172127;
+    --line: #27343b;
+    --line-strong: #3b4a51;
+    --text: #f1f5f3;
+    --muted: #a6b2b0;
+    --muted-strong: #c4cecb;
+    --accent: #24bcae;
+    --accent-strong: #51d8c6;
+    --radius: 0.875rem;
+    --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   }
 
-  .dark {
-    --bg-color: #111827;
-    --text-color: #f9fafb;
-    --border-color: #374151;
+  * {
+    border-color: var(--line);
   }
 
   html {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    min-width: 320px;
+    overflow-x: hidden;
     scroll-behavior: smooth;
+    background: var(--page);
+    color: var(--text);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
   }
 
   body {
+    min-height: 100dvh;
+    overflow-x: hidden;
+    background: var(--page);
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 35%, transparent);
+    color: var(--text);
+  }
+
+  :where(a, button, summary) {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: color-mix(in srgb, var(--accent) 18%, transparent);
+  }
+
+  :where(a, button, summary):focus-visible {
+    outline: 2px solid var(--accent-strong);
+    outline-offset: 4px;
+  }
+
+  :where([id]) {
+    scroll-margin-top: 6rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  strong {
+    color: var(--text);
+    font-weight: 650;
+  }
+
+  summary {
+    list-style: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  .site-container {
+    width: min(100% - 2rem, 80rem);
+    margin-inline: auto;
+  }
+
+  .section-shell {
+    padding-block: clamp(5rem, 9vw, 8.5rem);
+  }
+
+  .section-heading {
+    max-width: 42rem;
+    font-size: clamp(2rem, 4vw, 3.75rem);
+    font-weight: 650;
+    letter-spacing: -0.045em;
+    line-height: 1.05;
+  }
+
+  .section-copy {
+    max-width: 62ch;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .kicker {
+    color: var(--accent-strong);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+  }
+
+  .button-primary,
+  .button-secondary {
+    display: inline-flex;
+    min-height: 2.875rem;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    border-radius: var(--radius);
+    padding: 0.75rem 1.1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
     transition:
-      background-color 0.3s ease,
-      color 0.3s ease;
+      background-color 160ms var(--ease-out),
+      border-color 160ms var(--ease-out),
+      color 160ms var(--ease-out),
+      transform 160ms var(--ease-out);
+  }
+
+  .button-primary {
+    border: 1px solid var(--accent);
+    background: var(--accent);
+    color: #071310;
+  }
+
+  .button-primary:hover {
+    border-color: var(--accent-strong);
+    background: var(--accent-strong);
+  }
+
+  .button-secondary {
+    border: 1px solid var(--line-strong);
+    background: transparent;
+    color: var(--text);
+  }
+
+  .button-secondary:hover {
+    border-color: var(--muted);
+    background: var(--surface);
+  }
+
+  .button-primary:active,
+  .button-secondary:active,
+  .pressable:active {
+    transform: scale(0.97);
+  }
+
+  .text-link {
+    color: var(--muted-strong);
+    text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+    transition:
+      color 160ms ease,
+      text-decoration-color 160ms ease;
+  }
+
+  .text-link:hover {
+    color: var(--text);
+    text-decoration-color: var(--accent);
+  }
+}
+
+@media (min-width: 640px) {
+  @layer components {
+    .site-container {
+      width: min(100% - 3rem, 80rem);
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .lift-on-hover {
+    transition:
+      transform 180ms var(--ease-out),
+      border-color 180ms ease,
+      background-color 180ms ease;
+  }
+
+  .lift-on-hover:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-enter {
+    animation: hero-enter 720ms var(--ease-out) both;
+    animation-delay: var(--enter-delay, 0ms);
+  }
+
+  @supports (animation-timeline: view()) {
+    [data-reveal] {
+      animation: section-reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 6% cover 28%;
+    }
+  }
+
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(1rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes section-reveal {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
   }
 }

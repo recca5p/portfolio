@@ -1,0 +1,164 @@
+---
+import type { Lang } from '../i18n/utils';
+import type { Project } from '../types/project';
+
+interface Props {
+  project: Project;
+  lang: Lang;
+  featured?: boolean;
+}
+
+const { project, lang, featured = false } = Astro.props;
+const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u2014]\s*/g, ' - ');
+const title = cleanPunctuation(project.title[lang]);
+const description = cleanPunctuation(project.description[lang]);
+const role = project.role ? cleanPunctuation(project.role[lang]) : undefined;
+const companyLabel =
+  lang === 'en'
+    ? `Visit ${project.company?.name ?? ''} website`
+    : `Truy cập trang web ${project.company?.name ?? ''}`;
+---
+
+<article class:list={['project-card lift-on-hover', { featured }]}>
+  <div class="project-meta">
+    {role && <p class="project-role">{role}</p>}
+    {
+      project.teamSize && (
+        <p class="project-team">
+          {lang === 'en' ? 'Team' : 'Nhóm'} <span>{project.teamSize}</span>
+        </p>
+      )
+    }
+  </div>
+
+  <h3>{title}</h3>
+  <p class="project-description">{description}</p>
+
+  <div class="project-footer">
+    <p class="project-stack" translate="no">
+      {project.tags.slice(0, featured ? 8 : 5).join(' / ')}
+    </p>
+    {
+      project.company && (
+        <a
+          href={project.company.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={companyLabel}
+        >
+          <span translate="no">{project.company.name}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      )
+    }
+  </div>
+</article>
+
+<style>
+  .project-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    padding: clamp(1.4rem, 3vw, 2rem);
+  }
+
+  .project-card.featured {
+    border-color: var(--line-strong);
+    background: var(--surface-raised);
+  }
+
+  .project-meta {
+    display: flex;
+    min-height: 1.6rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .project-role,
+  .project-team {
+    color: var(--accent-strong);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    line-height: 1.5;
+  }
+
+  .project-team {
+    color: var(--muted);
+  }
+
+  .project-team span {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  h3 {
+    margin-top: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    font-weight: 650;
+    letter-spacing: -0.035em;
+    line-height: 1.25;
+  }
+
+  .featured h3 {
+    max-width: 22ch;
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+  }
+
+  .project-description {
+    display: -webkit-box;
+    overflow: hidden;
+    margin-top: 1rem;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.75;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+  }
+
+  .featured .project-description {
+    max-width: 62ch;
+    font-size: 0.95rem;
+    -webkit-line-clamp: 7;
+  }
+
+  .project-footer {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: auto;
+    padding-top: 2rem;
+  }
+
+  .project-stack {
+    overflow-wrap: anywhere;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    line-height: 1.8;
+  }
+
+  .project-footer a {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--muted-strong);
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-decoration-color: transparent;
+    text-decoration-line: underline;
+    text-underline-offset: 0.3em;
+    transition:
+      color 160ms ease,
+      text-decoration-color 160ms ease;
+  }
+
+  .project-footer a:hover {
+    color: var(--text);
+    text-decoration-color: var(--accent);
+  }
+</style>

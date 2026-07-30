@@ -4,12 +4,24 @@ export const vi = {
     experience: 'Kinh nghiệm',
     projects: 'Dự án',
     contact: 'Liên hệ',
+    menu: 'Menu',
   },
   home: {
-    title: 'Kỹ sư phần mềm',
+    title: 'Kỹ sư Backend Senior',
     greeting: 'Xin chào, tôi là Võ Tấn Phát',
-    tagline: 'Kỹ sư Backend · .NET · Golang · Cloud · AI',
-    bio: 'Kỹ sư Backend Senior với 5+ năm xây dựng hệ thống quan trọng cho <strong>ANZ Bank (Úc)</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong> — trải dài ngân hàng số, dầu khí, logistics và fintech. Hiện đang hiện đại hóa nền tảng Chuyển tiền Quốc tế &amp; Apple Pay của ANZ trên GCP. Chuyên sâu về microservices .NET / Golang, kiến trúc cloud-native và kỹ thuật tăng cường AI với kết quả đo lường được: tối ưu tìm kiếm 20x, giảm 60% chi phí qua OpenTelemetry, và tăng tốc 30% chu kỳ phát triển với GenAI.',
+    tagline: 'Kỹ sư Backend Senior, .NET, Golang, Cloud, AI',
+    heroSummary:
+      'Tôi thiết kế nền tảng .NET và Golang cho ngân hàng, cloud và tự động hóa công nghiệp.',
+    experienceCta: 'Xem kinh nghiệm',
+    emailCta: 'Gửi email',
+    imageCaption: 'Góc nhìn gần hơn vào lớp hạ tầng phía sau các hệ thống cloud.',
+    summaryTitle: 'Kỹ thuật backend với kết quả đo lường được',
+    bio: 'Kỹ sư Backend Senior với 5+ năm xây dựng hệ thống quan trọng cho <strong>ANZ Bank (Úc)</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong>, trải dài ngân hàng số, dầu khí, logistics và fintech. Hiện đang hiện đại hóa nền tảng Chuyển tiền Quốc tế &amp; Apple Pay của ANZ trên GCP. Chuyên sâu về microservices .NET / Golang, kiến trúc cloud-native và kỹ thuật tăng cường AI với kết quả đo lường được: tối ưu tìm kiếm 20x, giảm 60% chi phí qua OpenTelemetry, và tăng tốc 30% chu kỳ phát triển với GenAI.',
+    metrics: [
+      { value: '5+', label: 'Năm phát triển hệ thống production' },
+      { value: '20x', label: 'Hiệu suất tìm kiếm được cải thiện' },
+      { value: '60%', label: 'Chi phí cloud được cắt giảm' },
+    ],
   },
   experience: {
     title: 'Kinh nghiệm làm việc',
@@ -17,7 +29,7 @@ export const vi = {
   skills: {
     title: 'Kỹ năng chuyên môn',
     subtitle:
-      'Tổng quan toàn diện về chuyên môn kỹ thuật. Nhấn hoặc di chuột vào thẻ để xem chi tiết.',
+      'Chọn một nhóm chuyên môn để xem các hệ thống, công cụ và thực hành production tôi sử dụng.',
     hoverHint: 'Nhấn để xem chi tiết',
     categories: {
       backend: {
@@ -37,7 +49,7 @@ export const vi = {
         title: 'Cơ sở dữ liệu & Messaging',
         description: 'Chuyên sâu về RDBMS, NoSQL, và kiến trúc Message Broker thời gian thực.',
         details: [
-          'RDBMS: SQL Server, PostgreSQL, Oracle — Tối ưu Query, Indexing, Stored Procedures',
+          'RDBMS: SQL Server, PostgreSQL, Oracle - Tối ưu Query, Indexing, Stored Procedures',
           'Schema Design phức tạp cho hệ thống giao dịch khối lượng lớn',
           'NoSQL & Big Data: DynamoDB (Serverless), Google BigQuery phân tích',
           'Message Brokers: Kafka, RabbitMQ, Azure Service Bus, GCP Pub/Sub',
@@ -47,13 +59,13 @@ export const vi = {
       cloud: {
         title: 'Cloud & DevOps',
         description:
-          'Chuyên gia AWS & Azure — thiết kế giải pháp Serverless, container hóa và hybrid cloud với tự động hóa CI/CD toàn diện trên GCP, AWS và Azure.',
+          'Chuyên gia AWS & Azure, thiết kế giải pháp Serverless, container hóa và hybrid cloud với tự động hóa CI/CD toàn diện trên GCP, AWS và Azure.',
         details: [
           'AWS (Chuyên gia): Lambda, EC2, ECS, EKS, Fargate, S3, RDS, DynamoDB, SQS, SNS, API Gateway, CloudWatch, CloudFront, VPC, IAM, Secrets Manager, CodePipeline',
           'Azure (Chuyên gia): Azure Service Bus, Azure DevOps, Azure SQL, Azure Functions, App Service, Azure AD, Azure OpenAI, Azure AI Speech, Azure Blob Storage, Azure Monitor, Key Vault, AKS',
           'GCP: GKE, Cloud Run, Cloud Functions, Pub/Sub, BigQuery, Cloud SQL, Firestore, Cloud Storage, Secret Manager',
           'Infrastructure as Code: Module Terraform cho provisioning đa đám mây và đồng nhất môi trường',
-          'CI/CD: GitHub Actions, Azure DevOps Pipelines, Jenkins — automated testing gates và chiến lược rollback',
+          'CI/CD: GitHub Actions, Azure DevOps Pipelines, Jenkins - automated testing gates và chiến lược rollback',
           'Container Orchestration: Docker, Kubernetes, Helm Charts, multi-stage builds, container registries',
         ],
       },
@@ -126,7 +138,8 @@ export const vi = {
     clickToEmail: 'Nhấn để gửi email',
     viewProfile: 'Xem hồ sơ',
     scanToChat: 'Quét để nhắn tin',
-    hoverQrClick: 'Nhấn để nhắn · Quét QR',
+    hoverQrClick: 'Nhấn để chat hoặc quét mã QR',
+    showQr: 'Hiện mã QR',
   },
   footer: {
     rights: 'Bảo lưu mọi quyền.',

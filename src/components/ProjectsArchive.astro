@@ -1,0 +1,222 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import type { Project } from '../types/project';
+import projectsData from '../data/projects.json';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const projects = projectsData as Project[];
+const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u2014]\s*/g, ' - ');
+---
+
+<section class="section-shell archive-section" aria-labelledby="projects-heading">
+  <div class="site-container">
+    <nav aria-label={lang === 'en' ? 'Breadcrumb' : 'Đường dẫn điều hướng'} class="breadcrumb">
+      <ol>
+        <li><a href={`/${lang}/`}>{t('nav.home')}</a></li>
+        <li aria-hidden="true">/</li>
+        <li aria-current="page">{t('projects.title')}</li>
+      </ol>
+    </nav>
+
+    <header class="archive-header" data-reveal>
+      <h1 id="projects-heading">{t('projects.title')}</h1>
+      <p>{t('projects.viewAllSubtitle')}</p>
+      <span>{projects.length} {lang === 'en' ? 'selected projects' : 'dự án tiêu biểu'}</span>
+    </header>
+
+    <div class="archive-list">
+      {
+        projects.map((project) => {
+          const title = cleanPunctuation(project.title[lang]);
+          const description = cleanPunctuation(project.description[lang]);
+          const role = project.role ? cleanPunctuation(project.role[lang]) : undefined;
+          const companyLabel =
+            lang === 'en'
+              ? `Visit ${project.company?.name ?? ''} website`
+              : `Truy cập trang web ${project.company?.name ?? ''}`;
+
+          return (
+            <article data-reveal>
+              <div class="archive-title">
+                {role && <p class="project-role">{role}</p>}
+                <h2>{title}</h2>
+                {project.teamSize && (
+                  <p class="team-size">
+                    {lang === 'en' ? 'Team' : 'Nhóm'} <span>{project.teamSize}</span>
+                  </p>
+                )}
+              </div>
+
+              <p class="archive-description">{description}</p>
+
+              <div class="archive-meta">
+                <p translate="no">{project.tags.join(' / ')}</p>
+                {project.company && (
+                  <a
+                    href={project.company.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={companyLabel}
+                  >
+                    <span translate="no">{project.company.name}</span>
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                )}
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .archive-section {
+    padding-top: clamp(3rem, 7vw, 5.5rem);
+  }
+
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 0;
+    color: var(--muted);
+    font-size: 0.75rem;
+    list-style: none;
+  }
+
+  .breadcrumb a {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    color: var(--muted-strong);
+    text-decoration-line: underline;
+    text-decoration-color: transparent;
+    text-underline-offset: 0.3em;
+    transition:
+      color 160ms ease,
+      text-decoration-color 160ms ease;
+  }
+
+  .breadcrumb a:hover {
+    color: var(--text);
+    text-decoration-color: var(--accent);
+  }
+
+  .archive-header {
+    margin-top: 2rem;
+  }
+
+  .archive-header h1 {
+    max-width: 13ch;
+    font-size: clamp(3rem, 8vw, 6.25rem);
+    font-weight: 650;
+    letter-spacing: -0.065em;
+    line-height: 0.98;
+  }
+
+  .archive-header p {
+    max-width: 58ch;
+    margin-top: 1.5rem;
+    color: var(--muted);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .archive-header > span {
+    display: block;
+    margin-top: 1.25rem;
+    color: var(--accent-strong);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .archive-list {
+    margin-top: clamp(3.5rem, 8vw, 7rem);
+    border-top: 1px solid var(--line-strong);
+  }
+
+  article {
+    display: grid;
+    gap: 1.5rem;
+    border-bottom: 1px solid var(--line);
+    padding-block: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .project-role,
+  .team-size {
+    color: var(--accent-strong);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    line-height: 1.5;
+  }
+
+  .team-size {
+    margin-top: 0.9rem;
+    color: var(--muted);
+  }
+
+  .team-size span {
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+
+  h2 {
+    margin-top: 0.65rem;
+    font-size: clamp(1.3rem, 2vw, 1.85rem);
+    font-weight: 650;
+    letter-spacing: -0.035em;
+    line-height: 1.25;
+  }
+
+  .archive-description {
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.8;
+  }
+
+  .archive-meta {
+    align-self: start;
+  }
+
+  .archive-meta p {
+    overflow-wrap: anywhere;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.63rem;
+    line-height: 1.8;
+  }
+
+  .archive-meta a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 1.25rem;
+    color: var(--muted-strong);
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-decoration-color: transparent;
+    text-decoration-line: underline;
+    text-underline-offset: 0.3em;
+    transition:
+      color 160ms ease,
+      text-decoration-color 160ms ease;
+  }
+
+  .archive-meta a:hover {
+    color: var(--text);
+    text-decoration-color: var(--accent);
+  }
+
+  @media (min-width: 900px) {
+    article {
+      grid-template-columns: minmax(14rem, 0.72fr) minmax(0, 1.15fr) minmax(12rem, 0.55fr);
+      gap: clamp(2rem, 5vw, 5rem);
+    }
+  }
+</style>

@@ -1,318 +1,55 @@
 ---
-// Skills.astro
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
 const categoryKeys = ['backend', 'database', 'cloud', 'ai', 'testing', 'frontend'] as const;
 
-const icons: Record<string, string> = {
-  backend: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>`,
-  database: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" /></svg>`,
-  cloud: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>`,
-  ai: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>`,
-  testing: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
-  frontend: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>`,
-};
-
-// Skills tags remain language-agnostic (they are proper nouns / tech names)
-const skillTags: Record<string, string[]> = {
-  backend: [
-    '.NET Core',
-    'Golang',
-    'Java',
-    'Python',
-    'gRPC',
-    'REST',
-    'DDD',
-    'Microservices',
-    'Redis',
-    'SOLID',
-  ],
-  database: [
-    'SQL Server',
-    'PostgreSQL',
-    'Oracle',
-    'DynamoDB',
-    'BigQuery',
-    'Kafka',
-    'RabbitMQ',
-    'Pub/Sub',
-    'Redis',
-  ],
-  cloud: [
-    'GCP',
-    'GKE',
-    'Cloud Run',
-    'Pub/Sub',
-    'BigQuery',
-    'AWS',
-    'Lambda',
-    'ECS/EKS',
-    'S3',
-    'SQS',
-    'API Gateway',
-    'CloudWatch',
-    'Azure',
-    'Azure Service Bus',
-    'AKS',
-    'Azure DevOps',
-    'Azure SQL',
-    'Azure Functions',
-    'Terraform',
-    'Docker',
-    'Kubernetes',
-    'Helm',
-    'GitHub Actions',
-    'Jenkins',
-  ],
-  ai: [
-    'Gemini API',
-    'AWS Bedrock',
-    'Claude API',
-    'GitHub Copilot',
-    'Claude Code',
-    'Cursor',
-    'LLMs',
-    'Prompt Engineering',
-  ],
-  testing: [
-    'xUnit',
-    'NUnit',
-    'JUnit',
-    'Selenium',
-    'Docker',
-    'SonarQube',
-    'Fortify',
-    'JMeter',
-    'TDD',
-    'BDD',
-  ],
-  frontend: [
-    'Angular',
-    'React',
-    'React Native',
-    'TypeScript',
-    'HTML5/CSS3',
-    'Git',
-    'Webpack',
-    'Vite',
-    'Postman',
-  ],
+const skillTags: Record<(typeof categoryKeys)[number], string[]> = {
+  backend: ['.NET Core', 'Golang', 'Java', 'Python', 'gRPC', 'Microservices'],
+  database: ['PostgreSQL', 'SQL Server', 'Oracle', 'Kafka', 'RabbitMQ', 'Redis'],
+  cloud: ['GCP', 'AWS', 'Azure', 'Kubernetes', 'Terraform', 'Docker'],
+  ai: ['Gemini API', 'AWS Bedrock', 'Claude API', 'LLMs', 'Prompt Engineering'],
+  testing: ['xUnit', 'NUnit', 'JUnit', 'Selenium', 'Fortify', 'JMeter'],
+  frontend: ['Angular', 'React', 'React Native', 'TypeScript', 'Vite'],
 };
 ---
 
-<section id="skills" class="py-24 sm:py-32 bg-gray-800/50 relative z-10">
-  <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto max-w-2xl lg:mx-0 mb-16">
-      <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-        {t('skills.title')}
-      </h2>
-      <p class="mt-4 text-lg text-slate-400">
-        {t('skills.subtitle')}
-      </p>
-      <div class="mt-4 h-1 w-20 bg-primary-500 rounded"></div>
+<section id="skills" class="section-shell skills-section" aria-labelledby="skills-heading">
+  <div class="site-container skills-layout">
+    <div class="skills-intro" data-reveal>
+      <h2 id="skills-heading" class="section-heading">{t('skills.title')}</h2>
+      <p class="section-copy">{t('skills.subtitle')}</p>
     </div>
 
-    <!-- Proficiency Summary -->
-    <div class="mb-14 rounded-2xl bg-gray-900/60 border border-gray-700/60 p-6 sm:p-8">
-      <h3 class="text-sm font-semibold uppercase tracking-widest text-primary-400 mb-6">
-        {t('proficiency.title')}
-      </h3>
-      <div class="space-y-5">
-        <!-- Expert -->
-        <div class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
-          <span
-            class="shrink-0 text-xs font-semibold text-emerald-400 uppercase tracking-wider sm:w-24 sm:mt-0.5"
-            >{t('proficiency.expert')}</span
-          >
-          <div class="flex flex-wrap gap-1.5">
-            {
-              [
-                'C# .NET',
-                'Golang',
-                'gRPC',
-                'REST APIs',
-                'Microservices',
-                'MS SQL',
-                'PostgreSQL',
-                'Azure',
-                'Azure Service Bus',
-                'Azure DevOps',
-                'Azure SQL',
-                'Azure Functions',
-                'Azure AD',
-                'AKS',
-                'AWS',
-                'Lambda',
-                'ECS/EKS',
-                'S3',
-                'SQS',
-                'SNS',
-                'API Gateway',
-                'CloudWatch',
-                'Docker',
-                'GitHub Actions',
-                'Entity Framework',
-                'Stored Procedures',
-              ].map((s) => (
-                <span class="inline-flex items-center rounded-md bg-emerald-900/30 px-2.5 py-0.5 text-xs font-medium text-emerald-300 ring-1 ring-inset ring-emerald-500/30">
-                  {s}
-                </span>
-              ))
-            }
-          </div>
-        </div>
-        <!-- Proficient -->
-        <div class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
-          <span
-            class="shrink-0 text-xs font-semibold text-primary-400 uppercase tracking-wider sm:w-24 sm:mt-0.5"
-            >{t('proficiency.proficient')}</span
-          >
-          <div class="flex flex-wrap gap-1.5">
-            {
-              [
-                'Java',
-                'Python',
-                'GCP',
-                'GKE',
-                'Cloud Run',
-                'Pub/Sub',
-                'BigQuery',
-                'Kubernetes',
-                'Helm',
-                'Terraform',
-                'Redis',
-                'Kafka',
-                'RabbitMQ',
-                'Angular',
-                'React Native',
-                'Oracle',
-                'DynamoDB',
-                'Selenium',
-                'MSTest',
-                'OpenTelemetry',
-                'Jenkins',
-              ].map((s) => (
-                <span class="inline-flex items-center rounded-md bg-primary-900/25 px-2.5 py-0.5 text-xs font-medium text-primary-300 ring-1 ring-inset ring-primary-500/30">
-                  {s}
-                </span>
-              ))
-            }
-          </div>
-        </div>
-        <!-- Familiar -->
-        <div class="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4">
-          <span
-            class="shrink-0 text-xs font-semibold text-slate-400 uppercase tracking-wider sm:w-24 sm:mt-0.5"
-            >{t('proficiency.familiar')}</span
-          >
-          <div class="flex flex-wrap gap-1.5">
-            {
-              [
-                'React',
-                'WinForms',
-                'Blazor',
-                'Knockout.js',
-                'MongoDB',
-                'BigQuery',
-                'LiteDB',
-                'AWS Bedrock',
-                'Gemini API',
-                'Docusaurus',
-              ].map((s) => (
-                <span class="inline-flex items-center rounded-md bg-gray-700/40 px-2.5 py-0.5 text-xs font-medium text-slate-400 ring-1 ring-inset ring-gray-600/40">
-                  {s}
-                </span>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="skills-grid">
+    <div class="skill-accordions" data-reveal>
       {
-        categoryKeys.map((key) => {
-          const catTitle = t(`skills.categories.${key}.title`);
-          const catDesc = t(`skills.categories.${key}.description`);
-          const catDetails = Array.from(t(`skills.categories.${key}.details`) as string[]);
-          const icon = icons[key];
-          const tags = skillTags[key];
+        categoryKeys.map((key, index) => {
+          const title = String(t(`skills.categories.${key}.title`));
+          const description = String(t(`skills.categories.${key}.description`));
+          const details = Array.from(t(`skills.categories.${key}.details`) as string[]);
 
           return (
-            <div class="skill-card group">
-              <div class="flex items-center gap-3 mb-4">
-                <div
-                  class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-900/30 text-primary-400 group-hover:bg-primary-500/20 group-hover:text-primary-300 transition-colors duration-300"
-                  set:html={icon}
-                />
-                <h3 class="text-lg font-semibold text-white">{catTitle}</h3>
-              </div>
-              <p class="text-sm text-slate-400 mb-5 leading-relaxed">{catDesc}</p>
-              <div class="flex flex-wrap gap-1.5">
-                {tags.map((skill) => (
-                  <span class="inline-flex items-center rounded-md bg-primary-900/20 px-2 py-0.5 text-xs font-medium text-primary-300 ring-1 ring-inset ring-primary-500/30">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-              <div class="mt-4 flex items-center gap-1.5 text-xs text-slate-500 group-hover:text-primary-400 transition-colors">
-                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <>
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                    />
-                  </>
-                </svg>
-                {t('skills.hoverHint')}
-              </div>
+            <details open={index === 0}>
+              <summary>
+                <span class="skill-summary-copy">
+                  <span class="skill-title">{title}</span>
+                  <span class="skill-description">{description}</span>
+                </span>
+                <span class="detail-mark" aria-hidden="true" />
+              </summary>
 
-              {/* Popup Dialog */}
-              <div class="skill-popup">
-                <div class="skill-popup-content">
-                  <div class="flex items-center gap-2.5 mb-5 pb-4 border-b border-gray-700/80">
-                    <div
-                      class="flex h-8 w-8 items-center justify-center rounded-md bg-primary-900/40 text-primary-400"
-                      set:html={icon}
-                    />
-                    <h4 class="text-base font-bold text-white">{catTitle}</h4>
-                  </div>
-                  <ul class="space-y-3">
-                    {catDetails.map((detail: string) => (
-                      <li class="flex items-start gap-2.5 text-sm text-slate-300 leading-relaxed">
-                        <span class="text-primary-500 mt-0.5 shrink-0 text-xs">▹</span>
-                        <span
-                          set:html={detail.replace(
-                            /^([^:]+:)/,
-                            '<strong class="text-white">$1</strong>'
-                          )}
-                        />
-                      </li>
-                    ))}
-                  </ul>
-                  <div class="mt-5 pt-3 border-t border-gray-700/50">
-                    <div class="flex flex-wrap gap-1.5">
-                      {tags.map((skill) => (
-                        <span class="inline-flex items-center rounded-full bg-primary-900/30 px-2 py-0.5 text-[10px] font-medium text-primary-300/80">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+              <div class="skill-detail">
+                <ul>
+                  {details.map((detail) => (
+                    <li>{detail}</li>
+                  ))}
+                </ul>
+                <p class="stack-line" translate="no">
+                  {skillTags[key].join(' / ')}
+                </p>
               </div>
-            </div>
+            </details>
           );
         })
       }
@@ -321,97 +58,120 @@ const skillTags: Record<string, string[]> = {
 </section>
 
 <style>
-  .skills-grid {
+  .skills-section {
+    background: var(--page);
+  }
+
+  .skills-layout {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+  }
+
+  .skills-intro .section-copy {
+    margin-top: 1.35rem;
+  }
+
+  .skill-accordions {
+    border-top: 1px solid var(--line-strong);
+  }
+
+  details {
+    border-bottom: 1px solid var(--line);
+  }
+
+  summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 2.75rem;
     gap: 1.5rem;
-  }
-  @media (min-width: 640px) {
-    .skills-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (min-width: 1024px) {
-    .skills-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
+    align-items: start;
+    padding-block: 1.5rem;
+    cursor: pointer;
   }
 
-  .skill-card {
-    position: relative;
-    border-radius: 1rem;
-    background: rgba(31, 41, 55, 0.8);
-    border: 1px solid rgba(55, 65, 81, 0.8);
-    padding: 2rem;
-    transition: all 0.3s ease;
-    cursor: default;
-  }
-  .skill-card:hover {
-    border-color: rgba(20, 184, 166, 0.5);
-    box-shadow: 0 0 20px rgba(20, 184, 166, 0.06);
-    transform: translateY(-2px);
+  .skill-summary-copy {
+    display: grid;
+    gap: 0.55rem;
   }
 
-  .skill-popup {
-    position: absolute;
-    left: 50%;
-    bottom: calc(100% + 12px);
-    transform: translateX(-50%) translateY(8px);
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
+  .skill-title {
+    color: var(--text);
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .skill-description {
+    max-width: 58ch;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .detail-mark {
+    display: inline-flex;
+    width: 2.75rem;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--accent-strong);
+    font-family: var(--font-mono);
     transition:
-      opacity 0.25s ease,
-      transform 0.25s ease,
-      visibility 0.25s ease;
-    z-index: 100;
-    width: 420px;
-    max-width: 90vw;
-  }
-  .skill-card:hover .skill-popup {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
-    transform: translateX(-50%) translateY(0);
+      border-color 160ms ease,
+      background-color 160ms ease;
   }
 
-  .skill-popup-content {
-    background: rgba(17, 24, 39, 0.98);
-    backdrop-filter: blur(16px);
-    border: 1px solid rgba(55, 65, 81, 0.9);
-    border-radius: 1rem;
-    padding: 1.5rem;
-    box-shadow:
-      0 25px 60px -12px rgba(0, 0, 0, 0.6),
-      0 0 40px rgba(20, 184, 166, 0.08);
-  }
-  .skill-popup-content::after {
-    content: '';
-    position: absolute;
-    bottom: -6px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    width: 12px;
-    height: 12px;
-    background: rgba(17, 24, 39, 0.98);
-    border-right: 1px solid rgba(55, 65, 81, 0.9);
-    border-bottom: 1px solid rgba(55, 65, 81, 0.9);
+  .detail-mark::before {
+    content: '+';
   }
 
-  .skill-card:nth-child(n + 4) .skill-popup {
-    bottom: auto;
-    top: calc(100% + 12px);
-    transform: translateX(-50%) translateY(-8px);
+  details[open] .detail-mark {
+    border-color: var(--line-strong);
+    background: var(--surface);
   }
-  .skill-card:nth-child(n + 4):hover .skill-popup {
-    transform: translateX(-50%) translateY(0);
+
+  details[open] .detail-mark::before {
+    content: '−';
   }
-  .skill-card:nth-child(n + 4) .skill-popup-content::after {
-    bottom: auto;
-    top: -6px;
-    border-right: none;
-    border-bottom: none;
-    border-left: 1px solid rgba(55, 65, 81, 0.9);
-    border-top: 1px solid rgba(55, 65, 81, 0.9);
+
+  .skill-detail {
+    max-width: 60rem;
+    padding: 0 4.25rem 1.75rem 0;
+  }
+
+  .skill-detail ul {
+    display: grid;
+    gap: 0.75rem;
+    margin: 0;
+    padding-left: 1.15rem;
+    color: var(--muted-strong);
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+
+  .skill-detail li::marker {
+    color: var(--accent);
+  }
+
+  .stack-line {
+    margin-top: 1.25rem;
+    color: var(--accent-strong);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    line-height: 1.8;
+  }
+
+  @media (min-width: 900px) {
+    .skills-layout {
+      grid-template-columns: minmax(16rem, 0.72fr) minmax(0, 1.28fr);
+      gap: clamp(4rem, 9vw, 9rem);
+    }
+
+    .skills-intro {
+      position: sticky;
+      top: 7rem;
+      align-self: start;
+    }
   }
 </style>

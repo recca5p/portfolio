@@ -1,5 +1,4 @@
 ---
-// Header.astro
 import LangToggle from './LangToggle.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
@@ -14,63 +13,211 @@ const navItems = [
 ];
 ---
 
-<header
-  class="sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white/95 supports-backdrop-blur:bg-white/60 dark:bg-transparent"
->
-  <div class="max-w-7xl mx-auto">
-    <div
-      class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 dark:border-slate-300/10 px-4"
+<header class="site-header">
+  <div class="site-container header-row">
+    <a
+      class="brand-link pressable"
+      href={`/${lang}/`}
+      aria-label={`${t('nav.home')} - Tan Phat Vo`}
     >
-      <div class="relative flex items-center justify-between">
-        <!-- Logo / Name -->
-        <a
-          class="mr-3 flex-none flex items-center gap-2.5 hover:opacity-80 transition-opacity"
-          href={`/${lang}/`}
-        >
-          <img
-            src="/logo-192.png"
-            alt="Tan Phat Vo logo"
-            width="32"
-            height="32"
-            decoding="async"
-            class="h-8 w-8 rounded-lg"
-          />
-          <span class="hidden sm:block font-bold text-xl tracking-tight text-white"
-            >Tan Phat Vo</span
-          >
-        </a>
+      <img src="/logo-192.png" alt="" width="36" height="36" decoding="async" aria-hidden="true" />
+      <span>Tan Phat Vo</span>
+    </a>
 
-        <!-- Desktop Navigation -->
-        <div class="relative hidden lg:flex items-center ml-auto">
-          <nav class="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
-            <ul class="flex space-x-8">
-              {
-                navItems.map((item) => (
-                  <li>
-                    <a
-                      href={item.path}
-                      class="hover:text-primary-500 dark:hover:text-primary-400 transition-colors"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </nav>
+    <div class="desktop-actions">
+      <nav aria-label={lang === 'en' ? 'Primary navigation' : 'Điều hướng chính'}>
+        <ul>
+          {
+            navItems.map((item) => (
+              <li>
+                <a href={item.path}>{item.label}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <LangToggle />
+    </div>
 
-          <div
-            class="flex items-center border-l border-slate-200 ml-6 pl-6 dark:border-slate-800 space-x-4"
-          >
-            <LangToggle menuId="language-menu-desktop" />
-          </div>
-        </div>
-
-        <!-- Mobile Actions (Hamburger would go here if needed) -->
-        <div class="flex items-center lg:hidden space-x-2">
-          <LangToggle menuId="language-menu-mobile" />
-        </div>
-      </div>
+    <div class="mobile-actions">
+      <LangToggle />
+      <details class="mobile-menu">
+        <summary class="pressable">{t('nav.menu')}</summary>
+        <nav aria-label={lang === 'en' ? 'Mobile navigation' : 'Điều hướng di động'}>
+          <ul>
+            {
+              navItems.map((item) => (
+                <li>
+                  <a href={item.path}>{item.label}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </details>
     </div>
   </div>
 </header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+    background: color-mix(in srgb, var(--page) 88%, transparent);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .header-row {
+    display: flex;
+    min-height: 4.5rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .brand-link {
+    display: inline-flex;
+    min-width: 0;
+    align-items: center;
+    gap: 0.7rem;
+    border-radius: var(--radius);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 750;
+    letter-spacing: -0.02em;
+    transition:
+      color 160ms ease,
+      transform 160ms var(--ease-out);
+  }
+
+  .brand-link img {
+    border-radius: 0.65rem;
+  }
+
+  .brand-link:hover {
+    color: var(--accent-strong);
+  }
+
+  .desktop-actions {
+    display: none;
+  }
+
+  .mobile-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+
+  .mobile-menu {
+    position: relative;
+  }
+
+  .mobile-menu summary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 0.6rem 0.8rem;
+    color: var(--muted-strong);
+    cursor: pointer;
+    font-size: 0.78rem;
+    font-weight: 700;
+    transition:
+      border-color 160ms ease,
+      background-color 160ms ease,
+      color 160ms ease,
+      transform 160ms var(--ease-out);
+  }
+
+  .mobile-menu summary:hover,
+  .mobile-menu[open] summary {
+    border-color: var(--line-strong);
+    background: var(--surface);
+    color: var(--text);
+  }
+
+  .mobile-menu nav {
+    position: absolute;
+    top: calc(100% + 0.65rem);
+    right: 0;
+    width: min(16rem, calc(100vw - 2rem));
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface-raised);
+    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 0.32);
+  }
+
+  .mobile-menu ul {
+    display: grid;
+    margin: 0;
+    padding: 0.45rem;
+    list-style: none;
+  }
+
+  .mobile-menu a {
+    display: flex;
+    min-height: 2.75rem;
+    align-items: center;
+    border-radius: calc(var(--radius) - 0.25rem);
+    padding-inline: 0.8rem;
+    color: var(--muted-strong);
+    font-size: 0.88rem;
+    font-weight: 650;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .mobile-menu a:hover {
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    color: var(--text);
+  }
+
+  @media (min-width: 768px) {
+    .desktop-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .desktop-actions ul {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .desktop-actions nav a {
+      display: inline-flex;
+      min-height: 2.75rem;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 650;
+      transition: color 160ms ease;
+    }
+
+    .desktop-actions nav a:hover {
+      color: var(--text);
+    }
+
+    .mobile-actions {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-transparency: reduce) {
+    .site-header {
+      background: var(--page);
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+    }
+  }
+</style>
