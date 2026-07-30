@@ -13,7 +13,7 @@ import { vi } from './vi';
 
 export const ui = { en, vi } as const;
 
-export type Translations = typeof ui[Lang];
+export type Translations = (typeof ui)[Lang];
 
 /**
  * Extracts the active language from a URL pathname.

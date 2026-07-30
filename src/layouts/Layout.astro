@@ -204,18 +204,9 @@ const workHistorySchema = {
     <link rel="dns-prefetch" href="https://api.qrserver.com" />
 
     <!-- === JSON-LD Structured Data === -->
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(personSchema)}
-    />
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(websiteSchema)}
-    />
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify(workHistorySchema)}
-    />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(workHistorySchema)} />
   </head>
 
   <body class="min-h-screen bg-gray-900 text-gray-100 flex flex-col">

@@ -1,46 +1,68 @@
-# Astro Starter Kit: Basics
+# Tan Phat Vo — Portfolio
+
+A bilingual, statically generated engineering portfolio built with Astro and
+Tailwind CSS. The site presents work experience, projects, skills, education,
+and contact information in English and Vietnamese.
+
+## Stack
+
+- Astro 7
+- Tailwind CSS 4 through the Vite plugin
+- TypeScript in strict mode
+- ESLint and Prettier
+- Static output for Cloudflare Pages
+
+## Local development
+
+Use the Node version declared in `.nvmrc`.
 
 ```sh
-npm create astro@latest -- --template basics
+nvm use
+npm ci
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The development server is available at `http://localhost:4321`.
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command                | Purpose                                                     |
+| ---------------------- | ----------------------------------------------------------- |
+| `npm run dev`          | Start the local Astro development server                    |
+| `npm run build`        | Generate the production site in `dist/`                     |
+| `npm run preview`      | Preview the production build locally                        |
+| `npm run typecheck`    | Run Astro and TypeScript diagnostics                        |
+| `npm run lint`         | Lint the repository                                         |
+| `npm run format`       | Format supported files with Prettier                        |
+| `npm run format:check` | Verify formatting without changing files                    |
+| `npm run check`        | Run all required validation, including the production build |
+
+Run `npm run check` before opening a pull request or pushing a code change.
+
+## Project map
 
 ```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+src/
+├── components/       Reusable portfolio sections and shared UI
+├── data/             Structured experience and project content
+├── i18n/             English/Vietnamese translations and lookup helpers
+├── layouts/          Shared HTML shell, metadata, and structured data
+├── pages/            File-based routes for /, /en, /vi, and project listings
+├── styles/           Tailwind theme and global styles
+└── types/            Shared TypeScript data contracts
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+The root page serves the English version and declares `/en` as its canonical
+route. Content changes should preserve parity between English and Vietnamese.
+See `AGENTS.md` for the repository conventions and the expected change
+workflow.
 
-## 🧞 Commands
+## Deployment
 
-All commands are run from the root of the project, from a terminal:
+The Astro configuration produces a static build:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- Build command: `npm run build`
+- Output directory: `dist`
+- Node.js: 24
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+The canonical site URL is configured in `astro.config.mjs`.

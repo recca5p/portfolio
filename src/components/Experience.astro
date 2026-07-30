@@ -8,10 +8,7 @@ const t = useTranslations(lang);
 
 /** Converts **bold** markdown syntax to semantic HTML <strong> */
 const renderMarkdownBold = (text: string): string =>
-  text.replace(
-    /\*\*(.*?)\*\*/g,
-    '<strong class="font-semibold text-white">$1</strong>'
-  );
+  text.replace(/\*\*(.*?)\*\*/g, '<strong class="font-semibold text-white">$1</strong>');
 
 interface ExperienceEntry {
   company: string;
@@ -28,17 +25,10 @@ const experiences = (experiencesData as ExperienceEntry[]).map((exp) => ({
 }));
 ---
 
-<section
-  id="experience"
-  class="py-24 sm:py-32"
-  aria-labelledby="experience-heading"
->
+<section id="experience" class="py-24 sm:py-32" aria-labelledby="experience-heading">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
     <div class="mx-auto max-w-2xl lg:mx-0 mb-16">
-      <h2
-        id="experience-heading"
-        class="text-3xl font-bold tracking-tight text-white sm:text-4xl"
-      >
+      <h2 id="experience-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
         {t('experience.title')}
       </h2>
       <div class="mt-4 h-1 w-20 bg-primary-500 rounded"></div>
@@ -71,9 +61,7 @@ const experiences = (experiencesData as ExperienceEntry[]).map((exp) => ({
 
               <div class="flex-auto">
                 <h3 class="text-xl font-bold text-white">{exp.role}</h3>
-                <p class="text-lg font-medium text-primary-400 mt-1">
-                  {exp.company}
-                </p>
+                <p class="text-lg font-medium text-primary-400 mt-1">{exp.company}</p>
               </div>
             </div>
 

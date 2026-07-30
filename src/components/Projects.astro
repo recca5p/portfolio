@@ -32,11 +32,7 @@ const projects = projectsData as Project[];
           aria-label="Previous projects"
           class="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-gray-700 text-gray-400 hover:text-white hover:ring-primary-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
         >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
             ><path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -49,16 +45,9 @@ const projects = projectsData as Project[];
           aria-label="Next projects"
           class="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-gray-700 text-gray-400 hover:text-white hover:ring-primary-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
         >
-          <svg
-            class="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            ><path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M9 5l7 7-7 7"></path></svg
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+            ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+            ></path></svg
           >
         </button>
       </div>
@@ -66,10 +55,7 @@ const projects = projectsData as Project[];
 
     <!-- Carousel Container -->
     <div class="relative overflow-hidden">
-      <div
-        id="projects-track"
-        class="flex transition-transform duration-500 ease-in-out gap-8"
-      >
+      <div id="projects-track" class="flex transition-transform duration-500 ease-in-out gap-8">
         {
           projects.map((project) => (
             <article class="flex-shrink-0 w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] flex flex-col bg-gray-800 rounded-2xl p-8 ring-1 ring-gray-700 hover:ring-primary-500 hover:shadow-xl transition-all duration-300">
@@ -100,13 +86,9 @@ const projects = projectsData as Project[];
               </div>
 
               <div class="flex-grow">
-                <h3 class="text-lg font-semibold leading-6 text-white">
-                  {project.title[lang]}
-                </h3>
+                <h3 class="text-lg font-semibold leading-6 text-white">{project.title[lang]}</h3>
                 {project.role && (
-                  <p class="mt-1 text-sm font-medium text-primary-500">
-                    {project.role[lang]}
-                  </p>
+                  <p class="mt-1 text-sm font-medium text-primary-500">{project.role[lang]}</p>
                 )}
                 {/* Company link */}
                 {project.company && (
@@ -171,16 +153,9 @@ const projects = projectsData as Project[];
         aria-label="Previous projects"
         class="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-gray-700 text-gray-400 hover:text-white hover:ring-primary-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
       >
-        <svg
-          class="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          ><path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M15 19l-7-7 7-7"></path></svg
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"
+          ></path></svg
         >
       </button>
       <button
@@ -188,16 +163,9 @@ const projects = projectsData as Project[];
         aria-label="Next projects"
         class="flex h-10 w-10 items-center justify-center rounded-full ring-1 ring-gray-700 text-gray-400 hover:text-white hover:ring-primary-500 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
       >
-        <svg
-          class="w-5 h-5"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          ><path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M9 5l7 7-7 7"></path></svg
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+          ><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
+          ></path></svg
         >
       </button>
     </div>
@@ -209,11 +177,7 @@ const projects = projectsData as Project[];
         class="inline-flex items-center gap-2 rounded-full bg-primary-600 px-8 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-500 transition-all hover:scale-105 active:scale-95"
       >
         {t('projects.viewAll')}
-        <svg
-          class="w-4 h-4"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
           ><path
             stroke-linecap="round"
             stroke-linejoin="round"
@@ -252,12 +216,8 @@ const projects = projectsData as Project[];
       track!.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
 
       // Update button states
-      const prevBtns = document.querySelectorAll(
-        '#projects-prev, #projects-prev-mobile'
-      );
-      const nextBtns = document.querySelectorAll(
-        '#projects-next, #projects-next-mobile'
-      );
+      const prevBtns = document.querySelectorAll('#projects-prev, #projects-prev-mobile');
+      const nextBtns = document.querySelectorAll('#projects-next, #projects-next-mobile');
 
       prevBtns.forEach((btn) => {
         (btn as HTMLButtonElement).disabled = currentIndex === 0;
@@ -285,12 +245,8 @@ const projects = projectsData as Project[];
 
     document.getElementById('projects-next')?.addEventListener('click', goNext);
     document.getElementById('projects-prev')?.addEventListener('click', goPrev);
-    document
-      .getElementById('projects-next-mobile')
-      ?.addEventListener('click', goNext);
-    document
-      .getElementById('projects-prev-mobile')
-      ?.addEventListener('click', goPrev);
+    document.getElementById('projects-next-mobile')?.addEventListener('click', goNext);
+    document.getElementById('projects-prev-mobile')?.addEventListener('click', goPrev);
 
     window.addEventListener('resize', updatePosition);
     updatePosition();

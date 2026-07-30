@@ -9,7 +9,7 @@ export const en = {
     title: 'Software Engineer',
     greeting: 'Hi, I am Tan Phat Vo',
     tagline: 'Senior Backend Engineer · .NET · Golang · Cloud · AI',
-    bio: 'Senior Backend Engineer with 5+ years building mission-critical systems for <strong>ANZ Bank (Australia)</strong>, <strong>Halliburton</strong>, and <strong>Sacombank</strong> — spanning digital banking, oil &amp; gas, logistics, and fintech. Currently modernising ANZ\'s International Money Transfer &amp; Apple Pay platform on GCP. Specialised in .NET / Golang microservices, cloud-native architecture, and AI-augmented engineering with measurable impact: 20x search optimisation, 60% cost reduction via OpenTelemetry, and 30% faster dev cycles with GenAI tooling.',
+    bio: "Senior Backend Engineer with 5+ years building mission-critical systems for <strong>ANZ Bank (Australia)</strong>, <strong>Halliburton</strong>, and <strong>Sacombank</strong> — spanning digital banking, oil &amp; gas, logistics, and fintech. Currently modernising ANZ's International Money Transfer &amp; Apple Pay platform on GCP. Specialised in .NET / Golang microservices, cloud-native architecture, and AI-augmented engineering with measurable impact: 20x search optimisation, 60% cost reduction via OpenTelemetry, and 30% faster dev cycles with GenAI tooling.",
   },
   experience: {
     title: 'Experience',
@@ -115,12 +115,10 @@ export const en = {
   },
   projects: {
     title: 'Projects & Other Jobs',
-    subtitle:
-      'Highlighting my focus on AI automation and other side activities.',
+    subtitle: 'Highlighting my focus on AI automation and other side activities.',
     team: 'Team',
     viewAll: 'View All Projects',
-    viewAllSubtitle:
-      'Explore all of my projects, side activities, and freelance work in detail.',
+    viewAllSubtitle: 'Explore all of my projects, side activities, and freelance work in detail.',
     backHome: 'Back to Home',
   },
   contact: {

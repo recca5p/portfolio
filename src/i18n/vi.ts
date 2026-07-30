@@ -35,8 +35,7 @@ export const vi = {
       },
       database: {
         title: 'Cơ sở dữ liệu & Messaging',
-        description:
-          'Chuyên sâu về RDBMS, NoSQL, và kiến trúc Message Broker thời gian thực.',
+        description: 'Chuyên sâu về RDBMS, NoSQL, và kiến trúc Message Broker thời gian thực.',
         details: [
           'RDBMS: SQL Server, PostgreSQL, Oracle — Tối ưu Query, Indexing, Stored Procedures',
           'Schema Design phức tạp cho hệ thống giao dịch khối lượng lớn',
@@ -115,18 +114,15 @@ export const vi = {
   },
   projects: {
     title: 'Dự án & Công việc khác',
-    subtitle:
-      'Tập trung vào giải pháp tự động hóa AI và các hoạt động khác.',
+    subtitle: 'Tập trung vào giải pháp tự động hóa AI và các hoạt động khác.',
     team: 'Nhóm',
     viewAll: 'Xem tất cả dự án',
-    viewAllSubtitle:
-      'Khám phá tất cả dự án, hoạt động phụ và công việc freelance chi tiết.',
+    viewAllSubtitle: 'Khám phá tất cả dự án, hoạt động phụ và công việc freelance chi tiết.',
     backHome: 'Về trang chủ',
   },
   contact: {
     title: 'Liên hệ',
-    subtitle:
-      'Bạn muốn hợp tác hoặc có câu hỏi? Hãy liên hệ qua bất kỳ kênh nào bên dưới.',
+    subtitle: 'Bạn muốn hợp tác hoặc có câu hỏi? Hãy liên hệ qua bất kỳ kênh nào bên dưới.',
     clickToEmail: 'Nhấn để gửi email',
     viewProfile: 'Xem hồ sơ',
     scanToChat: 'Quét để nhắn tin',
