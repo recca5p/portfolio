@@ -22,7 +22,7 @@ interface Props {
 
 const {
   title,
-  description = 'Senior Backend Engineer in Ho Chi Minh City. .NET, Golang, and cloud platforms for banking and industrial systems.',
+  description = 'Tan Phat Vo, Senior Software Engineer (Applied AI & Backend). Go, gRPC and .NET for banking; agentic coding with Claude Code. Ho Chi Minh City.',
   lang = 'en',
   canonicalPath,
   pageType = 'profile',
@@ -56,8 +56,8 @@ const ogImagePath = lang === 'vi' ? '/og/og-vi.png' : '/og/og-en.png';
 const socialImageUrl = new URL(ogImagePath, site).href;
 const socialImageAlt =
   lang === 'en'
-    ? 'Tan Phat Vo, Senior Backend Engineer - .NET / Golang - Ho Chi Minh City'
-    : 'Võ Tấn Phát, Senior Backend Engineer - .NET / Golang - Ho Chi Minh City';
+    ? 'Tan Phat Vo, Senior Software Engineer - Applied AI & Backend, Ho Chi Minh City'
+    : 'Võ Tấn Phát, Kỹ sư Phần mềm Senior - AI ứng dụng & Backend, Thành phố Hồ Chí Minh';
 const icon = await getImage({ src: logo, width: 192, height: 192, format: 'png' });
 const iconUrl = new URL(icon.src, site).href;
 
@@ -73,8 +73,8 @@ const personSchema = {
   alternateName: profile.name.vi,
   description:
     lang === 'en'
-      ? 'Senior Backend Engineer specializing in .NET, Golang, cloud-native microservices, and software development with AI.'
-      : 'Kỹ sư Backend Senior chuyên về .NET, Golang, microservices cloud-native và phát triển phần mềm với AI.',
+      ? 'Senior Software Engineer (Applied AI & Backend) building Go and gRPC services for ANZ Plus, with agentic coding in the Claude Code ecosystem.'
+      : 'Kỹ sư Phần mềm Senior (AI ứng dụng và Backend), xây dịch vụ Go và gRPC cho ANZ Plus, với lập trình agentic trong hệ sinh thái Claude Code.',
   jobTitle: profile.jobTitle.en,
   email: profile.email,
   image: iconUrl,
@@ -88,22 +88,21 @@ const personSchema = {
       addressCountry: 'VN',
     },
   },
-  sameAs: [profile.linkedinUrl],
+  sameAs: [profile.linkedinUrl, profile.githubUrl],
   knowsAbout: [
-    '.NET Core',
-    'Golang',
+    'Go',
+    'gRPC',
+    '.NET',
     'Java',
     'Python',
-    'Microservices',
-    'Cloud Architecture',
+    'Applied AI',
+    'Claude Code',
+    'OpenTelemetry',
     'GCP',
     'AWS',
     'Azure',
     'Kubernetes',
-    'Docker',
     'Kafka',
-    'gRPC',
-    'Redis',
   ],
   alumniOf: {
     '@type': 'EducationalOrganization',
@@ -132,18 +131,18 @@ const personSchema = {
   ],
   worksFor: {
     '@type': 'Organization',
-    name: 'ANZ Bank (Australia) - Digital Banking Division',
+    name: 'ANZ Bank (via HCLTech Vietnam)',
   },
 };
 
 const websiteSchema = {
   '@type': 'WebSite',
   '@id': websiteId,
-  name: 'Tan Phat Vo - Senior Backend Engineer',
-  alternateName: 'Võ Tấn Phát - Kỹ sư Backend Senior',
+  name: 'Tan Phat Vo - Senior Software Engineer - Applied AI & Backend',
+  alternateName: 'Võ Tấn Phát - Kỹ sư Phần mềm Senior - AI ứng dụng & Backend',
   url: new URL('/en/', site).href,
   description:
-    'Bilingual portfolio of Senior Backend Engineer Tan Phat Vo, covering backend, cloud, fintech, and automation work.',
+    'Bilingual portfolio of Tan Phat Vo, Senior Software Engineer (Applied AI & Backend), covering Go, gRPC, and .NET work for banking.',
   inLanguage: ['en', 'vi'],
   publisher: { '@id': personId },
 };

@@ -161,7 +161,7 @@ const layout = await page.evaluate(() => {
 check(layout.gap !== null && layout.gap < 80, `featured card gap is ${layout.gap}px`);
 check(layout.emailX === layout.phoneX, `contact columns ${layout.emailX} vs ${layout.phoneX}`);
 check(
-  layout.tags.includes('Golang') && layout.tags.includes('Kubernetes'),
+  layout.tags.includes('Go') && layout.tags.includes('Kubernetes'),
   `visible stacks: ${layout.tags}`
 );
 check(layout.cv, 'missing CV download link');
@@ -193,26 +193,39 @@ const menuLabel = (await summary.innerText()).replace(/\s+/g, ' ');
 check(menuLabel === 'Menu', `VI menu label is ${menuLabel}`);
 
 const copy = await page.evaluate(() => document.body.innerText);
-check(
-  copy.includes('2020-2022') || copy.includes('2020–2022'),
-  'missing 2020-2022 employment label'
-);
+check(copy.includes('Tháng 5/2020') && copy.includes('Tháng 1/2022'), 'missing Sacombank dates');
 check(!copy.includes('(2023)'), '2023 label is still present');
-check(copy.includes('Application Insights'), 'missing Application Insights title');
+check(!copy.includes('MAUI'), 'MAUI claim is still present');
+check(!copy.includes('Apple Pay'), 'Apple Pay claim is still present');
+check(copy.includes('Xamarin'), 'missing Xamarin');
 check(copy.includes('Tải CV'), 'missing Vietnamese CV label');
+check(copy.includes('Hơn 6 năm'), 'missing 6+ years in Vietnamese');
 await page.goto('http://127.0.0.1:4178/vi/projects/', { waitUntil: 'networkidle' });
 const projectCopy = await page.evaluate(() => document.body.innerText);
 check(projectCopy.includes('logistics nội bộ nhà máy'), 'missing intralogistics wording');
+check(projectCopy.includes('Application Insights'), 'missing Application Insights title');
+check(projectCopy.includes('Bán thời gian'), 'missing freelance label');
+check(!projectCopy.includes('MAUI'), 'MAUI claim is still on the project page');
+check(!projectCopy.includes('200.000'), 'old POS terminal figure is still present');
+check(!projectCopy.includes('508'), 'old transaction figure is still present');
 
 await page.goto('http://127.0.0.1:4178/en/', { waitUntil: 'networkidle' });
 const english = await page.evaluate(() => document.body.innerText);
 check(english.includes('Download CV'), 'missing Download CV');
+check(english.includes('recca5p'), 'missing GitHub profile');
+check(english.includes('Senior Software Engineer - Applied AI & Backend'), 'missing new headline');
+check(english.includes('6+ years'), 'missing 6+ years');
+check(english.includes('HCLTech'), 'missing HCLTech');
 check(english.includes('20x faster document search'), 'missing directional 20x label');
-check(english.includes('>60% lower observability cost'), 'missing directional 60% label');
+check(english.includes('more than 60% lower observability cost'), 'missing directional 60% label');
 check(english.includes('~30% reduction in time-to-market'), 'missing ANZ time-to-market wording');
-check(english.includes('Architected'), 'missing Architected');
+check(english.includes('contributed to a ~30%'), 'missing contributed wording');
+check(!english.includes('Architected'), 'still says Architected');
+check(!english.includes('Apple Pay'), 'Apple Pay is still present');
 check(!english.includes('Led the adoption'), 'still says Led the adoption');
 check(!english.includes('development cycle time'), 'still says development cycle time');
+check(!english.includes('MAUI'), 'MAUI is still present');
+check(!english.includes('Circular 78'), 'Circular 78 is still present');
 check(english.includes('Selected projects'), 'missing Selected projects');
 check(!english.includes('This was a solo effort'), 'solo filler remains');
 

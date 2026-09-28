@@ -69,6 +69,13 @@ const zaloQr = await toQr(zaloUrl, lang === 'en' ? 'Zalo contact QR code' : 'Mã
       </div>
 
       <div class="contact-row">
+        <span translate="no">GitHub</span>
+        <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer">
+          <strong translate="no">{profile.githubLabel}</strong>
+        </a>
+      </div>
+
+      <div class="contact-row">
         <span translate="no">WhatsApp</span>
         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
           <strong>{profile.phoneDisplay}</strong>

@@ -15,8 +15,13 @@ const t = useTranslations(lang);
 const title = formatProse(project.title[lang]);
 const description = formatProse(project.description[lang]);
 const role = project.role ? formatProse(project.role[lang]) : undefined;
+const engagement = project.engagement ? formatProse(project.engagement[lang]) : undefined;
 const teamLabel =
-  project.teamSize === 1 ? String(t('projects.solo')) : `${t('projects.team')} ${project.teamSize}`;
+  project.teamSize === 1
+    ? String(t('projects.solo'))
+    : typeof project.teamSize === 'number'
+      ? `${t('projects.team')} ${project.teamSize}`
+      : undefined;
 const companyLabel =
   lang === 'en'
     ? `Visit ${project.company?.name ?? ''} website`
@@ -26,13 +31,24 @@ const companyLabel =
 <article class:list={['project-card lift-on-hover', { featured }]}>
   <h3>{title}</h3>
   {role && <p class="project-byline">{role}</p>}
+  {engagement && <p class="project-byline">{engagement}</p>}
   <p class="project-description">{description}</p>
+  {project.sources && project.sources.length > 0 && (
+    <p class="project-sources">
+      <span>{t('experience.source')}: </span>
+      {project.sources.map((source) => (
+        <a href={source.url} target="_blank" rel="noopener noreferrer">
+          {source.label[lang]}
+        </a>
+      ))}
+    </p>
+  )}
 
   <div class="project-footer">
     <p class="project-stack" translate="no">
       {project.tags.slice(0, featured ? 8 : 5).join(' / ')}
     </p>
-    <p class="project-team">{teamLabel}</p>
+    {teamLabel && <p class="project-team">{teamLabel}</p>}
     {project.company?.url && (
       <a
         href={project.company.url}
@@ -71,11 +87,12 @@ const companyLabel =
   }
 
   .featured h3 {
-    max-width: 18ch;
+    max-width: 18em;
   }
 
   .project-byline,
   .project-description,
+  .project-sources,
   .project-team {
     color: var(--muted-strong);
     font-size: var(--font-body);
@@ -88,6 +105,21 @@ const companyLabel =
 
   .project-description {
     margin-top: 0.85rem;
+  }
+
+  .project-sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.85rem;
+    margin-top: 0.85rem;
+    font-size: var(--font-small);
+  }
+
+  .project-sources a {
+    color: var(--muted-strong);
+    text-decoration-line: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 0.2em;
   }
 
   .featured .project-description {

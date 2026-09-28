@@ -105,9 +105,6 @@ for (const page of pages) {
   if (twitterCard !== 'summary_large_image') {
     failures.push(`${page.file}: twitter:card must be summary_large_image`);
   }
-  if (page.file.includes('projects') && /Golang|Kubernetes|GCP/.test(description ?? '')) {
-    failures.push(`${page.file}: project description names a technology no project record uses`);
-  }
   if (h1Count !== 1) failures.push(`${page.file}: expected one <h1>, found ${h1Count}`);
   if (/<meta\b[^>]*name="keywords"/.test(html)) {
     failures.push(`${page.file}: obsolete meta keywords tag is present`);

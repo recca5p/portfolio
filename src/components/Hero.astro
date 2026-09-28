@@ -10,6 +10,7 @@ const t = useTranslations(lang);
   <div class="site-container hero-copy hero-enter">
     <h1 id="hero-heading">{t('home.greeting')}</h1>
     <p class="hero-role">{t('home.title')}</p>
+    <p class="hero-tagline">{t('home.tagline')}</p>
     <p class="hero-facts">
       <span>{profile.location[lang]}</span>
       <span>{t('home.years')}</span>
@@ -27,6 +28,14 @@ const t = useTranslations(lang);
         rel="noopener noreferrer"
       >
         LinkedIn
+      </a>
+      <a
+        class="button-secondary"
+        href={profile.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        GitHub
       </a>
       <a class="button-secondary" href={`mailto:${profile.email}`}>
         {t('home.emailCta')}
@@ -56,11 +65,20 @@ const t = useTranslations(lang);
   }
 
   .hero-role {
+    max-width: 22em;
     margin-top: 1rem;
     color: var(--muted-strong);
     font-size: var(--font-lead);
     font-weight: 650;
     letter-spacing: -0.02em;
+  }
+
+  .hero-tagline {
+    max-width: 36rem;
+    margin-top: 0.75rem;
+    color: var(--text);
+    font-size: var(--font-body);
+    line-height: 1.5;
   }
 
   .hero-facts {

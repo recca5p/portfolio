@@ -60,11 +60,12 @@ role, city, and current employer. Do not put a stock photograph back.
 - Mark: `src/assets/logo-192.png`
 - CV: `public/cv/Tan-Phat-Vo-CV.pdf`
 
-Numbers already in those files or on the CV, and only those numbers, may
-appear on the page. Examples already recorded: 5+ years, 20x document search,
-more than 60% lower observability cost, about 30% reduction in time-to-market,
-5x freight-quote search, team sizes, and the Sacombank customer, transaction,
-and terminal figures written in the experience entry.
+Personal metrics already recorded, and only these: 6+ years, 20x document
+search, more than 60% lower observability cost, about 30% shorter
+time-to-market (a contribution, not a solo claim), 90%+ test coverage on ANZ
+IMT gRPC contracts, and 5x faster quote search. Bank-scale figures need a
+year and a source, and they describe the bank. The published CV is
+`public/cv/Tan-Phat-Vo-CV.pdf`. GitHub is https://github.com/recca5p.
 
 ## Product Principles
 

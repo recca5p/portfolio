@@ -7,7 +7,7 @@ import projectsData from '../data/projects.json';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const homepageIds = ['halliburton-ecompletion', 'bollore-otel', 'bollore-freight'];
+const homepageIds = ['anz-plus', 'ioga', 'anz-bifrost'];
 const projects = homepageIds.map((id) => {
   const project = (projectsData as Project[]).find((item) => item.id === id);
   if (!project) {
