@@ -3,13 +3,14 @@ import Layout from '../../../layouts/Layout.astro';
 import ProjectsArchive from '../../../components/ProjectsArchive.astro';
 import type { Project } from '../../../types/project';
 import projectsData from '../../../data/projects.json';
+import { projectMetaDescription } from '../../../utils/project-meta';
 
 const projects = projectsData as Project[];
 ---
 
 <Layout
-  title="Backend & Cloud Projects | Tan Phat Vo"
-  description={`Explore ${projects.length} backend, cloud, AI, fintech, and automation projects by Tan Phat Vo, built with .NET, Golang, GCP, AWS, Azure, Kubernetes, and OpenTelemetry.`}
+  title="Selected projects | Tan Phat Vo"
+  description={projectMetaDescription(projects, 'en')}
   lang="en"
   pageType="collection"
 >

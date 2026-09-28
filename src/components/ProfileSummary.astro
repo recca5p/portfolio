@@ -3,7 +3,7 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const metrics = t('home.metrics') as unknown as Array<{ value: string; label: string }>;
+const results = t('home.results') as string[];
 ---
 
 <section class="profile-summary" aria-labelledby="profile-summary-heading">
@@ -15,14 +15,11 @@ const metrics = t('home.metrics') as unknown as Array<{ value: string; label: st
       <p class="profile-bio" set:html={t('home.bio')} />
     </div>
 
-    <dl class="metrics">
-      {metrics.map((metric) => (
-        <div>
-          <dt>{metric.label}</dt>
-          <dd>{metric.value}</dd>
-        </div>
+    <ul class="result-notes">
+      {results.map((result) => (
+        <li>{result}</li>
       ))}
-    </dl>
+    </ul>
   </div>
 </section>
 
@@ -35,78 +32,42 @@ const metrics = t('home.metrics') as unknown as Array<{ value: string; label: st
 
   .summary-grid {
     display: grid;
-    gap: 3rem;
+    gap: 2rem;
   }
 
   .profile-bio {
     max-width: 68ch;
     margin-top: 1.5rem;
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.85;
+    color: var(--muted-strong);
+    font-size: var(--font-body);
+    line-height: 1.7;
   }
 
-  .metrics {
+  .result-notes {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-self: start;
+    gap: 0.85rem;
     margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .result-notes li {
     border-top: 1px solid var(--line-strong);
-  }
-
-  .metrics div {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 0.65rem;
-    padding: 1.25rem 0.5rem 0 0;
-  }
-
-  .metrics dt {
-    color: var(--muted);
-    font-size: 0.75rem;
-    line-height: 1.5;
-  }
-
-  .metrics dd {
-    margin: 0;
+    padding-top: 0.85rem;
     color: var(--text);
-    font-family: var(--font-mono);
-    font-size: clamp(1.5rem, 3vw, 2rem);
-    font-variant-numeric: tabular-nums;
-    font-weight: 650;
-    letter-spacing: -0.04em;
+    font-size: var(--font-body);
+    line-height: 1.5;
   }
 
   @media (min-width: 900px) {
     .summary-grid {
-      grid-template-columns: minmax(0, 1.35fr) minmax(24rem, 0.65fr);
+      grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.6fr);
       align-items: start;
-      gap: clamp(4rem, 8vw, 8rem);
-    }
-  }
-
-  @media (max-width: 540px) {
-    .metrics {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
+      gap: clamp(3rem, 8vw, 6rem);
     }
 
-    .metrics div {
-      display: grid;
-      grid-template-columns: 5rem minmax(0, 1fr);
-      align-items: baseline;
-      column-gap: 1rem;
-      padding-top: 1.25rem;
-    }
-
-    .metrics dd {
-      grid-column: 1;
-      grid-row: 1;
-    }
-
-    .metrics dt {
-      grid-column: 2;
-      grid-row: 1;
+    .result-notes {
+      padding-top: 0.4rem;
     }
   }
 </style>

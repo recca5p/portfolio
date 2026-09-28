@@ -1,6 +1,9 @@
 [
   {
-    "company": "ANZ Bank (Australia) - Digital Banking Division",
+    "company": {
+      "en": "ANZ Bank (Australia) - Digital Banking Division",
+      "vi": "ANZ Bank (Úc) - Khối Ngân hàng số"
+    },
     "role": {
       "en": "Senior Backend Engineer",
       "vi": "Kỹ sư Backend Senior"
@@ -11,23 +14,26 @@
     },
     "bullets": {
       "en": [
-        "Worked on the design and scaling of International Money Transfer and Apple Pay for ANZ Plus, with an Agile team across Vietnam, Australia, and India.",
-        "Designed and maintained Golang and gRPC microservices on GCP (BigQuery, Pub/Sub, Cloud Run) for high-volume transaction data.",
+        "Architected scalable, low-latency Golang and gRPC microservices to modernize International Money Transfer and Apple Pay for ANZ Plus, with a team across Vietnam, Australia, and India.",
+        "Designed and maintained those services on GCP (BigQuery, Pub/Sub, Cloud Run) for high-volume transaction data.",
         "Ran the services on GKE with Helm and GitHub Actions, and gated each deploy on SonarQube and Fortify scans.",
-        "Led the adoption of GitHub Copilot and Claude Code on the Golang and .NET workflow, including boilerplate generation, and cut development cycle time by about 30%.",
+        "Orchestrated AI-native development with Claude Code and GitHub Copilot, including boilerplate generation and legacy refactoring for Golang and .NET microservices, with a ~30% reduction in time-to-market.",
         "Used AI agents to draft unit tests and edge cases for gRPC contracts on the International Money Transfer system, and held coverage above 90%."
       ],
       "vi": [
-        "Tham gia thiết kế và mở rộng Chuyển tiền quốc tế cùng Apple Pay cho ANZ Plus, trong nhóm Agile ở Việt Nam, Úc và Ấn Độ.",
-        "Thiết kế và duy trì microservices Golang và gRPC trên GCP (BigQuery, Pub/Sub, Cloud Run) cho dữ liệu giao dịch khối lượng lớn.",
+        "Thiết kế kiến trúc các microservice Golang và gRPC có độ trễ thấp để hiện đại hóa Chuyển tiền quốc tế và Apple Pay cho ANZ Plus, cùng nhóm tại Việt Nam, Úc và Ấn Độ.",
+        "Thiết kế và duy trì các dịch vụ đó trên GCP (BigQuery, Pub/Sub, Cloud Run) cho dữ liệu giao dịch khối lượng lớn.",
         "Vận hành dịch vụ trên GKE bằng Helm và GitHub Actions, và chặn mỗi lần triển khai bằng quét SonarQube và Fortify.",
-        "Dẫn việc đưa GitHub Copilot và Claude Code vào quy trình Golang và .NET, gồm tạo mã boilerplate, và giảm thời gian chu kỳ phát triển khoảng 30%.",
-        "Dùng AI agent để soạn unit test và các ca biên cho hợp đồng gRPC của hệ thống Chuyển tiền quốc tế, và giữ độ phủ trên 90%."
+        "Điều phối quy trình phát triển với AI bằng Claude Code và GitHub Copilot, gồm tạo boilerplate và tái cấu trúc mã cũ cho microservice Golang và .NET, giảm khoảng 30% thời gian đưa sản phẩm ra thị trường.",
+        "Dùng AI agent để soạn unit test và ca biên cho gRPC contract của hệ thống Chuyển tiền quốc tế, và giữ độ phủ trên 90%."
       ]
     }
   },
   {
-    "company": "FPT Software - Offshore for Halliburton (Oil and Gas)",
+    "company": {
+      "en": "FPT Software - Offshore for Halliburton (Oil and Gas)",
+      "vi": "FPT Software - Offshore cho Halliburton (Dầu khí)"
+    },
     "role": {
       "en": "Senior Backend Developer",
       "vi": "Lập trình viên Backend Senior"
@@ -38,25 +44,28 @@
     },
     "bullets": {
       "en": [
-        "Built the eCompletion Tools WinForms app used on offshore rigs with no internet. LiteDB stores data on the machine and syncs to the central server when the connection returns.",
+        "Designed and led backend development for Halliburton oil and gas systems with .NET Core and Golang microservices. Built the eCompletion Tools WinForms app used on offshore rigs with no internet. LiteDB stores data on the machine and syncs to the central server when the connection returns.",
         "Moved the on-premise MS SQL database to Azure SQL, and replaced legacy Active Directory sign-in with Azure AD.",
         "Reworked document search through stored procedures and EF Core, and cut search response time by 20x on large drilling datasets.",
-        "Moved sync-server messaging from RabbitMQ to Azure Service Bus so downstream services receive events, with dead-lettering and cloud-native observability.",
+        "Moved sync-server messaging from RabbitMQ to Azure Service Bus so downstream services receive events, and moved inter-service communication toward gRPC.",
         "Maintained SAMS (Sub-Atmospheric Mud System), a WebForms app that ingests, transforms, and classifies well data to decide whether a dataset is a SAMS event. Worked with petroleum engineers on the domain rules.",
-        "Wrote MSTest unit and integration tests for the three Halliburton projects so QA could run regression, and kept Azure DevOps pipelines with Fortify scan gates. Also built Selenium end-to-end suites and Docusaurus SDK docs for Reveal BI (Infragistics)."
+        "Wrote MSTest unit and integration tests with TDD for the Halliburton projects, and kept Azure DevOps CI/CD pipelines with Fortify scan gates. Also built Selenium end-to-end suites and Docusaurus SDK docs for Reveal BI (Infragistics)."
       ],
       "vi": [
-        "Xây ứng dụng WinForms eCompletion Tools cho giàn khoan không có internet. LiteDB lưu dữ liệu trên máy và đồng bộ lên máy chủ trung tâm khi có kết nối.",
+        "Thiết kế và dẫn backend cho các hệ thống dầu khí Halliburton bằng microservice .NET Core và Golang. Xây ứng dụng WinForms eCompletion Tools cho giàn khoan không có internet. LiteDB lưu dữ liệu trên máy và đồng bộ lên máy chủ trung tâm khi có kết nối.",
         "Chuyển cơ sở dữ liệu MS SQL tại chỗ lên Azure SQL, và thay đăng nhập Active Directory cũ bằng Azure AD.",
         "Làm lại tìm kiếm tài liệu qua stored procedure và EF Core, và giảm thời gian phản hồi tìm kiếm 20 lần trên bộ dữ liệu khoan lớn.",
-        "Chuyển messaging của máy chủ đồng bộ từ RabbitMQ sang Azure Service Bus để dịch vụ phía sau nhận sự kiện, kèm dead-letter và observability trên cloud.",
+        "Chuyển messaging của máy chủ đồng bộ từ RabbitMQ sang Azure Service Bus để dịch vụ phía sau nhận sự kiện, và chuyển giao tiếp giữa các dịch vụ sang gRPC.",
         "Duy trì SAMS (Sub-Atmospheric Mud System), ứng dụng WebForms nhận, chuyển đổi và phân loại dữ liệu giếng để xác định sự kiện SAMS. Làm việc với kỹ sư dầu khí về quy tắc nghiệp vụ.",
-        "Viết unit test và integration test bằng MSTest cho ba dự án Halliburton để QA chạy hồi quy, và giữ pipeline Azure DevOps với cổng quét Fortify. Đồng thời xây bộ kiểm thử đầu-cuối bằng Selenium và tài liệu SDK trên Docusaurus cho Reveal BI (Infragistics)."
+        "Viết unit test và integration test bằng MSTest theo TDD cho các dự án Halliburton, và giữ pipeline CI/CD Azure DevOps với cổng quét Fortify. Đồng thời xây bộ kiểm thử đầu-cuối bằng Selenium và tài liệu SDK trên Docusaurus cho Reveal BI (Infragistics)."
       ]
     }
   },
   {
-    "company": "Saigon Thuong Tin Commercial Joint Stock Bank (Sacombank)",
+    "company": {
+      "en": "Saigon Thuong Tin Commercial Joint Stock Bank (Sacombank)",
+      "vi": "Ngân hàng TMCP Sài Gòn Thương Tín (Sacombank)"
+    },
     "role": {
       "en": "Software Developer",
       "vi": "Lập trình viên Phần mềm"
@@ -67,18 +76,18 @@
     },
     "bullets": {
       "en": [
-        "Built and maintained Sacombank's government-compliant E-Invoice system on ABP Framework (.NET and Angular), covering banking fee types for 20 million customers and 508 million+ digital transactions a year (2023). Added invoice pages, fixed defects, tuned Oracle and MSSQL stored procedures, and kept the system aligned with Ministry of Finance Circular 78/2021/TT-BTC.",
+        "Developed the core E-invoice and CRM systems on .NET Core, Golang, and Java Spring Boot. The E-invoice platform, on ABP Framework and Angular, covers banking fee types for 20 million customers and 508 million+ digital transactions a year (2020-2022), aligned with Ministry of Finance Circular 78/2021/TT-BTC.",
         "Took ownership of the POS management system for 200,000+ terminals supporting Visa, Mastercard, UnionPay, NAPAS, MoMo, ZaloPay, and VNPAY. Inherited it from an outsourced vendor, stabilized it, and extended it in .NET C# and Java.",
-        "Led the move of the internal CRM app off a .NET MAUI codebase that failed builds, especially on iOS, onto one React Native (Expo) codebase for iOS and Android. Worked with BA and QA to keep feature parity.",
+        "Led the move of the internal CRM mobile app off a .NET MAUI codebase that failed builds, especially on iOS, onto one React Native (Expo) codebase for iOS and Android. Worked with BA and QA to keep feature parity.",
         "Ran Jenkins pipelines, Azure configuration, and Oracle administration for the POS system, with zero-downtime releases for the banking services.",
         "Wrote unit tests and integration scenarios across Sacombank products so data and API contracts stayed consistent between core banking modules."
       ],
       "vi": [
-        "Xây và duy trì hệ thống hóa đơn điện tử Sacombank theo quy định nhà nước trên ABP Framework (.NET và Angular), cho các loại phí ngân hàng của 20 triệu khách hàng và hơn 508 triệu giao dịch số mỗi năm (2023). Thêm trang hóa đơn, sửa lỗi, tối ưu stored procedure Oracle và MSSQL, và giữ hệ thống khớp Thông tư 78/2021/TT-BTC của Bộ Tài chính.",
+        "Xây hệ thống hóa đơn điện tử và CRM cốt lõi trên .NET Core, Golang và Java Spring Boot. Nền tảng hóa đơn điện tử, trên ABP Framework và Angular, phục vụ các loại phí ngân hàng của 20 triệu khách hàng và hơn 508 triệu giao dịch số mỗi năm (2020-2022), khớp Thông tư 78/2021/TT-BTC của Bộ Tài chính.",
         "Nhận hệ thống quản lý POS cho 200.000+ máy, hỗ trợ Visa, Mastercard, UnionPay, NAPAS, MoMo, ZaloPay và VNPAY. Nhận bàn giao từ nhà thầu, ổn định hệ thống, rồi mở rộng bằng .NET C# và Java.",
-        "Dẫn việc chuyển ứng dụng CRM nội bộ khỏi codebase .NET MAUI hay lỗi build, nhất là trên iOS, sang một codebase React Native (Expo) cho iOS và Android. Phối hợp BA và QA để giữ đủ tính năng.",
+        "Dẫn việc chuyển ứng dụng CRM di động khỏi codebase .NET MAUI hay lỗi build, nhất là trên iOS, sang một codebase React Native (Expo) cho iOS và Android. Phối hợp BA và QA để giữ đủ tính năng.",
         "Vận hành pipeline Jenkins, cấu hình Azure và quản trị Oracle cho hệ thống POS, với các bản phát hành không gián đoạn cho dịch vụ ngân hàng.",
-        "Viết unit test và kịch bản integration cho các sản phẩm Sacombank để dữ liệu và hợp đồng API giữ nhất quán giữa các module core banking."
+        "Viết unit test và kịch bản integration cho các sản phẩm Sacombank để dữ liệu và API contract giữ nhất quán giữa các module core banking."
       ]
     }
   }

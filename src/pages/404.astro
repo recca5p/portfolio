@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { profile } from '../data/profile';
+---
+
+<Layout
+  title="Page not found | Tan Phat Vo"
+  description="That address is not on this site."
+  indexable={false}
+>
+  <section class="section-shell">
+    <div class="site-container not-found">
+      <h1>Page not found</h1>
+      <p>That address is not on this site.</p>
+      <ul>
+        <li>
+          <a href="/en/">English home</a>
+        </li>
+        <li>
+          <a href="/vi/">Vietnamese home</a>
+        </li>
+        <li>
+          <a href="/en/projects/">English projects</a>
+        </li>
+        <li>
+          <a href="/vi/projects/">Vietnamese projects</a>
+        </li>
+        <li>
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .not-found h1 {
+    font-size: var(--font-display);
+    font-weight: 650;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .not-found p {
+    margin-top: 1rem;
+    color: var(--muted-strong);
+    font-size: var(--font-body);
+  }
+
+  .not-found ul {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .not-found a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--text);
+    font-size: var(--font-body);
+    text-decoration-color: var(--accent);
+    text-decoration-line: underline;
+    text-underline-offset: 0.25em;
+  }
+</style>

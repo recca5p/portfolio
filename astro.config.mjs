@@ -4,14 +4,25 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
+const site = 'https://portfolio-7j9.pages.dev';
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://portfolio-7j9.pages.dev',
+  site,
   trailingSlash: 'always',
+  redirects: {
+    '/': '/en/',
+  },
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [
     sitemap({
-      // `/` permanently redirects to the canonical English homepage.
-      filter: (page) => page !== 'https://portfolio-7j9.pages.dev/',
+      filter: (page) => page !== `${site}/` && !page.includes('/404'),
+      serialize(item) {
+        item.lastmod = new Date().toISOString();
+        return item;
+      },
     }),
   ],
   vite: {

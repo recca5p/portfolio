@@ -13,6 +13,7 @@ export interface ProjectCompany {
 
 /** A single project entry from projects.json */
 export interface Project {
+  id: string;
   title: BilingualText;
   role: BilingualText;
   teamSize: number;

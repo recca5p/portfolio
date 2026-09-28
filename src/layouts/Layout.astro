@@ -1,8 +1,11 @@
 ---
 import '../styles/global.css';
 
+import { getImage } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import logo from '../assets/logo-192.png';
+import { profile } from '../data/profile';
 import type { Lang } from '../i18n/utils';
 import manropeLatinUrl from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
 import manropeVietnameseUrl from '@fontsource-variable/manrope/files/manrope-vietnamese-wght-normal.woff2?url';
@@ -13,18 +16,20 @@ interface Props {
   lang?: Lang;
   /** Override the canonical URL path (defaults to current pathname) */
   canonicalPath?: string;
-  pageType: 'profile' | 'collection';
+  pageType?: 'profile' | 'collection';
+  indexable?: boolean;
 }
 
 const {
   title,
-  description = 'Senior Backend Engineer specializing in .NET, Golang, Java, Microservices, Cloud-Native Architecture (GCP, AWS, Azure), and AI-augmented development. 5+ years of experience.',
+  description = 'Senior Backend Engineer in Ho Chi Minh City. .NET, Golang, and cloud platforms for banking and industrial systems.',
   lang = 'en',
   canonicalPath,
-  pageType,
+  pageType = 'profile',
+  indexable = true,
 } = Astro.props;
 
-const site = Astro.site ?? new URL('https://portfolio-7j9.pages.dev');
+const site = Astro.site ?? new URL(profile.site);
 const siteUrl = site.origin;
 const normalizePath = (path: string): string => {
   const pathname = path.startsWith('/') ? path : `/${path}`;
@@ -34,34 +39,56 @@ const normalizePath = (path: string): string => {
 const currentPath = normalizePath(canonicalPath ?? Astro.url.pathname);
 const canonicalUrl = new URL(currentPath, site).href;
 const altLang = lang === 'en' ? 'vi' : 'en';
-const altPath = currentPath.replace(`/${lang}`, `/${altLang}`);
+const englishPath = currentPath.startsWith('/vi/')
+  ? currentPath.replace(/^\/vi\//, '/en/')
+  : currentPath.startsWith('/en/')
+    ? currentPath
+    : '/en/';
+const altPath = currentPath.startsWith(`/${lang}/`)
+  ? currentPath.replace(`/${lang}/`, `/${altLang}/`)
+  : `/${altLang}/`;
 const altUrl = new URL(altPath, site).href;
-const xDefaultUrl = new URL('/en/', site).href;
+const xDefaultUrl = new URL(englishPath, site).href;
 const ogLocale = lang === 'en' ? 'en_US' : 'vi_VN';
 const ogLocaleAlt = lang === 'en' ? 'vi_VN' : 'en_US';
 const ogType = pageType === 'profile' ? 'profile' : 'website';
-const socialImageUrl = new URL('/logo.png', site).href;
+const ogImagePath = lang === 'vi' ? '/og/og-vi.png' : '/og/og-en.png';
+const socialImageUrl = new URL(ogImagePath, site).href;
 const socialImageAlt =
-  lang === 'en' ? 'Tan Phat Vo portfolio logo' : 'Logo portfolio của Võ Tấn Phát';
+  lang === 'en'
+    ? 'Tan Phat Vo, Senior Backend Engineer - .NET / Golang - Ho Chi Minh City'
+    : 'Võ Tấn Phát, Senior Backend Engineer - .NET / Golang - Ho Chi Minh City';
+const icon = await getImage({ src: logo, width: 192, height: 192, format: 'png' });
+const iconUrl = new URL(icon.src, site).href;
 
 const personId = `${siteUrl}/#person`;
 const websiteId = `${siteUrl}/#website`;
 const webpageId = `${canonicalUrl}#webpage`;
 const breadcrumbId = `${canonicalUrl}#breadcrumb`;
 
-// Shared entity referenced by each localized page.
 const personSchema = {
   '@type': 'Person',
   '@id': personId,
-  name: 'Tan Phat Vo',
-  alternateName: 'Võ Tấn Phát',
+  name: profile.name.en,
+  alternateName: profile.name.vi,
   description:
     lang === 'en'
-      ? 'Senior Backend Engineer specializing in .NET, Golang, cloud-native microservices, and AI-augmented engineering.'
-      : 'Kỹ sư Backend Senior chuyên về .NET, Golang, microservices cloud-native và kỹ thuật tăng cường AI.',
-  jobTitle: 'Senior Backend Engineer',
+      ? 'Senior Backend Engineer specializing in .NET, Golang, cloud-native microservices, and software development with AI.'
+      : 'Kỹ sư Backend Senior chuyên về .NET, Golang, microservices cloud-native và phát triển phần mềm với AI.',
+  jobTitle: profile.jobTitle.en,
+  email: profile.email,
+  image: iconUrl,
   url: new URL('/en/', site).href,
-  sameAs: ['https://www.linkedin.com/in/tan-phat-vo-51ba10272/'],
+  homeLocation: {
+    '@type': 'Place',
+    name: 'Ho Chi Minh City',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Ho Chi Minh City',
+      addressCountry: 'VN',
+    },
+  },
+  sameAs: [profile.linkedinUrl],
   knowsAbout: [
     '.NET Core',
     'Golang',
@@ -77,11 +104,10 @@ const personSchema = {
     'Kafka',
     'gRPC',
     'Redis',
-    'AI Engineering',
   ],
   alumniOf: {
     '@type': 'EducationalOrganization',
-    name: 'Ton Duc Thang University',
+    name: lang === 'en' ? 'Ton Duc Thang University' : 'Trường Đại học Tôn Đức Thắng',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Ho Chi Minh City',
@@ -95,8 +121,13 @@ const personSchema = {
     },
     {
       '@type': 'EducationalOccupationalCredential',
-      name: 'IELTS 6.5',
-      credentialCategory: 'English Proficiency',
+      name: 'IELTS 6.5 (IDP)',
+      credentialCategory: 'English proficiency',
+    },
+    {
+      '@type': 'EducationalOccupationalCredential',
+      name: 'TOEIC 700+',
+      credentialCategory: 'English proficiency',
     },
   ],
   worksFor: {
@@ -105,15 +136,14 @@ const personSchema = {
   },
 };
 
-// Site identity. Do not add SearchAction unless a real query-driven search exists.
 const websiteSchema = {
   '@type': 'WebSite',
   '@id': websiteId,
   name: 'Tan Phat Vo - Senior Backend Engineer',
   alternateName: 'Võ Tấn Phát - Kỹ sư Backend Senior',
-  url: xDefaultUrl,
+  url: new URL('/en/', site).href,
   description:
-    'Bilingual portfolio of Senior Backend Engineer Tan Phat Vo, covering backend, cloud, fintech, AI, and automation work.',
+    'Bilingual portfolio of Senior Backend Engineer Tan Phat Vo, covering backend, cloud, fintech, and automation work.',
   inLanguage: ['en', 'vi'],
   publisher: { '@id': personId },
 };
@@ -133,7 +163,7 @@ const breadcrumbSchema =
           {
             '@type': 'ListItem',
             position: 2,
-            name: lang === 'en' ? 'Projects' : 'Dự án',
+            name: lang === 'en' ? 'Selected projects' : 'Dự án tiêu biểu',
             item: canonicalUrl,
           },
         ],
@@ -162,7 +192,7 @@ const structuredData = {
 };
 
 const profileMeta =
-  pageType === 'profile'
+  pageType === 'profile' && indexable
     ? {
         firstName: 'Tan Phat',
         lastName: 'Vo',
@@ -176,9 +206,9 @@ const profileMeta =
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" sizes="192x192" href="/logo-192.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href={icon.src} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="192x192" href="/logo-192.png" />
+    <link rel="apple-touch-icon" sizes="192x192" href={icon.src} />
     <link
       rel="preload"
       href={manropeLatinUrl}
@@ -196,24 +226,29 @@ const profileMeta =
       />
     )}
 
-    <!-- === Primary SEO === -->
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Tan Phat Vo" />
     <meta
       name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      content={
+        indexable
+          ? 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+          : 'noindex, nofollow'
+      }
     />
     <meta name="theme-color" content="#0b1014" />
 
-    <!-- === Canonical & Language Alternates === -->
-    <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" hreflang={lang} href={canonicalUrl} />
-    <link rel="alternate" hreflang={altLang} href={altUrl} />
-    <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
-    <link rel="me" href="https://www.linkedin.com/in/tan-phat-vo-51ba10272/" />
+    {indexable && (
+      <>
+        <link rel="canonical" href={canonicalUrl} />
+        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        <link rel="alternate" hreflang={altLang} href={altUrl} />
+        <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
+        <link rel="me" href={profile.linkedinUrl} />
+      </>
+    )}
 
-    <!-- === Open Graph (Facebook / LinkedIn) === -->
     <meta property="og:type" content={ogType} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={title} />
@@ -224,8 +259,8 @@ const profileMeta =
     <meta property="og:image" content={socialImageUrl} />
     <meta property="og:image:secure_url" content={socialImageUrl} />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="640" />
-    <meta property="og:image:height" content="640" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content={socialImageAlt} />
     {profileMeta && (
       <>
@@ -235,27 +270,18 @@ const profileMeta =
       </>
     )}
 
-    <!-- === Twitter / X Card === -->
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImageUrl} />
     <meta name="twitter:image:alt" content={socialImageAlt} />
 
-    <!-- === Preconnect hints === -->
-    {pageType === 'profile' && (
-      <>
-        <link rel="preconnect" href="https://api.qrserver.com" />
-        <link rel="dns-prefetch" href="https://api.qrserver.com" />
-      </>
+    {indexable && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     )}
-
-    <!-- === JSON-LD Structured Data === -->
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
 
   <body class="flex min-h-[100dvh] flex-col">
-    <!-- Skip-to-content for keyboard / screen-reader users -->
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:rounded-[var(--radius)] focus:bg-primary-400 focus:px-4 focus:py-3 focus:font-semibold focus:text-[#071310]"

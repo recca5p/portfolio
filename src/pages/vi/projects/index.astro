@@ -3,13 +3,14 @@ import Layout from '../../../layouts/Layout.astro';
 import ProjectsArchive from '../../../components/ProjectsArchive.astro';
 import type { Project } from '../../../types/project';
 import projectsData from '../../../data/projects.json';
+import { projectMetaDescription } from '../../../utils/project-meta';
 
 const projects = projectsData as Project[];
 ---
 
 <Layout
-  title="Dự án Backend & Cloud | Võ Tấn Phát"
-  description={`Khám phá ${projects.length} dự án backend, cloud, AI, fintech và tự động hóa của Võ Tấn Phát, sử dụng .NET, Golang, GCP, AWS, Azure, Kubernetes và OpenTelemetry.`}
+  title="Dự án tiêu biểu | Võ Tấn Phát"
+  description={projectMetaDescription(projects, 'vi')}
   lang="vi"
   pageType="collection"
 >

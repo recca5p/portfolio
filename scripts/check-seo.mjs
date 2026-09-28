@@ -85,8 +85,28 @@ for (const page of pages) {
   if (openGraphUrl !== page.canonical) {
     failures.push(`${page.file}: Open Graph URL does not match the canonical URL`);
   }
-  if (!openGraphImage?.startsWith(`${siteUrl}/`)) {
-    failures.push(`${page.file}: Open Graph image must be an absolute same-site URL`);
+  if (!openGraphImage?.startsWith(`${siteUrl}/og/og-`)) {
+    failures.push(`${page.file}: Open Graph image must be the localized 1200x630 card`);
+  }
+  const ogWidth = getTagAttribute(
+    html,
+    /<meta\b(?=[^>]*property="og:image:width")[^>]*>/,
+    'content'
+  );
+  const ogHeight = getTagAttribute(
+    html,
+    /<meta\b(?=[^>]*property="og:image:height")[^>]*>/,
+    'content'
+  );
+  const twitterCard = getTagAttribute(html, /<meta\b[^>]*name="twitter:card"[^>]*>/, 'content');
+  if (ogWidth !== '1200' || ogHeight !== '630') {
+    failures.push(`${page.file}: Open Graph image dimensions must be 1200x630`);
+  }
+  if (twitterCard !== 'summary_large_image') {
+    failures.push(`${page.file}: twitter:card must be summary_large_image`);
+  }
+  if (page.file.includes('projects') && /Golang|Kubernetes|GCP/.test(description ?? '')) {
+    failures.push(`${page.file}: project description names a technology no project record uses`);
   }
   if (h1Count !== 1) failures.push(`${page.file}: expected one <h1>, found ${h1Count}`);
   if (/<meta\b[^>]*name="keywords"/.test(html)) {
@@ -99,7 +119,7 @@ for (const page of pages) {
   const expectedAlternates = {
     [page.lang]: page.canonical,
     [page.lang === 'en' ? 'vi' : 'en']: page.alternate,
-    'x-default': `${siteUrl}/en/`,
+    'x-default': page.lang === 'en' ? page.canonical : page.alternate,
   };
 
   for (const [hreflang, expectedUrl] of Object.entries(expectedAlternates)) {
@@ -167,6 +187,24 @@ for (const page of pages) {
 }
 if (sitemap.includes(`<loc>${siteUrl}/</loc>`)) {
   failures.push('sitemap-0.xml: duplicate redirecting root URL must not be indexed');
+}
+if (sitemap.includes('/404')) {
+  failures.push('sitemap-0.xml: 404 must not be indexed');
+}
+for (const page of pages) {
+  const block = sitemap
+    .split('<url>')
+    .find((entry) => entry.includes(`<loc>${page.canonical}</loc>`));
+  if (!block?.includes('<lastmod>')) {
+    failures.push(`sitemap-0.xml: missing lastmod for ${page.canonical}`);
+  }
+}
+const notFound = readDistFile('404.html');
+if (!notFound.includes('noindex')) {
+  failures.push('404.html: missing noindex');
+}
+if (!notFound.includes('href="/en/"') || !notFound.includes('href="/vi/projects/"')) {
+  failures.push('404.html: missing links back to localized pages');
 }
 if (!robots.includes(`Sitemap: ${siteUrl}/sitemap-index.xml`)) {
   failures.push('robots.txt: sitemap discovery URL is incorrect');

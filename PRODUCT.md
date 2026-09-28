@@ -40,38 +40,38 @@ LinkedIn, WhatsApp, and Zalo, including QR codes for the chat apps.
 - Astro 7 static output, Tailwind CSS 4, TypeScript, English and Vietnamese.
 - No React islands, no server runtime, no secrets in the repo.
 - English and Vietnamese strings stay aligned and carry the same facts.
-- Do not invent employers, dates, metrics, or achievements. Where a case study
-  would be stronger with a number the repo does not contain, leave a source
-  TODO for the owner.
+- Do not invent employers, dates, metrics, or achievements. The CV in
+  `public/cv/Tan-Phat-Vo-CV.pdf` is the source of truth when the page and the
+  CV disagree. Keep site-only details that are already real.
 - Critical copy, headings, and contact links stay in the server-rendered HTML.
 
 ## Brand Commitments
 
 Binding, from `AGENTS.md` and the task brief: dark graphite surfaces, Manrope
 for reading text, JetBrains Mono for compact technical metadata, teal as the
-only accent, and the shared radius token. The hero photograph of
-infrastructure cabling stays. Refine this identity. Do not replace it.
+only accent, and the shared radius token. The first screen is the name,
+role, city, and current employer. Do not put a stock photograph back.
 
 ## Evidence on Hand
 
 - Copy: `src/i18n/en.ts`, `src/i18n/vi.ts`
 - Jobs: `src/data/experience.json`
 - Projects: `src/data/projects.json`
-- Hero image: `src/assets/backend-infrastructure.png`
-- Logos: `public/logo.png`, `public/logo-192.png`
+- Mark: `src/assets/logo-192.png`
+- CV: `public/cv/Tan-Phat-Vo-CV.pdf`
 
-Numbers already in those files, and only those numbers, may appear on the
-page. Examples already recorded: 5+ years, 20x document search, 60%
-observability cost, about 30% faster development cycles, 5x freight-quote
-search, team sizes, and the Sacombank customer, transaction, and terminal
-figures written in the experience entry.
+Numbers already in those files or on the CV, and only those numbers, may
+appear on the page. Examples already recorded: 5+ years, 20x document search,
+more than 60% lower observability cost, about 30% reduction in time-to-market,
+5x freight-quote search, team sizes, and the Sacombank customer, transaction,
+and terminal figures written in the experience entry.
 
 ## Product Principles
 
 1. The first screen names the person, the role, and a way to write to him.
 2. A claim ships only when the repository already says it.
 3. English and Vietnamese stay equivalent.
-4. One photographic moment carries the page. The rest stays quiet.
+4. The first screen is typographic. The rest stays quiet.
 5. Product and technology names stay accurate. Do not translate them away.
 
 ## Accessibility & Inclusion

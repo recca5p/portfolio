@@ -1,25 +1,25 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import experiencesData from '../data/experience.json';
+import { formatProse, formatRange } from '../utils/text';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u2014]\s*/g, ' - ');
 const renderMarkdownBold = (text: string): string =>
-  cleanPunctuation(text).replace(/\*\*(.*?)\*\*/g, '<strong class="bullet-emphasis">$1</strong>');
+  formatProse(text).replace(/\*\*(.*?)\*\*/g, '<strong class="bullet-emphasis">$1</strong>');
 
 interface ExperienceEntry {
-  company: string;
+  company: Record<string, string>;
   role: Record<string, string>;
   period: Record<string, string>;
   bullets: Record<string, string[]>;
 }
 
 const experiences = (experiencesData as ExperienceEntry[]).map((experience) => ({
-  company: cleanPunctuation(experience.company),
-  role: cleanPunctuation(experience.role[lang] ?? ''),
-  period: cleanPunctuation(experience.period[lang] ?? ''),
-  bullets: experience.bullets[lang] ?? [],
+  company: formatProse(experience.company[lang] ?? ''),
+  role: formatProse(experience.role[lang] ?? ''),
+  period: formatRange(experience.period[lang] ?? ''),
+  bullets: (experience.bullets[lang] ?? []).map((bullet) => formatRange(bullet)),
 }));
 ---
 
@@ -91,7 +91,7 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
   .period {
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: var(--font-meta);
     font-variant-numeric: tabular-nums;
     line-height: 1.5;
   }
@@ -99,7 +99,7 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
   .company {
     margin-top: 0.55rem;
     color: var(--text);
-    font-size: 0.88rem;
+    font-size: var(--font-small);
     font-weight: 650;
   }
 
@@ -110,7 +110,7 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
 
   article h3 {
     color: var(--text);
-    font-size: clamp(1.35rem, 2vw, 1.8rem);
+    font-size: var(--font-title);
     font-weight: 650;
     letter-spacing: -0.035em;
     line-height: 1.2;
@@ -122,7 +122,7 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
     margin: 1.35rem 0 0;
     padding-left: 1.2rem;
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: var(--font-body);
     line-height: 1.75;
   }
 
@@ -138,7 +138,7 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
 
     .experience-intro {
       position: sticky;
-      top: 7rem;
+      top: 5.5rem;
       align-self: start;
     }
 

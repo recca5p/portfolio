@@ -35,6 +35,12 @@
     --radius: 0.875rem;
     --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    --font-meta: 0.75rem;
+    --font-small: 0.9375rem;
+    --font-body: 1rem;
+    --font-lead: 1.125rem;
+    --font-title: clamp(1.35rem, 2.2vw, 1.85rem);
+    --font-display: clamp(2.4rem, 5.5vw, 4.25rem);
   }
 
   * {
@@ -43,8 +49,9 @@
 
   html {
     min-width: 320px;
-    overflow-x: hidden;
+    overflow-x: clip;
     scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
     background: var(--page);
     color: var(--text);
     font-family: var(--font-sans);
@@ -54,7 +61,7 @@
 
   body {
     min-height: 100dvh;
-    overflow-x: hidden;
+    overflow-x: clip;
     background: var(--page);
     padding-bottom: env(safe-area-inset-bottom);
   }
@@ -82,6 +89,7 @@
   h2,
   h3 {
     text-wrap: balance;
+    word-spacing: 0.06em;
   }
 
   p,
@@ -115,7 +123,7 @@
 
   .section-heading {
     max-width: 42rem;
-    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-size: var(--font-display);
     font-weight: 650;
     letter-spacing: -0.04em;
     line-height: 1.05;
@@ -124,7 +132,7 @@
   .section-copy {
     max-width: 68ch;
     color: var(--muted);
-    font-size: 1rem;
+    font-size: var(--font-body);
     line-height: 1.8;
   }
 
@@ -137,7 +145,7 @@
     gap: 0.55rem;
     border-radius: var(--radius);
     padding: 0.75rem 1.1rem;
-    font-size: 0.875rem;
+    font-size: var(--font-small);
     font-weight: 700;
     line-height: 1;
     white-space: nowrap;
@@ -216,7 +224,7 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .hero-enter {
-    animation: hero-enter 400ms var(--ease-out) both;
+    animation: hero-enter 280ms var(--ease-out) both;
   }
 
   @keyframes hero-enter {

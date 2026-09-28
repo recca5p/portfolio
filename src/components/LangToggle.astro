@@ -18,6 +18,7 @@ const languageLabel = lang === 'en' ? 'Choose language' : 'Chọn ngôn ngữ';
 <nav class="language-switch" aria-label={languageLabel}>
   <a
     href={switchLangPath('en')}
+    data-preserve-hash
     lang="en"
     hreflang="en"
     aria-current={lang === 'en' ? 'page' : undefined}
@@ -27,6 +28,7 @@ const languageLabel = lang === 'en' ? 'Choose language' : 'Chọn ngôn ngữ';
   <span aria-hidden="true">/</span>
   <a
     href={switchLangPath('vi')}
+    data-preserve-hash
     lang="vi"
     hreflang="vi"
     aria-current={lang === 'vi' ? 'page' : undefined}
@@ -35,17 +37,33 @@ const languageLabel = lang === 'en' ? 'Choose language' : 'Chọn ngôn ngữ';
   </a>
 </nav>
 
+<script is:inline>
+  (function () {
+    function applyHash() {
+      var hash = location.hash;
+      document.querySelectorAll('[data-preserve-hash]').forEach(function (link) {
+        var url = new URL(link.getAttribute('href') || link.href, location.origin);
+        url.hash = hash;
+        link.href = url.pathname + url.search + url.hash;
+      });
+    }
+
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
+  })();
+</script>
+
 <style>
   .language-switch {
     display: inline-flex;
     min-height: 2.75rem;
+    flex: 0 0 auto;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.2rem;
     color: var(--line-strong);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: var(--font-small);
     font-weight: 650;
-    letter-spacing: 0.08em;
+    white-space: nowrap;
   }
 
   .language-switch a {

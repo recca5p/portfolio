@@ -43,8 +43,9 @@ homepage at `/en/`.
 - `src/data/experience.json`: bilingual employment-history content.
 - `src/data/projects.json`: bilingual project records.
 - `src/types/project.ts`: the TypeScript contract for project JSON.
-- `src/assets/backend-infrastructure.png`: generated editorial infrastructure
-  photography used by the optimized Astro hero image.
+- `src/assets/logo-192.png`: flat teal header mark, optimized by Astro.
+- `src/data/profile.ts`: email, phone, LinkedIn, location, and the public CV
+  path.
 - `src/styles/global.css`: Tailwind import, custom variants, theme tokens, and
   genuinely global styles.
 - `scripts/check-seo.mjs`: build-output validation for canonical pages,
