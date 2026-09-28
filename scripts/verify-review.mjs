@@ -124,22 +124,21 @@ check(sticky.scrollingElement === 'document', `scrolling element is ${sticky.scr
 check(sticky.experience === 'sticky', `experience intro position ${sticky.experience}`);
 check(sticky.skills === 'sticky', `skills intro position ${sticky.skills}`);
 check(
-  sticky.experienceTop !== null && sticky.experienceTop >= 80 && sticky.experienceTop <= 100,
+  sticky.experienceTop !== null && sticky.experienceTop >= 70 && sticky.experienceTop <= 86,
   `experience intro stuck at ${sticky.experienceTop}`
 );
 check(
-  sticky.skillsTop !== null && sticky.skillsTop >= 80 && sticky.skillsTop <= 100,
+  sticky.skillsTop !== null && sticky.skillsTop >= 70 && sticky.skillsTop <= 86,
   `skills intro stuck at ${sticky.skillsTop}`
 );
 
 const layout = await page.evaluate(() => {
-  const featured = document.querySelector('.project-card.featured');
-  const description = featured?.querySelector('.project-description');
-  const footer = featured?.querySelector('.project-footer');
-  const gap =
-    description && footer
-      ? Math.round(footer.getBoundingClientRect().top - description.getBoundingClientRect().bottom)
-      : null;
+  const cards = [...document.querySelectorAll('.projects-grid .project-card')];
+  const tops = cards.map((card) => Math.round(card.getBoundingClientRect().top));
+  const equal =
+    cards.length === 3 &&
+    tops.every((top) => Math.abs(top - tops[0]) <= 8) &&
+    !document.querySelector('.project-card.featured');
   const email = document.querySelector('.contact-row a strong');
   const phone = [...document.querySelectorAll('.contact-row strong')].find((node) =>
     node.textContent.includes('+84')
@@ -148,7 +147,8 @@ const layout = await page.evaluate(() => {
     .map((node) => node.textContent)
     .join(' ');
   return {
-    gap,
+    equal,
+    tops,
     emailX: email ? Math.round(email.getBoundingClientRect().x) : null,
     phoneX: phone ? Math.round(phone.getBoundingClientRect().x) : null,
     tags,
@@ -158,7 +158,7 @@ const layout = await page.evaluate(() => {
     heroImage: Boolean(document.querySelector('.hero-visual img')),
   };
 });
-check(layout.gap !== null && layout.gap < 80, `featured card gap is ${layout.gap}px`);
+check(layout.equal, `project cards are not an equal row: ${layout.tops.join(', ')}`);
 check(layout.emailX === layout.phoneX, `contact columns ${layout.emailX} vs ${layout.phoneX}`);
 check(
   layout.tags.includes('Go') && layout.tags.includes('Kubernetes'),
@@ -213,13 +213,18 @@ await page.goto('http://127.0.0.1:4178/en/', { waitUntil: 'networkidle' });
 const english = await page.evaluate(() => document.body.innerText);
 check(english.includes('Download CV'), 'missing Download CV');
 check(english.includes('recca5p'), 'missing GitHub profile');
-check(english.includes('Senior Software Engineer - Applied AI & Backend'), 'missing new headline');
+check(
+  english.includes('Senior Software Engineer') && english.includes('Applied AI & Backend'),
+  'missing new headline'
+);
 check(english.includes('6+ years'), 'missing 6+ years');
 check(english.includes('HCLTech'), 'missing HCLTech');
-check(english.includes('20x faster document search'), 'missing directional 20x label');
-check(english.includes('more than 60% lower observability cost'), 'missing directional 60% label');
-check(english.includes('~30% reduction in time-to-market'), 'missing ANZ time-to-market wording');
-check(english.includes('contributed to a ~30%'), 'missing contributed wording');
+check(english.includes('making search 20x faster'), 'missing directional 20x label');
+check(english.includes('more than 60%'), 'missing directional 60% label');
+check(english.includes('~30%'), 'missing ANZ time-to-market figure');
+check(english.includes('Contributed to shorter time-to-market'), 'missing contributed wording');
+check(english.includes('90%+'), 'missing IMT coverage figure');
+check(!english.includes('Project Bifrost —'), 'Bifrost card is still on the homepage');
 check(!english.includes('Architected'), 'still says Architected');
 check(!english.includes('Apple Pay'), 'Apple Pay is still present');
 check(!english.includes('Led the adoption'), 'still says Led the adoption');
@@ -239,6 +244,35 @@ check(notFound.robots.includes('noindex'), `404 robots ${notFound.robots} at ${m
 check(
   notFound.text.includes('English home') && notFound.text.includes('Vietnamese projects'),
   '404 missing links'
+);
+check(notFound.text.includes('Không tìm thấy trang'), '404 missing Vietnamese copy');
+const notFoundLang = await page.evaluate(() =>
+  [...document.querySelectorAll('.language-switch a')].map((link) => link.getAttribute('href'))
+);
+check(
+  notFoundLang.includes('/en/') &&
+    notFoundLang.includes('/vi/') &&
+    !notFoundLang.some((href) => href?.includes('404')),
+  `404 language links ${notFoundLang.join(' ')}`
+);
+
+await page.goto('http://127.0.0.1:4178/en/#experience', { waitUntil: 'networkidle' });
+const anchor = await page.evaluate(() => {
+  document.documentElement.style.scrollBehavior = 'auto';
+  document.querySelector('#experience')?.scrollIntoView({ block: 'start', behavior: 'instant' });
+  const header = document.querySelector('header')?.getBoundingClientRect();
+  const section = document.querySelector('#experience')?.getBoundingClientRect();
+  return {
+    headerBottom: header ? Math.round(header.bottom) : null,
+    sectionTop: section ? Math.round(section.top) : null,
+  };
+});
+check(
+  anchor.headerBottom !== null &&
+    anchor.sectionTop !== null &&
+    anchor.sectionTop >= anchor.headerBottom - 2 &&
+    anchor.sectionTop <= anchor.headerBottom + 12,
+  `experience anchor at ${anchor.sectionTop}px, header ends at ${anchor.headerBottom}px`
 );
 
 for (const path of pages) {

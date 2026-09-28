@@ -2,31 +2,28 @@
   {
     "id": "anz-plus",
     "title": {
-      "en": "ANZ Plus - Payments, customer services, and agentic engineering",
-      "vi": "ANZ Plus - Thanh toán, dịch vụ khách hàng, và lập trình agentic"
+      "en": "ANZ Plus — payments and customer services",
+      "vi": "ANZ Plus — thanh toán và dịch vụ khách hàng"
     },
     "role": {
       "en": "Senior Backend Engineer",
       "vi": "Kỹ sư Backend Senior"
     },
     "company": {
-      "name": "ANZ Plus",
-      "url": "https://www.anz.com.au/",
+      "name": {
+        "en": "ANZ Plus",
+        "vi": "ANZ Plus"
+      },
+      "url": "https://www.anz.com.au/plus/",
       "description": {
         "en": "ANZ's digital bank in Australia. This role is through HCLTech Vietnam.",
         "vi": "Ngân hàng số của ANZ tại Úc. Vai trò này thông qua HCLTech Việt Nam."
       }
     },
     "description": {
-      "en": "Build and maintain Go and gRPC microservices for ANZ Plus: PayID aliases, PayTo and PayTo event handling, transaction disputes, customer self-service, customer profile, and International Money Transfer. Day-to-day agentic development with the Claude Code ecosystem covers planning, boilerplate, refactoring, and drafting unit and contract tests. AI-written code passes the same SonarQube and Fortify gates as any other change. This contributed to a ~30% reduction in time-to-market, with 90%+ test coverage on the IMT gRPC contracts. ANZ Plus is ANZ's digital banking service, launched in March 2022. That date describes the bank's program.",
-      "vi": "Xây dựng và duy trì microservices Go và gRPC cho ANZ Plus: PayID alias, PayTo và xử lý sự kiện PayTo, khiếu nại giao dịch, tự phục vụ, hồ sơ khách hàng, và Chuyển tiền quốc tế. Lập trình agentic hằng ngày với hệ sinh thái Claude Code gồm lên kế hoạch, sinh boilerplate, refactor, và soạn unit test cùng contract test. Code do AI viết qua cùng cổng SonarQube và Fortify như mọi thay đổi khác. Cách làm này góp phần rút ngắn khoảng 30% thời gian ra thị trường, với độ phủ test trên 90% cho hợp đồng gRPC của IMT. ANZ Plus là dịch vụ ngân hàng số của ANZ, ra mắt tháng 3/2022. Mốc đó mô tả chương trình của ngân hàng."
+      "en": "ANZ Plus payments and customer tasks run as Go and gRPC services. I build the services for PayID, PayTo, disputes, self-service, customer profile and international transfers, and I use Claude Code to plan, refactor and draft tests. AI-written code passes the same CI and security gates as any other change.",
+      "vi": "Thanh toán và việc khách hàng trên ANZ Plus chạy bằng dịch vụ Go và gRPC. Tôi xây dựng dịch vụ cho PayID, PayTo, khiếu nại, tự phục vụ, hồ sơ khách hàng và chuyển tiền quốc tế, và dùng Claude Code để lên kế hoạch, refactor và soạn test. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác."
     },
-    "sources": [
-      {
-        "label": { "en": "ANZ, 23 Mar 2022", "vi": "ANZ, 23/3/2022" },
-        "url": "https://www.anz.com.au/newsroom/media/2022/03/anz-introduces-anz-plus---a-powerful-new-banking-service/"
-      }
-    ],
     "tags": [
       "Go",
       "gRPC",
@@ -44,46 +41,55 @@
   {
     "id": "anz-bifrost",
     "title": {
-      "en": "Project Bifrost - Customer and account migration into ANZ Plus",
-      "vi": "Dự án Bifrost - Chuyển dữ liệu khách hàng và tài khoản sang ANZ Plus"
+      "en": "Project Bifrost — customer and account migration into ANZ Plus",
+      "vi": "Dự án Bifrost — chuyển dữ liệu khách hàng và tài khoản sang ANZ Plus"
     },
     "role": {
       "en": "Senior Backend Engineer",
       "vi": "Kỹ sư Backend Senior"
     },
     "company": {
-      "name": "ANZ Plus",
-      "url": "https://www.anz.com.au/",
+      "name": {
+        "en": "ANZ Plus",
+        "vi": "ANZ Plus"
+      },
+      "url": "https://www.anz.com.au/plus/",
       "description": {
         "en": "Migration of customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus.",
         "vi": "Chuyển dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus."
       }
     },
     "description": {
-      "en": "Work on Project Bifrost, which migrates customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. ANZ completed its acquisition of Suncorp Bank on 31 July 2024, adding about 1.2 million customers, and has committed to moving those customers onto its systems and digital platforms by June 2027. Those figures and dates describe the bank's program, not a personal result.",
-      "vi": "Tham gia dự án Bifrost, chuyển dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. ANZ hoàn tất mua Suncorp Bank ngày 31/7/2024, có thêm khoảng 1,2 triệu khách hàng, và cam kết chuyển những khách hàng đó sang hệ thống và nền tảng số của ANZ trước tháng 6/2027. Các con số và mốc thời gian này mô tả chương trình của ngân hàng, không phải kết quả cá nhân."
+      "en": "I work on Project Bifrost, which migrates customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. ANZ completed its acquisition of Suncorp Bank on 31 July 2024, adding about 1.2 million customers, and has committed to moving those customers onto its systems and digital platforms by June 2027.",
+      "vi": "Tôi tham gia dự án Bifrost, chuyển dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. ANZ hoàn tất mua Suncorp Bank ngày 31/7/2024, có thêm khoảng 1,2 triệu khách hàng, và cam kết chuyển những khách hàng đó sang hệ thống và nền tảng số của ANZ trước tháng 6/2027."
     },
     "sources": [
       {
-        "label": { "en": "ANZ, 31 Jul 2024", "vi": "ANZ, 31/7/2024" },
+        "label": {
+          "en": "ANZ, 31 Jul 2024",
+          "vi": "ANZ, 31/7/2024"
+        },
         "url": "https://www.anz.com.au/newsroom/media/2024/july/anz-completes-acquisition-of-suncorp-bank/"
       },
       {
-        "label": { "en": "ANZ, 7 Sep 2026", "vi": "ANZ, 7/9/2026" },
-        "url": "https://www.exclusives.anz.com.au/newsroom/media/2026/september/ANZ-prepares-to-welcome-suncorp-bank-customers/"
+        "label": {
+          "en": "ANZ, 7 Sep 2026",
+          "vi": "ANZ, 7/9/2026"
+        },
+        "url": "https://www.anz.com.au/newsroom/media/2026/september/ANZ-prepares-to-welcome-suncorp-bank-customers/"
       }
     ],
-    "tags": ["Go", "gRPC", "GCP", "Data migration"]
+    "tags": ["Data migration"]
   },
   {
     "id": "ioga",
     "title": {
-      "en": "IOGA.fr - AI video knowledge platform",
-      "vi": "IOGA.fr - Nền tảng video tri thức dùng AI"
+      "en": "IOGA.fr — AI video knowledge platform",
+      "vi": "IOGA.fr — nền tảng video tri thức dùng AI"
     },
     "role": {
       "en": "Lead Backend Developer & DevOps Engineer",
-      "vi": "Lead Backend Developer & Kỹ sư DevOps"
+      "vi": "Kỹ sư backend chính và kỹ sư DevOps"
     },
     "teamSize": 6,
     "engagement": {
@@ -91,7 +97,10 @@
       "vi": "Bán thời gian / freelance"
     },
     "company": {
-      "name": "IOGA.fr",
+      "name": {
+        "en": "IOGA.fr",
+        "vi": "IOGA.fr"
+      },
       "url": "https://ioga.fr",
       "description": {
         "en": "French video platform used in construction, with transcription and translation.",
@@ -99,8 +108,8 @@
       }
     },
     "description": {
-      "en": "Lead backend and DevOps engineer for IOGA.fr, a French platform that turns field video into searchable, translatable knowledge, used mainly in construction. Proposed and built a subtitle pipeline with Azure OpenAI (GPT) and Azure AI Speech that transcribes video and translates subtitles into several languages, replacing that manual step. Ran AWS (Lambda, DynamoDB, S3, ECS/EKS) alongside Azure. Subtitles in several languages come from that pipeline instead of being written by hand.",
-      "vi": "Lead backend và kỹ sư DevOps cho IOGA.fr, nền tảng Pháp biến video thực địa thành tri thức tìm được và dịch được, dùng chủ yếu trong xây dựng. Đề xuất và xây pipeline phụ đề bằng Azure OpenAI (GPT) và Azure AI Speech để phiên âm video và dịch phụ đề sang nhiều ngôn ngữ, thay bước làm tay. Vận hành AWS (Lambda, DynamoDB, S3, ECS/EKS) cùng Azure. Phụ đề nhiều ngôn ngữ được tạo từ pipeline đó thay vì làm tay."
+      "en": "Lead backend and DevOps engineer for IOGA.fr, a French platform that turns field video into searchable, translatable knowledge, used mainly in construction. Proposed and built a subtitle pipeline with Azure OpenAI (GPT) and Azure AI Speech that transcribes video and translates subtitles into several languages, replacing that manual step. Ran AWS (Lambda, DynamoDB, S3, ECS/EKS) alongside Azure.",
+      "vi": "Kỹ sư backend chính và kỹ sư DevOps cho IOGA.fr, nền tảng Pháp biến video thực địa thành nội dung có thể tìm kiếm và dịch, dùng chủ yếu trong xây dựng. Đề xuất và xây pipeline phụ đề bằng Azure OpenAI (GPT) và Azure AI Speech để phiên âm video và dịch phụ đề sang nhiều ngôn ngữ, thay bước làm tay. Vận hành AWS (Lambda, DynamoDB, S3, ECS/EKS) cùng Azure."
     },
     "tags": [
       "C# .NET",
@@ -116,8 +125,8 @@
   {
     "id": "bollore-otel",
     "title": {
-      "en": "Bolloré Logistics (CMA CGM) - Application Insights to Splunk via OpenTelemetry",
-      "vi": "Bolloré Logistics (CMA CGM) - Application Insights sang Splunk qua OpenTelemetry"
+      "en": "Bolloré Logistics (CMA CGM) — Application Insights to Splunk via OpenTelemetry",
+      "vi": "Bolloré Logistics (CMA CGM) — Application Insights sang Splunk qua OpenTelemetry"
     },
     "role": {
       "en": "Backend Developer (Solo Initiative)",
@@ -129,7 +138,10 @@
       "vi": "Bán thời gian / freelance"
     },
     "company": {
-      "name": "Bolloré Logistics (now CMA CGM)",
+      "name": {
+        "en": "Bolloré Logistics (now CMA CGM)",
+        "vi": "Bolloré Logistics (nay là CMA CGM)"
+      },
       "url": "https://www.cma-cgm.com",
       "description": {
         "en": "Logistics company. This observability move was a solo part-time project.",
@@ -153,12 +165,12 @@
   {
     "id": "bollore-freight",
     "title": {
-      "en": "Bolloré Logistics (CMA CGM) - Freight quote system",
-      "vi": "Bolloré Logistics (CMA CGM) - Hệ thống báo giá vận tải"
+      "en": "Bolloré Logistics (CMA CGM) — freight quote system",
+      "vi": "Bolloré Logistics (CMA CGM) — hệ thống báo giá vận tải"
     },
     "role": {
-      "en": "Full-Stack Developer",
-      "vi": "Lập trình viên Full-Stack"
+      "en": "Full-stack Developer",
+      "vi": "Lập trình viên Full-stack"
     },
     "teamSize": 10,
     "engagement": {
@@ -166,7 +178,10 @@
       "vi": "Bán thời gian / freelance"
     },
     "company": {
-      "name": "Bolloré Logistics (now CMA CGM)",
+      "name": {
+        "en": "Bolloré Logistics (now CMA CGM)",
+        "vi": "Bolloré Logistics (nay là CMA CGM)"
+      },
       "url": "https://www.cma-cgm.com",
       "description": {
         "en": "Logistics company. This quote system was part-time work in a team of 10.",
@@ -175,23 +190,26 @@
     },
     "description": {
       "en": "Full-stack developer in a team of 10 on the internal freight-quote system. Reworked the core quote search, making it 5x faster, and added feature modules and responsive pages.",
-      "vi": "Lập trình viên full-stack trong nhóm 10 người trên hệ thống báo giá vận tải nội bộ. Làm lại tìm kiếm báo giá cốt lõi, nhanh hơn 5 lần, và thêm module tính năng cùng trang đáp ứng."
+      "vi": "Lập trình viên Full-stack trong nhóm 10 người trên hệ thống báo giá vận tải nội bộ. Làm lại tìm kiếm báo giá cốt lõi, nhanh hơn 5 lần, và thêm module tính năng cùng trang đáp ứng."
     },
     "tags": ["C# .NET", "Azure", "Knockout.js", "Blazor", "MongoDB", "MS SQL", "Search"]
   },
   {
     "id": "halliburton-ecompletion",
     "title": {
-      "en": "Halliburton - eCompletion Tools desktop application",
-      "vi": "Halliburton - Ứng dụng desktop eCompletion Tools"
+      "en": "Halliburton — eCompletion Tools desktop application",
+      "vi": "Halliburton — ứng dụng desktop eCompletion Tools"
     },
     "role": {
-      "en": "Backend Engineer",
-      "vi": "Kỹ sư Backend"
+      "en": "Senior Backend Developer",
+      "vi": "Lập trình viên Backend Senior"
     },
     "teamSize": 5,
     "company": {
-      "name": "Halliburton (via FPT Software)",
+      "name": {
+        "en": "Halliburton (via FPT Software)",
+        "vi": "Halliburton (qua FPT Software)"
+      },
       "url": "https://www.halliburton.com",
       "description": {
         "en": "Oil and gas services company. Drilling and completion systems.",
@@ -199,8 +217,8 @@
       }
     },
     "description": {
-      "en": "Built eCompletion Tools, a WinForms app engineers use on offshore rigs with no internet. LiteDB keeps data on the machine and syncs to the central server when the connection returns. Engineers keep recording drilling data with no connection, and nothing is lost when the rig comes back online. Also reworked document search with stored procedures and EF Core, making search 20x faster on large drilling datasets, and moved on-premise MS SQL to Azure SQL with Azure AD sign-in.",
-      "vi": "Xây eCompletion Tools, ứng dụng WinForms cho kỹ sư trên giàn khoan không có internet. LiteDB lưu dữ liệu trên máy và đồng bộ lên máy chủ trung tâm khi có kết nối. Kỹ sư vẫn ghi dữ liệu khoan khi không có mạng, và không mất dữ liệu khi giàn có kết nối trở lại. Đồng thời làm lại tìm kiếm tài liệu bằng stored procedure và EF Core, nhanh gấp 20 lần trên bộ dữ liệu khoan lớn, và chuyển MS SQL tại chỗ lên Azure SQL với đăng nhập Azure AD."
+      "en": "Built eCompletion Tools, a WinForms app engineers use on offshore rigs with no internet. LiteDB keeps data on the machine and syncs to the central server when the connection returns. Also reworked document search with stored procedures and EF Core, making search 20x faster on large drilling datasets, and moved on-premise MS SQL to Azure SQL with Azure AD sign-in.",
+      "vi": "Xây eCompletion Tools, ứng dụng WinForms cho kỹ sư trên giàn khoan không có internet. LiteDB lưu dữ liệu trên máy và đồng bộ lên máy chủ trung tâm khi có kết nối. Cũng làm lại tìm kiếm tài liệu bằng stored procedure và EF Core, nhanh gấp 20 lần trên bộ dữ liệu khoan lớn, và chuyển MS SQL tại chỗ lên Azure SQL với đăng nhập Azure AD."
     },
     "tags": [
       "C# .NET",
@@ -216,16 +234,19 @@
   {
     "id": "halliburton-sync",
     "title": {
-      "en": "Halliburton - eCompletion Tools sync server",
-      "vi": "Halliburton - Máy chủ đồng bộ eCompletion Tools"
+      "en": "Halliburton — eCompletion Tools sync server",
+      "vi": "Halliburton — máy chủ đồng bộ eCompletion Tools"
     },
     "role": {
-      "en": "Backend Engineer",
-      "vi": "Kỹ sư Backend"
+      "en": "Senior Backend Developer",
+      "vi": "Lập trình viên Backend Senior"
     },
     "teamSize": 5,
     "company": {
-      "name": "Halliburton (via FPT Software)",
+      "name": {
+        "en": "Halliburton (via FPT Software)",
+        "vi": "Halliburton (qua FPT Software)"
+      },
       "url": "https://www.halliburton.com",
       "description": {
         "en": "Oil and gas services company. Drilling and completion systems.",
@@ -241,16 +262,19 @@
   {
     "id": "halliburton-sams",
     "title": {
-      "en": "Halliburton - SAMS data verification",
-      "vi": "Halliburton - Kiểm tra dữ liệu SAMS"
+      "en": "Halliburton — SAMS data verification",
+      "vi": "Halliburton — kiểm tra dữ liệu SAMS"
     },
     "role": {
-      "en": "Backend Engineer",
-      "vi": "Kỹ sư Backend"
+      "en": "Senior Backend Developer",
+      "vi": "Lập trình viên Backend Senior"
     },
     "teamSize": 5,
     "company": {
-      "name": "Halliburton (via FPT Software)",
+      "name": {
+        "en": "Halliburton (via FPT Software)",
+        "vi": "Halliburton (qua FPT Software)"
+      },
       "url": "https://www.halliburton.com",
       "description": {
         "en": "Oil and gas services company. Well-data verification.",
@@ -266,8 +290,8 @@
   {
     "id": "sacombank-einvoice",
     "title": {
-      "en": "Sacombank - E-invoice system",
-      "vi": "Sacombank - Hệ thống hóa đơn điện tử"
+      "en": "Sacombank — e-invoice system",
+      "vi": "Sacombank — hệ thống hóa đơn điện tử"
     },
     "role": {
       "en": "Full-stack Developer",
@@ -275,24 +299,27 @@
     },
     "teamSize": 8,
     "company": {
-      "name": "Sacombank",
+      "name": {
+        "en": "Sacombank",
+        "vi": "Sacombank"
+      },
       "url": "https://www.sacombank.com.vn",
       "description": {
-        "en": "Full-time role, May 2020 to Jan 2022.",
-        "vi": "Vai trò toàn thời gian, tháng 5/2020 đến tháng 1/2022."
+        "en": "Vietnamese commercial bank. This system issues invoices for fees, interest and foreign exchange.",
+        "vi": "Ngân hàng thương mại tại Việt Nam. Hệ thống này xuất hóa đơn cho phí, lãi và ngoại tệ."
       }
     },
     "description": {
-      "en": "Built and maintained the bank's e-invoice system on ABP Framework (.NET Core and Angular) for periodic fees, e-banking charges, loan interest, and foreign-exchange transactions, in line with Ministry of Finance e-invoice rules. Fee, interest, and FX invoices come out of one system, with Oracle and SQL Server stored procedures tuned for the bank's invoice volume.",
-      "vi": "Xây dựng và duy trì hệ thống hóa đơn điện tử của ngân hàng trên ABP Framework (.NET Core và Angular) cho phí định kỳ, phí ngân hàng điện tử, lãi vay và giao dịch ngoại tệ, theo quy định hóa đơn điện tử của Bộ Tài chính. Hóa đơn phí, lãi và ngoại tệ được xuất từ một hệ thống, với stored procedure Oracle và SQL Server được tối ưu cho khối lượng hóa đơn của ngân hàng."
+      "en": "Built and maintained the bank's e-invoice system on ABP Framework (.NET Core and Angular) for periodic fees, e-banking charges, loan interest, and foreign-exchange transactions, in line with Ministry of Finance e-invoice rules.",
+      "vi": "Xây dựng và duy trì hệ thống hóa đơn điện tử của ngân hàng trên ABP Framework (.NET Core và Angular) cho phí định kỳ, phí ngân hàng điện tử, lãi vay và giao dịch ngoại tệ, theo quy định hóa đơn điện tử của Bộ Tài chính."
     },
     "tags": ["C# .NET", "ABP Framework", "Angular", "Oracle", "SQL Server", "Stored Procedures"]
   },
   {
     "id": "sacombank-pos",
     "title": {
-      "en": "Sacombank - POS management system",
-      "vi": "Sacombank - Hệ thống quản lý POS"
+      "en": "Sacombank — POS management system",
+      "vi": "Sacombank — hệ thống quản lý POS"
     },
     "role": {
       "en": "Full-stack Developer",
@@ -300,11 +327,14 @@
     },
     "teamSize": 5,
     "company": {
-      "name": "Sacombank",
+      "name": {
+        "en": "Sacombank",
+        "vi": "Sacombank"
+      },
       "url": "https://www.sacombank.com.vn",
       "description": {
-        "en": "Bank scale at the end of 2021: ~10 million customers and ~122,000 POS/mPOS/QR acceptance points. These figures describe the bank, not this role.",
-        "vi": "Quy mô ngân hàng cuối năm 2021: gần 10 triệu khách hàng và gần 122.000 điểm chấp nhận POS/mPOS/QR. Các con số này mô tả ngân hàng, không phải vai trò này."
+        "en": "Bank scale at the end of 2021: ~10 million customers and ~122,000 POS/mPOS/QR acceptance points.",
+        "vi": "Quy mô ngân hàng cuối năm 2021: gần 10 triệu khách hàng và gần 122.000 điểm chấp nhận POS/mPOS/QR."
       }
     },
     "sources": [
@@ -317,16 +347,16 @@
       }
     ],
     "description": {
-      "en": "Took over the POS management system from an outsourced vendor, then maintained and extended it in .NET and Java Spring Boot. It supports Visa, Mastercard, UnionPay, NAPAS, and QR wallets (MoMo, ZaloPay, VNPAY). The vendor-built system became something the in-house team could maintain and extend, with its own Jenkins pipeline and Oracle administration.",
-      "vi": "Nhận bàn giao hệ thống quản lý POS từ nhà thầu bên ngoài, sau đó duy trì và mở rộng bằng .NET và Java Spring Boot. Hệ thống hỗ trợ Visa, Mastercard, UnionPay, NAPAS và ví QR (MoMo, ZaloPay, VNPAY). Hệ thống do nhà thầu xây trở thành hệ thống đội nội bộ tự duy trì và mở rộng được, có pipeline Jenkins riêng và phần quản trị Oracle."
+      "en": "Took over the POS management system from an outsourced vendor, then maintained and extended it in .NET and Java Spring Boot. It supports Visa, Mastercard, UnionPay, NAPAS, and QR wallets (MoMo, ZaloPay, VNPAY).",
+      "vi": "Nhận bàn giao hệ thống quản lý POS từ nhà thầu bên ngoài, sau đó duy trì và mở rộng bằng .NET và Java Spring Boot. Hệ thống hỗ trợ Visa, Mastercard, UnionPay, NAPAS và ví QR (MoMo, ZaloPay, VNPAY)."
     },
     "tags": ["C# .NET", "Java Spring Boot", "Jenkins", "Oracle", "POS", "NAPAS"]
   },
   {
     "id": "sacombank-crm",
     "title": {
-      "en": "Sacombank - CRM mobile app (Xamarin)",
-      "vi": "Sacombank - Ứng dụng CRM di động (Xamarin)"
+      "en": "Sacombank — CRM mobile app (Xamarin)",
+      "vi": "Sacombank — ứng dụng CRM di động (Xamarin)"
     },
     "role": {
       "en": "Full-stack Developer",
@@ -334,7 +364,10 @@
     },
     "teamSize": 5,
     "company": {
-      "name": "Sacombank",
+      "name": {
+        "en": "Sacombank",
+        "vi": "Sacombank"
+      },
       "url": "https://www.sacombank.com.vn",
       "description": {
         "en": "Internal CRM for relationship staff.",
@@ -342,20 +375,20 @@
       }
     },
     "description": {
-      "en": "Worked on the internal CRM system, including its Xamarin mobile app, with BA and QA. Relationship staff get CRM data on mobile, and features were delivered with BA and QA sign-off.",
-      "vi": "Phát triển hệ thống CRM nội bộ, gồm ứng dụng di động Xamarin, phối hợp cùng BA và QA. Nhân viên quan hệ khách hàng dùng dữ liệu CRM trên di động; tính năng được BA và QA nghiệm thu."
+      "en": "Worked on the internal CRM system, including its Xamarin mobile app, with BA and QA.",
+      "vi": "Phát triển hệ thống CRM nội bộ, gồm ứng dụng di động Xamarin, phối hợp cùng BA và QA."
     },
     "tags": ["Xamarin", "C# .NET", "iOS", "Android"]
   },
   {
     "id": "apollo-erp",
     "title": {
-      "en": "Apollo English Vietnam - ERP system",
-      "vi": "Apollo English Việt Nam - Hệ thống ERP"
+      "en": "Apollo English Vietnam — ERP system",
+      "vi": "Apollo English Việt Nam — hệ thống ERP"
     },
     "role": {
-      "en": "Full-Stack Developer & DevOps Engineer",
-      "vi": "Lập trình viên Full-Stack & Kỹ sư DevOps"
+      "en": "Full-stack Developer and DevOps Engineer",
+      "vi": "Lập trình viên Full-stack và kỹ sư DevOps"
     },
     "teamSize": 6,
     "engagement": {
@@ -363,7 +396,10 @@
       "vi": "Bán thời gian / freelance"
     },
     "company": {
-      "name": "Apollo English Vietnam",
+      "name": {
+        "en": "Apollo English Vietnam",
+        "vi": "Apollo English Việt Nam"
+      },
       "url": "https://www.apollo.edu.vn",
       "description": {
         "en": "English language centers in Vietnam, with a network of 70+ centers.",
@@ -379,12 +415,12 @@
   {
     "id": "rozitek-racket",
     "title": {
-      "en": "Rozitek - Smart factory racket transfer",
-      "vi": "Rozitek - Chuyển vợt tự động trong nhà máy"
+      "en": "Rozitek — smart factory racket transfer",
+      "vi": "Rozitek — chuyển vợt tự động trong nhà máy"
     },
     "role": {
       "en": "Lead Backend Developer",
-      "vi": "Lead Backend Developer"
+      "vi": "Kỹ sư backend chính"
     },
     "teamSize": 5,
     "engagement": {
@@ -392,28 +428,31 @@
       "vi": "Bán thời gian / freelance"
     },
     "company": {
-      "name": "Rozitek Intralogistic Solution",
-      "url": "https://rozitek.com",
+      "name": {
+        "en": "Rozitek Intralogistic Solution",
+        "vi": "Rozitek Intralogistic Solution"
+      },
+      "url": "http://rozitek.com",
       "description": {
         "en": "Factory intralogistics company in Vietnam.",
         "vi": "Công ty logistics nội bộ nhà máy (intralogistics) tại Việt Nam."
       }
     },
     "description": {
-      "en": "Lead backend developer for an AMR robot circuit in a badminton and tennis racket factory. Scheduled jobs, webhooks, and REST APIs move rackets from raw-material pickup to finished-goods collection. Racket transport between stations runs as a closed AMR loop instead of being carried by hand.",
-      "vi": "Lead backend cho mạch robot AMR trong nhà máy vợt cầu lông và tennis. Cronjob, webhook và REST API chuyển vợt từ chỗ lấy nguyên liệu đến chỗ thu thành phẩm. Việc chuyển vợt giữa các trạm chạy thành vòng khép kín bằng robot AMR thay vì bê tay."
+      "en": "Lead backend developer for an AMR robot line in a badminton and tennis racket factory. Scheduled jobs, webhooks, and REST APIs move rackets from raw-material pickup to finished-goods collection. Racket transport between stations runs as a closed AMR loop instead of manual carrying.",
+      "vi": "Kỹ sư backend chính cho tuyến robot AMR trong nhà máy vợt cầu lông và tennis. Cronjob, webhook và REST API chuyển vợt từ chỗ lấy nguyên liệu đến chỗ thu thành phẩm. Việc chuyển vợt giữa các trạm chạy thành vòng khép kín bằng robot AMR thay vì vận chuyển thủ công."
     },
     "tags": ["C# .NET", "Java", "Docker", "Linux", "REST APIs", "AMR Robots"]
   },
   {
     "id": "reveal-bi",
     "title": {
-      "en": "Infragistics Reveal BI - Automation testing",
-      "vi": "Infragistics Reveal BI - Kiểm thử tự động"
+      "en": "Infragistics Reveal BI — automation testing",
+      "vi": "Infragistics Reveal BI — kiểm thử tự động"
     },
     "role": {
       "en": "Automation Tester",
-      "vi": "Kỹ sư Kiểm Thử Tự Động"
+      "vi": "Kỹ sư kiểm thử tự động"
     },
     "teamSize": 15,
     "engagement": {
@@ -421,7 +460,10 @@
       "vi": "Bán thời gian / freelance"
     },
     "company": {
-      "name": "Infragistics (Reveal BI)",
+      "name": {
+        "en": "Infragistics (Reveal BI)",
+        "vi": "Infragistics (Reveal BI)"
+      },
       "url": "https://www.revealbi.io",
       "description": {
         "en": "Embedded analytics SDK from Infragistics.",
@@ -429,8 +471,8 @@
       }
     },
     "description": {
-      "en": "Built Selenium WebDriver and MSTest end-to-end suites for dashboards, charts, and data sources, and wrote SDK guides in Docusaurus. Dashboard, chart, and data-source regressions are caught by those suites before release, and SDK users get setup guides and API references.",
-      "vi": "Xây bộ kiểm thử đầu-cuối bằng Selenium WebDriver và MSTest cho dashboard, biểu đồ và nguồn dữ liệu, và viết hướng dẫn SDK trên Docusaurus. Lỗi hồi quy của dashboard, biểu đồ và nguồn dữ liệu được bộ kiểm thử đó bắt trước khi phát hành; người dùng SDK có hướng dẫn cài đặt và tài liệu API."
+      "en": "Built Selenium WebDriver and MSTest end-to-end suites for dashboards, charts, and data sources, and wrote SDK guides in Docusaurus.",
+      "vi": "Xây kiểm thử end-to-end bằng Selenium WebDriver và MSTest cho dashboard, biểu đồ và nguồn dữ liệu, và viết hướng dẫn SDK trên Docusaurus."
     },
     "tags": ["Selenium WebDriver", "MSTest", "C# .NET", "Docusaurus"]
   }

@@ -2,33 +2,26 @@
 import type { Lang } from '../i18n/utils';
 import { useTranslations } from '../i18n/utils';
 import type { Project } from '../types/project';
-import { formatProse } from '../utils/text';
+import { formatProse, teamSizeLabel } from '../utils/text';
 
 interface Props {
   project: Project;
   lang: Lang;
-  featured?: boolean;
 }
 
-const { project, lang, featured = false } = Astro.props;
+const { project, lang } = Astro.props;
 const t = useTranslations(lang);
-const title = formatProse(project.title[lang]);
+const title = project.title[lang];
 const description = formatProse(project.description[lang]);
 const role = project.role ? formatProse(project.role[lang]) : undefined;
 const engagement = project.engagement ? formatProse(project.engagement[lang]) : undefined;
-const teamLabel =
-  project.teamSize === 1
-    ? String(t('projects.solo'))
-    : typeof project.teamSize === 'number'
-      ? `${t('projects.team')} ${project.teamSize}`
-      : undefined;
+const teamLabel = teamSizeLabel(project.teamSize, lang, String(t('projects.solo')));
+const companyName = project.company?.name[lang] ?? '';
 const companyLabel =
-  lang === 'en'
-    ? `Visit ${project.company?.name ?? ''} website`
-    : `Truy cập trang web ${project.company?.name ?? ''}`;
+  lang === 'en' ? `Visit ${companyName} website` : `Truy cập trang web ${companyName}`;
 ---
 
-<article class:list={['project-card lift-on-hover', { featured }]}>
+<article class="project-card lift-on-hover">
   <h3>{title}</h3>
   {role && <p class="project-byline">{role}</p>}
   {engagement && <p class="project-byline">{engagement}</p>}
@@ -46,7 +39,7 @@ const companyLabel =
 
   <div class="project-footer">
     <p class="project-stack" translate="no">
-      {project.tags.slice(0, featured ? 8 : 5).join(' / ')}
+      {project.tags.slice(0, 5).join(' / ')}
     </p>
     {teamLabel && <p class="project-team">{teamLabel}</p>}
     {project.company?.url && (
@@ -56,7 +49,7 @@ const companyLabel =
         rel="noopener noreferrer"
         aria-label={companyLabel}
       >
-        <span translate="no">{project.company.name}</span>
+        <span translate="no">{companyName}</span>
       </a>
     )}
   </div>
@@ -74,20 +67,11 @@ const companyLabel =
     padding: clamp(1.4rem, 3vw, 2rem);
   }
 
-  .project-card.featured {
-    border-color: var(--line-strong);
-    background: var(--surface-raised);
-  }
-
   h3 {
     font-size: var(--font-title);
     font-weight: 650;
     letter-spacing: -0.03em;
     line-height: 1.25;
-  }
-
-  .featured h3 {
-    max-width: 18em;
   }
 
   .project-byline,
@@ -116,14 +100,13 @@ const companyLabel =
   }
 
   .project-sources a {
-    color: var(--muted-strong);
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--accent);
     text-decoration-line: underline;
     text-decoration-color: var(--accent);
     text-underline-offset: 0.2em;
-  }
-
-  .featured .project-description {
-    max-width: 62ch;
   }
 
   .project-footer {

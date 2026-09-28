@@ -6,7 +6,7 @@ export interface BilingualText {
 
 /** Company metadata attached to a project card */
 export interface ProjectCompany {
-  name: string;
+  name: BilingualText;
   url: string;
   description: BilingualText;
 }

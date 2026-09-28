@@ -4,45 +4,43 @@ import { profile } from '../data/profile';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const role = String(t('home.title'));
+const roleParts = role.split(' — ');
+const roleLead = roleParts[0] ?? role;
+const roleRest = roleParts.length > 1 ? roleParts.slice(1).join(' — ') : '';
 ---
 
 <section class="hero-shell" aria-labelledby="hero-heading">
-  <div class="site-container hero-copy hero-enter">
-    <h1 id="hero-heading">{t('home.greeting')}</h1>
-    <p class="hero-role">{t('home.title')}</p>
-    <p class="hero-tagline">{t('home.tagline')}</p>
-    <p class="hero-facts">
-      <span>{profile.location[lang]}</span>
-      <span>{t('home.years')}</span>
-      <span>{t('home.employer')}</span>
-    </p>
-    <p class="hero-summary">{t('home.heroSummary')}</p>
-    <div class="hero-actions">
-      <a class="button-primary" href={profile.cvPath} download>
-        {t('home.downloadCv')}
-      </a>
-      <a
-        class="button-secondary"
-        href={profile.linkedinUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        LinkedIn
-      </a>
-      <a
-        class="button-secondary"
-        href={profile.githubUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub
-      </a>
-      <a class="button-secondary" href={`mailto:${profile.email}`}>
-        {t('home.emailCta')}
-      </a>
-      <a class="button-secondary" href="#experience">
-        {t('home.experienceCta')}
-      </a>
+  <div class="site-container hero-enter">
+    <div class="hero-copy">
+      <h1 id="hero-heading">{t('home.greeting')}</h1>
+      <p class="hero-role">
+        {roleLead}
+        {roleRest && <span class="hero-role-rest">— {roleRest}</span>}
+      </p>
+      <p class="hero-tagline">{t('home.tagline')}</p>
+      <p class="hero-facts">
+        <span>{profile.location[lang]}</span>
+        <span>{t('home.years')}</span>
+        <span>{t('home.employer')}</span>
+      </p>
+      <p class="hero-summary">{t('home.heroSummary')}</p>
+      <div class="hero-actions">
+        <a class="button-primary" href={profile.cvPath} download>
+          {t('home.downloadCv')}
+        </a>
+        <a class="button-secondary" href={`mailto:${profile.email}`}>
+          {t('home.emailCta')}
+        </a>
+      </div>
+      <p class="hero-links">
+        <a class="text-link" href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+        <a class="text-link" href={profile.githubUrl} target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      </p>
     </div>
   </div>
 </section>
@@ -65,12 +63,16 @@ const t = useTranslations(lang);
   }
 
   .hero-role {
-    max-width: 22em;
     margin-top: 1rem;
     color: var(--muted-strong);
     font-size: var(--font-lead);
     font-weight: 650;
     letter-spacing: -0.02em;
+  }
+
+  .hero-role-rest {
+    display: block;
+    white-space: nowrap;
   }
 
   .hero-tagline {
@@ -84,16 +86,14 @@ const t = useTranslations(lang);
   .hero-facts {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.4rem 1rem;
+    gap: 0.35rem 1.25rem;
     margin-top: 0.85rem;
     color: var(--text);
     font-size: var(--font-small);
   }
 
-  .hero-facts span:not(:last-child)::after {
-    margin-left: 1rem;
-    color: var(--line-strong);
-    content: '/';
+  .hero-facts span {
+    white-space: nowrap;
   }
 
   .hero-summary {
@@ -104,10 +104,37 @@ const t = useTranslations(lang);
     line-height: 1.65;
   }
 
-  .hero-actions {
+  .hero-actions,
+  .hero-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .hero-actions {
     margin-top: 1.75rem;
+  }
+
+  .hero-links {
+    margin-top: 0.85rem;
+  }
+
+  .hero-links a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+    text-decoration-line: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  @media (max-width: 479px) {
+    .hero-facts {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
   }
 </style>

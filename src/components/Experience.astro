@@ -50,8 +50,8 @@ interface ExperienceEntry {
 }
 
 const experiences = (experiencesData as ExperienceEntry[]).map((experience) => ({
-  company: formatProse(experience.company[lang] ?? ''),
-  role: formatProse(experience.role[lang] ?? ''),
+  company: experience.company[lang] ?? '',
+  role: experience.role[lang] ?? '',
   period: formatRange(experience.period[lang] ?? ''),
   context: experience.context?.[lang] ? formatProse(experience.context[lang]) : '',
   sources: (experience.sources ?? []).map((source) => ({
@@ -80,12 +80,14 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
         <li>
           <div class="role-meta">
             <p class="period">{experience.period}</p>
-            <p class="company" translate="no">
-              {experience.company}
-            </p>
           </div>
           <article>
-            <h3>{experience.role}</h3>
+            <h3>
+              <span class="role-title">{experience.role}</span>
+              <span class="employer" translate="no">
+                {experience.company}
+              </span>
+            </h3>
             {experience.context && <p class="role-context">{experience.context}</p>}
             {experience.sources.length > 0 && (
               <p class="source-line">
@@ -106,7 +108,25 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
             </ul>
             {experience.publicContext.length > 0 && (
               <details class="public-context">
-                <summary>{t('experience.publicContext')}</summary>
+                <summary>
+                  <span>{t('experience.publicContext')}</span>
+                  <svg
+                    class="chevron"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                    width="16"
+                    height="16"
+                  >
+                    <path
+                      d="M3.5 6.5 8 11l4.5-4.5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </summary>
                 {experience.publicContext.map((paragraph) => (
                   <p set:html={renderRich(paragraph)} />
                 ))}
@@ -155,11 +175,16 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
     line-height: 1.5;
   }
 
-  .company {
-    margin-top: 0.55rem;
-    color: var(--text);
+  article h3 {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .employer {
+    color: var(--muted-strong);
     font-size: var(--font-small);
     font-weight: 650;
+    letter-spacing: 0;
   }
 
   .bullet-emphasis {
@@ -194,14 +219,19 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
   }
 
   .source-line a,
-  .public-context a {
+  .public-context :global(a) {
     display: inline-flex;
     min-height: 2.75rem;
     align-items: center;
-    color: var(--muted-strong);
+    color: var(--accent);
     text-decoration-line: underline;
     text-decoration-color: var(--accent);
+    text-decoration-thickness: 1px;
     text-underline-offset: 0.2em;
+  }
+
+  .public-context :global(a):hover {
+    color: var(--accent-strong);
   }
 
   .public-context {
@@ -213,10 +243,20 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
     display: inline-flex;
     min-height: 2.75rem;
     align-items: center;
+    gap: 0.45rem;
     color: var(--text);
     font-size: var(--font-small);
     font-weight: 650;
     cursor: pointer;
+  }
+
+  .public-context .chevron {
+    color: var(--accent-strong);
+    transition: transform 180ms var(--ease-out);
+  }
+
+  .public-context[open] .chevron {
+    transform: rotate(180deg);
   }
 
   .public-context p {
@@ -231,6 +271,7 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
     gap: 0.9rem;
     margin: 1.35rem 0 0;
     padding-left: 1.2rem;
+    list-style: disc;
     color: var(--muted);
     font-size: var(--font-body);
     line-height: 1.75;
@@ -248,7 +289,7 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
 
     .experience-intro {
       position: sticky;
-      top: 5.5rem;
+      top: 4.75rem;
       align-self: start;
     }
 

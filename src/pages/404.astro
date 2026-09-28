@@ -1,33 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { profile } from '../data/profile';
+import { en } from '../i18n/en';
+import { vi } from '../i18n/vi';
+
+const links = [
+  { href: '/en/', en: en.notFound.home, vi: vi.notFound.home },
+  { href: '/vi/', en: en.notFound.homeVi, vi: vi.notFound.homeVi },
+  { href: '/en/projects/', en: en.notFound.projects, vi: vi.notFound.projects },
+  { href: '/vi/projects/', en: en.notFound.projectsVi, vi: vi.notFound.projectsVi },
+];
 ---
 
 <Layout
-  title="Page not found | Tan Phat Vo"
-  description="That address is not on this site."
+  title={`${en.notFound.title} | Tan Phat Vo`}
+  description={en.notFound.body}
   indexable={false}
 >
   <section class="section-shell">
     <div class="site-container not-found">
-      <h1>Page not found</h1>
-      <p>That address is not on this site.</p>
+      <h1>{en.notFound.title}</h1>
+      <p>{en.notFound.body}</p>
+      <p lang="vi">
+        {vi.notFound.title}. {vi.notFound.body}
+      </p>
       <ul>
-        <li>
-          <a href="/en/">English home</a>
-        </li>
-        <li>
-          <a href="/vi/">Vietnamese home</a>
-        </li>
-        <li>
-          <a href="/en/projects/">English projects</a>
-        </li>
-        <li>
-          <a href="/vi/projects/">Vietnamese projects</a>
-        </li>
-        <li>
-          <a href={`mailto:${profile.email}`}>{profile.email}</a>
-        </li>
+        {links.map((link) => (
+          <li>
+            <a href={link.href}>
+              {link.en}
+              <span lang="vi"> / {link.vi}</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </div>
   </section>
@@ -42,9 +46,11 @@ import { profile } from '../data/profile';
   }
 
   .not-found p {
+    max-width: 36rem;
     margin-top: 1rem;
     color: var(--muted-strong);
     font-size: var(--font-body);
+    line-height: 1.6;
   }
 
   .not-found ul {
@@ -59,7 +65,7 @@ import { profile } from '../data/profile';
     display: inline-flex;
     min-height: 2.75rem;
     align-items: center;
-    color: var(--text);
+    color: var(--accent);
     font-size: var(--font-body);
     text-decoration-color: var(--accent);
     text-decoration-line: underline;

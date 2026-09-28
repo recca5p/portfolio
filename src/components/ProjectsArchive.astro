@@ -2,7 +2,7 @@
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import type { Project } from '../types/project';
 import projectsData from '../data/projects.json';
-import { formatProse } from '../utils/text';
+import { formatProse, teamSizeLabel } from '../utils/text';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -31,26 +31,20 @@ const projects = projectsData as Project[];
       <h1 id="projects-heading">{t('projects.title')}</h1>
       <p>{t('projects.viewAllSubtitle')}</p>
       <span>
-        {projects.length} {lang === 'en' ? 'selected projects' : 'dự án tiêu biểu'}
+        {projects.length} {lang === 'en' ? 'projects' : 'dự án'}
       </span>
     </header>
 
     <div class="archive-list">
       {projects.map((project) => {
-        const title = formatProse(project.title[lang]);
+        const title = project.title[lang];
         const description = formatProse(project.description[lang]);
         const role = project.role ? formatProse(project.role[lang]) : undefined;
         const engagement = project.engagement ? formatProse(project.engagement[lang]) : undefined;
-        const teamLabel =
-          project.teamSize === 1
-            ? String(t('projects.solo'))
-            : typeof project.teamSize === 'number'
-              ? `${t('projects.team')} ${project.teamSize}`
-              : undefined;
+        const teamLabel = teamSizeLabel(project.teamSize, lang, String(t('projects.solo')));
+        const companyName = project.company?.name[lang] ?? '';
         const companyLabel =
-          lang === 'en'
-            ? `Visit ${project.company?.name ?? ''} website`
-            : `Truy cập trang web ${project.company?.name ?? ''}`;
+          lang === 'en' ? `Visit ${companyName} website` : `Truy cập trang web ${companyName}`;
 
         return (
           <article>
@@ -86,7 +80,7 @@ const projects = projectsData as Project[];
                   rel="noopener noreferrer"
                   aria-label={companyLabel}
                 >
-                  <span translate="no">{project.company.name}</span>
+                  <span translate="no">{companyName}</span>
                 </a>
               )}
               {project.company?.description?.[lang] && (

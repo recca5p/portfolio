@@ -7,7 +7,7 @@ import projectsData from '../data/projects.json';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const homepageIds = ['anz-plus', 'ioga', 'anz-bifrost'];
+const homepageIds = ['bollore-otel', 'halliburton-ecompletion', 'bollore-freight'];
 const projects = homepageIds.map((id) => {
   const project = (projectsData as Project[]).find((item) => item.id === id);
   if (!project) {
@@ -27,12 +27,9 @@ const projects = homepageIds.map((id) => {
     </div>
 
     <div class="projects-grid">
-      <ProjectCard project={projects[0]} lang={lang} featured />
-      <div class="project-stack">
-        {projects.slice(1).map((project) => (
-          <ProjectCard project={project} lang={lang} />
-        ))}
-      </div>
+      {projects.map((project) => (
+        <ProjectCard project={project} lang={lang} />
+      ))}
     </div>
 
     <div class="projects-action">
@@ -59,11 +56,6 @@ const projects = homepageIds.map((id) => {
     margin-top: 3rem;
   }
 
-  .project-stack {
-    display: grid;
-    gap: 1rem;
-  }
-
   .projects-action {
     display: flex;
     margin-top: 1.5rem;
@@ -72,8 +64,8 @@ const projects = homepageIds.map((id) => {
 
   @media (min-width: 900px) {
     .projects-grid {
-      align-items: start;
-      grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+      align-items: stretch;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 </style>

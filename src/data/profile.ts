@@ -4,8 +4,8 @@ export const profile = {
     vi: 'Võ Tấn Phát',
   },
   jobTitle: {
-    en: 'Senior Software Engineer - Applied AI & Backend',
-    vi: 'Kỹ sư Phần mềm Senior - AI ứng dụng & Backend',
+    en: 'Senior Software Engineer — Applied AI & Backend',
+    vi: 'Kỹ sư Phần mềm Senior — AI ứng dụng & Backend',
   },
   email: 'phatvo73.dev@gmail.com',
   phoneE164: '+84779342459',

@@ -11,9 +11,8 @@ const zaloUrl = `https://zalo.me/${profile.phoneE164.replace('+', '')}`;
 const toQr = async (value: string, label: string) => {
   const svg = await QRCode.toString(value, {
     type: 'svg',
-    margin: 1,
-    width: 160,
-    color: { dark: '#24bcae', light: '#11181e' },
+    margin: 4,
+    color: { dark: '#0b1014', light: '#ffffff' },
   });
   return svg
     .replace(/<\?xml[^>]*>\s*/i, '')
@@ -50,15 +49,18 @@ const zaloQr = await toQr(zaloUrl, lang === 'en' ? 'Zalo contact QR code' : 'Mã
         <a href={`mailto:${profile.email}`}>
           <strong>{profile.email}</strong>
         </a>
-        <button
-          type="button"
-          class="copy-email"
-          data-email={profile.email}
-          data-label={t('contact.copyEmail')}
-          data-copied={t('contact.copied')}
-        >
-          {t('contact.copyEmail')}
-        </button>
+        <div class="copy-control">
+          <button
+            type="button"
+            class="copy-email"
+            data-email={profile.email}
+            data-label={t('contact.copyEmail')}
+            data-copied={t('contact.copied')}
+          >
+            {t('contact.copyEmail')}
+          </button>
+          <span class="copy-status sr-only" aria-live="polite"></span>
+        </div>
       </div>
 
       <div class="contact-row">
@@ -112,15 +114,50 @@ const zaloQr = await toQr(zaloUrl, lang === 'en' ? 'Zalo contact QR code' : 'Mã
       var email = button.getAttribute('data-email') || '';
       var copied = button.getAttribute('data-copied') || 'Copied';
       var label = button.getAttribute('data-label') || 'Copy email';
+      var status = button.parentElement && button.parentElement.querySelector('.copy-status');
       var done = function () {
         button.textContent = copied;
+        if (status) status.textContent = copied;
         window.setTimeout(function () {
           button.textContent = label;
+          if (status) status.textContent = '';
         }, 1600);
       };
+      var fallback = function () {
+        var area = document.createElement('textarea');
+        area.value = email;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.left = '-9999px';
+        document.body.appendChild(area);
+        area.select();
+        var ok = false;
+        try {
+          ok = document.execCommand('copy');
+        } catch (error) {
+          ok = false;
+        }
+        area.remove();
+        if (ok) done();
+        else {
+          button.textContent = email;
+          if (status) status.textContent = email;
+        }
+      };
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(email).then(done);
+        navigator.clipboard.writeText(email).then(done).catch(fallback);
+      } else {
+        fallback();
       }
+    });
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('.contact-row details[open]').forEach(function (details) {
+      details.open = false;
+      var summary = details.querySelector('summary');
+      if (summary) summary.focus();
     });
   });
 </script>

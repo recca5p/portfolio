@@ -8,20 +8,21 @@ export const vi = {
     close: 'Đóng',
   },
   home: {
-    title: 'Kỹ sư Phần mềm Senior - AI ứng dụng & Backend',
-    tagline: 'Backend Go, gRPC và .NET cho ngân hàng, với AI agent trong công việc hằng ngày',
+    title: 'Kỹ sư Phần mềm Senior — AI ứng dụng & Backend',
+    tagline:
+      'Backend Go, gRPC và .NET cho ngân hàng. AI là cách tôi lên kế hoạch, viết và kiểm thử.',
     greeting: 'Võ Tấn Phát',
     heroSummary:
-      'Tôi xây dịch vụ backend cho ANZ Plus, ngân hàng số của ANZ, và dùng hệ sinh thái Claude Code để lên kế hoạch, viết và kiểm thử nhanh hơn.',
-    experienceCta: 'Xem kinh nghiệm',
+      'Tôi xây dựng dịch vụ Go và gRPC cho ANZ Plus: thanh toán, khiếu nại, hồ sơ khách hàng và chuyển tiền quốc tế. Claude Code là cách tôi lên kế hoạch, viết và kiểm thử công việc đó.',
     emailCta: 'Gửi email',
     downloadCv: 'Tải CV',
     years: 'Hơn 6 năm',
     employer: 'ANZ qua HCLTech',
     summaryTitle: 'Sơ lược',
-    bio: 'Kỹ sư phần mềm Senior với hơn 6 năm làm hệ thống production cho <strong>ANZ Bank</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong>, cùng các dự án freelance cho Bolloré Logistics, IOGA.fr và một số khách hàng khác. Hiện tôi làm trong nhóm backend ANZ Plus thông qua HCLTech Việt Nam: dịch vụ Go và gRPC trên GCP cho PayID, PayTo, khiếu nại giao dịch, tự phục vụ và hồ sơ khách hàng, cùng dự án Bifrost chuyển dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. Lập trình với AI agent qua hệ sinh thái Claude Code là một phần công việc hằng ngày của tôi, từ viết code, refactor đến sinh test. Kết quả đã ghi nhận: rút ngắn khoảng 30% thời gian đưa tính năng ra thị trường và độ phủ test trên 90% cho hợp đồng gRPC tại ANZ, tìm kiếm tài liệu nhanh gấp 20 lần tại Halliburton, và giảm hơn 60% chi phí observability tại Bolloré.',
+    bio: 'Kỹ sư phần mềm Senior với hơn 6 năm trên hệ thống production cho <strong>ANZ Bank</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong>, cùng việc freelance cho Bolloré Logistics và IOGA.fr. Ở nhóm backend ANZ Plus qua HCLTech Việt Nam, tôi xây dựng dịch vụ Go và gRPC trên GCP, gồm chuyển dữ liệu Bifrost. Claude Code là cách tôi viết và soạn test.',
     metrics: [
-      { value: '~30%', label: 'Rút ngắn thời gian ra thị trường tại ANZ (quy trình có AI hỗ trợ)' },
+      { value: '~30%', label: 'Đóng góp vào việc rút ngắn thời gian ra thị trường tại ANZ' },
+      { value: '90%+', label: 'Độ phủ hợp đồng gRPC của IMT tại ANZ' },
       { value: '20x', label: 'Tìm kiếm tài liệu nhanh hơn, Halliburton' },
       { value: '>60%', label: 'Giảm chi phí observability, Bolloré' },
     ],
@@ -48,7 +49,7 @@ export const vi = {
       },
       database: {
         title: 'Cơ sở dữ liệu và messaging',
-        description: 'Cơ sở dữ liệu quan hệ và message broker dùng trong production.',
+        description: 'Cơ sở dữ liệu quan hệ và message broker.',
         details: [
           'PostgreSQL, SQL Server, Oracle, BigQuery, DynamoDB, LiteDB',
           'Truy vấn: indexing và stored procedure',
@@ -58,22 +59,24 @@ export const vi = {
       },
       cloud: {
         title: 'Cloud và DevOps',
-        description: 'GCP, Azure và AWS, với container và CI trên các nền tảng đang dùng.',
+        description: 'GCP, Azure, AWS, container và CI.',
         details: [
           'GCP: GKE, Cloud Run, Pub/Sub, BigQuery',
           'Azure: Service Bus, Azure SQL, Azure AD, DevOps, OpenAI, AI Speech',
           'AWS: Lambda, DynamoDB, S3, ECS, EKS',
           'Docker, Kubernetes, Helm',
           'CI/CD: GitHub Actions, Azure DevOps, Jenkins',
+          'OpenTelemetry',
         ],
       },
       ai: {
         title: 'AI ứng dụng',
-        description: 'Lập trình agentic, test có AI hỗ trợ, và bước LLM trong pipeline backend.',
+        description:
+          'Lập trình có AI hỗ trợ, test có AI hỗ trợ, và bước LLM trong pipeline backend.',
         details: [
-          'Lập trình agentic với hệ sinh thái Claude Code: lên kế hoạch, boilerplate và refactor',
+          'Lập trình có AI hỗ trợ với hệ sinh thái Claude Code: lên kế hoạch, boilerplate và refactor',
           'Sinh unit test và contract test bằng AI, rồi rà soát trước khi gộp',
-          'Tích hợp LLM trong pipeline backend: Azure OpenAI và Azure AI Speech trên production tại IOGA.fr, và Anthropic Claude',
+          'Bước LLM trong pipeline backend: Azure OpenAI và Azure AI Speech trên production tại IOGA.fr',
           'Thiết kế prompt và ngữ cảnh cho việc sinh code và test',
         ],
       },
@@ -81,17 +84,17 @@ export const vi = {
         title: 'Kiểm thử và chất lượng',
         description: 'Go test, MSTest, Selenium, và cổng quét trên mỗi lần deploy.',
         details: [
-          'Go testing (độ phủ trên 90% cho hợp đồng gRPC của IMT tại ANZ)',
+          'Go testing cho hợp đồng gRPC, gồm IMT tại ANZ',
           'Unit test và integration test bằng MSTest',
-          'Bộ kiểm thử đầu-cuối bằng Selenium WebDriver',
+          'Kiểm thử end-to-end bằng Selenium WebDriver',
           'Cổng SonarQube và Fortify',
-          'Kiểm tra OWASP và OpenTelemetry',
+          'Kiểm tra OWASP',
           'TDD trên dịch vụ ngân hàng',
         ],
       },
       frontend: {
         title: 'Frontend',
-        description: 'Angular và TypeScript trên các ứng dụng web trong phần việc này.',
+        description: 'Angular và TypeScript.',
         details: ['Angular', 'TypeScript'],
       },
     },
@@ -110,13 +113,13 @@ export const vi = {
       'Hệ thống ngân hàng, logistics, sản xuất và dầu khí, cùng các dự án AI ứng dụng như pipeline phụ đề bằng LLM.',
     viewAll: 'Xem tất cả dự án',
     viewAllSubtitle:
-      'Hệ thống ngân hàng, logistics, sản xuất và dầu khí, cùng các dự án AI ứng dụng như pipeline phụ đề bằng LLM.',
+      'Hệ thống ngân hàng, logistics, sản xuất và dầu khí, cùng pipeline phụ đề bằng LLM.',
     solo: 'Một mình',
-    team: 'Nhóm',
   },
   contact: {
     title: 'Liên hệ',
-    subtitle: 'Email, LinkedIn, GitHub, WhatsApp hoặc Zalo.',
+    subtitle:
+      'Sẵn sàng cho vị trí AI ứng dụng senior và backend senior. Làm việc tại Thành phố Hồ Chí Minh (GMT+7).',
     scanToChat: 'Quét để nhắn tin',
     showQr: 'Hiện mã QR',
     copyEmail: 'Sao chép email',

@@ -2,10 +2,12 @@
 import { getLangFromUrl, ui } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
+const onLocalizedPage = Astro.url.pathname.startsWith(`/${lang}/`);
 
 const switchLangPath = (targetLang: string) => {
   const segments = Astro.url.pathname.split('/').filter(Boolean);
 
+  if (segments[0] === '404') return `/${targetLang}/`;
   if (segments[0] in ui) segments[0] = targetLang;
   else segments.unshift(targetLang);
 
@@ -21,7 +23,7 @@ const languageLabel = lang === 'en' ? 'Choose language' : 'Chọn ngôn ngữ';
     data-preserve-hash
     lang="en"
     hreflang="en"
-    aria-current={lang === 'en' ? 'page' : undefined}
+    aria-current={onLocalizedPage && lang === 'en' ? 'page' : undefined}
   >
     EN
   </a>
@@ -31,7 +33,7 @@ const languageLabel = lang === 'en' ? 'Choose language' : 'Chọn ngôn ngữ';
     data-preserve-hash
     lang="vi"
     hreflang="vi"
-    aria-current={lang === 'vi' ? 'page' : undefined}
+    aria-current={onLocalizedPage && lang === 'vi' ? 'page' : undefined}
   >
     VI
   </a>

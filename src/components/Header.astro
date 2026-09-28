@@ -14,7 +14,7 @@ const onProjects = Astro.url.pathname === projectsPath;
 const displayName = String(t('home.greeting'));
 
 const navItems = [
-  { path: homePath, label: t('nav.home'), current: onHome },
+  ...(onHome ? [] : [{ path: homePath, label: t('nav.home'), current: false }]),
   { path: `${homePath}#experience`, label: t('nav.experience'), current: false },
   { path: projectsPath, label: t('nav.projects'), current: onProjects },
   { path: `${homePath}#contact`, label: t('nav.contact'), current: false },
@@ -110,7 +110,7 @@ const navItems = [
     top: 0;
     z-index: 40;
     border-bottom: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
-    background: color-mix(in srgb, var(--page) 88%, transparent);
+    background: color-mix(in srgb, var(--page) 95%, transparent);
     padding-top: env(safe-area-inset-top);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);

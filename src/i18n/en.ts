@@ -8,20 +8,20 @@ export const en = {
     close: 'Close',
   },
   home: {
-    title: 'Senior Software Engineer - Applied AI & Backend',
-    tagline: 'Go, gRPC and .NET backends for banking, with AI agents in the daily workflow',
+    title: 'Senior Software Engineer — Applied AI & Backend',
+    tagline: 'Go, gRPC and .NET backends for banking. AI is how I plan, write and test them.',
     greeting: 'Tan Phat Vo',
     heroSummary:
-      "I build backend services for ANZ Plus, ANZ's digital bank, and use the Claude Code ecosystem to plan, write and test them faster.",
-    experienceCta: 'View experience',
+      'I build Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers. Claude Code is how I plan, write and test that work.',
     emailCta: 'Email me',
     downloadCv: 'Download CV',
     years: '6+ years',
     employer: 'ANZ via HCLTech',
     summaryTitle: 'Background',
-    bio: 'Senior software engineer with 6+ years on production systems for <strong>ANZ Bank</strong>, <strong>Halliburton</strong> and <strong>Sacombank</strong>, plus freelance work for Bolloré Logistics, IOGA.fr and others. Today I work on the ANZ Plus backend team through HCLTech Vietnam: Go and gRPC services on GCP for PayID, PayTo, disputes, self-service and customer profile, and Project Bifrost, which moves customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. Agentic coding with the Claude Code ecosystem is part of how I work every day, for implementation, refactoring and test generation. Recorded results: about 30% shorter time-to-market and 90%+ test coverage on gRPC contracts at ANZ, 20x faster document search at Halliburton, and more than 60% lower observability cost at Bolloré.',
+    bio: 'Senior software engineer with 6+ years on production systems for <strong>ANZ Bank</strong>, <strong>Halliburton</strong> and <strong>Sacombank</strong>, plus freelance work for Bolloré Logistics and IOGA.fr. On the ANZ Plus backend team through HCLTech Vietnam, I build Go and gRPC services on GCP, including the Bifrost data move. Claude Code is how I implement, refactor and draft tests.',
     metrics: [
-      { value: '~30%', label: 'Shorter time-to-market at ANZ (AI-assisted workflow)' },
+      { value: '~30%', label: 'Contributed to shorter time-to-market at ANZ' },
+      { value: '90%+', label: 'IMT gRPC contract coverage at ANZ' },
       { value: '20x', label: 'Faster document search, Halliburton' },
       { value: '>60%', label: 'Lower observability cost, Bolloré' },
     ],
@@ -48,7 +48,7 @@ export const en = {
       },
       database: {
         title: 'Database & Messaging',
-        description: 'Relational databases and the message brokers used in production.',
+        description: 'Relational databases and message brokers.',
         details: [
           'PostgreSQL, SQL Server, Oracle, BigQuery, DynamoDB, LiteDB',
           'Query work: indexing and stored procedures',
@@ -58,23 +58,24 @@ export const en = {
       },
       cloud: {
         title: 'Cloud & DevOps',
-        description:
-          'GCP, Azure, and AWS, with containers and CI on the platforms used in production.',
+        description: 'GCP, Azure, AWS, containers, and CI.',
         details: [
           'GCP: GKE, Cloud Run, Pub/Sub, BigQuery',
           'Azure: Service Bus, Azure SQL, Azure AD, DevOps, OpenAI, AI Speech',
           'AWS: Lambda, DynamoDB, S3, ECS, EKS',
           'Docker, Kubernetes, Helm',
           'CI/CD: GitHub Actions, Azure DevOps, Jenkins',
+          'OpenTelemetry',
         ],
       },
       ai: {
         title: 'Applied AI',
-        description: 'Agentic coding, AI-assisted tests, and LLM steps inside backend pipelines.',
+        description:
+          'AI-assisted coding, AI-assisted tests, and LLM steps inside backend pipelines.',
         details: [
-          'Agentic coding with the Claude Code ecosystem: planning, boilerplate, and refactoring',
+          'AI-assisted coding with the Claude Code ecosystem: planning, boilerplate, and refactoring',
           'AI-assisted unit and contract test generation, reviewed before they land',
-          'LLM integration in backend pipelines: Azure OpenAI and Azure AI Speech in production at IOGA.fr, and Anthropic Claude',
+          'LLM steps in backend pipelines: Azure OpenAI and Azure AI Speech in production at IOGA.fr',
           'Prompt and context design for code and test generation',
         ],
       },
@@ -82,17 +83,17 @@ export const en = {
         title: 'Testing & Quality',
         description: 'Go tests, MSTest, Selenium, and the scan gates used on deploys.',
         details: [
-          'Go testing (90%+ coverage on ANZ IMT gRPC contracts)',
+          'Go testing for gRPC contracts, including ANZ IMT',
           'MSTest unit and integration tests',
           'Selenium WebDriver end-to-end suites',
           'SonarQube and Fortify gates',
-          'OWASP checks and OpenTelemetry',
+          'OWASP checks',
           'TDD practices on banking services',
         ],
       },
       frontend: {
         title: 'Frontend',
-        description: 'Angular and TypeScript on the web apps in this work.',
+        description: 'Angular and TypeScript.',
         details: ['Angular', 'TypeScript'],
       },
     },
@@ -111,13 +112,12 @@ export const en = {
       'Banking, logistics, manufacturing and oil and gas systems, plus applied AI work such as an LLM subtitle pipeline.',
     viewAll: 'View all projects',
     viewAllSubtitle:
-      'Banking, logistics, manufacturing and oil and gas systems, plus applied AI work such as an LLM subtitle pipeline.',
+      'Banking, logistics, manufacturing and oil and gas systems, plus an LLM subtitle pipeline.',
     solo: 'Solo',
-    team: 'Team',
   },
   contact: {
     title: 'Contact',
-    subtitle: 'Email, LinkedIn, GitHub, WhatsApp, or Zalo.',
+    subtitle: 'Open to Senior Applied AI and Backend roles. I work from Ho Chi Minh City (GMT+7).',
     scanToChat: 'Scan to chat',
     showQr: 'Show QR code',
     copyEmail: 'Copy email',
