@@ -21,8 +21,8 @@
       }
     },
     "description": {
-      "en": "Built Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers, covering PayID, PayTo, self-service and customer profile. Used Claude Code to plan, refactor and draft tests. AI-written code passes the same CI and security gates as any other change.",
-      "vi": "Xây dựng dịch vụ Go và gRPC cho thanh toán, khiếu nại, hồ sơ khách hàng và chuyển tiền quốc tế trên ANZ Plus, gồm PayID, PayTo, tự phục vụ và hồ sơ khách hàng. Dùng Claude Code để lên kế hoạch, refactor và soạn test. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác."
+      "en": "I build Go and gRPC services for ANZ Plus: payments, disputes, self-service, customer profiles and international transfers (PayID, PayTo and IMT). I use Claude Code to plan, refactor and draft tests. AI-written code passes the same CI and security gates as any other change.",
+      "vi": "Tôi đang xây dựng dịch vụ Go và gRPC cho ANZ Plus: thanh toán, khiếu nại, tự phục vụ, hồ sơ khách hàng và chuyển tiền quốc tế (PayID, PayTo và IMT). Tôi dùng Claude Code để lên kế hoạch, refactor và soạn test. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác."
     },
     "tags": [
       "Go",
@@ -60,8 +60,8 @@
       }
     },
     "description": {
-      "en": "Built migration services in Go on GCP to move customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. ANZ completed its acquisition of Suncorp Bank on 31 July 2024, adding about 1.2 million customers, and has committed to moving those customers onto its systems and digital platforms by June 2027.",
-      "vi": "Xây dựng dịch vụ chuyển dữ liệu bằng Go trên GCP để đưa dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. ANZ hoàn tất mua Suncorp Bank ngày 31/7/2024, thêm khoảng 1,2 triệu khách hàng, và cam kết chuyển những khách hàng đó sang hệ thống và nền tảng số của ANZ trước tháng 6/2027."
+      "en": "I build migration services in Go on GCP to move customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. ANZ completed its acquisition of Suncorp Bank on 31 July 2024, adding about 1.2 million customers, and has committed to moving those customers onto its systems and digital platforms by June 2027.",
+      "vi": "Tôi đang xây dựng dịch vụ chuyển dữ liệu bằng Go trên GCP để đưa dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. ANZ hoàn tất mua Suncorp Bank ngày 31/7/2024, thêm khoảng 1,2 triệu khách hàng, và cam kết chuyển những khách hàng đó sang hệ thống và nền tảng số của ANZ trước tháng 6/2027."
     },
     "sources": [
       {
@@ -85,7 +85,7 @@
     "id": "ioga",
     "title": {
       "en": "IOGA.fr — AI video knowledge platform",
-      "vi": "IOGA.fr — nền tảng video tri thức dùng AI"
+      "vi": "IOGA.fr — nền tảng tri thức video dùng AI"
     },
     "role": {
       "en": "Lead Backend Developer & DevOps Engineer",
@@ -112,9 +112,9 @@
       "vi": "Xây dựng pipeline phụ đề cho IOGA.fr, nền tảng Pháp biến video thực địa, chủ yếu trong xây dựng, thành nội dung có thể tìm kiếm. Azure AI Speech phiên âm từng video, rồi Azure OpenAI (GPT) dịch phụ đề sang nhiều ngôn ngữ, thay cho bước gõ tay. Nền tảng chạy trên AWS (Lambda, DynamoDB, S3, ECS/EKS) cùng Azure."
     },
     "tags": [
-      "C# .NET",
-      "Azure OpenAI",
       "Azure AI Speech",
+      "Azure OpenAI",
+      "C# .NET",
       "AWS Lambda",
       "DynamoDB",
       "AWS S3",
@@ -129,8 +129,8 @@
       "vi": "Bolloré Logistics (CMA CGM) — Application Insights sang Splunk qua OpenTelemetry"
     },
     "role": {
-      "en": "Backend Developer, own proposal",
-      "vi": "Lập trình viên backend, tự đề xuất"
+      "en": "Backend Developer",
+      "vi": "Lập trình viên backend"
     },
     "teamSize": 1,
     "engagement": {
@@ -144,13 +144,13 @@
       },
       "url": "https://www.cma-cgm.com",
       "description": {
-        "en": "Logistics company. This observability move was solo freelance work.",
-        "vi": "Công ty logistics. Việc chuyển observability này là việc freelance, làm một mình."
+        "en": "Logistics company.",
+        "vi": "Công ty logistics."
       }
     },
     "description": {
-      "en": "Designed and carried out a solo move from Azure Application Insights to Splunk via OpenTelemetry (OTLP, collector, Splunk HEC), cutting observability cost by more than 60%. Piloted on the freight quote system, then rolled out to the other .NET microservices.",
-      "vi": "Tự thiết kế và thực hiện việc chuyển từ Azure Application Insights sang Splunk qua OpenTelemetry (OTLP, collector, Splunk HEC), giảm hơn 60% chi phí observability. Thử trên hệ thống báo giá, rồi triển khai cho các microservice .NET còn lại."
+      "en": "Designed and carried out the move from Azure Application Insights to Splunk via OpenTelemetry (OTLP, collector, Splunk HEC), cutting observability cost by more than 60%. Piloted on the freight quote system, then rolled out to the other .NET microservices.",
+      "vi": "Thiết kế và thực hiện việc chuyển từ Azure Application Insights sang Splunk qua OpenTelemetry (OTLP, collector, Splunk HEC), giảm hơn 60% chi phí observability. Thử trên hệ thống báo giá, rồi triển khai cho các microservice .NET còn lại."
     },
     "tags": [
       "OpenTelemetry",
@@ -217,8 +217,8 @@
       }
     },
     "description": {
-      "en": "Engineers on offshore rigs often have no internet, so the tool cannot assume a live link to the central server. eCompletion Tools is a WinForms app that stores the job in LiteDB on the machine and syncs to that server when the connection returns. Keeping the working copy local, and the shared copy on the server, is what lets data entry continue through an outage.",
-      "vi": "Kỹ sư trên giàn khoan thường không có internet, nên công cụ không thể giả định luôn có đường truyền tới máy chủ trung tâm. eCompletion Tools là ứng dụng WinForms: lưu phần việc bằng LiteDB trên máy và đồng bộ lên máy chủ khi kết nối trở lại. Bản đang làm nằm trên máy, bản dùng chung nằm trên máy chủ, nên việc nhập liệu vẫn chạy khi mất mạng."
+      "en": "Engineers on offshore rigs often have no internet, so the tool cannot assume a live link to the central server. eCompletion Tools is a WinForms app that stores the job in LiteDB on the machine and syncs to that server when the connection returns.",
+      "vi": "Kỹ sư trên giàn khoan thường không có internet, nên công cụ không thể giả định luôn có đường truyền tới máy chủ trung tâm. eCompletion Tools là ứng dụng WinForms: lưu phần việc bằng LiteDB trên máy và đồng bộ lên máy chủ khi kết nối trở lại."
     },
     "tags": [
       "C# .NET",
@@ -472,7 +472,7 @@
     },
     "description": {
       "en": "Built Selenium WebDriver and MSTest end-to-end suites for dashboards, charts, and data sources, and wrote SDK guides in Docusaurus.",
-      "vi": "Xây kiểm thử end-to-end bằng Selenium WebDriver và MSTest cho dashboard, biểu đồ và nguồn dữ liệu, và viết hướng dẫn SDK trên Docusaurus."
+      "vi": "Xây dựng bộ kiểm thử end-to-end bằng Selenium WebDriver và MSTest cho dashboard, biểu đồ và nguồn dữ liệu, và viết hướng dẫn SDK trên Docusaurus."
     },
     "tags": ["Selenium WebDriver", "MSTest", "C# .NET", "Docusaurus"]
   }

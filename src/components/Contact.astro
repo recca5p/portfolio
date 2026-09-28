@@ -84,7 +84,10 @@ const zaloQr = await toQr(zaloUrl, lang === 'en' ? 'Zalo contact QR code' : 'Mã
           <strong>{profile.phoneDisplay}</strong>
         </a>
         <details>
-          <summary>{t('contact.showQr')}</summary>
+          <summary>
+            <span class="when-closed">{t('contact.showQr')}</span>
+            <span class="when-open">{t('contact.hideQr')}</span>
+          </summary>
           <div class="qr-panel">
             <p>{t('contact.scanToChat')}</p>
             <Fragment set:html={whatsappQr} />
@@ -98,7 +101,10 @@ const zaloQr = await toQr(zaloUrl, lang === 'en' ? 'Zalo contact QR code' : 'Mã
           <strong>{profile.phoneDisplay}</strong>
         </a>
         <details>
-          <summary>{t('contact.showQr')}</summary>
+          <summary>
+            <span class="when-closed">{t('contact.showQr')}</span>
+            <span class="when-open">{t('contact.hideQr')}</span>
+          </summary>
           <div class="qr-panel">
             <p>{t('contact.scanToChat')}</p>
             <Fragment set:html={zaloQr} />
@@ -254,6 +260,18 @@ const zaloQr = await toQr(zaloUrl, lang === 'en' ? 'Zalo contact QR code' : 'Mã
   .contact-row details {
     position: relative;
     justify-self: end;
+  }
+
+  .contact-row details .when-open {
+    display: none;
+  }
+
+  .contact-row details[open] .when-closed {
+    display: none;
+  }
+
+  .contact-row details[open] .when-open {
+    display: inline;
   }
 
   .qr-panel {

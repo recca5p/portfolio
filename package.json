@@ -16,8 +16,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "seo:check": "node scripts/check-seo.mjs",
+    "csp:check": "node scripts/check-csp.mjs",
     "html:check": "html-validate dist/index.html dist/404.html dist/en/index.html dist/vi/index.html dist/en/projects/index.html dist/vi/projects/index.html",
-    "check": "npm run typecheck && npm run lint && npm run format:check && npm run build && npm run seo:check && npm run html:check",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run build && npm run seo:check && npm run csp:check && npm run html:check",
     "astro": "astro"
   },
   "dependencies": {

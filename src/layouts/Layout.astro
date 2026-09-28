@@ -22,7 +22,7 @@ interface Props {
 
 const {
   title,
-  description = 'Tan Phat Vo builds Go and gRPC backends for ANZ Plus in Ho Chi Minh City. Cursor and Claude Code are how that work is planned, written and tested.',
+  description = 'I build Go and gRPC backends for ANZ Plus in Ho Chi Minh City. I plan, write and test that work with Cursor and Claude Code.',
   lang = 'en',
   canonicalPath,
   pageType = 'profile',
@@ -73,8 +73,8 @@ const personSchema = {
   alternateName: profile.name.vi,
   description:
     lang === 'en'
-      ? 'Senior software engineer focused on applied AI and backend systems. Current role is Software Engineer at ANZ Bank (via HCLTech Vietnam), building Go and gRPC services for ANZ Plus. Cursor and Claude Code are how that work is planned, written and tested.'
-      : 'Kỹ sư phần mềm senior, hướng tới AI ứng dụng và backend. Vai trò hiện tại là kỹ sư phần mềm tại ANZ Bank (qua HCLTech Việt Nam), xây dựng dịch vụ Go và gRPC cho ANZ Plus. Cursor và Claude Code là công cụ để lên kế hoạch, viết và kiểm thử công việc đó.',
+      ? 'Senior software engineer focused on applied AI and backend systems. Current role is Software Engineer at ANZ Bank (via HCLTech Vietnam), building Go and gRPC services for ANZ Plus. I plan, write and test that work with Cursor and Claude Code.'
+      : 'Kỹ sư phần mềm senior, hướng tới AI ứng dụng và backend. Vai trò hiện tại là kỹ sư phần mềm tại ANZ Bank (qua HCLTech Việt Nam), xây dựng dịch vụ Go và gRPC cho ANZ Plus. Tôi lên kế hoạch, viết và kiểm thử công việc đó bằng Cursor và Claude Code.',
   jobTitle: profile.jobTitle.en,
   email: profile.email,
   image: personImageUrl,
@@ -162,7 +162,7 @@ const breadcrumbSchema =
           {
             '@type': 'ListItem',
             position: 2,
-            name: lang === 'en' ? 'Selected projects' : 'Dự án tiêu biểu',
+            name: lang === 'en' ? 'Projects' : 'Dự án',
             item: canonicalUrl,
           },
         ],
@@ -249,10 +249,10 @@ const profileMeta =
     )}
 
     <meta property="og:type" content={ogType} />
-    <meta property="og:url" content={canonicalUrl} />
+    {indexable && <meta property="og:url" content={canonicalUrl} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="Tan Phat Vo - Portfolio" />
+    <meta property="og:site_name" content="Tan Phat Vo — Portfolio" />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:locale:alternate" content={ogLocaleAlt} />
     <meta property="og:image" content={socialImageUrl} />

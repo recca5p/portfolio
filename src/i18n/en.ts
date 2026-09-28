@@ -9,7 +9,8 @@ export const en = {
   },
   home: {
     title: 'Senior Software Engineer — Applied AI & Backend',
-    tagline: 'Go, Java and .NET backend services for bank payments and logistics.',
+    tagline:
+      'Go services for ANZ Plus today. Earlier .NET for Halliburton and Bolloré, and .NET and Java for Sacombank.',
     greeting: 'Tan Phat Vo',
     heroSummary:
       'I build Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers. Cursor and Claude Code are how I plan, write and test that work.',
@@ -18,10 +19,10 @@ export const en = {
     years: '6+ years',
     employer: 'ANZ via HCLTech',
     summaryTitle: 'Background',
-    bio: 'Senior software engineer with 6+ years on production systems for <strong>ANZ Bank</strong>, <strong>Halliburton</strong> and <strong>Sacombank</strong>, plus freelance work alongside full-time roles for Bolloré Logistics and IOGA.fr. Through HCLTech Vietnam I build Go and gRPC services for ANZ Plus, and Go services on GCP for the Bifrost migration.',
+    bio: 'Senior software engineer with 6+ years on production systems for <strong>ANZ Bank</strong>, <strong>Halliburton</strong> and <strong>Sacombank</strong>, plus freelance work alongside full-time roles for Bolloré Logistics and IOGA.fr. I started on bank systems at Sacombank, then oil and gas software at Halliburton, and now digital banking at ANZ.',
     aiTitle: 'How I use AI',
     aiBody:
-      'I use Cursor and Claude Code every day to write code and tests, so a change reaches review sooner. I use AI-assisted field auto-mapping, and AI that learns a business domain to support customer consulting. At IOGA.fr a pipeline transcribes video and translates the subtitles.',
+      "I use Cursor and Claude Code every day to write code and tests, so a change reaches review sooner. I also use AI for field auto-mapping and to learn a client's business domain before consulting. At IOGA.fr I built a pipeline that transcribes video and translates the subtitles.",
     metrics: [
       { value: '~30%', label: 'Contributed to shorter time-to-market at ANZ' },
       { value: '90%+', label: 'IMT gRPC contract coverage at ANZ' },
@@ -80,7 +81,7 @@ export const en = {
           'AI-assisted field auto-mapping',
           'AI that learns a business domain to support customer consulting',
           'Video transcription and subtitle translation at IOGA.fr with Azure OpenAI and Azure AI Speech',
-          'Gemini and Amazon Bedrock, for AI-assisted field auto-mapping and for transcription and translation',
+          'Hands-on with Gemini and Amazon Bedrock',
         ],
       },
       testing: {
@@ -98,10 +99,10 @@ export const en = {
       },
       frontend: {
         title: 'Frontend',
-        description: 'Angular screens for Sacombank e-invoicing and the Apollo center ERP.',
+        description: 'Angular screens for Sacombank e-invoicing and the Apollo English ERP.',
         details: [
           'Sacombank e-invoice system on ABP Framework',
-          'Apollo ERP for CRM, classes and payments',
+          'Apollo English ERP for CRM, classes and payments',
         ],
       },
     },
@@ -122,12 +123,14 @@ export const en = {
     viewAllSubtitle:
       'Banking, logistics, manufacturing and oil and gas systems, plus an LLM subtitle pipeline.',
     solo: 'Solo',
+    allTitle: 'Projects',
   },
   contact: {
     title: 'Contact',
     subtitle: 'Open to Senior Applied AI and Backend roles. I work from Ho Chi Minh City (GMT+7).',
     scanToChat: 'Scan to chat',
     showQr: 'Show QR code',
+    hideQr: 'Hide QR code',
     copyEmail: 'Copy email',
     copied: 'Copied',
     copyFallback: 'Selected. Press Ctrl+C or Cmd+C.',

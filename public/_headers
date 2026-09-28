@@ -1,6 +1,6 @@
 /*
   X-Frame-Options: DENY
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'sha256-5vyNGa3Q0ilF8I/T4XBXW8bq1tldO0udlrbzjVl81gU=' 'sha256-y6hPWt+xFWH8Wf7pi++eznKgaqO1bPEKfeE/ovojBj8=' 'sha256-zs1EzRfNzLnYixGKAkwPG/gq9dz0QtfCr2UrmcWO9uQ='; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   Referrer-Policy: strict-origin-when-cross-origin
 

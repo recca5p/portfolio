@@ -9,7 +9,8 @@ export const vi = {
   },
   home: {
     title: 'Kỹ sư phần mềm senior — AI ứng dụng & Backend',
-    tagline: 'Dịch vụ backend Go, Java và .NET cho thanh toán ngân hàng và logistics.',
+    tagline:
+      'Hiện làm dịch vụ Go cho ANZ Plus. Trước đó làm .NET cho Halliburton và Bolloré, rồi .NET và Java cho Sacombank.',
     greeting: 'Võ Tấn Phát',
     heroSummary:
       'Tôi xây dựng dịch vụ Go và gRPC cho ANZ Plus, gồm thanh toán, khiếu nại, hồ sơ khách hàng và chuyển tiền quốc tế. Cursor và Claude Code là công cụ tôi dùng để lên kế hoạch, viết và kiểm thử phần việc đó.',
@@ -18,10 +19,10 @@ export const vi = {
     years: 'Hơn 6 năm',
     employer: 'ANZ qua HCLTech',
     summaryTitle: 'Sơ lược',
-    bio: 'Kỹ sư phần mềm senior với hơn 6 năm trên hệ thống production cho <strong>ANZ Bank</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong>, cùng việc freelance song song công việc full-time cho Bolloré Logistics và IOGA.fr. Qua HCLTech Việt Nam, tôi xây dựng dịch vụ Go và gRPC cho ANZ Plus, và dịch vụ Go trên GCP cho việc chuyển dữ liệu Bifrost.',
+    bio: 'Kỹ sư phần mềm senior với hơn 6 năm trên hệ thống production cho <strong>ANZ Bank</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong>, cùng việc freelance song song công việc full-time cho Bolloré Logistics và IOGA.fr. Tôi bắt đầu với hệ thống ngân hàng tại Sacombank, rồi phần mềm dầu khí tại Halliburton, và hiện làm ngân hàng số tại ANZ.',
     aiTitle: 'Cách tôi dùng AI',
     aiBody:
-      'Tôi dùng Cursor và Claude Code mỗi ngày để viết code và kiểm thử, nên thay đổi được đưa vào review sớm hơn. Tôi dùng AI để ánh xạ trường tự động, và AI học một miền nghiệp vụ để hỗ trợ tư vấn khách hàng. Tại IOGA.fr, một pipeline phiên âm video rồi dịch phụ đề.',
+      'Tôi dùng Cursor và Claude Code mỗi ngày để viết code và kiểm thử, nên thay đổi được đưa vào review sớm hơn. Tôi cũng dùng AI để ánh xạ trường tự động và để học nghiệp vụ của khách trước khi tư vấn. Tại IOGA.fr, tôi đã xây dựng một pipeline phiên âm video rồi dịch phụ đề.',
     metrics: [
       { value: '~30%', label: 'Đóng góp vào việc rút ngắn thời gian ra thị trường tại ANZ' },
       { value: '90%+', label: 'Độ phủ test giao diện gRPC của IMT tại ANZ' },
@@ -80,7 +81,7 @@ export const vi = {
           'Ánh xạ trường tự động có AI hỗ trợ',
           'AI học một miền nghiệp vụ để hỗ trợ tư vấn khách hàng',
           'Phiên âm video và dịch phụ đề tại IOGA.fr bằng Azure OpenAI và Azure AI Speech',
-          'Gemini và Amazon Bedrock, dùng cho ánh xạ trường tự động có AI hỗ trợ, và cho phiên âm cùng dịch thuật',
+          'Thực hành với Gemini và Amazon Bedrock',
         ],
       },
       testing: {
@@ -98,10 +99,10 @@ export const vi = {
       },
       frontend: {
         title: 'Frontend',
-        description: 'Màn hình Angular cho hóa đơn điện tử Sacombank và ERP trung tâm Apollo.',
+        description: 'Màn hình Angular cho hóa đơn điện tử Sacombank và ERP Apollo English.',
         details: [
           'Hệ thống hóa đơn điện tử Sacombank trên ABP Framework',
-          'Apollo ERP cho CRM, lớp học và thanh toán',
+          'Apollo English ERP cho CRM, lớp học và thanh toán',
         ],
       },
     },
@@ -110,7 +111,7 @@ export const vi = {
     title: 'Học vấn',
     school: 'Trường Đại học Tôn Đức Thắng',
     degree: 'Cử nhân Công nghệ Thông tin',
-    location: 'Thành phố Hồ Chí Minh, Việt Nam',
+    location: 'TP. Hồ Chí Minh, Việt Nam',
     certTitle: 'Chứng chỉ và ngôn ngữ',
     englishProficiency: 'Tiếng Anh',
   },
@@ -122,6 +123,7 @@ export const vi = {
     viewAllSubtitle:
       'Hệ thống ngân hàng, logistics, sản xuất và dầu khí, cùng pipeline phụ đề bằng LLM.',
     solo: 'Một mình',
+    allTitle: 'Dự án',
   },
   contact: {
     title: 'Liên hệ',
@@ -129,6 +131,7 @@ export const vi = {
       'Đang mở cho vị trí senior về AI ứng dụng và backend. Làm việc tại TP. Hồ Chí Minh (GMT+7).',
     scanToChat: 'Quét để nhắn tin',
     showQr: 'Hiện mã QR',
+    hideQr: 'Ẩn mã QR',
     copyEmail: 'Sao chép email',
     copied: 'Đã sao chép',
     copyFallback: 'Đã chọn. Nhấn Ctrl+C hoặc Cmd+C.',

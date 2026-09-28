@@ -3,13 +3,15 @@ import Layout from '../../../layouts/Layout.astro';
 import ProjectsArchive from '../../../components/ProjectsArchive.astro';
 import type { Project } from '../../../types/project';
 import projectsData from '../../../data/projects.json';
+import { useTranslations } from '../../../i18n/utils';
 import { projectMetaDescription } from '../../../utils/project-meta';
 
 const projects = projectsData as Project[];
+const t = useTranslations('vi');
 ---
 
 <Layout
-  title="Dự án tiêu biểu | Võ Tấn Phát"
+  title={`${t('projects.allTitle')} | Võ Tấn Phát`}
   description={projectMetaDescription(projects, 'vi')}
   lang="vi"
   pageType="collection"
