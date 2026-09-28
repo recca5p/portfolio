@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../../public/logo-192.png';
 import LangToggle from './LangToggle.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
@@ -23,7 +25,16 @@ const navItems = [
       href={`/${lang}/`}
       aria-label={`${t('nav.home')} - Tan Phat Vo`}
     >
-      <img src="/logo-192.png" alt="" width="36" height="36" decoding="async" aria-hidden="true" />
+      <Image
+        src={logo}
+        alt=""
+        width={36}
+        height={36}
+        densities={[1, 2]}
+        format="avif"
+        loading="eager"
+        aria-hidden="true"
+      />
       <span>Tan Phat Vo</span>
     </a>
 
@@ -84,7 +95,8 @@ const navItems = [
 
   .brand-link {
     display: inline-flex;
-    min-width: 0;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
     align-items: center;
     gap: 0.7rem;
     border-radius: var(--radius);
@@ -201,8 +213,10 @@ const navItems = [
 
     .desktop-actions nav a {
       display: inline-flex;
+      min-width: 2.75rem;
       min-height: 2.75rem;
       align-items: center;
+      justify-content: center;
       color: var(--muted);
       font-size: 0.78rem;
       font-weight: 650;

@@ -28,7 +28,7 @@ export const en = {
   },
   skills: {
     title: 'Technical Skills',
-    subtitle: 'Open a group to see the tools behind the work.',
+    subtitle: 'Backend starts open. Open another group for the tools behind that work.',
     hoverHint: 'Tap for details',
     categories: {
       backend: {

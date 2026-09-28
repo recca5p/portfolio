@@ -110,9 +110,11 @@ const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u201
   }
 
   .breadcrumb a {
+    min-width: 2.75rem;
     min-height: 2.75rem;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     color: var(--muted-strong);
     text-decoration-line: underline;
     text-decoration-color: transparent;
@@ -221,6 +223,8 @@ const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u201
 
   .archive-meta a {
     display: inline-flex;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
     align-items: center;
     gap: 0.45rem;
     margin-top: 1.25rem;

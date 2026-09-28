@@ -28,7 +28,7 @@ export const vi = {
   },
   skills: {
     title: 'Kỹ năng chuyên môn',
-    subtitle: 'Mở một nhóm để xem công cụ phía sau công việc.',
+    subtitle: 'Nhóm Backend đang mở. Mở nhóm khác để xem công cụ phía sau công việc đó.',
     hoverHint: 'Nhấn để xem chi tiết',
     categories: {
       backend: {
