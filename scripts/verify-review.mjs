@@ -17,18 +17,64 @@ const types = {
   '.ico': 'image/x-icon',
 };
 
+const headerRules = [];
+try {
+  let current = null;
+  for (const line of readFileSync(new URL('../dist/_headers', import.meta.url), 'utf8').split(
+    '\n'
+  )) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    if (!line.startsWith(' ') && !line.startsWith('\t')) {
+      current = { path: trimmed, headers: {} };
+      headerRules.push(current);
+    } else if (current) {
+      const splitAt = trimmed.indexOf(':');
+      if (splitAt > 0) {
+        current.headers[trimmed.slice(0, splitAt).trim()] = trimmed.slice(splitAt + 1).trim();
+      }
+    }
+  }
+} catch {
+  headerRules.length = 0;
+}
+
+if (headerRules.length === 0) {
+  console.error('dist/_headers was not loaded');
+  process.exit(1);
+}
+
+const matchesHeaderRule = (pattern, pathname) => {
+  if (pattern === '/*') return true;
+  if (pattern.endsWith('/*')) return pathname.startsWith(pattern.slice(0, -1));
+  return pathname === pattern;
+};
+
+const headersFor = (pathname) => {
+  const headers = {};
+  for (const rule of headerRules) {
+    if (matchesHeaderRule(rule.path, pathname)) Object.assign(headers, rule.headers);
+  }
+  return headers;
+};
+
 const server = createServer((request, response) => {
   const url = new URL(request.url ?? '/', 'http://127.0.0.1');
   let pathname = decodeURIComponent(url.pathname);
+  const requestPath = pathname;
   if (pathname.endsWith('/')) pathname += 'index.html';
   const file = join(root.pathname, pathname);
+  const headers = {
+    ...headersFor(requestPath),
+    'content-type': types[extname(pathname)] ?? 'application/octet-stream',
+  };
   try {
     const body = readFileSync(file);
-    response.writeHead(200, { 'content-type': types[extname(file)] ?? 'application/octet-stream' });
+    response.writeHead(200, headers);
     response.end(body);
   } catch {
     const missing = readFileSync(join(root.pathname, '404.html'));
-    response.writeHead(404, { 'content-type': 'text/html' });
+    response.writeHead(404, { ...headersFor(requestPath), 'content-type': 'text/html' });
     response.end(missing);
   }
 });
@@ -48,6 +94,12 @@ const pages = ['/en/', '/vi/', '/en/projects/', '/vi/projects/'];
 const widths = [320, 360, 375, 768, 1440];
 
 const page = await browser.newPage();
+page.on('console', (message) => {
+  const text = message.text();
+  if (message.type() === 'error' && /Content Security Policy|Refused to/.test(text)) {
+    failures.push(`csp: ${text}`);
+  }
+});
 const axeSource = readFileSync(
   new URL('../node_modules/axe-core/axe.min.js', import.meta.url),
   'utf8'
@@ -159,6 +211,18 @@ const layout = await page.evaluate(() => {
   };
 });
 check(layout.equal, `project cards are not an equal row: ${layout.tops.join(', ')}`);
+const footerAlign = await page.evaluate(() => {
+  const cards = [...document.querySelectorAll('.projects-grid .project-card')];
+  const bottoms = cards.map((card) => {
+    const footer = card.querySelector('.project-footer');
+    return footer ? Math.round(footer.getBoundingClientRect().bottom) : 0;
+  });
+  return bottoms;
+});
+check(
+  footerAlign.length === 3 && footerAlign.every((bottom) => Math.abs(bottom - footerAlign[0]) <= 2),
+  `project footers are not aligned: ${footerAlign.join(', ')}`
+);
 check(layout.emailX === layout.phoneX, `contact columns ${layout.emailX} vs ${layout.phoneX}`);
 check(
   layout.tags.includes('Go') && layout.tags.includes('Kubernetes'),
@@ -220,7 +284,15 @@ check(
 check(english.includes('6+ years'), 'missing 6+ years');
 check(english.includes('HCLTech'), 'missing HCLTech');
 check(english.includes('making search 20x faster'), 'missing directional 20x label');
+check((english.match(/20x/g) ?? []).length <= 2, '20x appears more than twice on the homepage');
+check((english.match(/~30%/g) ?? []).length <= 2, '~30% appears more than twice on the homepage');
+check((english.match(/90%\+/g) ?? []).length <= 2, '90%+ appears more than twice on the homepage');
 check(english.includes('more than 60%'), 'missing directional 60% label');
+check(english.includes('Azure AI Speech'), 'homepage is missing the IOGA pipeline');
+check(
+  !english.includes('making search 20x faster on large drilling datasets, and moved'),
+  'eCompletion card still copies the experience metric'
+);
 check(english.includes('~30%'), 'missing ANZ time-to-market figure');
 check(english.includes('Contributed to shorter time-to-market'), 'missing contributed wording');
 check(english.includes('90%+'), 'missing IMT coverage figure');
@@ -233,6 +305,40 @@ check(!english.includes('MAUI'), 'MAUI is still present');
 check(!english.includes('Circular 78'), 'Circular 78 is still present');
 check(english.includes('Selected projects'), 'missing Selected projects');
 check(!english.includes('This was a solo effort'), 'solo filler remains');
+const jobTitle = await page.evaluate(() => {
+  const raw = document.querySelector('script[type="application/ld+json"]')?.textContent ?? '{}';
+  const data = JSON.parse(raw);
+  const person = (data['@graph'] ?? []).find((node) => node['@type'] === 'Person');
+  return person?.jobTitle ?? '';
+});
+check(jobTitle === 'Software Engineer', `JSON-LD jobTitle is ${jobTitle}`);
+const linkDisplay = await page.evaluate(() => {
+  const details = document.querySelector('.public-context');
+  if (details) details.open = true;
+  const link = document.querySelector('.public-context a');
+  return link ? getComputedStyle(link).display : 'missing';
+});
+check(linkDisplay === 'inline', `public context link display is ${linkDisplay}`);
+const fontsReady = await page.evaluate(async () => {
+  await document.fonts.ready;
+  return (
+    document.fonts.check('16px "Manrope Variable"') &&
+    document.fonts.check('16px "JetBrains Mono Variable"')
+  );
+});
+check(fontsReady, 'self-hosted fonts did not load');
+const copyResult = await page.evaluate(async () => {
+  const button = document.querySelector('.copy-email');
+  button.click();
+  await new Promise((resolve) => window.setTimeout(resolve, 400));
+  const status = document.querySelector('.copy-status')?.textContent ?? '';
+  const selected = window.getSelection()?.toString() ?? '';
+  return { status, selected };
+});
+check(
+  copyResult.status === 'Copied' || copyResult.status.includes('Ctrl+C'),
+  `copy email status ${copyResult.status}`
+);
 
 await page.goto('http://127.0.0.1:4178/missing-page/', { waitUntil: 'networkidle' });
 const missingStatus = page.url();

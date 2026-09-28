@@ -4,8 +4,8 @@ export const profile = {
     vi: 'Võ Tấn Phát',
   },
   jobTitle: {
-    en: 'Senior Software Engineer — Applied AI & Backend',
-    vi: 'Kỹ sư Phần mềm Senior — AI ứng dụng & Backend',
+    en: 'Software Engineer',
+    vi: 'Kỹ sư phần mềm',
   },
   email: 'phatvo73.dev@gmail.com',
   phoneE164: '+84779342459',
@@ -16,7 +16,7 @@ export const profile = {
   githubLabel: 'recca5p',
   location: {
     en: 'Ho Chi Minh City, Vietnam (GMT+7)',
-    vi: 'Thành phố Hồ Chí Minh, Việt Nam (GMT+7)',
+    vi: 'TP. Hồ Chí Minh, Việt Nam (GMT+7)',
   },
   cvPath: '/cv/Tan-Phat-Vo-CV.pdf',
   site: 'https://portfolio-7j9.pages.dev',

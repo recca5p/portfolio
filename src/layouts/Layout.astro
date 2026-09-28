@@ -22,7 +22,7 @@ interface Props {
 
 const {
   title,
-  description = 'Tan Phat Vo builds Go and gRPC backends for ANZ Plus in Ho Chi Minh City. AI is how that work is planned, written and tested.',
+  description = 'Tan Phat Vo builds Go and gRPC backends for ANZ Plus in Ho Chi Minh City. Cursor and Claude Code are how that work is planned, written and tested.',
   lang = 'en',
   canonicalPath,
   pageType = 'profile',
@@ -57,7 +57,7 @@ const socialImageUrl = new URL(ogImagePath, site).href;
 const socialImageAlt =
   lang === 'en'
     ? 'Tan Phat Vo, Senior Software Engineer — Applied AI & Backend, Ho Chi Minh City'
-    : 'Võ Tấn Phát, Kỹ sư Phần mềm Senior — AI ứng dụng & Backend, Thành phố Hồ Chí Minh';
+    : 'Võ Tấn Phát, Kỹ sư phần mềm senior — AI ứng dụng & Backend, Thành phố Hồ Chí Minh';
 const icon = await getImage({ src: logo, width: 192, height: 192, format: 'png' });
 const personImageUrl = new URL('/og/og-en.png', site).href;
 
@@ -73,8 +73,8 @@ const personSchema = {
   alternateName: profile.name.vi,
   description:
     lang === 'en'
-      ? 'Senior software engineer building Go and gRPC services for ANZ Plus. AI-assisted implementation with Claude Code goes through the same CI and security gates.'
-      : 'Kỹ sư phần mềm senior, xây dựng dịch vụ Go và gRPC cho ANZ Plus. Phần triển khai có AI hỗ trợ bằng Claude Code đi qua cùng cổng CI và bảo mật.',
+      ? 'Senior software engineer focused on applied AI and backend systems. Current role is Software Engineer at ANZ Bank (via HCLTech Vietnam), building Go and gRPC services for ANZ Plus. Cursor and Claude Code are how that work is planned, written and tested.'
+      : 'Kỹ sư phần mềm senior, hướng tới AI ứng dụng và backend. Vai trò hiện tại là kỹ sư phần mềm tại ANZ Bank (qua HCLTech Việt Nam), xây dựng dịch vụ Go và gRPC cho ANZ Plus. Cursor và Claude Code là công cụ để lên kế hoạch, viết và kiểm thử công việc đó.',
   jobTitle: profile.jobTitle.en,
   email: profile.email,
   image: personImageUrl,
@@ -139,7 +139,7 @@ const websiteSchema = {
   '@type': 'WebSite',
   '@id': websiteId,
   name: 'Tan Phat Vo — Senior Software Engineer — Applied AI & Backend',
-  alternateName: 'Võ Tấn Phát — Kỹ sư Phần mềm Senior — AI ứng dụng & Backend',
+  alternateName: 'Võ Tấn Phát — Kỹ sư phần mềm senior — AI ứng dụng & Backend',
   url: new URL('/en/', site).href,
   description:
     'Bilingual portfolio of Tan Phat Vo, senior software engineer, covering Go and gRPC services for ANZ Plus.',

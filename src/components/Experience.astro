@@ -5,19 +5,18 @@ import { formatProse, formatRange } from '../utils/text';
 
 /*
  * Owner follow-ups. Do not render this list.
- * 1. Apple Pay at ANZ Plus was dropped from the new CV. Keep it dropped unless the owner confirms it.
- * 2. Bifrost stack is Go and GCP. Do not add gRPC, volumes, or personal metrics.
- * 3. ~30% time-to-market: baseline is unstated. Wording stays "contributed to" because it is a team outcome.
- * 4. CRM app: Xamarin only until a React Native rewrite is confirmed. Do not say he led it.
- * 5. Do not claim Go or gRPC at Halliburton. The owner confirmed they were not used there.
- * 6. Which Sacombank system used Golang is unknown. It stays on the stack line only.
- * 7. Freelance work ran alongside full-time jobs. Do not add dates. The label is "Freelance, alongside full-time roles".
- * 8. Gemini and Amazon Bedrock are confirmed in skills only. Do not tie them to a role or a metric. RAG stays unconfirmed. The CV lists Azure OpenAI, Azure AI Speech, and Anthropic Claude.
- * 9. Terraform and JMeter are confirmed in skills only. xUnit, NUnit, JUnit, and CQRS/event sourcing stay removed. Kafka and Redis stay. Do not claim .NET at ANZ.
- * 10. "Zero-downtime releases" and "Led …" on Sacombank stay removed.
- * 11. The ANZ role title is Software Engineer, via HCLTech Vietnam. The headline positioning stays Senior Software Engineer — Applied AI & Backend.
- * 12. He uses Cursor and Claude Code daily. Do not claim that ANZ applies them across engineering.
- * 13. Circular 78 stays removed. E-invoice copy says Ministry of Finance e-invoice rules.
+ * 1. Bifrost stack is Go and GCP. Do not add gRPC, volumes, or personal metrics.
+ * 2. ~30% time-to-market: baseline is unstated. Wording stays "contributed to" because it is a team outcome.
+ * 3. CRM app: Xamarin only until a React Native rewrite is confirmed. Do not say he led it.
+ * 4. Do not claim Go or gRPC at Halliburton. The owner confirmed they were not used there.
+ * 5. Which Sacombank system used Golang is unknown. It stays on the stack line only.
+ * 6. Freelance work ran alongside full-time jobs. Do not add dates. The label is "Freelance, alongside full-time roles".
+ * 7. Gemini and Amazon Bedrock are confirmed in skills only. Do not tie them to a role or a metric. RAG stays unconfirmed. The CV lists Azure OpenAI, Azure AI Speech, and Anthropic Claude.
+ * 8. Terraform and JMeter are confirmed in skills only. xUnit, NUnit, JUnit, and CQRS/event sourcing stay removed. Kafka and Redis stay. Do not claim .NET at ANZ.
+ * 9. "Zero-downtime releases" and "Led …" on Sacombank stay removed.
+ * 10. The ANZ role title is Software Engineer, via HCLTech Vietnam. The headline positioning stays Senior Software Engineer — Applied AI & Backend.
+ * 11. He uses Cursor and Claude Code daily. Do not claim that ANZ applies them across engineering.
+ * 12. Circular 78 stays removed. E-invoice copy says Ministry of Finance e-invoice rules.
  */
 
 const lang = getLangFromUrl(Astro.url);
@@ -218,11 +217,19 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
     font-size: var(--font-small);
   }
 
-  .source-line a,
-  .public-context :global(a) {
+  .source-line a {
     display: inline-flex;
     min-height: 2.75rem;
     align-items: center;
+    color: var(--accent);
+    text-decoration-line: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .public-context :global(a) {
+    display: inline;
     color: var(--accent);
     text-decoration-line: underline;
     text-decoration-color: var(--accent);
