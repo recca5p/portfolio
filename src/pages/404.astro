@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { en } from '../i18n/en';
+import { vi } from '../i18n/vi';
+
+const links = [
+  { href: '/en/', en: en.notFound.home, vi: vi.notFound.home },
+  { href: '/vi/', en: en.notFound.homeVi, vi: vi.notFound.homeVi },
+  { href: '/en/projects/', en: en.notFound.projects, vi: vi.notFound.projects },
+  { href: '/vi/projects/', en: en.notFound.projectsVi, vi: vi.notFound.projectsVi },
+];
+---
+
+<Layout
+  title={`${en.notFound.title} | Tan Phat Vo`}
+  description={en.notFound.body}
+  indexable={false}
+>
+  <section class="section-shell">
+    <div class="site-container not-found">
+      <h1>{en.notFound.title}</h1>
+      <p>{en.notFound.body}</p>
+      <p lang="vi">
+        {vi.notFound.title}. {vi.notFound.body}
+      </p>
+      <ul>
+        {links.map((link) => (
+          <li>
+            <a href={link.href}>
+              {link.en}
+              <span lang="vi"> / {link.vi}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .not-found h1 {
+    font-size: var(--font-display);
+    font-weight: 650;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .not-found p {
+    max-width: 36rem;
+    margin-top: 1rem;
+    color: var(--muted-strong);
+    font-size: var(--font-body);
+    line-height: 1.6;
+  }
+
+  .not-found ul {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .not-found a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--accent);
+    font-size: var(--font-body);
+    text-decoration-color: var(--accent);
+    text-decoration-line: underline;
+    text-underline-offset: 0.25em;
+  }
+</style>

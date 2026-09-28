@@ -15,14 +15,21 @@ homepage at `/en/`.
 
 ## Runtime and package manager
 
-- Use Node.js 24 (`.nvmrc`); the minimum supported patch is declared in
-  `package.json`.
+- Use Node.js 24.16.0 (`.nvmrc`). Keep GitHub Actions on this same pin.
+  Cloudflare Pages moved v1 projects to the v3 build image on 15 September 2026. That image's node-build can install 24.16.0. It does not install the
+  bare alias `24`, and 24.17.0 fails with `node-build: definition not found`.
+  24.21.0 and 26.10.0 failed the Pages check on this repo. The image is Ubuntu
+  22.04.2 and does not provide `libatomic.so.1`, which official Node.js 25 and
+  26 Linux binaries need. Do not raise the pin until a Pages build log shows
+  that exact version installing. The `engines` range allows later Node 24
+  patches for local use.
 - Use npm and keep `package-lock.json` in sync with `package.json`.
 - Prefer `npm ci` for a clean install and `npm install` when intentionally
   changing dependencies.
-- TypeScript is intentionally held on 6.x while `@astrojs/check` supports
-  TypeScript 5.x and 6.x. Do not force TypeScript 7 past its peer range; revisit
-  the hold when the checker publishes compatible support.
+- TypeScript is intentionally held on 6.0.3, the latest 6.x release.
+  TypeScript 7.0.2 is published, but `@astrojs/check` 0.9.10 still requires
+  `typescript@^5 || ^6`, and `astro check` cannot use the TypeScript 7 native
+  compiler. Revisit the hold when the checker supports it.
 - Never commit `.env`, `node_modules/`, `.astro/`, or `dist/`.
 
 ## Repository structure
@@ -41,8 +48,9 @@ homepage at `/en/`.
 - `src/data/experience.json`: bilingual employment-history content.
 - `src/data/projects.json`: bilingual project records.
 - `src/types/project.ts`: the TypeScript contract for project JSON.
-- `src/assets/backend-infrastructure.png`: generated editorial infrastructure
-  photography used by the optimized Astro hero image.
+- `src/assets/logo-192.png`: flat teal header mark, optimized by Astro.
+- `src/data/profile.ts`: email, phone, LinkedIn, location, and the public CV
+  path.
 - `src/styles/global.css`: Tailwind import, custom variants, theme tokens, and
   genuinely global styles.
 - `scripts/check-seo.mjs`: build-output validation for canonical pages,
@@ -98,15 +106,12 @@ homepage at `/en/`.
 
 ## UI and design quality
 
-For substantial frontend redesigns, use these three installed Codex skills in
-order:
-
-1. `design-taste-frontend` for the audit, design read, visual direction, and
-   final anti-template preflight.
-2. `emil-design-eng` for typography, easing, transition timing, press feedback,
-   and motion performance.
-3. `web-design-guidelines` for the final UX and accessibility audit. Fetch its
-   latest guidelines before each audit because the upstream checklist changes.
+Impeccable (`.cursor/skills/impeccable`) is the primary design skill. Do not
+install Taste Skill alongside it. Motion and accessibility review use the
+vendored `emil-design-eng`, `review-animations`, and `web-design-guidelines`
+skills. Fetch the live Web Interface Guidelines checklist before each
+`web-design-guidelines` audit. The install list, update commands, and hook
+switch are in `docs/ai-tooling.md`.
 
 Preserve the current technical-editorial direction unless the user asks for a
 new brand:
@@ -132,6 +137,28 @@ new brand:
   blobs, decorative status dots, section-number labels, scroll cues, excessive
   pills, and handwritten SVG icon sets.
 - Use a normal hyphen instead of an em dash or en dash in visible copy.
+
+## AI workflow
+
+Use this order for portfolio changes:
+
+1. Content first. Edit existing copy with `copy-editing`, `humanizer`, and the
+   resume or case-study skills. Do not invent employers, metrics, or outcomes.
+   Leave a source TODO where a case study needs a number the repo does not
+   have.
+2. Design direction. Run `/impeccable init` when `PRODUCT.md` is missing or
+   stale, then `/impeccable shape` before a new visual direction. Keep the
+   graphite, Manrope, JetBrains Mono, and teal identity unless the owner asks
+   for a new brand.
+3. Build the static pages.
+4. Review. Screenshot `/en/`, `/vi/`, and both project archives at 375, 768,
+   and 1440. Run `/impeccable critique` and `/impeccable audit`, then
+   `web-design-guidelines`.
+5. Finish with `/impeccable polish`.
+
+`frontend-design` is only a fallback when Impeccable is unavailable. Skip
+`vercel-react-best-practices` and the shadcn MCP: this site has no React
+islands.
 
 ## Content and localization
 

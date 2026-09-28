@@ -6,27 +6,35 @@ import projectsData from '../data/projects.json';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const projects = (projectsData as Project[]).slice(0, 3);
+
+const homepageIds = ['bollore-otel', 'halliburton-ecompletion', 'bollore-freight'];
+const projects = homepageIds.map((id) => {
+  const project = (projectsData as Project[]).find((item) => item.id === id);
+  if (!project) {
+    throw new Error(`Missing homepage project: ${id}`);
+  }
+  return project;
+});
 ---
 
 <section id="projects" class="section-shell projects-section" aria-labelledby="projects-heading">
   <div class="site-container">
-    <div class="projects-intro" data-reveal>
-      <h2 id="projects-heading" class="section-heading">{t('projects.title')}</h2>
+    <div class="projects-intro">
+      <h2 id="projects-heading" class="section-heading">
+        {t('projects.title')}
+      </h2>
       <p class="section-copy">{t('projects.subtitle')}</p>
     </div>
 
-    <div class="projects-grid" data-reveal>
-      <ProjectCard project={projects[0]} lang={lang} featured />
-      <div class="project-stack">
-        {projects.slice(1).map((project) => <ProjectCard project={project} lang={lang} />)}
-      </div>
+    <div class="projects-grid">
+      {projects.map((project) => (
+        <ProjectCard project={project} lang={lang} />
+      ))}
     </div>
 
-    <div class="projects-action" data-reveal>
+    <div class="projects-action">
       <a class="button-secondary" href={`/${lang}/projects/`}>
         {t('projects.viewAll')}
-        <span aria-hidden="true">↗</span>
       </a>
     </div>
   </div>
@@ -48,11 +56,6 @@ const projects = (projectsData as Project[]).slice(0, 3);
     margin-top: 3rem;
   }
 
-  .project-stack {
-    display: grid;
-    gap: 1rem;
-  }
-
   .projects-action {
     display: flex;
     margin-top: 1.5rem;
@@ -61,7 +64,8 @@ const projects = (projectsData as Project[]).slice(0, 3);
 
   @media (min-width: 900px) {
     .projects-grid {
-      grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+      align-items: stretch;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 </style>

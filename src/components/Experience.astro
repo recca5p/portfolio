@@ -1,28 +1,65 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import experiencesData from '../data/experience.json';
+import { formatProse, formatRange } from '../utils/text';
+
+/*
+ * Owner follow-ups. Do not render this list.
+ * 1. Apple Pay at ANZ Plus was dropped from the new CV. Keep it dropped unless the owner confirms it.
+ * 2. Bifrost stack is Go and GCP. Do not add gRPC, volumes, or personal metrics.
+ * 3. ~30% time-to-market: baseline is unstated. Wording stays "contributed to" because it is a team outcome.
+ * 4. CRM app: Xamarin only until a React Native rewrite is confirmed. Do not say he led it.
+ * 5. Do not claim Go or gRPC at Halliburton. The owner confirmed they were not used there.
+ * 6. Which Sacombank system used Golang is unknown. It stays on the stack line only.
+ * 7. Freelance work ran alongside full-time jobs. Do not add dates. The label is "Freelance, alongside full-time roles".
+ * 8. Gemini and Amazon Bedrock are confirmed in skills only. Do not tie them to a role or a metric. RAG stays unconfirmed. The CV lists Azure OpenAI, Azure AI Speech, and Anthropic Claude.
+ * 9. Terraform and JMeter are confirmed in skills only. xUnit, NUnit, JUnit, and CQRS/event sourcing stay removed. Kafka and Redis stay. Do not claim .NET at ANZ.
+ * 10. "Zero-downtime releases" and "Led …" on Sacombank stay removed.
+ * 11. The ANZ role title is Software Engineer, via HCLTech Vietnam. The headline positioning stays Senior Software Engineer — Applied AI & Backend.
+ * 12. He uses Cursor and Claude Code daily. Do not claim that ANZ applies them across engineering.
+ * 13. Circular 78 stays removed. E-invoice copy says Ministry of Finance e-invoice rules.
+ */
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u2014]\s*/g, ' - ');
-const renderMarkdownBold = (text: string): string =>
-  cleanPunctuation(text).replace(
-    /\*\*(.*?)\*\*/g,
-    '<strong class="font-semibold text-white">$1</strong>'
-  );
+
+const renderRich = (text: string): string =>
+  formatProse(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\*\*(.*?)\*\*/g, '<strong class="bullet-emphasis">$1</strong>')
+    .replace(
+      /\[([^\]]+)\]\((https:\/\/[^)\s]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+    );
+
+interface SourceLink {
+  label: Record<string, string>;
+  url: string;
+}
 
 interface ExperienceEntry {
-  company: string;
+  company: Record<string, string>;
   role: Record<string, string>;
   period: Record<string, string>;
+  context?: Record<string, string>;
+  sources?: SourceLink[];
+  publicContext?: Record<string, string[]>;
   bullets: Record<string, string[]>;
 }
 
 const experiences = (experiencesData as ExperienceEntry[]).map((experience) => ({
-  company: cleanPunctuation(experience.company),
-  role: cleanPunctuation(experience.role[lang] ?? ''),
-  period: cleanPunctuation(experience.period[lang] ?? ''),
-  bullets: experience.bullets[lang] ?? [],
+  company: experience.company[lang] ?? '',
+  role: experience.role[lang] ?? '',
+  period: formatRange(experience.period[lang] ?? ''),
+  context: experience.context?.[lang] ? formatProse(experience.context[lang]) : '',
+  sources: (experience.sources ?? []).map((source) => ({
+    label: source.label[lang] ?? source.label.en,
+    url: source.url,
+  })),
+  publicContext: experience.publicContext?.[lang] ?? [],
+  bullets: (experience.bullets[lang] ?? []).map((bullet) => formatProse(bullet)),
 }));
 ---
 
@@ -32,33 +69,72 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
   aria-labelledby="experience-heading"
 >
   <div class="site-container experience-layout">
-    <div class="experience-intro" data-reveal>
-      <h2 id="experience-heading" class="section-heading">{t('experience.title')}</h2>
+    <div class="experience-intro">
+      <h2 id="experience-heading" class="section-heading">
+        {t('experience.title')}
+      </h2>
     </div>
 
     <ol class="experience-list">
-      {
-        experiences.map((experience) => (
-          <li data-reveal>
-            <div class="role-meta">
-              <p class="period">{experience.period}</p>
-              <p class="company" translate="no">
+      {experiences.map((experience) => (
+        <li>
+          <div class="role-meta">
+            <p class="period">{experience.period}</p>
+          </div>
+          <article>
+            <h3>
+              <span class="role-title">{experience.role}</span>
+              <span class="employer" translate="no">
                 {experience.company}
-              </p>
-            </div>
-            <article>
-              <h3>{experience.role}</h3>
-              <ul>
-                {experience.bullets.map((bullet) => (
-                  <li>
-                    <span set:html={renderMarkdownBold(bullet)} />
-                  </li>
+              </span>
+            </h3>
+            {experience.context && <p class="role-context">{experience.context}</p>}
+            {experience.sources.length > 0 && (
+              <p class="source-line">
+                <span>{t('experience.source')}: </span>
+                {experience.sources.map((source) => (
+                  <a href={source.url} target="_blank" rel="noopener noreferrer">
+                    {source.label}
+                  </a>
                 ))}
-              </ul>
-            </article>
-          </li>
-        ))
-      }
+              </p>
+            )}
+            <ul>
+              {experience.bullets.map((bullet) => (
+                <li>
+                  <span set:html={renderRich(bullet)} />
+                </li>
+              ))}
+            </ul>
+            {experience.publicContext.length > 0 && (
+              <details class="public-context">
+                <summary>
+                  <span>{t('experience.publicContext')}</span>
+                  <svg
+                    class="chevron"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                    width="16"
+                    height="16"
+                  >
+                    <path
+                      d="M3.5 6.5 8 11l4.5-4.5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </summary>
+                {experience.publicContext.map((paragraph) => (
+                  <p set:html={renderRich(paragraph)} />
+                ))}
+              </details>
+            )}
+          </article>
+        </li>
+      ))}
     </ol>
   </div>
 </section>
@@ -94,24 +170,100 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
   .period {
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: var(--font-meta);
     font-variant-numeric: tabular-nums;
     line-height: 1.5;
   }
 
-  .company {
-    margin-top: 0.55rem;
-    color: var(--accent-strong);
-    font-size: 0.88rem;
+  article h3 {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .employer {
+    color: var(--muted-strong);
+    font-size: var(--font-small);
+    font-weight: 650;
+    letter-spacing: 0;
+  }
+
+  .bullet-emphasis {
+    color: var(--text);
     font-weight: 650;
   }
 
   article h3 {
     color: var(--text);
-    font-size: clamp(1.35rem, 2vw, 1.8rem);
+    font-size: var(--font-title);
     font-weight: 650;
     letter-spacing: -0.035em;
     line-height: 1.2;
+  }
+
+  .role-context {
+    max-width: 68ch;
+    margin-top: 0.85rem;
+    color: var(--muted);
+    font-size: var(--font-small);
+    font-style: italic;
+    line-height: 1.55;
+  }
+
+  .source-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.85rem;
+    margin-top: 0.65rem;
+    color: var(--muted);
+    font-size: var(--font-small);
+  }
+
+  .source-line a,
+  .public-context :global(a) {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--accent);
+    text-decoration-line: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .public-context :global(a):hover {
+    color: var(--accent-strong);
+  }
+
+  .public-context {
+    max-width: 68ch;
+    margin-top: 1.25rem;
+  }
+
+  .public-context summary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--text);
+    font-size: var(--font-small);
+    font-weight: 650;
+    cursor: pointer;
+  }
+
+  .public-context .chevron {
+    color: var(--accent-strong);
+    transition: transform 180ms var(--ease-out);
+  }
+
+  .public-context[open] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .public-context p {
+    margin-top: 0.85rem;
+    color: var(--muted);
+    font-size: var(--font-body);
+    line-height: 1.7;
   }
 
   article ul {
@@ -119,8 +271,9 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
     gap: 0.9rem;
     margin: 1.35rem 0 0;
     padding-left: 1.2rem;
+    list-style: disc;
     color: var(--muted);
-    font-size: 0.9rem;
+    font-size: var(--font-body);
     line-height: 1.75;
   }
 
@@ -136,7 +289,7 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
 
     .experience-intro {
       position: sticky;
-      top: 7rem;
+      top: 4.75rem;
       align-self: start;
     }
 

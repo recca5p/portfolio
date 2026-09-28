@@ -1,22 +1,30 @@
 ---
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { profile } from '../data/profile';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
+const displayName = String(t('home.greeting'));
 ---
 
 <footer>
   <div class="site-container footer-row">
-    <p>&copy; {currentYear} Tan Phat Vo. {t('footer.rights')}</p>
+    <p>
+      &copy; {currentYear} {displayName}. {t('footer.rights')}
+    </p>
     <nav aria-label={lang === 'en' ? 'Footer links' : 'Liên kết cuối trang'}>
-      <a href="mailto:phatvo73.dev@gmail.com">Email</a>
-      <a
-        href="https://www.linkedin.com/in/tan-phat-vo-51ba10272/"
-        target="_blank"
-        rel="noopener noreferrer"
-        translate="no">LinkedIn</a
-      >
+      <a href={`mailto:${profile.email}`}>Email</a>
+      <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer" translate="no">
+        LinkedIn
+      </a>
+      <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer" translate="no">
+        GitHub
+      </a>
+      <a href={profile.cvPath} download>
+        {t('home.downloadCv')}
+      </a>
+      <a href="#main-content">{t('footer.backToTop')}</a>
     </nav>
   </div>
 </footer>
@@ -33,18 +41,21 @@ const currentYear = new Date().getFullYear();
     gap: 1.25rem;
     padding-block: 2rem;
     color: var(--muted);
-    font-size: 0.72rem;
+    font-size: var(--font-small);
   }
 
   nav {
     display: flex;
-    gap: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
   }
 
   a {
+    min-width: 2.75rem;
     min-height: 2.75rem;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     color: var(--muted-strong);
     text-decoration-line: underline;
     text-decoration-color: transparent;

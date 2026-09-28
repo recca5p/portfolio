@@ -1,33 +1,55 @@
 [
   {
-    "company": "ANZ Bank (Australia) – Digital Banking Division",
+    "company": {
+      "en": "ANZ Bank (via HCLTech Vietnam) — ANZ Plus, Backend Team",
+      "vi": "ANZ Bank (qua HCLTech Việt Nam) — ANZ Plus, nhóm Backend"
+    },
     "role": {
-      "en": "Senior Backend Engineer",
-      "vi": "Kỹ sư Backend Senior"
+      "en": "Software Engineer",
+      "vi": "Kỹ sư phần mềm"
     },
     "period": {
       "en": "Dec 2024 - Present",
       "vi": "Tháng 12/2024 - Hiện tại"
     },
-    "bullets": {
+    "context": {
+      "en": "ANZ Plus backend team, through HCLTech Vietnam. The team is spread across Vietnam, Australia and India.",
+      "vi": "Nhóm backend ANZ Plus, thông qua HCLTech Việt Nam. Nhóm làm việc ở Việt Nam, Úc và Ấn Độ."
+    },
+    "publicContext": {
       "en": [
-        "**AI-Augmented Engineering:** Spearheaded the integration of **GenAI tools (GitHub Copilot, Claude Code)** into the development workflow, accelerating Golang/.NET microservices implementation and automating boilerplate code generation, which reduced development cycle time by **~30%**.",
-        "**Intelligent Testing Strategy:** Leveraged AI agents to generate comprehensive unit test scenarios and edge cases for **gRPC contracts**, ensuring **90%+ code coverage** and robust reliability for the International Money Transfer (IMT) system.",
-        "**Core Banking Modernization:** Contributed to the design and scalability of the IMT and Apple Pay integration for ANZ Plus, collaborating effectively within a cross-functional Agile team spanning Vietnam, Australia, and India.",
-        "**Cloud-Native Architecture:** Architected and maintained high-performance microservices using **Golang and gRPC**, utilizing **GCP services (BigQuery, Pub/Sub, Cloud Run)** to handle high-volume transaction data securely.",
-        "**DevSecOps Excellence:** Managed infrastructure by **Kubernetes (GKE) and Helm**, implementing strict CI/CD pipelines with GitHub Actions. Enforced security compliance through automated **SonarQube and Fortify** scanning gates before every deployment."
+        "About ANZ Plus. ANZ Plus is ANZ's digital banking service, launched in March 2022 on a new banking platform ([ANZ, 23 Mar 2022](https://www.anz.com.au/newsroom/media/2022/03/anz-introduces-anz-plus---a-powerful-new-banking-service/)). It reached one million customers and nearly $20 billion in deposits in March 2025 ([ANZ, 13 Mar 2025](https://www.anz.com.au/newsroom/media/2025/march/anz-plus-reaches-1-million-customers--boosting-financial-wellbei/)). ANZ plans to move all eight million of its Australian retail customers onto the ANZ Plus front end by September 2027 ([ANZ 2025 Annual Review](https://www.anz.com/content/dam/anzcom/shareholder/2025-annual-report/anz-2025-annual-review.pdf); [iTnews, 13 Oct 2025](https://www.itnews.com.au/news/anz-ceo-backs-plus-tech-stack-but-changes-inefficient-delivery-620985)).",
+        "Suncorp Bank. ANZ completed its acquisition of Suncorp Bank on 31 July 2024, adding about 1.2 million customers ([ANZ, 31 Jul 2024](https://www.anz.com.au/newsroom/media/2024/july/anz-completes-acquisition-of-suncorp-bank/)). ANZ has committed to moving Suncorp Bank customers to its banking systems and digital platforms by June 2027 ([ANZ, 7 Sep 2026](https://www.anz.com.au/newsroom/media/2026/september/ANZ-prepares-to-welcome-suncorp-bank-customers/)).",
+        "My part: Go and gRPC services for ANZ Plus features (PayID, PayTo, disputes, self-service, customer profile, IMT), and Go services on GCP for Project Bifrost, the move of customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus."
       ],
       "vi": [
-        "**Kỹ thuật Tăng cường AI:** Dẫn dắt việc tích hợp **công cụ GenAI (GitHub Copilot, Claude Code)** vào quy trình phát triển, tăng tốc triển khai microservices Golang/.NET và tự động hóa tạo mã boilerplate, giảm thời gian chu kỳ phát triển **khoảng 30%**.",
-        "**Chiến lược Thử nghiệm Thông minh:** Tận dụng AI agents để tạo các kịch bản kiểm thử đơn vị toàn diện đối với các **hợp đồng gRPC**, đảm bảo **độ phủ mã >90%** và độ tin cậy cho hệ thống Chuyển tiền Quốc tế (IMT).",
-        "**Hiện đại hóa Core Banking:** Đóng góp vào thiết kế và khả năng mở rộng của IMT và tích hợp Apple Pay cho ANZ Plus, hợp tác hiệu quả trong đội ngũ Agile chéo chức năng Việt Nam, Úc, Ấn Độ.",
-        "**Kiến trúc Cloud-Native:** Thiết kế và duy trì các microservices hiệu suất cao bằng **Golang và gRPC**, sử dụng **GCP services (BigQuery, Pub/Sub, Cloud Run)** để xử lý an toàn dữ liệu giao dịch khối lượng lớn.",
-        "**Xuất sắc về DevSecOps:** Quản lý hạ tầng bằng **Kubernetes (GKE) và Helm**, triển khai pipeline CI/CD nghiêm ngặt bằng GitHub Actions. Thực thi tuân thủ bảo mật thông qua quét tự động **SonarQube và Fortify** trước mỗi đợt triển khai."
+        "Về ANZ Plus. ANZ Plus là dịch vụ ngân hàng số của ANZ, ra mắt tháng 3/2022 trên một nền tảng ngân hàng mới ([ANZ, 23/3/2022](https://www.anz.com.au/newsroom/media/2022/03/anz-introduces-anz-plus---a-powerful-new-banking-service/)). Tháng 3/2025, ANZ Plus đạt một triệu khách hàng và gần 20 tỷ AUD tiền gửi ([ANZ, 13/3/2025](https://www.anz.com.au/newsroom/media/2025/march/anz-plus-reaches-1-million-customers--boosting-financial-wellbei/)). ANZ đặt mục tiêu đưa toàn bộ tám triệu khách hàng bán lẻ tại Úc sang giao diện ANZ Plus trước tháng 9/2027 ([Báo cáo ANZ 2025](https://www.anz.com/content/dam/anzcom/shareholder/2025-annual-report/anz-2025-annual-review.pdf); [iTnews, 13/10/2025](https://www.itnews.com.au/news/anz-ceo-backs-plus-tech-stack-but-changes-inefficient-delivery-620985)).",
+        "Suncorp Bank. ANZ hoàn tất thương vụ mua Suncorp Bank ngày 31/7/2024, có thêm khoảng 1,2 triệu khách hàng ([ANZ, 31/7/2024](https://www.anz.com.au/newsroom/media/2024/july/anz-completes-acquisition-of-suncorp-bank/)). ANZ cam kết chuyển khách hàng Suncorp Bank sang hệ thống và nền tảng số của ANZ trước tháng 6/2027 ([ANZ, 7/9/2026](https://www.anz.com.au/newsroom/media/2026/september/ANZ-prepares-to-welcome-suncorp-bank-customers/)).",
+        "Phần việc của tôi: dịch vụ Go và gRPC cho các tính năng ANZ Plus (PayID, PayTo, khiếu nại giao dịch, tự phục vụ, hồ sơ khách hàng, IMT), và dịch vụ Go trên GCP cho dự án Bifrost, chuyển dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus."
+      ]
+    },
+    "bullets": {
+      "en": [
+        "Build and maintain Go and gRPC microservices for ANZ Plus, ANZ's digital bank: PayID aliases, PayTo and PayTo event handling, transaction disputes, customer self-service, customer profile, and International Money Transfer (IMT).",
+        "Build migration services in Go on GCP for Project Bifrost, moving customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus.",
+        "Use Cursor and Claude Code to plan changes, write code, and draft tests. AI-written code passes the same CI and security gates as any other change.",
+        "Use AI to draft unit tests and edge cases for gRPC contracts, then review and extend them, including the IMT contracts.",
+        "Run services on GCP (Pub/Sub, BigQuery, Cloud Run) and GKE with Helm, shipped through GitHub Actions with SonarQube and Fortify gates on every deployment."
+      ],
+      "vi": [
+        "Xây dựng và duy trì microservices Go và gRPC cho ANZ Plus, ngân hàng số của ANZ: PayID alias, PayTo và xử lý sự kiện PayTo, khiếu nại giao dịch, tự phục vụ cho khách hàng, hồ sơ khách hàng, và Chuyển tiền quốc tế (IMT).",
+        "Xây dựng dịch vụ chuyển dữ liệu bằng Go trên GCP cho dự án Bifrost, đưa dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus.",
+        "Dùng Cursor và Claude Code để lên kế hoạch, viết code và soạn test. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác.",
+        "Dùng AI soạn unit test và các ca biên cho hợp đồng gRPC, sau đó rà soát và bổ sung, gồm các hợp đồng gRPC của IMT.",
+        "Vận hành dịch vụ trên GCP (Pub/Sub, BigQuery, Cloud Run) và GKE với Helm, triển khai qua GitHub Actions với cổng SonarQube và Fortify ở mỗi lần deploy."
       ]
     }
   },
   {
-    "company": "FPT Software – Offshore for Halliburton (Oil & Gas)",
+    "company": {
+      "en": "FPT Software — offshore for Halliburton (oil and gas)",
+      "vi": "FPT Software — offshore cho Halliburton (dầu khí)"
+    },
     "role": {
       "en": "Senior Backend Developer",
       "vi": "Lập trình viên Backend Senior"
@@ -38,47 +60,63 @@
     },
     "bullets": {
       "en": [
-        "**Offline-First Desktop Engineering:** Developed a mission-critical WinForms desktop app for **eCompletion Tools** — used by engineers on offshore oil & gas rigs with no internet access. Engineered an **offline-first architecture using LiteDB** for local data persistence, with automatic background synchronization to the central server upon connectivity restore.",
-        "**Cloud Migration & Auth Modernization:** Migrated the on-premise **MS SQL database to Azure SQL** and transitioned the authentication system from legacy Active Directory to **Azure Active Directory (Azure AD)**, improving security posture and enabling cloud-native identity management.",
-        "**Search Performance Optimization:** Redesigned the document search pipeline via stored procedure and EF Core query refactoring, achieving a **20x improvement in search response time** on large-scale drilling datasets.",
-        "**Messaging Infrastructure Migration:** Migrated the event-driven sync server from **RabbitMQ to Azure Service Bus**, enabling reliable asynchronous event publishing to downstream microservices with improved scalability, dead-lettering, and cloud-native observability.",
-        "**Domain Analytics System (SAMS):** Maintained and enhanced **SAMS (Sub-Atmospheric Mud System)** — a WebForms web application that ingests, transforms, and classifies well data from upstream services to determine SAMS events. Collaborated closely with petroleum engineers to translate complex domain requirements into precise backend logic.",
-        "**Quality Engineering & CI/CD:** Wrote comprehensive **MSTest unit tests and integration tests** across all three projects, supporting QA team regression cycles. Maintained and enhanced **Azure DevOps CI/CD pipelines** with automated Fortify security scanning gates. Also contributed to the **Reveal BI (Infragistics)** project as an automation tester — building Selenium WebDriver end-to-end test suites and authoring SDK documentation with Docusaurus."
+        "Reworked document search with stored procedures and EF Core, making search 20x faster on large drilling datasets.",
+        "Built eCompletion Tools, a WinForms app engineers use on offshore rigs with no internet. LiteDB keeps data on the machine and syncs to the central server when the connection returns.",
+        "Moved the on-premise MS SQL database to Azure SQL and replaced legacy Active Directory sign-in with Azure AD.",
+        "Moved sync-server messaging from RabbitMQ to Azure Service Bus with dead-lettering, so downstream services receive events.",
+        "Maintained SAMS (Sub-Atmospheric Mud System), a WebForms app that normalizes well data and decides whether a dataset is a SAMS event, working with petroleum engineers on the domain rules.",
+        "Wrote MSTest unit and integration tests for the three Halliburton projects so QA could run regression, and kept Azure DevOps pipelines with Fortify scan gates."
       ],
       "vi": [
-        "**Kỹ thuật Desktop Offline-First:** Phát triển ứng dụng desktop WinForms quan trọng cho **eCompletion Tools** — dùng bởi kỹ sư trên giàn khoan ngoài khơi không có internet. Thiết kế kiến trúc offline-first với **LiteDB** lưu trữ cục bộ và tự động đồng bộ lên máy chủ khi có kết nối.",
-        "**Di chuyển Cloud & Hiện đại hóa Xác thực:** Di chuyển **MS SQL on-premise lên Azure SQL** và chuyển xác thực từ Active Directory cũ sang **Azure Active Directory**, nâng cao bảo mật và quản lý danh tính cloud-native.",
-        "**Tối ưu Hiệu suất Tìm kiếm:** Thiết kế lại pipeline tìm kiếm tài liệu qua tối ưu stored procedure và EF Core, đạt **cải thiện 20x thời gian phản hồi** trên bộ dữ liệu khoan lớn.",
-        "**Di chuyển Hạ tầng Messaging:** Chuyển server đồng bộ event-driven từ **RabbitMQ sang Azure Service Bus**, đảm bảo publish event bất đồng bộ đáng tin cậy cho các microservice downstream với khả năng mở rộng và quan sát tốt hơn.",
-        "**Hệ thống Phân tích Miền (SAMS):** Duy trì và nâng cao **SAMS (Sub-Atmospheric Mud System)** — ứng dụng web WebForms nhận, chuyển đổi và phân loại dữ liệu giếng khoan để xác định sự kiện SAMS. Phối hợp chặt chẽ với kỹ sư dầu khí để chuyển yêu cầu miền phức tạp thành logic backend chính xác.",
-        "**Kỹ thuật Chất lượng & CI/CD:** Viết **MSTest unit test và integration test** toàn diện cho cả ba dự án, hỗ trợ chu kỳ regression của QA. Duy trì và nâng cấp **CI/CD pipeline Azure DevOps** với quét bảo mật Fortify tự động. Đồng thời đóng góp cho dự án **Reveal BI (Infragistics)** với tư cách tester tự động — xây dựng bộ test Selenium WebDriver end-to-end và viết tài liệu SDK bằng Docusaurus."
+        "Làm lại chức năng tìm kiếm tài liệu bằng stored procedure và EF Core, giúp tìm kiếm nhanh gấp 20 lần trên bộ dữ liệu khoan lớn.",
+        "Xây ứng dụng WinForms eCompletion Tools cho kỹ sư trên giàn khoan không có internet. LiteDB lưu dữ liệu ngay trên máy và đồng bộ lên máy chủ trung tâm khi có kết nối trở lại.",
+        "Chuyển cơ sở dữ liệu MS SQL tại chỗ lên Azure SQL và thay đăng nhập Active Directory cũ bằng Azure AD.",
+        "Chuyển messaging của máy chủ đồng bộ từ RabbitMQ sang Azure Service Bus, có dead-letter, để các dịch vụ phía sau nhận sự kiện.",
+        "Duy trì SAMS (Sub-Atmospheric Mud System), ứng dụng WebForms chuẩn hóa dữ liệu giếng và xác định một tập dữ liệu có phải sự kiện SAMS hay không; làm việc với kỹ sư dầu khí về quy tắc nghiệp vụ.",
+        "Viết unit test và integration test bằng MSTest cho ba dự án Halliburton để QA chạy hồi quy, và duy trì pipeline Azure DevOps với cổng quét Fortify."
       ]
     }
   },
   {
-    "company": "Saigon Thuong Tin Commercial Joint Stock Bank (Sacombank)",
+    "company": {
+      "en": "Saigon Thuong Tin Commercial Joint Stock Bank (Sacombank)",
+      "vi": "Ngân hàng TMCP Sài Gòn Thương Tín (Sacombank)"
+    },
     "role": {
-      "en": "Software Developer",
-      "vi": "Lập trình viên Phần mềm"
+      "en": "Full-stack Developer",
+      "vi": "Lập trình viên Full-stack"
     },
     "period": {
       "en": "May 2020 - Jan 2022",
       "vi": "Tháng 5/2020 - Tháng 1/2022"
     },
+    "context": {
+      "en": "Bank scale at the end of 2021: ~10 million customers and ~122,000 POS/mPOS/QR acceptance points.",
+      "vi": "Quy mô ngân hàng cuối năm 2021: gần 10 triệu khách hàng và gần 122.000 điểm chấp nhận thanh toán POS/mPOS/QR."
+    },
+    "sources": [
+      {
+        "label": {
+          "en": "Sacombank Annual Report 2021",
+          "vi": "Báo cáo thường niên Sacombank 2021"
+        },
+        "url": "https://www.sacombank.com.vn/content/dam/sacombank/cf/nha-dau-tu/bao-cao-thuong-nien/SAcombank_STB_AR2021.pdf"
+      }
+    ],
     "bullets": {
       "en": [
-        "**E-Invoice Platform:** Developed and maintained Sacombank's government-compliant **E-Invoice system** built on **ABP Framework** (.NET + Angular), automating electronic invoicing for all banking fee types across Sacombank's **20 million customers** and **508 million+ digital transactions per year (2023)**. Implemented new invoice pages, fixed bugs, optimized **Oracle & MSSQL stored procedures**, and ensured full compliance with Vietnamese Ministry of Finance e-invoice regulations (Circular 78/2021/TT-BTC).",
-        "**POS Merchant Network:** Took full ownership of a **POS management system** serving Sacombank's network of **200,000+ terminals** supporting Visa, Mastercard, UnionPay, NAPAS, MoMo, ZaloPay, and VNPAY. Inherited the system from an outsourced vendor, stabilized it, and expanded functionality using **.NET C# and Java**.",
-        "**Mobile Platform Rescue (CRM App):** Led a critical migration of Sacombank's internal CRM mobile app from a crash-prone **.NET MAUI** codebase — plagued with build failures especially on iOS — to a unified **React Native (Expo)** codebase running smoothly on both iOS and Android from a single source of truth. Collaborated with BA and QA throughout to ensure full feature parity.",
-        "**DevOps & Cloud Infrastructure:** Managed **Jenkins CI/CD pipelines** for the POS system, handled **Azure cloud service** configurations and deployments, and maintained **Oracle** database administration — ensuring zero-downtime releases for banking-critical services.",
-        "**Quality & Integration:** Wrote unit tests and supported QA team with integration test scenarios across all Sacombank products, ensuring data consistency and API contract stability across core banking modules."
+        "Built and maintained the bank's e-invoice system on ABP Framework (.NET Core and Angular) for periodic fees, e-banking charges, loan interest and foreign-exchange transactions, in line with Ministry of Finance e-invoice rules. Added invoice pages, fixed defects, and tuned Oracle and SQL Server stored procedures.",
+        "Took over the POS management system from an outsourced vendor, then maintained and extended it in .NET and Java Spring Boot. It supports Visa, Mastercard, UnionPay, NAPAS and QR wallets (MoMo, ZaloPay, VNPAY). Also ran its Jenkins pipelines and Oracle administration.",
+        "Worked on the internal CRM system, including its Xamarin mobile app, with BA and QA.",
+        "Wrote unit tests and integration scenarios so data and API contracts stayed consistent across modules.",
+        "Stack: .NET Core / ABP Framework, Golang, Java Spring Boot, Angular, Xamarin, Oracle, SQL Server, Jenkins."
       ],
       "vi": [
-        "**Nền tảng Hóa đơn Điện tử:** Phát triển và duy trì hệ thống **Hóa đơn Điện tử Sacombank** tuân thủ quy định nhà nước trên **ABP Framework** (.NET + Angular), bao gồm phí định kỳ, phí e-banking, lãi vay và giao dịch ngoại tệ. Phát triển trang mới, sửa lỗi, tối ưu **stored procedure Oracle & MSSQL**, và đảm bảo tuân thủ chuẩn hóa đơn điện tử Bộ Tài chính.",
-        "**Mạng lưới POS Merchant:** Tiếp nhận toàn bộ hệ thống **quản lý POS** phục vụ mạng lưới **200.000+ máy** của Sacombank hỗ trợ Visa, Mastercard, UnionPay, NAPAS, MoMo, ZaloPay và VNPAY. Nhận bàn giao từ nhà thầu outsource, ổn định và mở rộng tính năng bằng **.NET C# và Java**.",
-        "**Cứu nền tảng Mobile CRM:** Dẫn dắt di chuyển ứng dụng CRM nội bộ Sacombank từ **.NET MAUI** lỗi build nghiêm trọng — đặc biệt iOS — sang một codebase **React Native (Expo)** chạy mượt mà trên cả iOS và Android từ một nguồn duy nhất. Phối hợp BA và QA đảm bảo tương đương tính năng hoàn toàn.",
-        "**DevOps & Hạ tầng Cloud:** Quản lý **CI/CD pipeline Jenkins** cho hệ thống POS, cấu hình và triển khai **Azure cloud services**, và quản trị **cơ sở dữ liệu Oracle** — đảm bảo release không gián đoạn cho dịch vụ ngân hàng quan trọng.",
-        "**Chất lượng & Tích hợp:** Viết unit test và hỗ trợ QA với các kịch bản integration test trên toàn bộ sản phẩm Sacombank, đảm bảo tính nhất quán dữ liệu và ổn định API contract giữa các module core banking."
+        "Xây dựng và duy trì hệ thống hóa đơn điện tử của ngân hàng trên ABP Framework (.NET Core và Angular) cho phí định kỳ, phí ngân hàng điện tử, lãi vay và giao dịch ngoại tệ, theo quy định hóa đơn điện tử của Bộ Tài chính. Thêm trang hóa đơn, sửa lỗi, tối ưu stored procedure Oracle và SQL Server.",
+        "Nhận bàn giao hệ thống quản lý POS từ nhà thầu bên ngoài, sau đó duy trì và mở rộng bằng .NET và Java Spring Boot. Hệ thống hỗ trợ Visa, Mastercard, UnionPay, NAPAS và ví QR (MoMo, ZaloPay, VNPAY). Cũng vận hành pipeline Jenkins và quản trị Oracle cho hệ thống.",
+        "Phát triển hệ thống CRM nội bộ, gồm ứng dụng di động Xamarin, phối hợp cùng BA và QA.",
+        "Viết unit test và kịch bản integration để dữ liệu và hợp đồng API nhất quán giữa các module.",
+        "Công nghệ: .NET Core / ABP Framework, Golang, Java Spring Boot, Angular, Xamarin, Oracle, SQL Server, Jenkins."
       ]
     }
   }

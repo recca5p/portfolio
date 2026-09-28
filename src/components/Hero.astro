@@ -1,133 +1,140 @@
 ---
-import { Image } from 'astro:assets';
-import backendInfrastructure from '../assets/backend-infrastructure.png';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { profile } from '../data/profile';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const imageAlt =
-  lang === 'en'
-    ? 'Fiber-optic network cables connected to backend infrastructure'
-    : 'Cáp quang kết nối vào hạ tầng hệ thống backend';
+const role = String(t('home.title'));
+const roleParts = role.split(' — ');
+const roleLead = roleParts[0] ?? role;
+const roleRest = roleParts.length > 1 ? roleParts.slice(1).join(' — ') : '';
 ---
 
 <section class="hero-shell" aria-labelledby="hero-heading">
-  <div class="site-container hero-grid">
+  <div class="site-container hero-enter">
     <div class="hero-copy">
-      <p class="kicker hero-enter" style="--enter-delay: 40ms">{t('home.title')}</p>
-      <h1 id="hero-heading" class="hero-enter" style="--enter-delay: 90ms">
-        {t('home.greeting')}
-      </h1>
-      <p class="hero-summary hero-enter" style="--enter-delay: 140ms">
-        {t('home.heroSummary')}
+      <h1 id="hero-heading">{t('home.greeting')}</h1>
+      <p class="hero-role">
+        {roleLead}
+        {roleRest && <span class="hero-role-rest">— {roleRest}</span>}
       </p>
-      <div class="hero-actions hero-enter" style="--enter-delay: 190ms">
-        <a class="button-primary" href="#experience">{t('home.experienceCta')}</a>
-        <a class="button-secondary" href="mailto:phatvo73.dev@gmail.com">
+      <p class="hero-tagline">{t('home.tagline')}</p>
+      <p class="hero-facts">
+        <span>{profile.location[lang]}</span>
+        <span>{t('home.years')}</span>
+        <span>{t('home.employer')}</span>
+      </p>
+      <p class="hero-summary">{t('home.heroSummary')}</p>
+      <div class="hero-actions">
+        <a class="button-primary" href={profile.cvPath} download>
+          {t('home.downloadCv')}
+        </a>
+        <a class="button-secondary" href={`mailto:${profile.email}`}>
           {t('home.emailCta')}
         </a>
       </div>
+      <p class="hero-links">
+        <a class="text-link" href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+        <a class="text-link" href={profile.githubUrl} target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      </p>
     </div>
-
-    <figure class="hero-visual hero-enter" style="--enter-delay: 120ms">
-      <Image
-        src={backendInfrastructure}
-        alt={imageAlt}
-        width={960}
-        height={1200}
-        format="avif"
-        quality={78}
-        loading="eager"
-        fetchpriority="high"
-        sizes="(min-width: 1024px) 42vw, (min-width: 640px) 70vw, 100vw"
-      />
-      <figcaption>{t('home.imageCaption')}</figcaption>
-    </figure>
   </div>
 </section>
 
 <style>
   .hero-shell {
-    display: flex;
-    min-height: calc(100dvh - 4.5rem);
-    align-items: center;
-    padding-block: clamp(3rem, 7vw, 5.5rem);
-  }
-
-  .hero-grid {
-    display: grid;
-    align-items: center;
-    gap: 3rem;
+    padding-block: clamp(2.5rem, 7vw, 5.5rem);
   }
 
   .hero-copy {
-    max-width: 42rem;
+    max-width: 46rem;
   }
 
   h1 {
-    max-width: 10ch;
-    margin-top: 1.1rem;
-    font-size: clamp(3.25rem, 9vw, 6.75rem);
+    max-width: 10em;
+    font-size: var(--font-display);
     font-weight: 650;
-    letter-spacing: -0.07em;
-    line-height: 0.94;
+    letter-spacing: -0.04em;
+    line-height: 0.96;
   }
 
-  .hero-summary {
-    max-width: 34rem;
-    margin-top: 1.6rem;
+  .hero-role {
+    margin-top: 1rem;
     color: var(--muted-strong);
-    font-size: clamp(1.05rem, 2vw, 1.25rem);
-    line-height: 1.65;
+    font-size: var(--font-lead);
+    font-weight: 650;
+    letter-spacing: -0.02em;
   }
 
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 2rem;
+  .hero-role-rest {
+    display: block;
+    white-space: nowrap;
   }
 
-  .hero-visual {
-    position: relative;
-    margin: 0;
-  }
-
-  .hero-visual :global(img) {
-    width: 100%;
-    max-height: min(68dvh, 47rem);
-    border-radius: var(--radius);
-    object-fit: cover;
-    object-position: center;
-    box-shadow: 0 2.5rem 7rem rgb(0 0 0 / 0.32);
-  }
-
-  figcaption {
-    margin-top: 0.8rem;
-    color: var(--muted);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
+  .hero-tagline {
+    max-width: 36rem;
+    margin-top: 0.75rem;
+    color: var(--text);
+    font-size: var(--font-body);
     line-height: 1.5;
   }
 
-  @media (min-width: 900px) {
-    .hero-grid {
-      grid-template-columns: minmax(0, 1.12fr) minmax(21rem, 0.88fr);
-      gap: clamp(3rem, 7vw, 7rem);
-    }
+  .hero-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.25rem;
+    margin-top: 0.85rem;
+    color: var(--text);
+    font-size: var(--font-small);
   }
 
-  @media (max-width: 899px) {
-    .hero-shell {
+  .hero-facts span {
+    white-space: nowrap;
+  }
+
+  .hero-summary {
+    max-width: 38rem;
+    margin-top: 1.15rem;
+    color: var(--muted-strong);
+    font-size: var(--font-body);
+    line-height: 1.65;
+  }
+
+  .hero-actions,
+  .hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .hero-actions {
+    margin-top: 1.75rem;
+  }
+
+  .hero-links {
+    margin-top: 0.85rem;
+  }
+
+  .hero-links a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--accent);
+    text-decoration-color: var(--accent);
+    text-decoration-line: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  @media (max-width: 479px) {
+    .hero-facts {
+      flex-direction: column;
       align-items: flex-start;
-    }
-
-    .hero-visual {
-      width: min(100%, 42rem);
-    }
-
-    .hero-visual :global(img) {
-      max-height: 38rem;
+      gap: 0.35rem;
     }
   }
 </style>

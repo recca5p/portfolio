@@ -59,6 +59,9 @@ at `/en/`. Content changes should preserve parity between English and
 Vietnamese. See `AGENTS.md` for the repository conventions and the expected
 change workflow.
 
+Agent skills and MCP servers used for design and writing live in the repo.
+`docs/ai-tooling.md` lists each one, where it came from, and how to update it.
+
 ## Deployment
 
 The Astro configuration produces a static build:

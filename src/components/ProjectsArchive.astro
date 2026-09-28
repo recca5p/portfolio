@@ -2,72 +2,94 @@
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import type { Project } from '../types/project';
 import projectsData from '../data/projects.json';
+import { formatProse, teamSizeLabel } from '../utils/text';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const projects = projectsData as Project[];
-const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u2014]\s*/g, ' - ');
+
+/*
+ * Open questions live as comments in Experience.astro. Do not add metrics
+ * beyond 20x, more than 60%, 5x, ~30%, and 90%+.
+ * Homepage preview is pinned by id in Projects.astro.
+ */
 ---
 
 <section class="section-shell archive-section" aria-labelledby="projects-heading">
   <div class="site-container">
     <nav aria-label={lang === 'en' ? 'Breadcrumb' : 'Đường dẫn điều hướng'} class="breadcrumb">
       <ol>
-        <li><a href={`/${lang}/`}>{t('nav.home')}</a></li>
+        <li>
+          <a href={`/${lang}/`}>{t('nav.home')}</a>
+        </li>
         <li aria-hidden="true">/</li>
         <li aria-current="page">{t('projects.title')}</li>
       </ol>
     </nav>
 
-    <header class="archive-header" data-reveal>
+    <header class="archive-header">
       <h1 id="projects-heading">{t('projects.title')}</h1>
       <p>{t('projects.viewAllSubtitle')}</p>
-      <span>{projects.length} {lang === 'en' ? 'selected projects' : 'dự án tiêu biểu'}</span>
+      <span>
+        {projects.length} {lang === 'en' ? 'projects' : 'dự án'}
+      </span>
     </header>
 
     <div class="archive-list">
-      {
-        projects.map((project) => {
-          const title = cleanPunctuation(project.title[lang]);
-          const description = cleanPunctuation(project.description[lang]);
-          const role = project.role ? cleanPunctuation(project.role[lang]) : undefined;
-          const companyLabel =
-            lang === 'en'
-              ? `Visit ${project.company?.name ?? ''} website`
-              : `Truy cập trang web ${project.company?.name ?? ''}`;
+      {projects.map((project) => {
+        const title = project.title[lang];
+        const description = formatProse(project.description[lang]);
+        const role = project.role ? formatProse(project.role[lang]) : undefined;
+        const engagement = project.engagement ? formatProse(project.engagement[lang]) : undefined;
+        const teamLabel = teamSizeLabel(project.teamSize, lang, String(t('projects.solo')));
+        const companyName = project.company?.name[lang] ?? '';
+        const companyLabel =
+          lang === 'en' ? `Visit ${companyName} website` : `Truy cập trang web ${companyName}`;
 
-          return (
-            <article data-reveal>
-              <div class="archive-title">
-                {role && <p class="project-role">{role}</p>}
-                <h2>{title}</h2>
-                {project.teamSize && (
-                  <p class="team-size">
-                    {lang === 'en' ? 'Team' : 'Nhóm'} <span>{project.teamSize}</span>
-                  </p>
-                )}
-              </div>
+        return (
+          <article>
+            <div class="archive-title">
+              <h2>{title}</h2>
+              {role && <p class="project-byline">{role}</p>}
+              {engagement && <p class="project-byline">{engagement}</p>}
+              {teamLabel && <p class="team-size">{teamLabel}</p>}
+            </div>
 
+            <div class="archive-copy">
               <p class="archive-description">{description}</p>
+              {project.sources && project.sources.length > 0 && (
+                <p class="source-line">
+                  <span>{t('experience.source')}: </span>
+                  {project.sources.map((source) => (
+                    <a href={source.url} target="_blank" rel="noopener noreferrer">
+                      {source.label[lang]}
+                    </a>
+                  ))}
+                </p>
+              )}
+            </div>
 
-              <div class="archive-meta">
-                <p translate="no">{project.tags.join(' / ')}</p>
-                {project.company && (
-                  <a
-                    href={project.company.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={companyLabel}
-                  >
-                    <span translate="no">{project.company.name}</span>
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                )}
-              </div>
-            </article>
-          );
-        })
-      }
+            <div class="archive-meta">
+              <p class="tag-line" translate="no">
+                {project.tags.join(' / ')}
+              </p>
+              {project.company?.url && (
+                <a
+                  href={project.company.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={companyLabel}
+                >
+                  <span translate="no">{companyName}</span>
+                </a>
+              )}
+              {project.company?.description?.[lang] && (
+                <p class="company-context">{formatProse(project.company.description[lang])}</p>
+              )}
+            </div>
+          </article>
+        );
+      })}
     </div>
   </div>
 </section>
@@ -85,14 +107,16 @@ const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u201
     margin: 0;
     padding: 0;
     color: var(--muted);
-    font-size: 0.75rem;
+    font-size: var(--font-small);
     list-style: none;
   }
 
   .breadcrumb a {
+    min-width: 2.75rem;
     min-height: 2.75rem;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     color: var(--muted-strong);
     text-decoration-line: underline;
     text-decoration-color: transparent;
@@ -112,18 +136,18 @@ const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u201
   }
 
   .archive-header h1 {
-    max-width: 13ch;
-    font-size: clamp(3rem, 8vw, 6.25rem);
+    max-width: 16ch;
+    font-size: var(--font-display);
     font-weight: 650;
-    letter-spacing: -0.065em;
-    line-height: 0.98;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
   }
 
   .archive-header p {
     max-width: 58ch;
     margin-top: 1.5rem;
     color: var(--muted);
-    font-size: 1rem;
+    font-size: var(--font-body);
     line-height: 1.75;
   }
 
@@ -131,9 +155,9 @@ const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u201
     display: block;
     margin-top: 1.25rem;
     color: var(--accent-strong);
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
+    font-size: var(--font-small);
     font-variant-numeric: tabular-nums;
+    font-weight: 650;
   }
 
   .archive-list {
@@ -148,11 +172,11 @@ const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u201
     padding-block: clamp(2rem, 5vw, 3.5rem);
   }
 
-  .project-role,
+  .project-byline,
   .team-size {
-    color: var(--accent-strong);
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
+    margin-top: 0.75rem;
+    color: var(--muted-strong);
+    font-size: var(--font-body);
     line-height: 1.5;
   }
 
@@ -167,38 +191,66 @@ const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u201
   }
 
   h2 {
-    margin-top: 0.65rem;
-    font-size: clamp(1.3rem, 2vw, 1.85rem);
+    font-size: var(--font-title);
     font-weight: 650;
     letter-spacing: -0.035em;
     line-height: 1.25;
   }
 
   .archive-description {
+    color: var(--muted-strong);
+    font-size: var(--font-body);
+    line-height: 1.7;
+  }
+
+  .source-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.85rem;
+    margin-top: 0.85rem;
     color: var(--muted);
-    font-size: 0.88rem;
-    line-height: 1.8;
+    font-size: var(--font-small);
+  }
+
+  .source-line a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--muted-strong);
+    text-decoration-line: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 0.2em;
+  }
+
+  .archive-meta p.company-context {
+    margin-top: 1rem;
+    color: var(--muted-strong);
+    font-family: var(--font-sans);
+    font-size: var(--font-body);
+    line-height: 1.6;
   }
 
   .archive-meta {
     align-self: start;
   }
 
-  .archive-meta p {
+  .archive-meta p.tag-line {
     overflow-wrap: anywhere;
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 0.63rem;
-    line-height: 1.8;
+    font-size: var(--font-meta);
+    line-height: 1.7;
   }
 
   .archive-meta a {
     display: inline-flex;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
     align-items: center;
     gap: 0.45rem;
     margin-top: 1.25rem;
     color: var(--muted-strong);
-    font-size: 0.76rem;
+    font-size: var(--font-small);
     font-weight: 700;
     text-decoration-color: transparent;
     text-decoration-line: underline;

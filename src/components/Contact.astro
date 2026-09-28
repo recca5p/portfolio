@@ -1,81 +1,166 @@
 ---
+import QRCode from 'qrcode';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { profile } from '../data/profile';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const phone = '+84779342459';
-const phoneDisplay = '+84 779 342 459';
-const email = 'phatvo73.dev@gmail.com';
-const linkedinUrl = 'https://www.linkedin.com/in/tan-phat-vo-51ba10272/';
-const whatsappUrl = `https://wa.me/${phone.replace('+', '')}`;
-const zaloUrl = `https://zalo.me/${phone.replace('+', '')}`;
-const whatsappQr = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(whatsappUrl)}&bgcolor=11181e&color=24bcae`;
-const zaloQr = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(zaloUrl)}&bgcolor=11181e&color=24bcae`;
+const whatsappUrl = `https://wa.me/${profile.phoneE164.replace('+', '')}`;
+const zaloUrl = `https://zalo.me/${profile.phoneE164.replace('+', '')}`;
+
+const toQr = async (value: string, label: string) => {
+  const svg = await QRCode.toString(value, {
+    type: 'svg',
+    margin: 4,
+    color: { dark: '#0b1014', light: '#ffffff' },
+  });
+  return svg
+    .replace(/<\?xml[^>]*>\s*/i, '')
+    .replace('<svg ', `<svg role="img" aria-label="${label}" `);
+};
+
+const whatsappQr = await toQr(
+  whatsappUrl,
+  lang === 'en' ? 'WhatsApp contact QR code' : 'Mã QR liên hệ WhatsApp'
+);
+const zaloQr = await toQr(zaloUrl, lang === 'en' ? 'Zalo contact QR code' : 'Mã QR liên hệ Zalo');
 ---
 
 <section id="contact" class="section-shell contact-section" aria-labelledby="contact-heading">
-  <div class="site-container contact-layout" data-reveal>
+  <div class="site-container contact-layout">
     <div class="contact-intro">
-      <h2 id="contact-heading" class="section-heading">{t('contact.title')}</h2>
+      <h2 id="contact-heading" class="section-heading">
+        {t('contact.title')}
+      </h2>
       <p class="section-copy">{t('contact.subtitle')}</p>
-      <a class="button-primary" href={`mailto:${email}`}>{t('home.emailCta')}</a>
+      <div class="contact-actions">
+        <a class="button-primary" href={`mailto:${profile.email}`}>
+          {t('home.emailCta')}
+        </a>
+        <a class="button-secondary" href={profile.cvPath} download>
+          {t('home.downloadCv')}
+        </a>
+      </div>
     </div>
 
     <div class="contact-channels">
-      <a class="contact-row pressable" href={`mailto:${email}`}>
+      <div class="contact-row">
         <span>Email</span>
-        <strong>{email}</strong>
-      </a>
+        <a href={`mailto:${profile.email}`}>
+          <strong>{profile.email}</strong>
+        </a>
+        <div class="copy-control">
+          <button
+            type="button"
+            class="copy-email"
+            data-email={profile.email}
+            data-label={t('contact.copyEmail')}
+            data-copied={t('contact.copied')}
+          >
+            {t('contact.copyEmail')}
+          </button>
+          <span class="copy-status sr-only" aria-live="polite"></span>
+        </div>
+      </div>
 
-      <a class="contact-row pressable" href={linkedinUrl} target="_blank" rel="noopener noreferrer">
+      <div class="contact-row">
         <span translate="no">LinkedIn</span>
-        <strong translate="no">tan-phat-vo</strong>
-      </a>
+        <a href={profile.linkedinUrl} target="_blank" rel="noopener noreferrer">
+          <strong translate="no">{profile.linkedinLabel}</strong>
+        </a>
+      </div>
 
-      <div class="contact-row contact-with-qr">
+      <div class="contact-row">
+        <span translate="no">GitHub</span>
+        <a href={profile.githubUrl} target="_blank" rel="noopener noreferrer">
+          <strong translate="no">{profile.githubLabel}</strong>
+        </a>
+      </div>
+
+      <div class="contact-row">
+        <span translate="no">WhatsApp</span>
         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-          <span translate="no">WhatsApp</span>
-          <strong>{phoneDisplay}</strong>
+          <strong>{profile.phoneDisplay}</strong>
         </a>
         <details>
           <summary>{t('contact.showQr')}</summary>
           <div class="qr-panel">
             <p>{t('contact.scanToChat')}</p>
-            <img
-              src={whatsappQr}
-              alt={lang === 'en' ? 'WhatsApp contact QR code' : 'Mã QR liên hệ WhatsApp'}
-              width="160"
-              height="160"
-              loading="lazy"
-              decoding="async"
-            />
+            <Fragment set:html={whatsappQr} />
           </div>
         </details>
       </div>
 
-      <div class="contact-row contact-with-qr">
+      <div class="contact-row">
+        <span translate="no">Zalo</span>
         <a href={zaloUrl} target="_blank" rel="noopener noreferrer">
-          <span translate="no">Zalo</span>
-          <strong>{phoneDisplay}</strong>
+          <strong>{profile.phoneDisplay}</strong>
         </a>
         <details>
           <summary>{t('contact.showQr')}</summary>
           <div class="qr-panel">
             <p>{t('contact.scanToChat')}</p>
-            <img
-              src={zaloQr}
-              alt={lang === 'en' ? 'Zalo contact QR code' : 'Mã QR liên hệ Zalo'}
-              width="160"
-              height="160"
-              loading="lazy"
-              decoding="async"
-            />
+            <Fragment set:html={zaloQr} />
           </div>
         </details>
       </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  document.querySelectorAll('.copy-email').forEach(function (button) {
+    button.addEventListener('click', function () {
+      var email = button.getAttribute('data-email') || '';
+      var copied = button.getAttribute('data-copied') || 'Copied';
+      var label = button.getAttribute('data-label') || 'Copy email';
+      var status = button.parentElement && button.parentElement.querySelector('.copy-status');
+      var done = function () {
+        button.textContent = copied;
+        if (status) status.textContent = copied;
+        window.setTimeout(function () {
+          button.textContent = label;
+          if (status) status.textContent = '';
+        }, 1600);
+      };
+      var fallback = function () {
+        var area = document.createElement('textarea');
+        area.value = email;
+        area.setAttribute('readonly', '');
+        area.style.position = 'fixed';
+        area.style.left = '-9999px';
+        document.body.appendChild(area);
+        area.select();
+        var ok = false;
+        try {
+          ok = document.execCommand('copy');
+        } catch (error) {
+          ok = false;
+        }
+        area.remove();
+        if (ok) done();
+        else {
+          button.textContent = email;
+          if (status) status.textContent = email;
+        }
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email).then(done).catch(fallback);
+      } else {
+        fallback();
+      }
+    });
+  });
+
+  document.addEventListener('keydown', function (event) {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('.contact-row details[open]').forEach(function (details) {
+      details.open = false;
+      var summary = details.querySelector('summary');
+      if (summary) summary.focus();
+    });
+  });
+</script>
 
 <style>
   .contact-section {
@@ -92,8 +177,11 @@ const zaloQr = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${
     margin-top: 1.35rem;
   }
 
-  .contact-intro .button-primary {
-    margin-top: 2rem;
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
   }
 
   .contact-channels {
@@ -102,59 +190,53 @@ const zaloQr = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${
 
   .contact-row {
     display: grid;
-    min-width: 0;
-    grid-template-columns: minmax(6rem, 0.4fr) minmax(0, 1fr);
+    grid-template-columns: 8.75rem minmax(0, 1fr) auto;
     align-items: center;
-    gap: 1rem;
+    column-gap: 1rem;
     border-bottom: 1px solid var(--line);
-    padding-block: 1.2rem;
-    transition:
-      color 160ms ease,
-      transform 160ms var(--ease-out);
+    padding-block: 0.35rem;
   }
 
-  a.contact-row:hover,
-  .contact-with-qr > a:hover {
-    color: var(--accent-strong);
+  .contact-row > span,
+  .contact-row > a,
+  .copy-email,
+  .contact-row summary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
   }
 
-  .contact-row span {
+  .contact-row > span {
     color: var(--muted);
-    font-size: 0.72rem;
+    font-size: var(--font-small);
   }
 
-  .contact-row strong {
+  .contact-row a {
     min-width: 0;
-    overflow-wrap: anywhere;
     color: var(--text);
-    font-size: 0.88rem;
-  }
-
-  .contact-with-qr {
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: start;
-  }
-
-  .contact-with-qr > a {
-    display: grid;
-    min-width: 0;
-    grid-template-columns: minmax(6rem, 0.4fr) minmax(0, 1fr);
-    gap: 1rem;
     transition: color 160ms ease;
   }
 
-  .contact-with-qr details {
-    position: relative;
+  .contact-row a:hover {
+    color: var(--accent-strong);
   }
 
-  .contact-with-qr summary {
-    min-height: 2.75rem;
+  .contact-row strong {
+    overflow-wrap: anywhere;
+    font-size: var(--font-small);
+    font-weight: 650;
+  }
+
+  .copy-email,
+  .contact-row summary {
+    justify-content: center;
     border: 1px solid var(--line);
     border-radius: var(--radius);
-    padding: 0.72rem 0.8rem;
+    padding: 0.4rem 0.8rem;
+    background: transparent;
     color: var(--muted-strong);
     cursor: pointer;
-    font-size: 0.7rem;
+    font-size: var(--font-small);
     font-weight: 700;
     white-space: nowrap;
     transition:
@@ -163,34 +245,40 @@ const zaloQr = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${
       color 160ms ease;
   }
 
-  .contact-with-qr summary:hover,
-  .contact-with-qr details[open] summary {
+  .copy-email:hover,
+  .contact-row summary:hover,
+  .contact-row details[open] summary {
     border-color: var(--line-strong);
     background: var(--surface-raised);
     color: var(--text);
   }
 
+  .contact-row details {
+    position: relative;
+    justify-self: end;
+  }
+
   .qr-panel {
     position: absolute;
     right: 0;
-    bottom: calc(100% + 0.75rem);
-    z-index: 20;
-    width: 12rem;
+    z-index: 2;
+    width: min(100vw - 2rem, 12rem);
+    margin-top: 0.35rem;
     border: 1px solid var(--line-strong);
     border-radius: var(--radius);
     background: var(--page);
     padding: 0.9rem;
-    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 0.35);
   }
 
   .qr-panel p {
     margin-bottom: 0.65rem;
     color: var(--muted);
-    font-size: 0.68rem;
+    font-size: var(--font-small);
     text-align: center;
   }
 
-  .qr-panel img {
+  .qr-panel :global(svg) {
+    display: block;
     width: 100%;
     height: auto;
     border-radius: calc(var(--radius) - 0.3rem);
@@ -204,10 +292,12 @@ const zaloQr = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${
   }
 
   @media (max-width: 520px) {
-    .contact-row,
-    .contact-with-qr > a {
-      grid-template-columns: 1fr;
-      gap: 0.35rem;
+    .contact-row {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .contact-row > span {
+      grid-column: 1 / -1;
     }
   }
 </style>

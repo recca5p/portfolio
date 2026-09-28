@@ -1,3 +1,10 @@
 .astro/
 dist/
 node_modules/
+
+# Vendored third-party skills. Do not reformat upstream files.
+.agents/
+.cursor/
+
+# Local Impeccable critique snapshots.
+.impeccable/

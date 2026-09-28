@@ -2,10 +2,12 @@
 import { getLangFromUrl, ui } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
+const onLocalizedPage = Astro.url.pathname.startsWith(`/${lang}/`);
 
 const switchLangPath = (targetLang: string) => {
   const segments = Astro.url.pathname.split('/').filter(Boolean);
 
+  if (segments[0] === '404') return `/${targetLang}/`;
   if (segments[0] in ui) segments[0] = targetLang;
   else segments.unshift(targetLang);
 
@@ -18,40 +20,60 @@ const languageLabel = lang === 'en' ? 'Choose language' : 'Chọn ngôn ngữ';
 <nav class="language-switch" aria-label={languageLabel}>
   <a
     href={switchLangPath('en')}
+    data-preserve-hash
     lang="en"
     hreflang="en"
-    aria-current={lang === 'en' ? 'page' : undefined}
+    aria-current={onLocalizedPage && lang === 'en' ? 'page' : undefined}
   >
     EN
   </a>
   <span aria-hidden="true">/</span>
   <a
     href={switchLangPath('vi')}
+    data-preserve-hash
     lang="vi"
     hreflang="vi"
-    aria-current={lang === 'vi' ? 'page' : undefined}
+    aria-current={onLocalizedPage && lang === 'vi' ? 'page' : undefined}
   >
     VI
   </a>
 </nav>
 
+<script is:inline>
+  (function () {
+    function applyHash() {
+      var hash = location.hash;
+      document.querySelectorAll('[data-preserve-hash]').forEach(function (link) {
+        var url = new URL(link.getAttribute('href') || link.href, location.origin);
+        url.hash = hash;
+        link.href = url.pathname + url.search + url.hash;
+      });
+    }
+
+    applyHash();
+    window.addEventListener('hashchange', applyHash);
+  })();
+</script>
+
 <style>
   .language-switch {
     display: inline-flex;
     min-height: 2.75rem;
+    flex: 0 0 auto;
     align-items: center;
-    gap: 0.45rem;
+    gap: 0.2rem;
     color: var(--line-strong);
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: var(--font-small);
     font-weight: 650;
-    letter-spacing: 0.08em;
+    white-space: nowrap;
   }
 
   .language-switch a {
     display: inline-flex;
+    min-width: 2.75rem;
     min-height: 2.75rem;
     align-items: center;
+    justify-content: center;
     color: var(--muted);
     transition: color 160ms ease;
   }
@@ -59,5 +81,11 @@ const languageLabel = lang === 'en' ? 'Choose language' : 'Chọn ngôn ngữ';
   .language-switch a:hover,
   .language-switch a[aria-current='page'] {
     color: var(--text);
+  }
+
+  .language-switch a[aria-current='page'] {
+    text-decoration-line: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 0.35em;
   }
 </style>

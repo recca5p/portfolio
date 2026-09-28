@@ -1,56 +1,57 @@
 ---
 import type { Lang } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
 import type { Project } from '../types/project';
+import { formatProse, teamSizeLabel } from '../utils/text';
 
 interface Props {
   project: Project;
   lang: Lang;
-  featured?: boolean;
 }
 
-const { project, lang, featured = false } = Astro.props;
-const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u2014]\s*/g, ' - ');
-const title = cleanPunctuation(project.title[lang]);
-const description = cleanPunctuation(project.description[lang]);
-const role = project.role ? cleanPunctuation(project.role[lang]) : undefined;
+const { project, lang } = Astro.props;
+const t = useTranslations(lang);
+const title = project.title[lang];
+const description = formatProse(project.description[lang]);
+const role = project.role ? formatProse(project.role[lang]) : undefined;
+const engagement = project.engagement ? formatProse(project.engagement[lang]) : undefined;
+const teamLabel = teamSizeLabel(project.teamSize, lang, String(t('projects.solo')));
+const companyName = project.company?.name[lang] ?? '';
 const companyLabel =
-  lang === 'en'
-    ? `Visit ${project.company?.name ?? ''} website`
-    : `Truy cập trang web ${project.company?.name ?? ''}`;
+  lang === 'en' ? `Visit ${companyName} website` : `Truy cập trang web ${companyName}`;
 ---
 
-<article class:list={['project-card lift-on-hover', { featured }]}>
-  <div class="project-meta">
-    {role && <p class="project-role">{role}</p>}
-    {
-      project.teamSize && (
-        <p class="project-team">
-          {lang === 'en' ? 'Team' : 'Nhóm'} <span>{project.teamSize}</span>
-        </p>
-      )
-    }
-  </div>
-
+<article class="project-card lift-on-hover">
   <h3>{title}</h3>
+  {role && <p class="project-byline">{role}</p>}
+  {engagement && <p class="project-byline">{engagement}</p>}
   <p class="project-description">{description}</p>
+  {project.sources && project.sources.length > 0 && (
+    <p class="project-sources">
+      <span>{t('experience.source')}: </span>
+      {project.sources.map((source) => (
+        <a href={source.url} target="_blank" rel="noopener noreferrer">
+          {source.label[lang]}
+        </a>
+      ))}
+    </p>
+  )}
 
   <div class="project-footer">
     <p class="project-stack" translate="no">
-      {project.tags.slice(0, featured ? 8 : 5).join(' / ')}
+      {project.tags.slice(0, 5).join(' / ')}
     </p>
-    {
-      project.company && (
-        <a
-          href={project.company.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={companyLabel}
-        >
-          <span translate="no">{project.company.name}</span>
-          <span aria-hidden="true">↗</span>
-        </a>
-      )
-    }
+    {teamLabel && <p class="project-team">{teamLabel}</p>}
+    {project.company?.url && (
+      <a
+        href={project.company.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={companyLabel}
+      >
+        <span translate="no">{companyName}</span>
+      </a>
+    )}
   </div>
 </article>
 
@@ -59,95 +60,76 @@ const companyLabel =
     display: flex;
     min-width: 0;
     flex-direction: column;
+    align-items: flex-start;
     border: 1px solid var(--line);
     border-radius: var(--radius);
     background: var(--surface);
     padding: clamp(1.4rem, 3vw, 2rem);
   }
 
-  .project-card.featured {
-    border-color: var(--line-strong);
-    background: var(--surface-raised);
-  }
-
-  .project-meta {
-    display: flex;
-    min-height: 1.6rem;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.75rem;
-  }
-
-  .project-role,
-  .project-team {
-    color: var(--accent-strong);
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    line-height: 1.5;
-  }
-
-  .project-team {
-    color: var(--muted);
-  }
-
-  .project-team span {
-    color: var(--text);
-    font-variant-numeric: tabular-nums;
-  }
-
   h3 {
-    margin-top: 1.5rem;
-    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    font-size: var(--font-title);
     font-weight: 650;
-    letter-spacing: -0.035em;
+    letter-spacing: -0.03em;
     line-height: 1.25;
   }
 
-  .featured h3 {
-    max-width: 22ch;
-    font-size: clamp(1.75rem, 3vw, 2.75rem);
+  .project-byline,
+  .project-description,
+  .project-sources,
+  .project-team {
+    color: var(--muted-strong);
+    font-size: var(--font-body);
+    line-height: 1.65;
+  }
+
+  .project-byline {
+    margin-top: 0.75rem;
   }
 
   .project-description {
-    display: -webkit-box;
-    overflow: hidden;
-    margin-top: 1rem;
-    color: var(--muted);
-    font-size: 0.88rem;
-    line-height: 1.75;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
+    margin-top: 0.85rem;
   }
 
-  .featured .project-description {
-    max-width: 62ch;
-    font-size: 0.95rem;
-    -webkit-line-clamp: 7;
+  .project-sources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.85rem;
+    margin-top: 0.85rem;
+    font-size: var(--font-small);
+  }
+
+  .project-sources a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    color: var(--accent);
+    text-decoration-line: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 0.2em;
   }
 
   .project-footer {
     display: grid;
-    gap: 1.25rem;
-    margin-top: auto;
-    padding-top: 2rem;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
   }
 
   .project-stack {
     overflow-wrap: anywhere;
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 0.63rem;
-    line-height: 1.8;
+    font-size: var(--font-meta);
+    line-height: 1.7;
   }
 
   .project-footer a {
     display: inline-flex;
     width: fit-content;
+    min-height: 2.75rem;
     align-items: center;
-    gap: 0.45rem;
     color: var(--muted-strong);
-    font-size: 0.78rem;
+    font-size: var(--font-small);
     font-weight: 700;
     text-decoration-color: transparent;
     text-decoration-line: underline;

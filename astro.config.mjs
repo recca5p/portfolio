@@ -1,17 +1,37 @@
 // @ts-check
+import { execSync } from 'node:child_process';
 import { defineConfig } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
+const site = 'https://portfolio-7j9.pages.dev';
+
+const lastmod = (() => {
+  try {
+    return execSync('git log -1 --format=%cI', { encoding: 'utf8' }).trim();
+  } catch {
+    return undefined;
+  }
+})();
+
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://portfolio-7j9.pages.dev',
+  site,
   trailingSlash: 'always',
+  redirects: {
+    '/': '/en/',
+  },
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [
     sitemap({
-      // `/` permanently redirects to the canonical English homepage.
-      filter: (page) => page !== 'https://portfolio-7j9.pages.dev/',
+      filter: (page) => page !== `${site}/` && !page.includes('/404'),
+      serialize(item) {
+        if (lastmod) item.lastmod = lastmod;
+        return item;
+      },
     }),
   ],
   vite: {

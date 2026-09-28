@@ -3,26 +3,28 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const metrics = t('home.metrics') as unknown as Array<{ value: string; label: string }>;
+const metrics = t('home.metrics') as unknown as { value: string; label: string }[];
 ---
 
 <section class="profile-summary" aria-labelledby="profile-summary-heading">
-  <div class="site-container summary-grid" data-reveal>
+  <div class="site-container summary-grid">
     <div>
-      <h2 id="profile-summary-heading" class="section-heading">{t('home.summaryTitle')}</h2>
+      <h2 id="profile-summary-heading" class="section-heading">
+        {t('home.summaryTitle')}
+      </h2>
       <p class="profile-bio" set:html={t('home.bio')} />
+      <h3 class="ai-heading">{t('home.aiTitle')}</h3>
+      <p class="ai-copy">{t('home.aiBody')}</p>
     </div>
 
-    <dl class="metrics">
-      {
-        metrics.map((metric) => (
-          <div>
-            <dt>{metric.label}</dt>
-            <dd>{metric.value}</dd>
-          </div>
-        ))
-      }
-    </dl>
+    <ul class="result-notes">
+      {metrics.map((metric) => (
+        <li>
+          <strong>{metric.value}</strong>
+          <span>{metric.label}</span>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
 
@@ -35,67 +37,67 @@ const metrics = t('home.metrics') as unknown as Array<{ value: string; label: st
 
   .summary-grid {
     display: grid;
-    gap: 3rem;
+    gap: 2rem;
+  }
+
+  .profile-bio,
+  .ai-copy {
+    max-width: 68ch;
+    color: var(--muted-strong);
+    font-size: var(--font-body);
+    line-height: 1.7;
   }
 
   .profile-bio {
-    max-width: 68ch;
     margin-top: 1.5rem;
-    color: var(--muted);
-    font-size: 1rem;
-    line-height: 1.85;
   }
 
-  .metrics {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-self: start;
-    margin: 0;
-    border-top: 1px solid var(--line-strong);
-  }
-
-  .metrics div {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: 0.65rem;
-    padding: 1.25rem 0.5rem 0 0;
-  }
-
-  .metrics dt {
-    color: var(--muted);
-    font-size: 0.72rem;
-    line-height: 1.5;
-  }
-
-  .metrics dd {
-    margin: 0;
-    color: var(--accent-strong);
-    font-family: var(--font-mono);
-    font-size: clamp(1.7rem, 4vw, 2.5rem);
-    font-variant-numeric: tabular-nums;
+  .ai-heading {
+    margin-top: 2rem;
+    font-size: var(--font-title);
     font-weight: 650;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+  }
+
+  .ai-copy {
+    margin-top: 0.85rem;
+  }
+
+  .result-notes {
+    display: grid;
+    gap: 0.85rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .result-notes li {
+    display: grid;
+    gap: 0.2rem;
+    border-top: 1px solid var(--line-strong);
+    padding-top: 0.85rem;
+    color: var(--muted-strong);
+    font-size: var(--font-body);
+    line-height: 1.45;
+  }
+
+  .result-notes strong {
+    color: var(--text);
+    font-size: var(--font-lead);
+    font-weight: 650;
+    font-variant-numeric: tabular-nums;
   }
 
   @media (min-width: 900px) {
     .summary-grid {
-      grid-template-columns: minmax(0, 1.35fr) minmax(24rem, 0.65fr);
+      grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.6fr);
       align-items: start;
-      gap: clamp(4rem, 8vw, 8rem);
-    }
-  }
-
-  @media (max-width: 540px) {
-    .metrics {
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
+      gap: clamp(3rem, 8vw, 6rem);
     }
 
-    .metrics div {
-      display: grid;
-      grid-template-columns: 5rem minmax(0, 1fr);
-      align-items: baseline;
-      padding-top: 1.25rem;
+    .result-notes {
+      padding-top: 0.4rem;
     }
   }
 </style>
