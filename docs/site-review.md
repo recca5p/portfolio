@@ -142,7 +142,7 @@ Homepage metrics match the source: 5+ years, 20x Halliburton document search, an
 
 These need the owner. They were not guessed.
 
-1. **Measured results** for the write-ups named in the TODO at the top of `src/components/ProjectsArchive.astro`: Apollo ERP, Rozitek, the Sacombank e-invoice project record (the customer and transaction figures already live on the experience entry), the CRM migration, the Halliburton sync server, SAMS, IOGA.fr, and Reveal BI. Add a number only if you can verify it.
+1. **Measured results** for the write-ups named in the TODO at the top of `src/components/ProjectsArchive.astro`: Apollo ERP, Rozitek, the Sacombank e-invoice project record (the customer and transaction figures already live on the experience entry), the CRM migration, the Halliburton sync server, SAMS, IOGA.fr, and Reveal BI. Add a number only if you can verify it. The experience bullet dates those transactions to 2023, which is outside May 2020 - Jan 2022. Confirm that year before using it as a result from that role.
 2. **A CV file** (PDF) and the label you want on the button. The page cannot link a file that is not in the repo.
 3. **A GitHub profile URL**, if you want one public. The site mentions GitHub Actions. It does not name a profile, so none was added.
 4. **A different homepage three**, if these are the wrong lead. The preview is pinned in `src/components/Projects.astro` to Halliburton eCompletion (20x), the Bolloré OpenTelemetry move (more than 60%), and the freight-quote search (5x). The archive order in `src/data/projects.json` is unchanged.
