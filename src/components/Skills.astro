@@ -17,12 +17,12 @@ const skillTags: Record<(typeof categoryKeys)[number], string[]> = {
 
 <section id="skills" class="section-shell skills-section" aria-labelledby="skills-heading">
   <div class="site-container skills-layout">
-    <div class="skills-intro" data-reveal>
+    <div class="skills-intro">
       <h2 id="skills-heading" class="section-heading">{t('skills.title')}</h2>
       <p class="section-copy">{t('skills.subtitle')}</p>
     </div>
 
-    <div class="skill-accordions" data-reveal>
+    <div class="skill-accordions">
       {
         categoryKeys.map((key, index) => {
           const title = String(t(`skills.categories.${key}.title`));

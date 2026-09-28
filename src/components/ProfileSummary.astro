@@ -7,7 +7,7 @@ const metrics = t('home.metrics') as unknown as Array<{ value: string; label: st
 ---
 
 <section class="profile-summary" aria-labelledby="profile-summary-heading">
-  <div class="site-container summary-grid" data-reveal>
+  <div class="site-container summary-grid">
     <div>
       <h2 id="profile-summary-heading" class="section-heading">{t('home.summaryTitle')}</h2>
       <p class="profile-bio" set:html={t('home.bio')} />
@@ -69,12 +69,12 @@ const metrics = t('home.metrics') as unknown as Array<{ value: string; label: st
 
   .metrics dd {
     margin: 0;
-    color: var(--accent-strong);
+    color: var(--text);
     font-family: var(--font-mono);
-    font-size: clamp(1.7rem, 4vw, 2.5rem);
+    font-size: clamp(1.5rem, 3vw, 2rem);
     font-variant-numeric: tabular-nums;
     font-weight: 650;
-    letter-spacing: -0.05em;
+    letter-spacing: -0.04em;
   }
 
   @media (min-width: 900px) {

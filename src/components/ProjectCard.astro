@@ -47,7 +47,6 @@ const companyLabel =
           aria-label={companyLabel}
         >
           <span translate="no">{project.company.name}</span>
-          <span aria-hidden="true">↗</span>
         </a>
       )
     }
@@ -110,20 +109,15 @@ const companyLabel =
   }
 
   .project-description {
-    display: -webkit-box;
-    overflow: hidden;
     margin-top: 1rem;
     color: var(--muted);
     font-size: 0.88rem;
     line-height: 1.75;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
   }
 
   .featured .project-description {
     max-width: 62ch;
     font-size: 0.95rem;
-    -webkit-line-clamp: 7;
   }
 
   .project-footer {

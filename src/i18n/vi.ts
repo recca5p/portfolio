@@ -8,19 +8,19 @@ export const vi = {
   },
   home: {
     title: 'Kỹ sư Backend Senior',
-    greeting: 'Xin chào, tôi là Võ Tấn Phát',
+    greeting: 'Võ Tấn Phát',
     tagline: 'Kỹ sư Backend Senior, .NET, Golang, Cloud, AI',
     heroSummary:
       'Tôi thiết kế nền tảng .NET và Golang cho ngân hàng, cloud và tự động hóa công nghiệp.',
     experienceCta: 'Xem kinh nghiệm',
     emailCta: 'Gửi email',
     imageCaption: 'Góc nhìn gần hơn vào lớp hạ tầng phía sau các hệ thống cloud.',
-    summaryTitle: 'Kỹ thuật backend với kết quả đo lường được',
-    bio: 'Kỹ sư Backend Senior với 5+ năm xây dựng hệ thống quan trọng cho <strong>ANZ Bank (Úc)</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong>, trải dài ngân hàng số, dầu khí, logistics và fintech. Hiện đang hiện đại hóa nền tảng Chuyển tiền Quốc tế &amp; Apple Pay của ANZ trên GCP. Chuyên sâu về microservices .NET / Golang, kiến trúc cloud-native và kỹ thuật tăng cường AI với kết quả đo lường được: tối ưu tìm kiếm 20x, giảm 60% chi phí qua OpenTelemetry, và tăng tốc 30% chu kỳ phát triển với GenAI.',
+    summaryTitle: 'Sơ lược',
+    bio: 'Kỹ sư backend senior với hơn 5 năm trên hệ thống production cho <strong>ANZ Bank (Úc)</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong>, gồm ngân hàng số, dầu khí, logistics và fintech. Tôi đang hiện đại hóa nền tảng Chuyển tiền quốc tế và Apple Pay của ANZ trên GCP, chủ yếu bằng microservices .NET và Golang. Kết quả đã ghi nhận: tìm tài liệu nhanh hơn 20 lần, giảm 60% chi phí observability nhờ OpenTelemetry, và chu kỳ phát triển nhanh hơn khoảng 30% khi dùng công cụ GenAI.',
     metrics: [
-      { value: '5+', label: 'Năm phát triển hệ thống production' },
-      { value: '20x', label: 'Hiệu suất tìm kiếm được cải thiện' },
-      { value: '60%', label: 'Chi phí cloud được cắt giảm' },
+      { value: '5+', label: 'Năm vận hành hệ thống production' },
+      { value: '20x', label: 'Tìm tài liệu nhanh hơn' },
+      { value: '60%', label: 'Chi phí observability thấp hơn' },
     ],
   },
   experience: {
@@ -28,14 +28,13 @@ export const vi = {
   },
   skills: {
     title: 'Kỹ năng chuyên môn',
-    subtitle:
-      'Chọn một nhóm chuyên môn để xem các hệ thống, công cụ và thực hành production tôi sử dụng.',
+    subtitle: 'Mở một nhóm để xem công cụ phía sau công việc.',
     hoverHint: 'Nhấn để xem chi tiết',
     categories: {
       backend: {
         title: 'Backend & Kiến trúc',
         description:
-          'Chuyên gia thiết kế Microservices & Event-Driven scalable với DDD, SOLID, và Onion Architecture.',
+          'Microservices và hệ thống event-driven, dùng DDD, SOLID và onion architecture.',
         details: [
           'Core Stack: .NET Core (C#), Golang, Java (Spring Boot), Python',
           'Thiết kế hệ thống: Microservices & Event-Driven với DDD và Onion Architecture',
@@ -47,7 +46,7 @@ export const vi = {
       },
       database: {
         title: 'Cơ sở dữ liệu & Messaging',
-        description: 'Chuyên sâu về RDBMS, NoSQL, và kiến trúc Message Broker thời gian thực.',
+        description: 'Cơ sở dữ liệu quan hệ, NoSQL, và message broker dùng trong production.',
         details: [
           'RDBMS: SQL Server, PostgreSQL, Oracle - Tối ưu Query, Indexing, Stored Procedures',
           'Schema Design phức tạp cho hệ thống giao dịch khối lượng lớn',
@@ -59,10 +58,10 @@ export const vi = {
       cloud: {
         title: 'Cloud & DevOps',
         description:
-          'Chuyên gia AWS & Azure, thiết kế giải pháp Serverless, container hóa và hybrid cloud với tự động hóa CI/CD toàn diện trên GCP, AWS và Azure.',
+          'AWS, Azure và GCP: nền tảng serverless và container, với CI/CD trên cả ba cloud.',
         details: [
-          'AWS (Chuyên gia): Lambda, EC2, ECS, EKS, Fargate, S3, RDS, DynamoDB, SQS, SNS, API Gateway, CloudWatch, CloudFront, VPC, IAM, Secrets Manager, CodePipeline',
-          'Azure (Chuyên gia): Azure Service Bus, Azure DevOps, Azure SQL, Azure Functions, App Service, Azure AD, Azure OpenAI, Azure AI Speech, Azure Blob Storage, Azure Monitor, Key Vault, AKS',
+          'AWS: Lambda, EC2, ECS, EKS, Fargate, S3, RDS, DynamoDB, SQS, SNS, API Gateway, CloudWatch, CloudFront, VPC, IAM, Secrets Manager, CodePipeline',
+          'Azure: Azure Service Bus, Azure DevOps, Azure SQL, Azure Functions, App Service, Azure AD, Azure OpenAI, Azure AI Speech, Azure Blob Storage, Azure Monitor, Key Vault, AKS',
           'GCP: GKE, Cloud Run, Cloud Functions, Pub/Sub, BigQuery, Cloud SQL, Firestore, Cloud Storage, Secret Manager',
           'Infrastructure as Code: Module Terraform cho provisioning đa đám mây và đồng nhất môi trường',
           'CI/CD: GitHub Actions, Azure DevOps Pipelines, Jenkins - automated testing gates và chiến lược rollback',
@@ -72,7 +71,7 @@ export const vi = {
       ai: {
         title: 'AI & Năng suất',
         description:
-          'Tận dụng GenAI, LLMs & Claude để tăng tốc phát triển, kiểm thử và ra quyết định kiến trúc.',
+          'Công cụ GenAI và API LLM dùng để rút ngắn triển khai, kiểm thử và ghi chú thiết kế.',
         details: [
           'Tích hợp AI: Gemini API, AWS Bedrock & Claude API cho xử lý dữ liệu thông minh',
           'Claude: Sử dụng Claude Code cho pair programming, review kiến trúc, và refactoring tự động',
@@ -85,7 +84,7 @@ export const vi = {
       testing: {
         title: 'Kiểm thử & Chất lượng',
         description:
-          'Đảm bảo chất lượng mã qua kiểm thử tự động, E2E Selenium, integration test Docker, và quét bảo mật.',
+          'Kiểm thử tự động, E2E bằng Selenium, integration test trên Docker, và quét bảo mật.',
         details: [
           'Unit & Integration Testing: xUnit, NUnit, JUnit, Go testing với mục tiêu >90% coverage',
           'E2E & UI Automation: Selenium WebDriver cho kiểm thử hồi quy đa trình duyệt',
@@ -99,7 +98,7 @@ export const vi = {
       frontend: {
         title: 'Frontend & Công cụ',
         description:
-          'Thành thạo framework frontend hiện đại cho web & mobile, cùng các công cụ phát triển.',
+          'Angular, React và React Native cho web và ứng dụng hybrid, cùng công cụ build thường dùng.',
         details: [
           'Frontend Stack: Angular, React, React Native cho ứng dụng web & hybrid',
           'Thành thạo HTML5, CSS3, JavaScript (ES6+), TypeScript',
@@ -126,15 +125,16 @@ export const vi = {
   },
   projects: {
     title: 'Dự án & Công việc khác',
-    subtitle: 'Tập trung vào giải pháp tự động hóa AI và các hoạt động khác.',
+    subtitle:
+      'Các hệ thống ở ngân hàng, logistics, sản xuất và dầu khí, cùng phần việc AI sau này.',
     team: 'Nhóm',
     viewAll: 'Xem tất cả dự án',
-    viewAllSubtitle: 'Khám phá tất cả dự án, hoạt động phụ và công việc freelance chi tiết.',
+    viewAllSubtitle: 'Danh sách đầy đủ: hệ thống khách hàng, hợp đồng, và các dự án AI sau này.',
     backHome: 'Về trang chủ',
   },
   contact: {
     title: 'Liên hệ',
-    subtitle: 'Bạn muốn hợp tác hoặc có câu hỏi? Hãy liên hệ qua bất kỳ kênh nào bên dưới.',
+    subtitle: 'Email, LinkedIn, WhatsApp hoặc Zalo.',
     clickToEmail: 'Nhấn để gửi email',
     viewProfile: 'Xem hồ sơ',
     scanToChat: 'Quét để nhắn tin',

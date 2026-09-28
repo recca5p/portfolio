@@ -8,19 +8,19 @@ export const en = {
   },
   home: {
     title: 'Senior Backend Engineer',
-    greeting: 'Hi, I am Tan Phat Vo',
+    greeting: 'Tan Phat Vo',
     tagline: 'Senior Backend Engineer, .NET, Golang, Cloud, AI',
     heroSummary:
       'I design .NET and Golang platforms for banking, cloud, and industrial automation.',
     experienceCta: 'View experience',
     emailCta: 'Email me',
     imageCaption: 'A closer look at the physical layer behind cloud systems.',
-    summaryTitle: 'Backend engineering with measurable outcomes',
-    bio: "Senior Backend Engineer with 5+ years building mission-critical systems for <strong>ANZ Bank (Australia)</strong>, <strong>Halliburton</strong>, and <strong>Sacombank</strong>, spanning digital banking, oil &amp; gas, logistics, and fintech. Currently modernising ANZ's International Money Transfer &amp; Apple Pay platform on GCP. Specialised in .NET / Golang microservices, cloud-native architecture, and AI-augmented engineering with measurable impact: 20x search optimisation, 60% cost reduction via OpenTelemetry, and 30% faster dev cycles with GenAI tooling.",
+    summaryTitle: 'Background',
+    bio: "Senior backend engineer with 5+ years on production systems for <strong>ANZ Bank (Australia)</strong>, <strong>Halliburton</strong>, and <strong>Sacombank</strong>, across digital banking, oil and gas, logistics, and fintech. I am modernizing ANZ's International Money Transfer and Apple Pay platform on GCP, mostly with .NET and Golang microservices. Recorded results include a 20x document-search improvement, a 60% observability cost reduction with OpenTelemetry, and about 30% faster development cycles with GenAI tooling.",
     metrics: [
-      { value: '5+', label: 'Years in production engineering' },
-      { value: '20x', label: 'Search performance improvement' },
-      { value: '60%', label: 'Cloud cost reduction' },
+      { value: '5+', label: 'Years shipping production systems' },
+      { value: '20x', label: 'Faster document search' },
+      { value: '60%', label: 'Lower observability cost' },
     ],
   },
   experience: {
@@ -28,14 +28,13 @@ export const en = {
   },
   skills: {
     title: 'Technical Skills',
-    subtitle:
-      'Select a discipline to review the systems, tools, and production practices behind my work.',
+    subtitle: 'Open a group to see the tools behind the work.',
     hoverHint: 'Tap for details',
     categories: {
       backend: {
         title: 'Backend & Architecture',
         description:
-          'Expert in designing scalable Microservices & Event-Driven systems using DDD, SOLID, and Onion Architecture.',
+          'Microservices and event-driven systems, using DDD, SOLID, and onion architecture.',
         details: [
           'Core Stack: .NET Core (C#), Golang, Java (Spring Boot), Python',
           'System Design: Microservices & Event-Driven Architectures using DDD and Onion Architecture',
@@ -47,10 +46,9 @@ export const en = {
       },
       database: {
         title: 'Database & Messaging',
-        description:
-          'Advanced proficiency in RDBMS, NoSQL, and real-time message broker architectures.',
+        description: 'Relational databases, NoSQL, and the message brokers used in production.',
         details: [
-          'RDBMS Mastery: SQL Server, PostgreSQL, Oracle - Query Optimization, Indexing, Stored Procedures',
+          'RDBMS: SQL Server, PostgreSQL, Oracle - query optimization, indexing, stored procedures',
           'Complex Schema Design for high-volume transactional systems',
           'NoSQL & Big Data: DynamoDB (Serverless), Google BigQuery for analytics',
           'Message Brokers: Kafka, RabbitMQ, Azure Service Bus, GCP Pub/Sub',
@@ -60,10 +58,10 @@ export const en = {
       cloud: {
         title: 'Cloud & DevOps',
         description:
-          'Expert in AWS & Azure, building Serverless, containerized, and hybrid cloud solutions with full CI/CD automation across GCP, AWS, and Azure.',
+          'AWS, Azure, and GCP: serverless and container platforms, with CI/CD across the three clouds.',
         details: [
-          'AWS (Expert): Lambda, EC2, ECS, EKS, Fargate, S3, RDS, DynamoDB, SQS, SNS, API Gateway, CloudWatch, CloudFront, VPC, IAM, Secrets Manager, CodePipeline',
-          'Azure (Expert): Azure Service Bus, Azure DevOps, Azure SQL, Azure Functions, App Service, Azure AD, Azure OpenAI, Azure AI Speech, Azure Blob Storage, Azure Monitor, Key Vault, AKS',
+          'AWS: Lambda, EC2, ECS, EKS, Fargate, S3, RDS, DynamoDB, SQS, SNS, API Gateway, CloudWatch, CloudFront, VPC, IAM, Secrets Manager, CodePipeline',
+          'Azure: Azure Service Bus, Azure DevOps, Azure SQL, Azure Functions, App Service, Azure AD, Azure OpenAI, Azure AI Speech, Azure Blob Storage, Azure Monitor, Key Vault, AKS',
           'GCP: GKE, Cloud Run, Cloud Functions, Pub/Sub, BigQuery, Cloud SQL, Firestore, Cloud Storage, Secret Manager',
           'Infrastructure as Code: Terraform modules for multi-cloud provisioning and environment parity',
           'CI/CD: GitHub Actions, Azure DevOps Pipelines, Jenkins - automated testing gates and rollback strategies',
@@ -73,7 +71,7 @@ export const en = {
       ai: {
         title: 'AI & Dev Productivity',
         description:
-          'Leveraging GenAI tools, LLMs & Claude to accelerate development, testing, and architectural decision-making.',
+          'GenAI tools and LLM APIs used to speed up implementation, tests, and design notes.',
         details: [
           'AI Integration: Gemini API, AWS Bedrock & Claude API for intelligent data processing',
           'Claude: Using Claude Code for pair programming, architectural review, and automated refactoring',
@@ -86,7 +84,7 @@ export const en = {
       testing: {
         title: 'Testing & Quality',
         description:
-          'Ensuring code reliability through automated testing, E2E with Selenium, Docker-based integration tests, and security scanning.',
+          'Automated tests, Selenium end-to-end runs, Docker-based integration tests, and security scans.',
         details: [
           'Unit & Integration Testing: xUnit, NUnit, JUnit, Go testing with >90% coverage targets',
           'E2E & UI Automation: Selenium WebDriver for cross-browser regression testing',
@@ -100,7 +98,7 @@ export const en = {
       frontend: {
         title: 'Frontend & Tooling',
         description:
-          'Proficient in modern frontend frameworks for hybrid & web apps, plus essential dev tooling.',
+          'Angular, React, and React Native for web and hybrid apps, plus the usual build tooling.',
         details: [
           'Frontend Stack: Angular, React, React Native for hybrid & web applications',
           'Proficient in HTML5, CSS3, JavaScript (ES6+), TypeScript',
@@ -127,16 +125,16 @@ export const en = {
   },
   projects: {
     title: 'Projects & Other Jobs',
-    subtitle: 'Highlighting my focus on AI automation and other side activities.',
+    subtitle:
+      'Systems from banking, logistics, manufacturing, and oil and gas, including later AI work.',
     team: 'Team',
     viewAll: 'View All Projects',
-    viewAllSubtitle: 'Explore all of my projects, side activities, and freelance work in detail.',
+    viewAllSubtitle: 'The full list: client systems, contract work, and later AI projects.',
     backHome: 'Back to Home',
   },
   contact: {
     title: 'Contact Me',
-    subtitle:
-      'Interested in working together or have a question? Feel free to reach out via any channel below.',
+    subtitle: 'Email, LinkedIn, WhatsApp, or Zalo.',
     clickToEmail: 'Tap to send email',
     viewProfile: 'View profile',
     scanToChat: 'Scan to chat',

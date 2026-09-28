@@ -14,7 +14,7 @@ const zaloQr = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${
 ---
 
 <section id="contact" class="section-shell contact-section" aria-labelledby="contact-heading">
-  <div class="site-container contact-layout" data-reveal>
+  <div class="site-container contact-layout">
     <div class="contact-intro">
       <h2 id="contact-heading" class="section-heading">{t('contact.title')}</h2>
       <p class="section-copy">{t('contact.subtitle')}</p>
@@ -143,11 +143,9 @@ const zaloQr = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${
     transition: color 160ms ease;
   }
 
-  .contact-with-qr details {
-    position: relative;
-  }
-
   .contact-with-qr summary {
+    width: fit-content;
+    margin-left: auto;
     min-height: 2.75rem;
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -170,17 +168,18 @@ const zaloQr = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${
     color: var(--text);
   }
 
+  .contact-with-qr details[open] {
+    grid-column: 1 / -1;
+  }
+
   .qr-panel {
-    position: absolute;
-    right: 0;
-    bottom: calc(100% + 0.75rem);
-    z-index: 20;
-    width: 12rem;
+    width: min(100%, 12rem);
+    margin-top: 0.75rem;
+    margin-left: auto;
     border: 1px solid var(--line-strong);
     border-radius: var(--radius);
     background: var(--page);
     padding: 0.9rem;
-    box-shadow: 0 1.5rem 4rem rgb(0 0 0 / 0.35);
   }
 
   .qr-panel p {

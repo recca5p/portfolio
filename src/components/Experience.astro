@@ -32,14 +32,14 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
   aria-labelledby="experience-heading"
 >
   <div class="site-container experience-layout">
-    <div class="experience-intro" data-reveal>
+    <div class="experience-intro">
       <h2 id="experience-heading" class="section-heading">{t('experience.title')}</h2>
     </div>
 
     <ol class="experience-list">
       {
         experiences.map((experience) => (
-          <li data-reveal>
+          <li>
             <div class="role-meta">
               <p class="period">{experience.period}</p>
               <p class="company" translate="no">

@@ -5,11 +5,14 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+const homePath = `/${lang}/`;
+const onHome = Astro.url.pathname === homePath || Astro.url.pathname === '/';
+
 const navItems = [
-  { path: `/${lang}/`, label: t('nav.home') },
-  { path: `/${lang}/#experience`, label: t('nav.experience') },
-  { path: `/${lang}/#projects`, label: t('nav.projects') },
-  { path: `/${lang}/#contact`, label: t('nav.contact') },
+  { path: homePath, label: t('nav.home'), current: onHome },
+  { path: `${homePath}#experience`, label: t('nav.experience'), current: false },
+  { path: `${homePath}#projects`, label: t('nav.projects'), current: false },
+  { path: `${homePath}#contact`, label: t('nav.contact'), current: false },
 ];
 ---
 
@@ -30,7 +33,9 @@ const navItems = [
           {
             navItems.map((item) => (
               <li>
-                <a href={item.path}>{item.label}</a>
+                <a href={item.path} aria-current={item.current ? 'page' : undefined}>
+                  {item.label}
+                </a>
               </li>
             ))
           }
@@ -48,7 +53,9 @@ const navItems = [
             {
               navItems.map((item) => (
                 <li>
-                  <a href={item.path}>{item.label}</a>
+                  <a href={item.path} aria-current={item.current ? 'page' : undefined}>
+                    {item.label}
+                  </a>
                 </li>
               ))
             }
@@ -66,6 +73,7 @@ const navItems = [
     z-index: 40;
     border-bottom: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
     background: color-mix(in srgb, var(--page) 88%, transparent);
+    padding-top: env(safe-area-inset-top);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
   }
@@ -94,7 +102,7 @@ const navItems = [
   }
 
   .brand-link img {
-    border-radius: 0.65rem;
+    border-radius: calc(var(--radius) * 0.55);
   }
 
   .brand-link:hover {
@@ -173,7 +181,8 @@ const navItems = [
       color 160ms ease;
   }
 
-  .mobile-menu a:hover {
+  .mobile-menu a:hover,
+  .mobile-menu a[aria-current='page'] {
     background: color-mix(in srgb, var(--accent) 10%, transparent);
     color: var(--text);
   }
@@ -204,8 +213,15 @@ const navItems = [
       transition: color 160ms ease;
     }
 
-    .desktop-actions nav a:hover {
+    .desktop-actions nav a:hover,
+    .desktop-actions nav a[aria-current='page'] {
       color: var(--text);
+    }
+
+    .desktop-actions nav a[aria-current='page'] {
+      text-decoration-line: underline;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 0.35em;
     }
 
     .mobile-actions {
