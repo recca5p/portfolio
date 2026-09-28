@@ -13,6 +13,8 @@ const metrics = t('home.metrics') as unknown as { value: string; label: string }
         {t('home.summaryTitle')}
       </h2>
       <p class="profile-bio" set:html={t('home.bio')} />
+      <h3 class="ai-heading">{t('home.aiTitle')}</h3>
+      <p class="ai-copy">{t('home.aiBody')}</p>
     </div>
 
     <ul class="result-notes">
@@ -38,12 +40,28 @@ const metrics = t('home.metrics') as unknown as { value: string; label: string }
     gap: 2rem;
   }
 
-  .profile-bio {
+  .profile-bio,
+  .ai-copy {
     max-width: 68ch;
-    margin-top: 1.5rem;
     color: var(--muted-strong);
     font-size: var(--font-body);
     line-height: 1.7;
+  }
+
+  .profile-bio {
+    margin-top: 1.5rem;
+  }
+
+  .ai-heading {
+    margin-top: 2rem;
+    font-size: var(--font-title);
+    font-weight: 650;
+    letter-spacing: -0.03em;
+    line-height: 1.25;
+  }
+
+  .ai-copy {
+    margin-top: 0.85rem;
   }
 
   .result-notes {

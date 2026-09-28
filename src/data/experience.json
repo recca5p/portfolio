@@ -5,8 +5,8 @@
       "vi": "ANZ Bank (qua HCLTech Việt Nam) — ANZ Plus, nhóm Backend"
     },
     "role": {
-      "en": "Senior Backend Engineer",
-      "vi": "Kỹ sư Backend Senior"
+      "en": "Software Engineer",
+      "vi": "Kỹ sư phần mềm"
     },
     "period": {
       "en": "Dec 2024 - Present",
@@ -20,27 +20,27 @@
       "en": [
         "About ANZ Plus. ANZ Plus is ANZ's digital banking service, launched in March 2022 on a new banking platform ([ANZ, 23 Mar 2022](https://www.anz.com.au/newsroom/media/2022/03/anz-introduces-anz-plus---a-powerful-new-banking-service/)). It reached one million customers and nearly $20 billion in deposits in March 2025 ([ANZ, 13 Mar 2025](https://www.anz.com.au/newsroom/media/2025/march/anz-plus-reaches-1-million-customers--boosting-financial-wellbei/)). ANZ plans to move all eight million of its Australian retail customers onto the ANZ Plus front end by September 2027 ([ANZ 2025 Annual Review](https://www.anz.com/content/dam/anzcom/shareholder/2025-annual-report/anz-2025-annual-review.pdf); [iTnews, 13 Oct 2025](https://www.itnews.com.au/news/anz-ceo-backs-plus-tech-stack-but-changes-inefficient-delivery-620985)).",
         "Suncorp Bank. ANZ completed its acquisition of Suncorp Bank on 31 July 2024, adding about 1.2 million customers ([ANZ, 31 Jul 2024](https://www.anz.com.au/newsroom/media/2024/july/anz-completes-acquisition-of-suncorp-bank/)). ANZ has committed to moving Suncorp Bank customers to its banking systems and digital platforms by June 2027 ([ANZ, 7 Sep 2026](https://www.anz.com.au/newsroom/media/2026/september/ANZ-prepares-to-welcome-suncorp-bank-customers/)).",
-        "My part: backend services for ANZ Plus features (PayID, PayTo, disputes, self-service, customer profile, IMT) and Project Bifrost, the migration of customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus."
+        "My part: Go and gRPC services for ANZ Plus features (PayID, PayTo, disputes, self-service, customer profile, IMT), and Go services on GCP for Project Bifrost, the move of customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus."
       ],
       "vi": [
         "Về ANZ Plus. ANZ Plus là dịch vụ ngân hàng số của ANZ, ra mắt tháng 3/2022 trên một nền tảng ngân hàng mới ([ANZ, 23/3/2022](https://www.anz.com.au/newsroom/media/2022/03/anz-introduces-anz-plus---a-powerful-new-banking-service/)). Tháng 3/2025, ANZ Plus đạt một triệu khách hàng và gần 20 tỷ AUD tiền gửi ([ANZ, 13/3/2025](https://www.anz.com.au/newsroom/media/2025/march/anz-plus-reaches-1-million-customers--boosting-financial-wellbei/)). ANZ đặt mục tiêu đưa toàn bộ tám triệu khách hàng bán lẻ tại Úc sang giao diện ANZ Plus trước tháng 9/2027 ([Báo cáo ANZ 2025](https://www.anz.com/content/dam/anzcom/shareholder/2025-annual-report/anz-2025-annual-review.pdf); [iTnews, 13/10/2025](https://www.itnews.com.au/news/anz-ceo-backs-plus-tech-stack-but-changes-inefficient-delivery-620985)).",
         "Suncorp Bank. ANZ hoàn tất thương vụ mua Suncorp Bank ngày 31/7/2024, có thêm khoảng 1,2 triệu khách hàng ([ANZ, 31/7/2024](https://www.anz.com.au/newsroom/media/2024/july/anz-completes-acquisition-of-suncorp-bank/)). ANZ cam kết chuyển khách hàng Suncorp Bank sang hệ thống và nền tảng số của ANZ trước tháng 6/2027 ([ANZ, 7/9/2026](https://www.anz.com.au/newsroom/media/2026/september/ANZ-prepares-to-welcome-suncorp-bank-customers/)).",
-        "Phần việc của tôi: dịch vụ backend cho các tính năng ANZ Plus (PayID, PayTo, khiếu nại giao dịch, tự phục vụ, hồ sơ khách hàng, IMT) và dự án Bifrost, chuyển dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus."
+        "Phần việc của tôi: dịch vụ Go và gRPC cho các tính năng ANZ Plus (PayID, PayTo, khiếu nại giao dịch, tự phục vụ, hồ sơ khách hàng, IMT), và dịch vụ Go trên GCP cho dự án Bifrost, chuyển dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus."
       ]
     },
     "bullets": {
       "en": [
         "Build and maintain Go and gRPC microservices for ANZ Plus, ANZ's digital bank: PayID aliases, PayTo and PayTo event handling, transaction disputes, customer self-service, customer profile, and International Money Transfer (IMT).",
-        "Work on Project Bifrost, which migrates customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus.",
-        "Use the Claude Code ecosystem, which ANZ applies across engineering, to plan changes, generate boilerplate and refactor Go services. AI-written code passes the same CI and security gates as any other change.",
-        "Use AI agents to draft unit tests and edge cases for gRPC contracts, then review and extend them, including the IMT contracts.",
+        "Build migration services in Go on GCP for Project Bifrost, moving customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus.",
+        "Use Cursor and Claude Code to plan changes, write code, and draft tests. AI-written code passes the same CI and security gates as any other change.",
+        "Use AI to draft unit tests and edge cases for gRPC contracts, then review and extend them, including the IMT contracts.",
         "Run services on GCP (Pub/Sub, BigQuery, Cloud Run) and GKE with Helm, shipped through GitHub Actions with SonarQube and Fortify gates on every deployment."
       ],
       "vi": [
         "Xây dựng và duy trì microservices Go và gRPC cho ANZ Plus, ngân hàng số của ANZ: PayID alias, PayTo và xử lý sự kiện PayTo, khiếu nại giao dịch, tự phục vụ cho khách hàng, hồ sơ khách hàng, và Chuyển tiền quốc tế (IMT).",
-        "Tham gia dự án Bifrost, chuyển dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus.",
-        "Dùng hệ sinh thái Claude Code (ANZ áp dụng rộng rãi trong khối kỹ thuật) để lên kế hoạch thay đổi, sinh code boilerplate và refactor dịch vụ Go. Code do AI viết vẫn qua đủ các cổng CI và bảo mật như mọi thay đổi khác.",
-        "Dùng AI agent soạn unit test và các ca biên cho hợp đồng gRPC, sau đó rà soát và bổ sung, gồm các hợp đồng gRPC của IMT.",
+        "Xây dựng dịch vụ chuyển dữ liệu bằng Go trên GCP cho dự án Bifrost, đưa dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus.",
+        "Dùng Cursor và Claude Code để lên kế hoạch, viết code và soạn test. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác.",
+        "Dùng AI soạn unit test và các ca biên cho hợp đồng gRPC, sau đó rà soát và bổ sung, gồm các hợp đồng gRPC của IMT.",
         "Vận hành dịch vụ trên GCP (Pub/Sub, BigQuery, Cloud Run) và GKE với Helm, triển khai qua GitHub Actions với cổng SonarQube và Fortify ở mỗi lần deploy."
       ]
     }

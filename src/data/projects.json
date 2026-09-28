@@ -6,8 +6,8 @@
       "vi": "ANZ Plus — thanh toán và dịch vụ khách hàng"
     },
     "role": {
-      "en": "Senior Backend Engineer",
-      "vi": "Kỹ sư Backend Senior"
+      "en": "Software Engineer",
+      "vi": "Kỹ sư phần mềm"
     },
     "company": {
       "name": {
@@ -45,8 +45,8 @@
       "vi": "Dự án Bifrost — chuyển dữ liệu khách hàng và tài khoản sang ANZ Plus"
     },
     "role": {
-      "en": "Senior Backend Engineer",
-      "vi": "Kỹ sư Backend Senior"
+      "en": "Software Engineer",
+      "vi": "Kỹ sư phần mềm"
     },
     "company": {
       "name": {
@@ -60,8 +60,8 @@
       }
     },
     "description": {
-      "en": "I work on Project Bifrost, which migrates customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. ANZ completed its acquisition of Suncorp Bank on 31 July 2024, adding about 1.2 million customers, and has committed to moving those customers onto its systems and digital platforms by June 2027.",
-      "vi": "Tôi tham gia dự án Bifrost, chuyển dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. ANZ hoàn tất mua Suncorp Bank ngày 31/7/2024, có thêm khoảng 1,2 triệu khách hàng, và cam kết chuyển những khách hàng đó sang hệ thống và nền tảng số của ANZ trước tháng 6/2027."
+      "en": "I build migration services in Go on GCP to move customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. ANZ completed its acquisition of Suncorp Bank on 31 July 2024, adding about 1.2 million customers, and has committed to moving those customers onto its systems and digital platforms by June 2027.",
+      "vi": "Tôi xây dựng dịch vụ chuyển dữ liệu bằng Go trên GCP để đưa dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. ANZ hoàn tất mua Suncorp Bank ngày 31/7/2024, có thêm khoảng 1,2 triệu khách hàng, và cam kết chuyển những khách hàng đó sang hệ thống và nền tảng số của ANZ trước tháng 6/2027."
     },
     "sources": [
       {
@@ -79,7 +79,7 @@
         "url": "https://www.anz.com.au/newsroom/media/2026/september/ANZ-prepares-to-welcome-suncorp-bank-customers/"
       }
     ],
-    "tags": ["Data migration"]
+    "tags": ["Go", "GCP", "Data migration"]
   },
   {
     "id": "ioga",
@@ -93,8 +93,8 @@
     },
     "teamSize": 6,
     "engagement": {
-      "en": "Part-time / freelance",
-      "vi": "Bán thời gian / freelance"
+      "en": "Freelance, alongside full-time roles",
+      "vi": "Freelance, song song công việc full-time"
     },
     "company": {
       "name": {
@@ -134,8 +134,8 @@
     },
     "teamSize": 1,
     "engagement": {
-      "en": "Part-time / freelance",
-      "vi": "Bán thời gian / freelance"
+      "en": "Freelance, alongside full-time roles",
+      "vi": "Freelance, song song công việc full-time"
     },
     "company": {
       "name": {
@@ -144,8 +144,8 @@
       },
       "url": "https://www.cma-cgm.com",
       "description": {
-        "en": "Logistics company. This observability move was a solo part-time project.",
-        "vi": "Công ty logistics. Việc chuyển observability này là dự án bán thời gian, làm một mình."
+        "en": "Logistics company. This observability move was solo freelance work.",
+        "vi": "Công ty logistics. Việc chuyển observability này là việc freelance, làm một mình."
       }
     },
     "description": {
@@ -174,8 +174,8 @@
     },
     "teamSize": 10,
     "engagement": {
-      "en": "Part-time / freelance",
-      "vi": "Bán thời gian / freelance"
+      "en": "Freelance, alongside full-time roles",
+      "vi": "Freelance, song song công việc full-time"
     },
     "company": {
       "name": {
@@ -184,8 +184,8 @@
       },
       "url": "https://www.cma-cgm.com",
       "description": {
-        "en": "Logistics company. This quote system was part-time work in a team of 10.",
-        "vi": "Công ty logistics. Hệ thống báo giá này là việc bán thời gian trong nhóm 10 người."
+        "en": "Logistics company. This quote system was freelance work in a team of 10.",
+        "vi": "Công ty logistics. Hệ thống báo giá này là việc freelance trong nhóm 10 người."
       }
     },
     "description": {
@@ -392,8 +392,8 @@
     },
     "teamSize": 6,
     "engagement": {
-      "en": "Part-time / freelance",
-      "vi": "Bán thời gian / freelance"
+      "en": "Freelance, alongside full-time roles",
+      "vi": "Freelance, song song công việc full-time"
     },
     "company": {
       "name": {
@@ -424,8 +424,8 @@
     },
     "teamSize": 5,
     "engagement": {
-      "en": "Part-time / freelance",
-      "vi": "Bán thời gian / freelance"
+      "en": "Freelance, alongside full-time roles",
+      "vi": "Freelance, song song công việc full-time"
     },
     "company": {
       "name": {
@@ -456,8 +456,8 @@
     },
     "teamSize": 15,
     "engagement": {
-      "en": "Part-time / freelance",
-      "vi": "Bán thời gian / freelance"
+      "en": "Freelance, alongside full-time roles",
+      "vi": "Freelance, song song công việc full-time"
     },
     "company": {
       "name": {

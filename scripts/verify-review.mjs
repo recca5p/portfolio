@@ -204,7 +204,7 @@ await page.goto('http://127.0.0.1:4178/vi/projects/', { waitUntil: 'networkidle'
 const projectCopy = await page.evaluate(() => document.body.innerText);
 check(projectCopy.includes('logistics nội bộ nhà máy'), 'missing intralogistics wording');
 check(projectCopy.includes('Application Insights'), 'missing Application Insights title');
-check(projectCopy.includes('Bán thời gian'), 'missing freelance label');
+check(projectCopy.includes('song song công việc full-time'), 'missing freelance label');
 check(!projectCopy.includes('MAUI'), 'MAUI claim is still on the project page');
 check(!projectCopy.includes('200.000'), 'old POS terminal figure is still present');
 check(!projectCopy.includes('508'), 'old transaction figure is still present');

@@ -9,17 +9,19 @@ export const vi = {
   },
   home: {
     title: 'Kỹ sư Phần mềm Senior — AI ứng dụng & Backend',
-    tagline:
-      'Backend Go, gRPC và .NET cho ngân hàng. AI là cách tôi lên kế hoạch, viết và kiểm thử.',
+    tagline: 'Backend Go và gRPC cho ANZ Plus. AI là cách tôi lên kế hoạch, viết và kiểm thử.',
     greeting: 'Võ Tấn Phát',
     heroSummary:
-      'Tôi xây dựng dịch vụ Go và gRPC cho ANZ Plus: thanh toán, khiếu nại, hồ sơ khách hàng và chuyển tiền quốc tế. Claude Code là cách tôi lên kế hoạch, viết và kiểm thử công việc đó.',
+      'Tôi xây dựng dịch vụ Go và gRPC cho ANZ Plus: thanh toán, khiếu nại, hồ sơ khách hàng và chuyển tiền quốc tế. Cursor và Claude Code là cách tôi lên kế hoạch, viết và kiểm thử công việc đó.',
     emailCta: 'Gửi email',
     downloadCv: 'Tải CV',
     years: 'Hơn 6 năm',
     employer: 'ANZ qua HCLTech',
     summaryTitle: 'Sơ lược',
-    bio: 'Kỹ sư phần mềm Senior với hơn 6 năm trên hệ thống production cho <strong>ANZ Bank</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong>, cùng việc freelance cho Bolloré Logistics và IOGA.fr. Ở nhóm backend ANZ Plus qua HCLTech Việt Nam, tôi xây dựng dịch vụ Go và gRPC trên GCP, gồm chuyển dữ liệu Bifrost. Claude Code là cách tôi viết và soạn test.',
+    bio: 'Kỹ sư phần mềm Senior với hơn 6 năm trên hệ thống production cho <strong>ANZ Bank</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong>, cùng việc freelance song song công việc full-time cho Bolloré Logistics và IOGA.fr. Qua HCLTech Việt Nam, tôi xây dựng dịch vụ Go và gRPC cho ANZ Plus, và dịch vụ Go trên GCP cho việc chuyển dữ liệu Bifrost.',
+    aiTitle: 'Cách tôi dùng AI',
+    aiBody:
+      'Tôi dùng Cursor và Claude Code mỗi ngày để viết code và kiểm thử, nên một thay đổi đến bước review sớm hơn. Với việc chuyển dữ liệu, tôi dùng AI hỗ trợ ánh xạ trường. Tôi cũng dùng AI học tri thức nghiệp vụ để hỗ trợ tư vấn khách hàng, và tại IOGA.fr một pipeline phiên âm video rồi dịch phụ đề.',
     metrics: [
       { value: '~30%', label: 'Đóng góp vào việc rút ngắn thời gian ra thị trường tại ANZ' },
       { value: '90%+', label: 'Độ phủ hợp đồng gRPC của IMT tại ANZ' },
@@ -64,7 +66,7 @@ export const vi = {
           'GCP: GKE, Cloud Run, Pub/Sub, BigQuery',
           'Azure: Service Bus, Azure SQL, Azure AD, DevOps, OpenAI, AI Speech',
           'AWS: Lambda, DynamoDB, S3, ECS, EKS',
-          'Docker, Kubernetes, Helm',
+          'Docker, Kubernetes, Helm, Terraform',
           'CI/CD: GitHub Actions, Azure DevOps, Jenkins',
           'OpenTelemetry',
         ],
@@ -72,12 +74,13 @@ export const vi = {
       ai: {
         title: 'AI ứng dụng',
         description:
-          'Lập trình có AI hỗ trợ, test có AI hỗ trợ, và bước LLM trong pipeline backend.',
+          'Viết code và kiểm thử hằng ngày, ánh xạ trường, hỗ trợ nghiệp vụ, và phụ đề video.',
         details: [
-          'Lập trình có AI hỗ trợ với hệ sinh thái Claude Code: lên kế hoạch, boilerplate và refactor',
-          'Sinh unit test và contract test bằng AI, rồi rà soát trước khi gộp',
-          'Bước LLM trong pipeline backend: Azure OpenAI và Azure AI Speech trên production tại IOGA.fr',
-          'Thiết kế prompt và ngữ cảnh cho việc sinh code và test',
+          'Cursor và Claude Code, dùng mỗi ngày để viết code và kiểm thử',
+          'AI hỗ trợ ánh xạ trường cho việc chuyển dữ liệu',
+          'AI học tri thức nghiệp vụ để hỗ trợ tư vấn khách hàng',
+          'Phiên âm video và dịch phụ đề tại IOGA.fr bằng Azure OpenAI và Azure AI Speech',
+          'Gemini và Amazon Bedrock',
         ],
       },
       testing: {
@@ -88,6 +91,7 @@ export const vi = {
           'Unit test và integration test bằng MSTest',
           'Kiểm thử end-to-end bằng Selenium WebDriver',
           'Cổng SonarQube và Fortify',
+          'JMeter',
           'Kiểm tra OWASP',
           'TDD trên dịch vụ ngân hàng',
         ],

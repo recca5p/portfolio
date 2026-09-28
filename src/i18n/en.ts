@@ -9,16 +9,19 @@ export const en = {
   },
   home: {
     title: 'Senior Software Engineer — Applied AI & Backend',
-    tagline: 'Go, gRPC and .NET backends for banking. AI is how I plan, write and test them.',
+    tagline: 'Go and gRPC backends for ANZ Plus. AI is how I plan, write and test them.',
     greeting: 'Tan Phat Vo',
     heroSummary:
-      'I build Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers. Claude Code is how I plan, write and test that work.',
+      'I build Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers. Cursor and Claude Code are how I plan, write and test that work.',
     emailCta: 'Email me',
     downloadCv: 'Download CV',
     years: '6+ years',
     employer: 'ANZ via HCLTech',
     summaryTitle: 'Background',
-    bio: 'Senior software engineer with 6+ years on production systems for <strong>ANZ Bank</strong>, <strong>Halliburton</strong> and <strong>Sacombank</strong>, plus freelance work for Bolloré Logistics and IOGA.fr. On the ANZ Plus backend team through HCLTech Vietnam, I build Go and gRPC services on GCP, including the Bifrost data move. Claude Code is how I implement, refactor and draft tests.',
+    bio: 'Senior software engineer with 6+ years on production systems for <strong>ANZ Bank</strong>, <strong>Halliburton</strong> and <strong>Sacombank</strong>, plus freelance work alongside full-time roles for Bolloré Logistics and IOGA.fr. Through HCLTech Vietnam I build Go and gRPC services for ANZ Plus, and Go services on GCP for the Bifrost migration.',
+    aiTitle: 'How I use AI',
+    aiBody:
+      'I use Cursor and Claude Code every day to write code and tests, so a change reaches review sooner. For migration work I use AI-assisted field mapping. I also use AI that learns a business domain to support customer consulting, and at IOGA.fr a pipeline transcribes video and translates the subtitles.',
     metrics: [
       { value: '~30%', label: 'Contributed to shorter time-to-market at ANZ' },
       { value: '90%+', label: 'IMT gRPC contract coverage at ANZ' },
@@ -63,7 +66,7 @@ export const en = {
           'GCP: GKE, Cloud Run, Pub/Sub, BigQuery',
           'Azure: Service Bus, Azure SQL, Azure AD, DevOps, OpenAI, AI Speech',
           'AWS: Lambda, DynamoDB, S3, ECS, EKS',
-          'Docker, Kubernetes, Helm',
+          'Docker, Kubernetes, Helm, Terraform',
           'CI/CD: GitHub Actions, Azure DevOps, Jenkins',
           'OpenTelemetry',
         ],
@@ -71,12 +74,13 @@ export const en = {
       ai: {
         title: 'Applied AI',
         description:
-          'AI-assisted coding, AI-assisted tests, and LLM steps inside backend pipelines.',
+          'Daily coding and testing, field mapping, domain support, and video subtitles.',
         details: [
-          'AI-assisted coding with the Claude Code ecosystem: planning, boilerplate, and refactoring',
-          'AI-assisted unit and contract test generation, reviewed before they land',
-          'LLM steps in backend pipelines: Azure OpenAI and Azure AI Speech in production at IOGA.fr',
-          'Prompt and context design for code and test generation',
+          'Cursor and Claude Code, used daily for coding and testing',
+          'AI-assisted field mapping for migration work',
+          'AI that learns a business domain to support customer consulting',
+          'Video transcription and subtitle translation at IOGA.fr with Azure OpenAI and Azure AI Speech',
+          'Gemini and Amazon Bedrock',
         ],
       },
       testing: {
@@ -87,6 +91,7 @@ export const en = {
           'MSTest unit and integration tests',
           'Selenium WebDriver end-to-end suites',
           'SonarQube and Fortify gates',
+          'JMeter',
           'OWASP checks',
           'TDD practices on banking services',
         ],
