@@ -11,18 +11,18 @@
     },
     "bullets": {
       "en": [
-        "Led the adoption of GitHub Copilot and Claude Code on the Golang and .NET workflow, including boilerplate generation, and cut development cycle time by about 30%.",
-        "Used AI agents to draft unit tests and edge cases for gRPC contracts on the International Money Transfer system, and held coverage above 90%.",
         "Worked on the design and scaling of International Money Transfer and Apple Pay for ANZ Plus, with an Agile team across Vietnam, Australia, and India.",
         "Designed and maintained Golang and gRPC microservices on GCP (BigQuery, Pub/Sub, Cloud Run) for high-volume transaction data.",
-        "Ran the services on GKE with Helm and GitHub Actions, and gated each deploy on SonarQube and Fortify scans."
+        "Ran the services on GKE with Helm and GitHub Actions, and gated each deploy on SonarQube and Fortify scans.",
+        "Led the adoption of GitHub Copilot and Claude Code on the Golang and .NET workflow, including boilerplate generation, and cut development cycle time by about 30%.",
+        "Used AI agents to draft unit tests and edge cases for gRPC contracts on the International Money Transfer system, and held coverage above 90%."
       ],
       "vi": [
-        "Dẫn việc đưa GitHub Copilot và Claude Code vào quy trình Golang và .NET, gồm tạo mã boilerplate, và giảm thời gian chu kỳ phát triển khoảng 30%.",
-        "Dùng AI agent để soạn unit test và các ca biên cho hợp đồng gRPC của hệ thống Chuyển tiền quốc tế, và giữ độ phủ trên 90%.",
         "Tham gia thiết kế và mở rộng Chuyển tiền quốc tế cùng Apple Pay cho ANZ Plus, trong nhóm Agile ở Việt Nam, Úc và Ấn Độ.",
         "Thiết kế và duy trì microservices Golang và gRPC trên GCP (BigQuery, Pub/Sub, Cloud Run) cho dữ liệu giao dịch khối lượng lớn.",
-        "Vận hành dịch vụ trên GKE bằng Helm và GitHub Actions, và chặn mỗi lần triển khai bằng quét SonarQube và Fortify."
+        "Vận hành dịch vụ trên GKE bằng Helm và GitHub Actions, và chặn mỗi lần triển khai bằng quét SonarQube và Fortify.",
+        "Dẫn việc đưa GitHub Copilot và Claude Code vào quy trình Golang và .NET, gồm tạo mã boilerplate, và giảm thời gian chu kỳ phát triển khoảng 30%.",
+        "Dùng AI agent để soạn unit test và các ca biên cho hợp đồng gRPC của hệ thống Chuyển tiền quốc tế, và giữ độ phủ trên 90%."
       ]
     }
   },

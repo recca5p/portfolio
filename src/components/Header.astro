@@ -8,12 +8,16 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const homePath = `/${lang}/`;
+const projectsPath = `/${lang}/projects/`;
 const onHome = Astro.url.pathname === homePath || Astro.url.pathname === '/';
+const onProjects =
+  Astro.url.pathname === projectsPath || Astro.url.pathname === `/${lang}/projects`;
+const displayName = String(t('home.greeting'));
 
 const navItems = [
   { path: homePath, label: t('nav.home'), current: onHome },
   { path: `${homePath}#experience`, label: t('nav.experience'), current: false },
-  { path: `${homePath}#projects`, label: t('nav.projects'), current: false },
+  { path: projectsPath, label: t('nav.projects'), current: onProjects },
   { path: `${homePath}#contact`, label: t('nav.contact'), current: false },
 ];
 ---
@@ -23,7 +27,7 @@ const navItems = [
     <a
       class="brand-link pressable"
       href={`/${lang}/`}
-      aria-label={`${t('nav.home')} - Tan Phat Vo`}
+      aria-label={`${t('nav.home')} - ${displayName}`}
     >
       <Image
         src={logo}
@@ -35,7 +39,7 @@ const navItems = [
         loading="eager"
         aria-hidden="true"
       />
-      <span>Tan Phat Vo</span>
+      <span>{displayName}</span>
     </a>
 
     <div class="desktop-actions">
@@ -56,7 +60,10 @@ const navItems = [
     <div class="mobile-actions">
       <LangToggle />
       <details class="mobile-menu">
-        <summary class="pressable">{t('nav.menu')}</summary>
+        <summary class="pressable">
+          <span class="when-closed">{t('nav.menu')}</span>
+          <span class="when-open">{t('nav.close')}</span>
+        </summary>
         <nav aria-label={lang === 'en' ? 'Mobile navigation' : 'Điều hướng di động'}>
           <ul>
             {navItems.map((item) => (
@@ -129,6 +136,18 @@ const navItems = [
 
   .mobile-menu {
     position: relative;
+  }
+
+  .mobile-menu .when-open {
+    display: none;
+  }
+
+  .mobile-menu[open] .when-closed {
+    display: none;
+  }
+
+  .mobile-menu[open] .when-open {
+    display: inline;
   }
 
   .mobile-menu summary {

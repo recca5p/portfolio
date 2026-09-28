@@ -39,7 +39,7 @@
   {
     "title": {
       "en": "Rozitek — Smart Factory Racket Transfer Automation",
-      "vi": "Rozitek — Tự Động Hoá Vận Chuyển Vợt Trong Nhà Máy"
+      "vi": "Rozitek — Tự động hoá vận chuyển vợt trong nhà máy"
     },
     "role": {
       "en": "Lead Backend Developer",
@@ -74,7 +74,7 @@
   {
     "title": {
       "en": "Sacombank — E-Invoice System",
-      "vi": "Sacombank — Hệ Thống Hóa Đơn Điện Tử"
+      "vi": "Sacombank — Hệ thống hóa đơn điện tử"
     },
     "role": {
       "en": "Full-Stack Developer",
@@ -108,7 +108,7 @@
   {
     "title": {
       "en": "Sacombank — POS Management System",
-      "vi": "Sacombank — Hệ Thống Quản Lý POS"
+      "vi": "Sacombank — Hệ thống quản lý POS"
     },
     "role": {
       "en": "Full-Stack Developer & DevOps Engineer",
@@ -143,7 +143,7 @@
   {
     "title": {
       "en": "Sacombank — CRM Mobile App Migration (MAUI → React Native)",
-      "vi": "Sacombank — Di Chuyển Ứng Dụng CRM (MAUI → React Native)"
+      "vi": "Sacombank — Di chuyển ứng dụng CRM (MAUI → React Native)"
     },
     "role": {
       "en": "Lead Mobile Developer",
@@ -176,7 +176,7 @@
   {
     "title": {
       "en": "Bolloré Logistics (CMA CGM) — Freight Quote System",
-      "vi": "Bolloré Logistics (CMA CGM) — Hệ Thống Báo Giá Vận Tải"
+      "vi": "Bolloré Logistics (CMA CGM) — Hệ thống báo giá vận tải"
     },
     "role": {
       "en": "Full-Stack Developer",
@@ -210,7 +210,7 @@
   {
     "title": {
       "en": "Bolloré Logistics (CMA CGM) — OpenTelemetry to Splunk Migration",
-      "vi": "Bolloré Logistics (CMA CGM) — Di Chuyển Observability từ App Insights sang Splunk"
+      "vi": "Bolloré Logistics (CMA CGM) — Di chuyển observability từ App Insights sang Splunk"
     },
     "role": {
       "en": "Backend Developer (Solo Initiative)",
@@ -245,7 +245,7 @@
   {
     "title": {
       "en": "Halliburton — eCompletion Tools Desktop Application",
-      "vi": "Halliburton — Ứng Dụng Desktop eCompletion Tools"
+      "vi": "Halliburton — Ứng dụng desktop eCompletion Tools"
     },
     "role": {
       "en": "Backend Engineer",
@@ -283,7 +283,7 @@
   {
     "title": {
       "en": "Halliburton — eCompletion Tools Sync Server",
-      "vi": "Halliburton — Máy Chủ Đồng Bộ eCompletion Tools"
+      "vi": "Halliburton — Máy chủ đồng bộ eCompletion Tools"
     },
     "role": {
       "en": "Backend Engineer",
@@ -320,7 +320,7 @@
   {
     "title": {
       "en": "Halliburton — SAMS Data Verification Web Application",
-      "vi": "Halliburton — Ứng Dụng Web Kiểm Tra Dữ Liệu SAMS"
+      "vi": "Halliburton — Ứng dụng web kiểm tra dữ liệu SAMS"
     },
     "role": {
       "en": "Backend Engineer",
@@ -356,7 +356,7 @@
   {
     "title": {
       "en": "IOGA.fr — AI-Powered Video Knowledge Platform",
-      "vi": "IOGA.fr — Nền Tảng Video Tri Thức Tích Hợp AI"
+      "vi": "IOGA.fr — Nền tảng video tri thức tích hợp AI"
     },
     "role": {
       "en": "Lead Backend Developer & DevOps Engineer",
@@ -392,7 +392,7 @@
   {
     "title": {
       "en": "Infragistics Reveal BI — Embedded Analytics Platform (QA)",
-      "vi": "Infragistics Reveal BI — Nền Tảng Phân Tích Nhúng (Kiểm Thử)"
+      "vi": "Infragistics Reveal BI — Nền tảng phân tích nhúng (kiểm thử)"
     },
     "role": {
       "en": "Automation Tester",

@@ -4,12 +4,13 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
+const displayName = String(t('home.greeting'));
 ---
 
 <footer>
   <div class="site-container footer-row">
     <p>
-      &copy; {currentYear} Tan Phat Vo. {t('footer.rights')}
+      &copy; {currentYear} {displayName}. {t('footer.rights')}
     </p>
     <nav aria-label={lang === 'en' ? 'Footer links' : 'Liên kết cuối trang'}>
       <a href="mailto:phatvo73.dev@gmail.com">Email</a>

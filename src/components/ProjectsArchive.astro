@@ -14,14 +14,19 @@ const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u201
  * - Apollo English ERP (time saved, incident rate, or reconciliation volume)
  * - Rozitek racket transfer (cycle time or manual trips removed)
  * - Sacombank E-Invoice project record (the 20 million customers and 508
- *   million transactions figures already live on the Sacombank experience entry)
+ *   million transactions figures already live on the Sacombank experience entry).
+ *   That bullet says "(2023)", which is outside the May 2020 - Jan 2022
+ *   employment period. Confirm the year before styling it as a result from
+ *   that role. Do not invent a replacement year.
  * - Sacombank CRM migration (crash rate, release time, or user count)
  * - Halliburton sync server
  * - Halliburton SAMS
  * - IOGA.fr subtitle pipeline (videos processed or languages shipped)
  * - Reveal BI (suite size or defects caught)
- * Homepage features the first three records in projects.json. Reorder that
- * file if you want different work in the preview.
+ * Homepage preview is pinned in Projects.astro to the Halliburton desktop
+ * app (20x), the Bolloré OpenTelemetry move (more than 60%), and the
+ * freight-quote search (5x). Change homepageTitles there to feature
+ * different existing records.
  */
 ---
 

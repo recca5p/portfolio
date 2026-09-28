@@ -6,10 +6,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u2014]\s*/g, ' - ');
 const renderMarkdownBold = (text: string): string =>
-  cleanPunctuation(text).replace(
-    /\*\*(.*?)\*\*/g,
-    '<strong class="font-semibold text-white">$1</strong>'
-  );
+  cleanPunctuation(text).replace(/\*\*(.*?)\*\*/g, '<strong class="bullet-emphasis">$1</strong>');
 
 interface ExperienceEntry {
   company: string;
@@ -101,8 +98,13 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
 
   .company {
     margin-top: 0.55rem;
-    color: var(--accent-strong);
+    color: var(--text);
     font-size: 0.88rem;
+    font-weight: 650;
+  }
+
+  .bullet-emphasis {
+    color: var(--text);
     font-weight: 650;
   }
 

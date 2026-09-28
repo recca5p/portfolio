@@ -5,6 +5,7 @@ export const en = {
     projects: 'Projects',
     contact: 'Contact',
     menu: 'Menu',
+    close: 'Close',
   },
   home: {
     title: 'Senior Backend Engineer',
@@ -16,11 +17,11 @@ export const en = {
     emailCta: 'Email me',
     imageCaption: 'A closer look at the physical layer behind cloud systems.',
     summaryTitle: 'Background',
-    bio: "Senior backend engineer with 5+ years on production systems for <strong>ANZ Bank (Australia)</strong>, <strong>Halliburton</strong>, and <strong>Sacombank</strong>, across digital banking, oil and gas, logistics, and fintech. I am modernizing ANZ's International Money Transfer and Apple Pay platform on GCP, mostly with .NET and Golang microservices. Recorded results include a 20x document-search improvement, a 60% observability cost reduction with OpenTelemetry, and about 30% faster development cycles with GenAI tooling.",
+    bio: "Senior backend engineer with 5+ years on production systems for <strong>ANZ Bank (Australia)</strong>, <strong>Halliburton</strong>, and <strong>Sacombank</strong>, across digital banking, oil and gas, logistics, and fintech. I am modernizing ANZ's International Money Transfer and Apple Pay platform on GCP, mostly with .NET and Golang microservices. Recorded results include a 20x Halliburton document-search improvement, more than 60% lower observability cost on the Bolloré OpenTelemetry move, and about 30% faster development cycles with GenAI tooling at ANZ.",
     metrics: [
-      { value: '5+', label: 'Years shipping production systems' },
-      { value: '20x', label: 'Faster document search' },
-      { value: '60%', label: 'Lower observability cost' },
+      { value: '5+', label: 'Years on production systems' },
+      { value: '20x', label: 'Halliburton document search' },
+      { value: '>60%', label: 'Bolloré observability cost' },
     ],
   },
   experience: {
@@ -28,7 +29,7 @@ export const en = {
   },
   skills: {
     title: 'Technical Skills',
-    subtitle: 'Backend starts open. Open another group for the tools behind that work.',
+    subtitle: 'Six groups. Open one to see the tools behind that work.',
     hoverHint: 'Tap for details',
     categories: {
       backend: {

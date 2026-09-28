@@ -25,13 +25,13 @@ const skillTags: Record<(typeof categoryKeys)[number], string[]> = {
     </div>
 
     <div class="skill-accordions">
-      {categoryKeys.map((key, index) => {
+      {categoryKeys.map((key) => {
         const title = String(t(`skills.categories.${key}.title`));
         const description = String(t(`skills.categories.${key}.description`));
         const details = Array.from(t(`skills.categories.${key}.details`) as string[]);
 
         return (
-          <details open={index === 0}>
+          <details>
             <summary>
               <span class="skill-summary-copy">
                 <span class="skill-title">{title}</span>

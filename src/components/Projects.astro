@@ -6,7 +6,23 @@ import projectsData from '../data/projects.json';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const projects = (projectsData as Project[]).slice(0, 3);
+
+/*
+ * Preview the records that already contain a measured result. Archive order
+ * stays as written in projects.json.
+ */
+const homepageTitles = [
+  'Halliburton — eCompletion Tools Desktop Application',
+  'Bolloré Logistics (CMA CGM) — OpenTelemetry to Splunk Migration',
+  'Bolloré Logistics (CMA CGM) — Freight Quote System',
+];
+const projects = homepageTitles.map((title) => {
+  const project = (projectsData as Project[]).find((item) => item.title.en === title);
+  if (!project) {
+    throw new Error(`Missing homepage project: ${title}`);
+  }
+  return project;
+});
 ---
 
 <section id="projects" class="section-shell projects-section" aria-labelledby="projects-heading">
