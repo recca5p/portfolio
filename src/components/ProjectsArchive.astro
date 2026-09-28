@@ -23,12 +23,12 @@ const projects = projectsData as Project[];
           <a href={`/${lang}/`}>{t('nav.home')}</a>
         </li>
         <li aria-hidden="true">/</li>
-        <li aria-current="page">{t('projects.title')}</li>
+        <li aria-current="page">{t('projects.allTitle')}</li>
       </ol>
     </nav>
 
     <header class="archive-header">
-      <h1 id="projects-heading">{t('projects.title')}</h1>
+      <h1 id="projects-heading">{t('projects.allTitle')}</h1>
       <p>{t('projects.viewAllSubtitle')}</p>
       <span>
         {projects.length} {lang === 'en' ? 'projects' : 'dự án'}

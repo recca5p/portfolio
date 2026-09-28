@@ -58,9 +58,16 @@ const headersFor = (pathname) => {
   return headers;
 };
 
+const axeFile = new URL('../node_modules/axe-core/axe.min.js', import.meta.url);
+
 const server = createServer((request, response) => {
   const url = new URL(request.url ?? '/', 'http://127.0.0.1');
   let pathname = decodeURIComponent(url.pathname);
+  if (pathname === '/axe.min.js') {
+    response.writeHead(200, { 'content-type': 'text/javascript' });
+    response.end(readFileSync(axeFile));
+    return;
+  }
   const requestPath = pathname;
   if (pathname.endsWith('/')) pathname += 'index.html';
   const file = join(root.pathname, pathname);
@@ -100,11 +107,6 @@ page.on('console', (message) => {
     failures.push(`csp: ${text}`);
   }
 });
-const axeSource = readFileSync(
-  new URL('../node_modules/axe-core/axe.min.js', import.meta.url),
-  'utf8'
-);
-
 for (const path of pages) {
   for (const width of widths) {
     await page.setViewportSize({ width, height: 844 });
@@ -327,6 +329,15 @@ const fontsReady = await page.evaluate(async () => {
   );
 });
 check(fontsReady, 'self-hosted fonts did not load');
+const qrSummary = page.locator('.contact-row details summary').first();
+const qrLabel = async () => (await qrSummary.innerText()).replace(/\s+/g, ' ').trim();
+check((await qrLabel()) === 'Show QR code', `QR label closed is ${await qrLabel()}`);
+await qrSummary.click();
+check((await qrLabel()) === 'Hide QR code', `QR label open is ${await qrLabel()}`);
+check(await page.locator('.qr-panel svg').first().isVisible(), 'QR code did not open');
+await page.keyboard.press('Escape');
+check((await qrLabel()) === 'Show QR code', 'QR label did not return to Show');
+
 const copyResult = await page.evaluate(async () => {
   const button = document.querySelector('.copy-email');
   button.click();
@@ -383,7 +394,7 @@ check(
 
 for (const path of pages) {
   await page.goto(`http://127.0.0.1:4178${path}`, { waitUntil: 'networkidle' });
-  await page.addScriptTag({ content: axeSource });
+  await page.addScriptTag({ url: 'http://127.0.0.1:4178/axe.min.js' });
   const result = await page.evaluate(async () =>
     window.axe.run(document, { resultTypes: ['violations'] })
   );

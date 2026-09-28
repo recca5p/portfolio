@@ -200,6 +200,9 @@ const notFound = readDistFile('404.html');
 if (!notFound.includes('noindex')) {
   failures.push('404.html: missing noindex');
 }
+if (notFound.includes('rel="canonical"') || notFound.includes('property="og:url"')) {
+  failures.push('404.html: omit canonical and og:url');
+}
 if (!notFound.includes('href="/en/"') || !notFound.includes('href="/vi/projects/"')) {
   failures.push('404.html: missing links back to localized pages');
 }
