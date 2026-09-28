@@ -40,9 +40,9 @@ LinkedIn, WhatsApp, and Zalo, including QR codes for the chat apps.
 - Astro 7 static output, Tailwind CSS 4, TypeScript, English and Vietnamese.
 - No React islands, no server runtime, no secrets in the repo.
 - English and Vietnamese strings stay aligned and carry the same facts.
-- Do not invent employers, dates, metrics, or achievements. The CV in
-  `public/cv/Tan-Phat-Vo-CV.pdf` is the source of truth when the page and the
-  CV disagree. Keep site-only details that are already real.
+- Do not invent employers, dates, metrics, or achievements. Site copy follows
+  the content brief. `public/cv/Tan-Phat-Vo-CV.pdf` is the owner's original CV
+  and must stay byte-for-byte unmodified. The owner will update that PDF later.
 - Critical copy, headings, and contact links stay in the server-rendered HTML.
 
 ## Brand Commitments
@@ -64,8 +64,9 @@ Personal metrics already recorded, and only these: 6+ years, 20x document
 search, more than 60% lower observability cost, about 30% shorter
 time-to-market (a contribution, not a solo claim), 90%+ test coverage on ANZ
 IMT gRPC contracts, and 5x faster quote search. Bank-scale figures need a
-year and a source, and they describe the bank. The published CV is
-`public/cv/Tan-Phat-Vo-CV.pdf`. GitHub is https://github.com/recca5p.
+year and a source, and they describe the bank. The file at
+`public/cv/Tan-Phat-Vo-CV.pdf` is the original CV, not the rewritten one.
+GitHub is https://github.com/recca5p.
 
 ## Product Principles
 
