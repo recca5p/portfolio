@@ -26,3 +26,6 @@ pnpm-debug.log*
 # Impeccable engine binary (platform-specific; the skill launcher downloads it)
 .cursor/skills/impeccable/scripts/bin/
 
+# Local Impeccable critique snapshots.
+.impeccable/
+

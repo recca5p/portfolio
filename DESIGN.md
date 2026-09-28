@@ -34,7 +34,7 @@ typography:
     letterSpacing: 'normal'
   meta:
     fontFamily: 'JetBrains Mono Variable, SFMono-Regular, monospace'
-    fontSize: '0.7rem'
+    fontSize: '0.75rem'
     fontWeight: 600
     lineHeight: 1.5
     letterSpacing: '0.04em'
