@@ -10,10 +10,10 @@ export const vi = {
   home: {
     title: 'Kỹ sư phần mềm senior — AI ứng dụng & Backend',
     tagline:
-      'Hiện làm dịch vụ Go cho ANZ Plus. Trước đó làm .NET cho Halliburton và Bolloré, rồi .NET và Java cho Sacombank.',
+      'Hiện làm dịch vụ Go cho ANZ Plus. Trước đó: .NET tại Halliburton, .NET và Java tại Sacombank; freelance .NET cho Bolloré.',
     greeting: 'Võ Tấn Phát',
     heroSummary:
-      'Tôi xây dựng dịch vụ Go và gRPC cho ANZ Plus, gồm thanh toán, khiếu nại, hồ sơ khách hàng và chuyển tiền quốc tế. Cursor và Claude Code là công cụ tôi dùng để lên kế hoạch, viết và kiểm thử phần việc đó.',
+      'Tôi xây dựng dịch vụ Go và gRPC cho ANZ Plus, gồm thanh toán, khiếu nại, hồ sơ khách hàng và chuyển tiền quốc tế. Tôi lên kế hoạch, viết và kiểm thử công việc đó bằng Cursor và Claude Code.',
     emailCta: 'Gửi email',
     downloadCv: 'Tải CV',
     years: 'Hơn 6 năm',
@@ -81,7 +81,7 @@ export const vi = {
           'Ánh xạ trường tự động có AI hỗ trợ',
           'AI học một miền nghiệp vụ để hỗ trợ tư vấn khách hàng',
           'Phiên âm video và dịch phụ đề tại IOGA.fr bằng Azure OpenAI và Azure AI Speech',
-          'Thực hành với Gemini và Amazon Bedrock',
+          'Đã dùng Gemini và Amazon Bedrock',
         ],
       },
       testing: {

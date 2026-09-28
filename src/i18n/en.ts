@@ -10,10 +10,10 @@ export const en = {
   home: {
     title: 'Senior Software Engineer — Applied AI & Backend',
     tagline:
-      'Go services for ANZ Plus today. Earlier .NET for Halliburton and Bolloré, and .NET and Java for Sacombank.',
+      'Go services for ANZ Plus today. Before that, .NET at Halliburton and .NET and Java at Sacombank, plus freelance .NET for Bolloré.',
     greeting: 'Tan Phat Vo',
     heroSummary:
-      'I build Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers. Cursor and Claude Code are how I plan, write and test that work.',
+      'I build Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers. I plan, write and test that work with Cursor and Claude Code.',
     emailCta: 'Email me',
     downloadCv: 'Download CV',
     years: '6+ years',

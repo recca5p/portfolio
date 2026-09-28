@@ -22,7 +22,7 @@ interface Props {
 
 const {
   title,
-  description = 'I build Go and gRPC backends for ANZ Plus in Ho Chi Minh City. I plan, write and test that work with Cursor and Claude Code.',
+  description = 'Tan Phat Vo: I build Go and gRPC backends for ANZ Plus in Ho Chi Minh City. I plan, write and test that work with Cursor and Claude Code.',
   lang = 'en',
   canonicalPath,
   pageType = 'profile',
@@ -252,7 +252,10 @@ const profileMeta =
     {indexable && <meta property="og:url" content={canonicalUrl} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:site_name" content="Tan Phat Vo — Portfolio" />
+    <meta
+      property="og:site_name"
+      content={lang === 'vi' ? 'Võ Tấn Phát — Portfolio' : 'Tan Phat Vo — Portfolio'}
+    />
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:locale:alternate" content={ogLocaleAlt} />
     <meta property="og:image" content={socialImageUrl} />

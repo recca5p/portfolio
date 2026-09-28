@@ -149,8 +149,8 @@
       }
     },
     "description": {
-      "en": "Designed and carried out the move from Azure Application Insights to Splunk via OpenTelemetry (OTLP, collector, Splunk HEC), cutting observability cost by more than 60%. Piloted on the freight quote system, then rolled out to the other .NET microservices.",
-      "vi": "Thiết kế và thực hiện việc chuyển từ Azure Application Insights sang Splunk qua OpenTelemetry (OTLP, collector, Splunk HEC), giảm hơn 60% chi phí observability. Thử trên hệ thống báo giá, rồi triển khai cho các microservice .NET còn lại."
+      "en": "Proposed, designed and carried out the move from Azure Application Insights to Splunk via OpenTelemetry (OTLP, collector, Splunk HEC), cutting observability cost by more than 60%. Piloted on the freight quote system, then rolled out to the other .NET microservices.",
+      "vi": "Đề xuất, thiết kế và thực hiện việc chuyển từ Azure Application Insights sang Splunk qua OpenTelemetry (OTLP, collector, Splunk HEC), giảm hơn 60% chi phí observability. Thử trên hệ thống báo giá, rồi triển khai cho các microservice .NET còn lại."
     },
     "tags": [
       "OpenTelemetry",
@@ -217,8 +217,8 @@
       }
     },
     "description": {
-      "en": "Engineers on offshore rigs often have no internet, so the tool cannot assume a live link to the central server. eCompletion Tools is a WinForms app that stores the job in LiteDB on the machine and syncs to that server when the connection returns.",
-      "vi": "Kỹ sư trên giàn khoan thường không có internet, nên công cụ không thể giả định luôn có đường truyền tới máy chủ trung tâm. eCompletion Tools là ứng dụng WinForms: lưu phần việc bằng LiteDB trên máy và đồng bộ lên máy chủ khi kết nối trở lại."
+      "en": "Engineers on offshore rigs often have no internet, so the tool cannot assume a live link to the central server. eCompletion Tools is a WinForms app that stores the job in LiteDB on the machine and syncs to that server when the connection returns. The on-premise MS SQL database moved to Azure SQL, legacy Active Directory sign-in was replaced with Azure AD, and sync-server messaging moved from RabbitMQ to Azure Service Bus with dead-lettering.",
+      "vi": "Kỹ sư trên giàn khoan thường không có internet, nên công cụ không thể giả định luôn có đường truyền tới máy chủ trung tâm. eCompletion Tools là ứng dụng WinForms: lưu phần việc bằng LiteDB trên máy và đồng bộ lên máy chủ khi kết nối trở lại. Cơ sở dữ liệu MS SQL tại chỗ chuyển lên Azure SQL, đăng nhập Active Directory cũ được thay bằng Azure AD, và messaging của máy chủ đồng bộ chuyển từ RabbitMQ sang Azure Service Bus có dead-letter."
     },
     "tags": [
       "C# .NET",
