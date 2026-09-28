@@ -30,15 +30,13 @@ const navItems = [
     <div class="desktop-actions">
       <nav aria-label={lang === 'en' ? 'Primary navigation' : 'Điều hướng chính'}>
         <ul>
-          {
-            navItems.map((item) => (
-              <li>
-                <a href={item.path} aria-current={item.current ? 'page' : undefined}>
-                  {item.label}
-                </a>
-              </li>
-            ))
-          }
+          {navItems.map((item) => (
+            <li>
+              <a href={item.path} aria-current={item.current ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
       <LangToggle />
@@ -50,15 +48,13 @@ const navItems = [
         <summary class="pressable">{t('nav.menu')}</summary>
         <nav aria-label={lang === 'en' ? 'Mobile navigation' : 'Điều hướng di động'}>
           <ul>
-            {
-              navItems.map((item) => (
-                <li>
-                  <a href={item.path} aria-current={item.current ? 'page' : undefined}>
-                    {item.label}
-                  </a>
-                </li>
-              ))
-            }
+            {navItems.map((item) => (
+              <li>
+                <a href={item.path} aria-current={item.current ? 'page' : undefined}>
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </details>

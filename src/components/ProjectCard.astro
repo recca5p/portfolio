@@ -22,13 +22,11 @@ const companyLabel =
 <article class:list={['project-card lift-on-hover', { featured }]}>
   <div class="project-meta">
     {role && <p class="project-role">{role}</p>}
-    {
-      project.teamSize && (
-        <p class="project-team">
-          {lang === 'en' ? 'Team' : 'Nhóm'} <span>{project.teamSize}</span>
-        </p>
-      )
-    }
+    {project.teamSize && (
+      <p class="project-team">
+        {lang === 'en' ? 'Team' : 'Nhóm'} <span>{project.teamSize}</span>
+      </p>
+    )}
   </div>
 
   <h3>{title}</h3>
@@ -38,18 +36,16 @@ const companyLabel =
     <p class="project-stack" translate="no">
       {project.tags.slice(0, featured ? 8 : 5).join(' / ')}
     </p>
-    {
-      project.company && (
-        <a
-          href={project.company.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={companyLabel}
-        >
-          <span translate="no">{project.company.name}</span>
-        </a>
-      )
-    }
+    {project.company && (
+      <a
+        href={project.company.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={companyLabel}
+      >
+        <span translate="no">{project.company.name}</span>
+      </a>
+    )}
   </div>
 </article>
 

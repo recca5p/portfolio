@@ -33,32 +33,32 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
 >
   <div class="site-container experience-layout">
     <div class="experience-intro">
-      <h2 id="experience-heading" class="section-heading">{t('experience.title')}</h2>
+      <h2 id="experience-heading" class="section-heading">
+        {t('experience.title')}
+      </h2>
     </div>
 
     <ol class="experience-list">
-      {
-        experiences.map((experience) => (
-          <li>
-            <div class="role-meta">
-              <p class="period">{experience.period}</p>
-              <p class="company" translate="no">
-                {experience.company}
-              </p>
-            </div>
-            <article>
-              <h3>{experience.role}</h3>
-              <ul>
-                {experience.bullets.map((bullet) => (
-                  <li>
-                    <span set:html={renderMarkdownBold(bullet)} />
-                  </li>
-                ))}
-              </ul>
-            </article>
-          </li>
-        ))
-      }
+      {experiences.map((experience) => (
+        <li>
+          <div class="role-meta">
+            <p class="period">{experience.period}</p>
+            <p class="company" translate="no">
+              {experience.company}
+            </p>
+          </div>
+          <article>
+            <h3>{experience.role}</h3>
+            <ul>
+              {experience.bullets.map((bullet) => (
+                <li>
+                  <span set:html={renderMarkdownBold(bullet)} />
+                </li>
+              ))}
+            </ul>
+          </article>
+        </li>
+      ))}
     </ol>
   </div>
 </section>

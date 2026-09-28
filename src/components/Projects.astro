@@ -12,19 +12,25 @@ const projects = (projectsData as Project[]).slice(0, 3);
 <section id="projects" class="section-shell projects-section" aria-labelledby="projects-heading">
   <div class="site-container">
     <div class="projects-intro">
-      <h2 id="projects-heading" class="section-heading">{t('projects.title')}</h2>
+      <h2 id="projects-heading" class="section-heading">
+        {t('projects.title')}
+      </h2>
       <p class="section-copy">{t('projects.subtitle')}</p>
     </div>
 
     <div class="projects-grid">
       <ProjectCard project={projects[0]} lang={lang} featured />
       <div class="project-stack">
-        {projects.slice(1).map((project) => <ProjectCard project={project} lang={lang} />)}
+        {projects.slice(1).map((project) => (
+          <ProjectCard project={project} lang={lang} />
+        ))}
       </div>
     </div>
 
     <div class="projects-action">
-      <a class="button-secondary" href={`/${lang}/projects/`}>{t('projects.viewAll')}</a>
+      <a class="button-secondary" href={`/${lang}/projects/`}>
+        {t('projects.viewAll')}
+      </a>
     </div>
   </div>
 </section>

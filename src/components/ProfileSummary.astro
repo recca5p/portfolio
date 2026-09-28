@@ -9,19 +9,19 @@ const metrics = t('home.metrics') as unknown as Array<{ value: string; label: st
 <section class="profile-summary" aria-labelledby="profile-summary-heading">
   <div class="site-container summary-grid">
     <div>
-      <h2 id="profile-summary-heading" class="section-heading">{t('home.summaryTitle')}</h2>
+      <h2 id="profile-summary-heading" class="section-heading">
+        {t('home.summaryTitle')}
+      </h2>
       <p class="profile-bio" set:html={t('home.bio')} />
     </div>
 
     <dl class="metrics">
-      {
-        metrics.map((metric) => (
-          <div>
-            <dt>{metric.label}</dt>
-            <dd>{metric.value}</dd>
-          </div>
-        ))
-      }
+      {metrics.map((metric) => (
+        <div>
+          <dt>{metric.label}</dt>
+          <dd>{metric.value}</dd>
+        </div>
+      ))}
     </dl>
   </div>
 </section>

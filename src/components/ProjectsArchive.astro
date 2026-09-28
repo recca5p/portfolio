@@ -29,7 +29,9 @@ const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u201
   <div class="site-container">
     <nav aria-label={lang === 'en' ? 'Breadcrumb' : 'Đường dẫn điều hướng'} class="breadcrumb">
       <ol>
-        <li><a href={`/${lang}/`}>{t('nav.home')}</a></li>
+        <li>
+          <a href={`/${lang}/`}>{t('nav.home')}</a>
+        </li>
         <li aria-hidden="true">/</li>
         <li aria-current="page">{t('projects.title')}</li>
       </ol>
@@ -38,56 +40,54 @@ const cleanPunctuation = (text: string): string => text.replace(/\s*[\u2013\u201
     <header class="archive-header">
       <h1 id="projects-heading">{t('projects.title')}</h1>
       <p>{t('projects.viewAllSubtitle')}</p>
-      <span>{projects.length} {lang === 'en' ? 'selected projects' : 'dự án tiêu biểu'}</span>
+      <span>
+        {projects.length} {lang === 'en' ? 'selected projects' : 'dự án tiêu biểu'}
+      </span>
     </header>
 
     <div class="archive-list">
-      {
-        projects.map((project) => {
-          const title = cleanPunctuation(project.title[lang]);
-          const description = cleanPunctuation(project.description[lang]);
-          const role = project.role ? cleanPunctuation(project.role[lang]) : undefined;
-          const companyLabel =
-            lang === 'en'
-              ? `Visit ${project.company?.name ?? ''} website`
-              : `Truy cập trang web ${project.company?.name ?? ''}`;
+      {projects.map((project) => {
+        const title = cleanPunctuation(project.title[lang]);
+        const description = cleanPunctuation(project.description[lang]);
+        const role = project.role ? cleanPunctuation(project.role[lang]) : undefined;
+        const companyLabel =
+          lang === 'en'
+            ? `Visit ${project.company?.name ?? ''} website`
+            : `Truy cập trang web ${project.company?.name ?? ''}`;
 
-          return (
-            <article>
-              <div class="archive-title">
-                {role && <p class="project-role">{role}</p>}
-                <h2>{title}</h2>
-                {project.teamSize && (
-                  <p class="team-size">
-                    {lang === 'en' ? 'Team' : 'Nhóm'} <span>{project.teamSize}</span>
-                  </p>
-                )}
-              </div>
+        return (
+          <article>
+            <div class="archive-title">
+              {role && <p class="project-role">{role}</p>}
+              <h2>{title}</h2>
+              {project.teamSize && (
+                <p class="team-size">
+                  {lang === 'en' ? 'Team' : 'Nhóm'} <span>{project.teamSize}</span>
+                </p>
+              )}
+            </div>
 
-              <p class="archive-description">{description}</p>
+            <p class="archive-description">{description}</p>
 
-              <div class="archive-meta">
-                <p translate="no">{project.tags.join(' / ')}</p>
-                {project.company && (
-                  <a
-                    href={project.company.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={companyLabel}
-                  >
-                    <span translate="no">{project.company.name}</span>
-                  </a>
-                )}
-                {project.company?.description?.[lang] && (
-                  <p class="company-context">
-                    {cleanPunctuation(project.company.description[lang])}
-                  </p>
-                )}
-              </div>
-            </article>
-          );
-        })
-      }
+            <div class="archive-meta">
+              <p translate="no">{project.tags.join(' / ')}</p>
+              {project.company && (
+                <a
+                  href={project.company.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={companyLabel}
+                >
+                  <span translate="no">{project.company.name}</span>
+                </a>
+              )}
+              {project.company?.description?.[lang] && (
+                <p class="company-context">{cleanPunctuation(project.company.description[lang])}</p>
+              )}
+            </div>
+          </article>
+        );
+      })}
     </div>
   </div>
 </section>

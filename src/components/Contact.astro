@@ -16,9 +16,13 @@ const zaloQr = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${
 <section id="contact" class="section-shell contact-section" aria-labelledby="contact-heading">
   <div class="site-container contact-layout">
     <div class="contact-intro">
-      <h2 id="contact-heading" class="section-heading">{t('contact.title')}</h2>
+      <h2 id="contact-heading" class="section-heading">
+        {t('contact.title')}
+      </h2>
       <p class="section-copy">{t('contact.subtitle')}</p>
-      <a class="button-primary" href={`mailto:${email}`}>{t('home.emailCta')}</a>
+      <a class="button-primary" href={`mailto:${email}`}>
+        {t('home.emailCta')}
+      </a>
     </div>
 
     <div class="contact-channels">

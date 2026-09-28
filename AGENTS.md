@@ -15,14 +15,16 @@ homepage at `/en/`.
 
 ## Runtime and package manager
 
-- Use Node.js 24 (`.nvmrc`); the minimum supported patch is declared in
-  `package.json`.
+- Use Node.js 26.10.0 (`.nvmrc`); the minimum supported patch is declared in
+  `package.json`. Node 26 is the current release. Stay on this line unless a
+  newer Current release breaks the Astro, ESLint, or Prettier toolchain.
 - Use npm and keep `package-lock.json` in sync with `package.json`.
 - Prefer `npm ci` for a clean install and `npm install` when intentionally
   changing dependencies.
-- TypeScript is intentionally held on 6.x while `@astrojs/check` supports
-  TypeScript 5.x and 6.x. Do not force TypeScript 7 past its peer range; revisit
-  the hold when the checker publishes compatible support.
+- TypeScript is intentionally held on 6.0.3, the latest 6.x release.
+  TypeScript 7.0.2 is published, but `@astrojs/check` 0.9.10 still requires
+  `typescript@^5 || ^6`, and `astro check` cannot use the TypeScript 7 native
+  compiler. Revisit the hold when the checker supports it.
 - Never commit `.env`, `node_modules/`, `.astro/`, or `dist/`.
 
 ## Repository structure
