@@ -9,7 +9,7 @@ export const en = {
   },
   home: {
     title: 'Senior Software Engineer — Applied AI & Backend',
-    tagline: 'Go and gRPC backends for ANZ Plus. AI is how I plan, write and test them.',
+    tagline: 'Go, Java and .NET backend services for bank payments and logistics.',
     greeting: 'Tan Phat Vo',
     heroSummary:
       'I build Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers. Cursor and Claude Code are how I plan, write and test that work.',
@@ -21,7 +21,7 @@ export const en = {
     bio: 'Senior software engineer with 6+ years on production systems for <strong>ANZ Bank</strong>, <strong>Halliburton</strong> and <strong>Sacombank</strong>, plus freelance work alongside full-time roles for Bolloré Logistics and IOGA.fr. Through HCLTech Vietnam I build Go and gRPC services for ANZ Plus, and Go services on GCP for the Bifrost migration.',
     aiTitle: 'How I use AI',
     aiBody:
-      'I use Cursor and Claude Code every day to write code and tests, so a change reaches review sooner. For migration work I use AI-assisted field mapping. I also use AI that learns a business domain to support customer consulting, and at IOGA.fr a pipeline transcribes video and translates the subtitles.',
+      'I use Cursor and Claude Code every day to write code and tests, so a change reaches review sooner. I use AI-assisted field auto-mapping, and AI that learns a business domain to support customer consulting. At IOGA.fr a pipeline transcribes video and translates the subtitles.',
     metrics: [
       { value: '~30%', label: 'Contributed to shorter time-to-market at ANZ' },
       { value: '90%+', label: 'IMT gRPC contract coverage at ANZ' },
@@ -77,10 +77,10 @@ export const en = {
           'Daily coding and testing, field mapping, domain support, and video subtitles.',
         details: [
           'Cursor and Claude Code, used daily for coding and testing',
-          'AI-assisted field mapping for migration work',
+          'AI-assisted field auto-mapping',
           'AI that learns a business domain to support customer consulting',
           'Video transcription and subtitle translation at IOGA.fr with Azure OpenAI and Azure AI Speech',
-          'Gemini and Amazon Bedrock',
+          'Gemini and Amazon Bedrock, for AI-assisted field auto-mapping and for transcription and translation',
         ],
       },
       testing: {
@@ -98,8 +98,11 @@ export const en = {
       },
       frontend: {
         title: 'Frontend',
-        description: 'Angular and TypeScript.',
-        details: ['Angular', 'TypeScript'],
+        description: 'Angular screens for Sacombank e-invoicing and the Apollo center ERP.',
+        details: [
+          'Sacombank e-invoice system on ABP Framework',
+          'Apollo ERP for CRM, classes and payments',
+        ],
       },
     },
   },
@@ -127,6 +130,7 @@ export const en = {
     showQr: 'Show QR code',
     copyEmail: 'Copy email',
     copied: 'Copied',
+    copyFallback: 'Selected. Press Ctrl+C or Cmd+C.',
   },
   footer: {
     rights: 'All rights reserved.',

@@ -27,8 +27,9 @@ const links = [
         {links.map((link) => (
           <li>
             <a href={link.href}>
-              {link.en}
-              <span lang="vi"> / {link.vi}</span>
+              <span>{link.en}</span>
+              <span aria-hidden="true">/</span>
+              <span lang="vi">{link.vi}</span>
             </a>
           </li>
         ))}
@@ -65,6 +66,7 @@ const links = [
     display: inline-flex;
     min-height: 2.75rem;
     align-items: center;
+    gap: 0.4rem;
     color: var(--accent);
     font-size: var(--font-body);
     text-decoration-color: var(--accent);

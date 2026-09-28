@@ -56,6 +56,7 @@ const zaloQr = await toQr(zaloUrl, lang === 'en' ? 'Zalo contact QR code' : 'Mã
             data-email={profile.email}
             data-label={t('contact.copyEmail')}
             data-copied={t('contact.copied')}
+            data-fallback={t('contact.copyFallback')}
           >
             {t('contact.copyEmail')}
           </button>
@@ -124,25 +125,22 @@ const zaloQr = await toQr(zaloUrl, lang === 'en' ? 'Zalo contact QR code' : 'Mã
         }, 1600);
       };
       var fallback = function () {
-        var area = document.createElement('textarea');
-        area.value = email;
-        area.setAttribute('readonly', '');
-        area.style.position = 'fixed';
-        area.style.left = '-9999px';
-        document.body.appendChild(area);
-        area.select();
-        var ok = false;
-        try {
-          ok = document.execCommand('copy');
-        } catch (error) {
-          ok = false;
+        var hint = button.getAttribute('data-fallback') || 'Press Ctrl+C';
+        var row = button.closest('.contact-row');
+        var target = row && row.querySelector('a strong');
+        if (target && document.createRange && window.getSelection) {
+          var range = document.createRange();
+          range.selectNodeContents(target);
+          var selection = window.getSelection();
+          if (selection) {
+            selection.removeAllRanges();
+            selection.addRange(range);
+          }
         }
-        area.remove();
-        if (ok) done();
-        else {
-          button.textContent = email;
-          if (status) status.textContent = email;
-        }
+        if (status) status.textContent = hint;
+        window.setTimeout(function () {
+          if (status && status.textContent === hint) status.textContent = '';
+        }, 4000);
       };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(email).then(done).catch(fallback);

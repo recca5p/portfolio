@@ -16,7 +16,7 @@ const roleRest = roleParts.length > 1 ? roleParts.slice(1).join(' — ') : '';
       <h1 id="hero-heading">{t('home.greeting')}</h1>
       <p class="hero-role">
         {roleLead}
-        {roleRest && <span class="hero-role-rest">— {roleRest}</span>}
+        {roleRest && <span class="hero-role-rest">{roleRest}</span>}
       </p>
       <p class="hero-tagline">{t('home.tagline')}</p>
       <p class="hero-facts">
@@ -72,7 +72,7 @@ const roleRest = roleParts.length > 1 ? roleParts.slice(1).join(' — ') : '';
 
   .hero-role-rest {
     display: block;
-    white-space: nowrap;
+    color: var(--accent);
   }
 
   .hero-tagline {
@@ -135,6 +135,10 @@ const roleRest = roleParts.length > 1 ? roleParts.slice(1).join(' — ') : '';
       flex-direction: column;
       align-items: flex-start;
       gap: 0.35rem;
+    }
+
+    .hero-facts span {
+      white-space: normal;
     }
   }
 </style>
