@@ -15,9 +15,12 @@ homepage at `/en/`.
 
 ## Runtime and package manager
 
-- Use Node.js 26.10.0 (`.nvmrc`); the minimum supported patch is declared in
-  `package.json`. Node 26 is the current release. Stay on this line unless a
-  newer Current release breaks the Astro, ESLint, or Prettier toolchain.
+- Use Node.js 24.21.0 (`.nvmrc`); the minimum supported patch is declared in
+  `package.json`. This is the newest Node.js 24 LTS release. Cloudflare Pages
+  builds on Ubuntu 22.04.2, and that image does not provide `libatomic.so.1`.
+  Official Node.js 25 and 26 Linux binaries require that library and exit
+  before install or build commands run. Keep GitHub Actions on this same pin.
+  Do not move it to Node 25 or 26 unless the Pages image ships `libatomic1`.
 - Use npm and keep `package-lock.json` in sync with `package.json`.
 - Prefer `npm ci` for a clean install and `npm install` when intentionally
   changing dependencies.
