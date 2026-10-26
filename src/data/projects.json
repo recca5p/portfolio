@@ -21,8 +21,8 @@
       }
     },
     "description": {
-      "en": "I build Go and gRPC services for ANZ Plus: payments, disputes, self-service, customer profiles and international transfers (PayID, PayTo and IMT). I use Claude Code to plan, refactor and draft tests. AI-written code passes the same CI and security gates as any other change.",
-      "vi": "Tôi đang xây dựng dịch vụ Go và gRPC cho ANZ Plus: thanh toán, khiếu nại, tự phục vụ, hồ sơ khách hàng và chuyển tiền quốc tế (PayID, PayTo và IMT). Tôi dùng Claude Code để lên kế hoạch, refactor và soạn test. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác."
+      "en": "I build Go and gRPC services for ANZ Plus: payments, disputes, self-service, customer profiles and international transfers (PayID, PayTo and IMT). I use Cursor and Claude Code to plan, refactor and draft tests. AI-written code passes the same CI and security gates as any other change.",
+      "vi": "Tôi đang xây dựng dịch vụ Go và gRPC cho ANZ Plus: thanh toán, khiếu nại, tự phục vụ, hồ sơ khách hàng và chuyển tiền quốc tế (PayID, PayTo và IMT). Tôi dùng Cursor và Claude Code để lên kế hoạch, refactor và soạn test. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác."
     },
     "tags": [
       "Go",
@@ -217,8 +217,8 @@
       }
     },
     "description": {
-      "en": "Engineers on offshore rigs often have no internet, so the tool cannot assume a live link to the central server. eCompletion Tools is a WinForms app that stores the job in LiteDB on the machine and syncs to that server when the connection returns. Later moved it to Azure SQL and Azure AD.",
-      "vi": "Kỹ sư trên giàn khoan thường không có internet, nên công cụ không thể giả định luôn có đường truyền tới máy chủ trung tâm. eCompletion Tools là ứng dụng WinForms: lưu phần việc bằng LiteDB trên máy và đồng bộ lên máy chủ khi kết nối trở lại. Sau đó chuyển lên Azure SQL và Azure AD."
+      "en": "Engineers on offshore rigs often have no internet, so the tool cannot assume a live link to the central server. eCompletion Tools is a WinForms app that stores the job in LiteDB on the machine and syncs to that server when the connection returns. I later moved its database to Azure SQL and its sign-in to Azure AD.",
+      "vi": "Kỹ sư trên giàn khoan thường không có internet, nên công cụ không thể giả định luôn có đường truyền tới máy chủ trung tâm. eCompletion Tools là ứng dụng WinForms: lưu phần việc bằng LiteDB trên máy và đồng bộ lên máy chủ khi kết nối trở lại. Sau đó tôi chuyển cơ sở dữ liệu lên Azure SQL và đăng nhập sang Azure AD."
     },
     "tags": [
       "C# .NET",
@@ -432,7 +432,7 @@
         "en": "Rozitek Intralogistic Solution",
         "vi": "Rozitek Intralogistic Solution"
       },
-      "url": "http://rozitek.com",
+      "url": "https://rozitek.com",
       "description": {
         "en": "Factory intralogistics company in Vietnam.",
         "vi": "Công ty logistics nội bộ nhà máy (intralogistics) tại Việt Nam."
