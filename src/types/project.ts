@@ -7,7 +7,7 @@ export interface BilingualText {
 /** Company metadata attached to a project card */
 export interface ProjectCompany {
   name: BilingualText;
-  url: string;
+  url?: string;
   description: BilingualText;
 }
 
@@ -22,8 +22,11 @@ export interface Project {
   id: string;
   title: BilingualText;
   role: BilingualText;
+  period?: BilingualText;
   teamSize?: number;
   engagement?: BilingualText;
+  /** Full project notes. The archive renders these; homepage cards use description. */
+  highlights?: BilingualText[];
   company: ProjectCompany;
   description: BilingualText;
   sources?: SourceLink[];

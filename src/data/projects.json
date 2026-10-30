@@ -83,6 +83,173 @@
     "tags": ["Go", "GCP", "Data migration"]
   },
   {
+    "id": "tally-plus-core",
+    "title": {
+      "en": "Tally Plus CORE — multi-brand energy billing",
+      "vi": "Tally Plus CORE — tính cước năng lượng đa thương hiệu"
+    },
+    "role": {
+      "en": "Software Engineer",
+      "vi": "Kỹ sư phần mềm"
+    },
+    "period": {
+      "en": "Oct 2026 - Present",
+      "vi": "Tháng 10/2026 - Hiện tại"
+    },
+    "engagement": {
+      "en": "Additional experience",
+      "vi": "Kinh nghiệm bổ sung"
+    },
+    "company": {
+      "name": {
+        "en": "Tally Group",
+        "vi": "Tally Group"
+      },
+      "description": {
+        "en": "Australian energy retail. Additional experience alongside ANZ, Halliburton and Sacombank.",
+        "vi": "Bán lẻ năng lượng tại Úc. Kinh nghiệm bổ sung, song song với ANZ, Halliburton và Sacombank."
+      }
+    },
+    "description": {
+      "en": "Multi-brand billing and customer platform for Australian energy retailers: Alinta Energy, EnergyCo, Indigo and Sumo. I delivered the regulated customer fees for Alinta's mass-market brand and shipped them on Flyway-ordered releases.",
+      "vi": "Nền tảng tính cước và khách hàng đa thương hiệu cho các nhà bán lẻ năng lượng Úc: Alinta Energy, EnergyCo, Indigo và Sumo. Tôi triển khai các khoản phí khách hàng theo quy định cho thương hiệu đại chúng của Alinta và phát hành theo thứ tự Flyway."
+    },
+    "highlights": [
+      {
+        "en": "The platform is an Angular 12/NgRx agent UI, a Java/Play billing API, a MySQL 8 rules layer (stored procedures, functions and triggers deployed with Flyway) and a Node.js Handlebars correspondence service.",
+        "vi": "Nền tảng gồm giao diện agent Angular 12/NgRx, API tính cước Java/Play, lớp quy tắc MySQL 8 (stored procedure, function và trigger triển khai bằng Flyway) và dịch vụ thư từ Node.js dùng Handlebars."
+      },
+      {
+        "en": "Late Payment Fee: fixed the contract start date in the trigger-driven pricing log, kept the fee out of the best-offer list, and added hypercare extracts.",
+        "vi": "Late Payment Fee: sửa ngày bắt đầu hợp đồng trong pricing log do trigger điều khiển, giữ khoản phí này ngoài danh sách best-offer, và thêm bản trích hypercare."
+      },
+      {
+        "en": "Paper Bill Fee: added the fee and adjustment types, a GST-inclusive reversal flow with role-based access, and an audit extract.",
+        "vi": "Paper Bill Fee: thêm loại phí và loại adjustment, luồng reversal đã gồm GST với phân quyền theo vai trò, và một bản trích audit."
+      },
+      {
+        "en": "Over the Counter Fee for Australia Post payments: added the fee type and GST, a reversal type, an audit extract, and bulk attach and soft-remove scripts with safety checks.",
+        "vi": "Over the Counter Fee cho thanh toán qua Australia Post: thêm loại phí và GST, một loại reversal, một bản trích audit, cùng script gắn hàng loạt và gỡ mềm có bước kiểm tra an toàn."
+      },
+      {
+        "en": "Welcome Pack: changed the template for Victorian standing offers.",
+        "vi": "Welcome Pack: đổi mẫu cho standing offer tại Victoria."
+      },
+      {
+        "en": "Ran releases across feature, dev, test, UAT, prod and off-cycle lines, with Flyway ordering and migration validation and no data loss. Traced root causes end to end and wrote technical docs.",
+        "vi": "Chạy bản phát hành trên các nhánh feature, dev, test, UAT, prod và off-cycle, với thứ tự Flyway và kiểm tra migration, không mất dữ liệu. Truy nguyên nhân từ đầu đến cuối và viết tài liệu kỹ thuật."
+      },
+      {
+        "en": "Release tooling: GitLab CI/CD, Docker, AWS ECR/S3, Helm/Kubernetes and Auth0 SSO.",
+        "vi": "Công cụ phát hành: GitLab CI/CD, Docker, AWS ECR/S3, Helm/Kubernetes và Auth0 SSO."
+      }
+    ],
+    "tags": [
+      "Angular 12",
+      "NgRx",
+      "Java",
+      "Play",
+      "MySQL 8",
+      "Flyway",
+      "Node.js",
+      "Handlebars",
+      "GitLab CI",
+      "Docker",
+      "AWS ECR",
+      "AWS S3",
+      "Helm",
+      "Kubernetes",
+      "Auth0"
+    ]
+  },
+  {
+    "id": "tally-crm",
+    "title": {
+      "en": "Tally CRM — multi-tenant CRM for energy retailers",
+      "vi": "Tally CRM — CRM đa tenant cho nhà bán lẻ năng lượng"
+    },
+    "role": {
+      "en": "Full-stack Developer, main contributor",
+      "vi": "Lập trình viên full-stack, người đóng góp chính"
+    },
+    "period": {
+      "en": "May 2026 - Oct 2026",
+      "vi": "Tháng 5/2026 - Tháng 10/2026"
+    },
+    "engagement": {
+      "en": "Additional experience",
+      "vi": "Kinh nghiệm bổ sung"
+    },
+    "company": {
+      "name": {
+        "en": "Tally Group",
+        "vi": "Tally Group"
+      },
+      "description": {
+        "en": "Production CRM on the TallyIT billing platform, embeddable in the CIS portal. Additional experience alongside ANZ, Halliburton and Sacombank.",
+        "vi": "CRM production trên nền tảng tính cước TallyIT, nhúng được trong cổng CIS. Kinh nghiệm bổ sung, song song với ANZ, Halliburton và Sacombank."
+      }
+    },
+    "description": {
+      "en": "Production multi-tenant CRM for energy retailers on the TallyIT billing platform, embeddable in the CIS portal. I was the main contributor and designed and built the .NET backend and the Next.js frontend, covering SLA cases and a B2B C&I pipeline from lead to account.",
+      "vi": "CRM đa tenant đang chạy production cho các nhà bán lẻ năng lượng trên nền tảng tính cước TallyIT, nhúng được trong cổng CIS. Tôi là người đóng góp chính, thiết kế và xây dựng backend .NET và frontend Next.js, gồm case theo SLA và pipeline B2B C&I từ lead đến account."
+    },
+    "highlights": [
+      {
+        "en": "Designed and built the .NET 10 backend and the Next.js 16 frontend: about 190 REST operations, 47 EF Core migrations and about 16 ADRs.",
+        "vi": "Thiết kế và xây dựng backend .NET 10 và frontend Next.js 16: khoảng 190 thao tác REST, 47 migration EF Core và khoảng 16 ADR."
+      },
+      {
+        "en": "Multi-tenancy uses EF Core query filters that fail closed on OrgId, plus RBAC.",
+        "vi": "Đa tenant dùng bộ lọc truy vấn EF Core đóng khi thiếu OrgId (fail closed), cùng RBAC."
+      },
+      {
+        "en": "SLA engine for case management, and a B2B C&I sales pipeline: lead, opportunity, quote, pricing, contract and account.",
+        "vi": "Engine SLA cho quản lý case, và pipeline bán hàng B2B C&I: lead, opportunity, quote, pricing, contract và account."
+      },
+      {
+        "en": "Email-to-case webhook with idempotent claiming and confidence-scored matching.",
+        "vi": "Webhook email-to-case với cơ chế nhận việc idempotent và khớp theo điểm tin cậy."
+      },
+      {
+        "en": "Versioned quotes priced from live TallyIT through APIM. Rate cards use optimistic concurrency, idempotency keys and reconcile-instead-of-retry.",
+        "vi": "Báo giá có phiên bản, tính giá từ TallyIT đang chạy qua APIM. Rate card dùng optimistic concurrency, idempotency key và đối soát thay vì thử lại."
+      },
+      {
+        "en": "Async billing hierarchy: a parent plus one child per NMI, up to about 5,000 nodes, via Azure Service Bus with an outbox, a dead-letter queue and 202 polling.",
+        "vi": "Cây phân cấp billing bất đồng bộ: một nút cha và một nút con cho mỗi NMI, tới khoảng 5.000 nút, qua Azure Service Bus với outbox, dead-letter queue và polling mã 202."
+      },
+      {
+        "en": "Contract PDFs via an Azure Function. About 260 backend and about 200 frontend test files, an 80% coverage gate with SAST and secret detection, plus Azure DEV deployment and runbooks.",
+        "vi": "PDF hợp đồng qua Azure Function. Khoảng 260 file test backend và khoảng 200 file test frontend, cổng độ phủ 80% với SAST và quét secret, cùng triển khai Azure DEV và runbook."
+      },
+      {
+        "en": "Stack: ASP.NET Core, EF Core and SQL Server, CQRS with MassTransit Mediator, FluentValidation, Serilog, xUnit, Azure App Service, Azure SQL, Blob, APIM and Functions, Docker, React 19, TypeScript, RTK Query and Tailwind.",
+        "vi": "Công nghệ: ASP.NET Core, EF Core và SQL Server, CQRS với MassTransit Mediator, FluentValidation, Serilog, xUnit, Azure App Service, Azure SQL, Blob, APIM và Functions, Docker, React 19, TypeScript, RTK Query và Tailwind."
+      }
+    ],
+    "tags": [
+      ".NET 10",
+      "ASP.NET Core",
+      "EF Core",
+      "SQL Server",
+      "CQRS",
+      "MassTransit",
+      "Azure Service Bus",
+      "FluentValidation",
+      "Serilog",
+      "xUnit",
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "RTK Query",
+      "Tailwind",
+      "Azure APIM",
+      "Azure Functions",
+      "Docker"
+    ]
+  },
+  {
     "id": "ioga",
     "title": {
       "en": "IOGA.fr — AI video knowledge platform",

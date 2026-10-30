@@ -8,21 +8,20 @@ export const en = {
     close: 'Close',
   },
   home: {
-    title: 'Senior Software Engineer — Applied AI & Backend',
-    tagline:
-      'Go services for ANZ Plus today. Before that, .NET at Halliburton and .NET and Java at Sacombank. Freelance: .NET for Bolloré.',
+    title: 'Senior Backend Engineer — .NET & Go · DevOps & Cloud · Applied AI',
+    tagline: 'Banking (ANZ, Sacombank) and energy (Halliburton, Tally Group).',
     greeting: 'Tan Phat Vo',
     heroSummary:
-      'I build Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers. I plan, write and test that work with Claude Code.',
+      'I build .NET, Go and Java services for banking and energy, on AWS, Azure and GCP. At ANZ I build the Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers, and I plan and test that work with Claude Code.',
     emailCta: 'Email me',
     downloadCv: 'Download CV',
     years: '6+ years',
     employer: 'ANZ via HCLTech',
     summaryTitle: 'Background',
-    bio: 'Senior software engineer with 6+ years on production systems for <strong>ANZ Bank</strong>, <strong>Halliburton</strong> and <strong>Sacombank</strong>, plus freelance work alongside full-time roles for Bolloré Logistics and IOGA.fr. I started on bank systems at Sacombank, then oil and gas software at Halliburton, and now digital banking at ANZ.',
+    bio: 'Senior backend engineer with 6+ years building .NET, Go and Java services for banking and energy, on AWS, Azure and GCP. Main roles: <strong>ANZ Bank</strong>, <strong>Halliburton</strong> and <strong>Sacombank</strong>. <strong>Tally Group</strong> (Australian energy retail) is additional experience alongside those roles. I started on bank systems at Sacombank, then oil and gas software at Halliburton, and now digital banking at ANZ. Freelance work alongside those roles includes Bolloré Logistics and IOGA.fr.',
     aiTitle: 'How I use AI',
     aiBody:
-      "At ANZ I use Claude Code every day to write code and tests, so a change reaches review sooner. I also use AI for field auto-mapping and to learn a client's business domain before consulting. At IOGA.fr I built a pipeline that transcribes video and translates the subtitles. It has processed 500+ hours of video in about 70% less time.",
+      'Claude Code is my primary tool after GitHub Copilot. At ANZ I use it to plan changes, refactor, write unit tests and cover gRPC edge cases, and I share skills, templates and hooks with other teams. I also use AI for field auto-mapping. At IOGA.fr, Azure OpenAI and Azure AI Speech transcribe video and translate the subtitles. That pipeline has processed 500+ hours in about 70% less time.',
     metrics: [
       { value: '~2x', label: 'Feature delivery at ANZ, one sprint to about 3 days' },
       { value: '90%+', label: 'IMT gRPC contract coverage at ANZ' },
@@ -32,78 +31,67 @@ export const en = {
   },
   experience: {
     title: 'Experience',
+    additionalTitle: 'Additional experience',
+    additionalNote:
+      'Alongside the ANZ, Halliburton and Sacombank roles. Tally Group is energy retail in Australia.',
     publicContext: 'Public context',
     source: 'Source',
   },
   skills: {
     title: 'Technical Skills',
     categories: {
-      backend: {
-        title: 'Backend & Architecture',
-        description: 'Go, .NET, and Java services, with gRPC, REST, and event-driven design.',
-        details: [
-          'Languages: Go, C# / .NET (ASP.NET Core, EF Core, ABP Framework), Java (Spring Boot), Python',
-          'APIs: gRPC (Protobuf) and REST',
-          'Architecture: microservices, event-driven design, DDD, onion architecture',
-          'Resiliency: retry and circuit-breaker patterns',
-          'Redis caching',
-          'Concurrency and asynchronous programming',
-        ],
-      },
-      database: {
-        title: 'Database & Messaging',
-        description: 'Relational databases and message brokers.',
-        details: [
-          'PostgreSQL, SQL Server, Oracle, BigQuery, DynamoDB, LiteDB',
-          'Query work: indexing and stored procedures',
-          'Kafka, RabbitMQ, Azure Service Bus, GCP Pub/Sub',
-          'Dead letter queues',
-        ],
-      },
-      cloud: {
-        title: 'Cloud & DevOps',
-        description: 'GCP, Azure, AWS, containers, and CI.',
-        details: [
-          'GCP: GKE, Cloud Run, Pub/Sub, BigQuery',
-          'Azure: Service Bus, Azure SQL, Azure AD, DevOps, OpenAI, AI Speech',
-          'AWS: Lambda, DynamoDB, S3, ECS, EKS',
-          'Docker, Kubernetes, Helm, Terraform',
-          'CI/CD: GitHub Actions, Azure DevOps, Jenkins',
-          'OpenTelemetry',
-        ],
-      },
       ai: {
         title: 'Applied AI',
         description:
-          'Daily coding and testing, field mapping, domain support, and video subtitles.',
+          'Claude Code for daily coding, shared workflows, and LLM features in products.',
         details: [
-          'Claude Code, used daily for coding and testing at ANZ',
-          'AI-assisted field auto-mapping',
-          'AI that learns a business domain to support customer consulting',
-          'Video transcription and subtitle translation at IOGA.fr with Azure OpenAI and Azure AI Speech',
-          'Hands-on with Gemini and Amazon Bedrock',
+          'Agentic coding: Claude Code is the primary tool after GitHub Copilot. At ANZ it covers planning, refactoring, unit tests and gRPC edge cases. About 80% of those pull requests are written with it.',
+          'Shared workflows: Claude Code skills, templates and hooks across teams, and AI-drafted unit tests for the IMT gRPC contracts.',
+          'LLM products: Azure OpenAI (GPT) and Azure AI Speech for video transcription and subtitle translation. AI field auto-mapping. Gemini and Amazon Bedrock APIs.',
         ],
       },
-      testing: {
-        title: 'Testing & Quality',
-        description: 'Go tests, MSTest, Selenium, and the scan gates used on deploys.',
+      backend: {
+        title: 'Backend: .NET & Go',
+        description: '.NET and Go services, plus Java and Node.js, with gRPC, REST and CQRS.',
         details: [
-          'Go testing for gRPC contracts, including ANZ IMT',
-          'MSTest unit and integration tests',
-          'Selenium WebDriver end-to-end suites',
-          'SonarQube and Fortify gates',
-          'JMeter',
-          'OWASP checks',
-          'TDD practices on banking services',
+          '.NET / C#: .NET 10, .NET 8 and .NET Core, ASP.NET Core Web API, EF Core, Dapper, ABP Framework. .NET 8 on AWS Lambda.',
+          'Services: MassTransit (Mediator and Azure Service Bus), FluentValidation, Polly, Serilog, Quartz, SignalR.',
+          '.NET tests: xUnit, Moq, MSTest and Testcontainers.',
+          'Go: gRPC and Protobuf for ANZ Plus payments and data migration. Gin REST and GraphQL, sqlc, golang-migrate, PASETO, testify and testcontainers-go.',
+          'Also Java (Play and Spring Boot), Node.js and Python.',
+          'Architecture: microservices, event-driven design, CQRS, Clean and Onion architecture, DDD, Repository and Unit of Work, SOLID. Fail-closed multi-tenant query filters and RBAC. Transactional outbox, idempotency keys, optimistic concurrency, retry, circuit breaker and dead-letter queues. Contract-first gRPC.',
+        ],
+      },
+      cloud: {
+        title: 'DevOps & Cloud',
+        description: 'AWS, Azure and GCP, with containers and CI/CD.',
+        details: [
+          'AWS: Lambda, SQS, S3, ECR, ECS, EKS, Secrets Manager.',
+          'Azure: App Service, Functions, APIM, Azure SQL, Blob, Service Bus, Azure AD.',
+          'GCP: Cloud Run, GKE, Pub/Sub, BigQuery. Auth0 SSO.',
+          'Containers and IaC: Docker, docker-compose, Kubernetes (GKE and EKS), Helm, Terraform.',
+          'CI/CD: GitHub Actions, GitLab CI (80% coverage gate, SAST, secret detection), Azure DevOps and Jenkins with SonarQube, Fortify and OWASP gates.',
+          'Reliability: OpenTelemetry to Splunk, p95/p99 latency, JMeter load tests. SQL Server to Azure SQL, and RabbitMQ to Azure Service Bus.',
+          'Selenium WebDriver end-to-end suites.',
+        ],
+      },
+      database: {
+        title: 'Data & messaging',
+        description: 'Relational databases, migrations and message brokers.',
+        details: [
+          'SQL Server, MySQL 8, PostgreSQL, Oracle and Azure SQL, including stored procedures, functions, triggers and query tuning.',
+          'Migrations: Flyway and EF Core. Data access with Dapper.',
+          'MongoDB, DynamoDB, BigQuery, Snowflake, LiteDB and Redis.',
+          'Kafka, RabbitMQ, Azure Service Bus, GCP Pub/Sub and SQS.',
         ],
       },
       frontend: {
         title: 'Frontend',
-        description: 'Angular screens for Sacombank e-invoicing and the Apollo English ERP.',
+        description: 'Supporting UI for billing, CRM and mobile apps.',
         details: [
-          'Sacombank e-invoice system on ABP Framework',
-          'Led the Sacombank CRM mobile migration from Xamarin to React Native',
-          'Apollo English ERP for CRM, classes and payments',
+          'Next.js 16, React 19, TypeScript, RTK Query and Tailwind.',
+          'Angular 12 with NgRx, and Angular.',
+          'React Native. Led the Xamarin to React Native migration.',
         ],
       },
     },
@@ -119,16 +107,17 @@ export const en = {
   projects: {
     title: 'Selected projects',
     subtitle:
-      'Banking, logistics, manufacturing and oil and gas systems, plus applied AI work such as an LLM subtitle pipeline.',
+      'Banking and energy systems, including Australian energy retail, plus logistics, manufacturing and applied AI.',
     viewAll: 'View all projects',
     viewAllSubtitle:
-      'Banking, logistics, manufacturing and oil and gas systems, plus an LLM subtitle pipeline.',
+      'Banking, energy, logistics and manufacturing systems, plus an LLM subtitle pipeline.',
     solo: 'Solo',
     allTitle: 'Projects',
   },
   contact: {
     title: 'Contact',
-    subtitle: 'Open to Senior Applied AI and Backend roles. I work from Ho Chi Minh City (GMT+7).',
+    subtitle:
+      'Open to backend (.NET or Go) and DevOps roles that apply AI. I work from Ho Chi Minh City (GMT+7).',
     scanToChat: 'Scan to chat',
     showQr: 'Show QR code',
     hideQr: 'Hide QR code',

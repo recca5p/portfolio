@@ -11,12 +11,13 @@ import { formatProse, formatRange } from '../utils/text';
  * 4. Do not claim Go or gRPC at Halliburton. The owner confirmed they were not used there.
  * 5. Which Sacombank system used Golang is unknown. It stays on the stack line only.
  * 6. Freelance work ran alongside full-time jobs. Do not add dates. The label is "Freelance, alongside full-time roles".
- * 7. Gemini and Amazon Bedrock are confirmed in skills only. Do not tie them to a role or a metric. RAG stays unconfirmed. The CV lists Azure OpenAI, Azure AI Speech, and Anthropic Claude.
- * 8. Terraform and JMeter are confirmed in skills only. xUnit, NUnit, JUnit, and CQRS/event sourcing stay removed. Kafka and Redis stay. Do not claim .NET at ANZ.
+ * 7. Gemini and Amazon Bedrock are confirmed in skills only. Do not tie them to a role or a metric. RAG stays unconfirmed. CV v7 lists Azure OpenAI, Azure AI Speech, Gemini and Amazon Bedrock. The old domain-consulting line is not in CV v7.
+ * 8. Terraform and JMeter are confirmed in skills. NUnit, JUnit and event sourcing stay removed. xUnit and CQRS are in CV v7 and on Tally CRM only. Do not claim them at ANZ or Halliburton. Kafka and Redis stay. Do not claim .NET at ANZ. Do not claim Go or gRPC at Halliburton.
  * 9. "Zero-downtime releases" and "Led the adoption" stay removed. The confirmed CRM line is that he led the Xamarin to React Native migration.
- * 10. The ANZ role title is Software Engineer, via HCLTech Vietnam. The headline positioning stays Senior Software Engineer — Applied AI & Backend.
+ * 10. The ANZ role title is Software Engineer, via HCLTech Vietnam. JSON-LD jobTitle stays Software Engineer. The visible headline follows CV v7: Senior Backend Engineer, then .NET & Go, DevOps & Cloud, and Applied AI.
  * 11. Copilot-to-Claude history is only the ANZ experience bullet. Hero, meta, JSON-LD, and skills say Claude Code. Cursor stays on the Applied AI chips and is not an ANZ tool. Do not claim that ANZ applies these tools across engineering.
  * 12. Circular 78 stays removed. E-invoice copy says Ministry of Finance e-invoice rules.
+ * 13. Tally Group is additional experience (group: additional), not a fourth main role. Main roles stay ANZ, Halliburton and Sacombank. Fee mechanics and CRM internals live on the two project entries.
  */
 
 const lang = getLangFromUrl(Astro.url);
@@ -42,6 +43,8 @@ interface ExperienceEntry {
   company: Record<string, string>;
   role: Record<string, string>;
   period: Record<string, string>;
+  domain?: Record<string, string>;
+  group?: 'primary' | 'additional';
   context?: Record<string, string>;
   sources?: SourceLink[];
   publicContext?: Record<string, string[]>;
@@ -52,6 +55,8 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
   company: experience.company[lang] ?? '',
   role: experience.role[lang] ?? '',
   period: formatRange(experience.period[lang] ?? ''),
+  domain: experience.domain?.[lang] ?? '',
+  group: experience.group ?? 'primary',
   context: experience.context?.[lang] ? formatProse(experience.context[lang]) : '',
   sources: (experience.sources ?? []).map((source) => ({
     label: source.label[lang] ?? source.label.en,
@@ -60,6 +65,19 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
   publicContext: experience.publicContext?.[lang] ?? [],
   bullets: (experience.bullets[lang] ?? []).map((bullet) => formatProse(bullet)),
 }));
+
+type ExperienceRow =
+  { kind: 'heading' } | { kind: 'job'; experience: (typeof experiences)[number] };
+
+const rows: ExperienceRow[] = [];
+let additionalHeadingPlaced = false;
+for (const experience of experiences) {
+  if (experience.group === 'additional' && !additionalHeadingPlaced) {
+    rows.push({ kind: 'heading' });
+    additionalHeadingPlaced = true;
+  }
+  rows.push({ kind: 'job', experience });
+}
 ---
 
 <section
@@ -75,65 +93,86 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
     </div>
 
     <ol class="experience-list">
-      {experiences.map((experience) => (
-        <li>
-          <div class="role-meta">
-            <p class="period">{experience.period}</p>
-          </div>
-          <article>
-            <h3>
-              <span class="role-title">{experience.role}</span>
-              <span class="employer" translate="no">
-                {experience.company}
-              </span>
-            </h3>
-            {experience.context && <p class="role-context">{experience.context}</p>}
-            {experience.sources.length > 0 && (
-              <p class="source-line">
-                <span>{t('experience.source')}: </span>
-                {experience.sources.map((source) => (
-                  <a href={source.url} target="_blank" rel="noopener noreferrer">
-                    {source.label}
-                  </a>
+      {rows.map((row) =>
+        row.kind === 'heading' ? (
+          <li class="additional-break">
+            <div class="additional-copy">
+              <h3 id="additional-experience-heading" class="additional-heading">
+                {t('experience.additionalTitle')}
+              </h3>
+              <p class="additional-note">{t('experience.additionalNote')}</p>
+            </div>
+          </li>
+        ) : (
+          <li>
+            <div class="role-meta">
+              <p class="period">{row.experience.period}</p>
+              {row.experience.domain && <p class="domain">{row.experience.domain}</p>}
+            </div>
+            <article>
+              {row.experience.group === 'additional' ? (
+                <h4>
+                  <span class="role-title">{row.experience.role}</span>
+                  <span class="employer" translate="no">
+                    {row.experience.company}
+                  </span>
+                </h4>
+              ) : (
+                <h3>
+                  <span class="role-title">{row.experience.role}</span>
+                  <span class="employer" translate="no">
+                    {row.experience.company}
+                  </span>
+                </h3>
+              )}
+              {row.experience.context && <p class="role-context">{row.experience.context}</p>}
+              {row.experience.sources.length > 0 && (
+                <p class="source-line">
+                  <span>{t('experience.source')}: </span>
+                  {row.experience.sources.map((source) => (
+                    <a href={source.url} target="_blank" rel="noopener noreferrer">
+                      {source.label}
+                    </a>
+                  ))}
+                </p>
+              )}
+              <ul>
+                {row.experience.bullets.map((bullet) => (
+                  <li>
+                    <span set:html={renderRich(bullet)} />
+                  </li>
                 ))}
-              </p>
-            )}
-            <ul>
-              {experience.bullets.map((bullet) => (
-                <li>
-                  <span set:html={renderRich(bullet)} />
-                </li>
-              ))}
-            </ul>
-            {experience.publicContext.length > 0 && (
-              <details class="public-context">
-                <summary>
-                  <span>{t('experience.publicContext')}</span>
-                  <svg
-                    class="chevron"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                    width="16"
-                    height="16"
-                  >
-                    <path
-                      d="M3.5 6.5 8 11l4.5-4.5"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="1.5"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </summary>
-                {experience.publicContext.map((paragraph) => (
-                  <p set:html={renderRich(paragraph)} />
-                ))}
-              </details>
-            )}
-          </article>
-        </li>
-      ))}
+              </ul>
+              {row.experience.publicContext.length > 0 && (
+                <details class="public-context">
+                  <summary>
+                    <span>{t('experience.publicContext')}</span>
+                    <svg
+                      class="chevron"
+                      viewBox="0 0 16 16"
+                      aria-hidden="true"
+                      width="16"
+                      height="16"
+                    >
+                      <path
+                        d="M3.5 6.5 8 11l4.5-4.5"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                  </summary>
+                  {row.experience.publicContext.map((paragraph) => (
+                    <p set:html={renderRich(paragraph)} />
+                  ))}
+                </details>
+              )}
+            </article>
+          </li>
+        )
+      )}
     </ol>
   </div>
 </section>
@@ -174,7 +213,36 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
     line-height: 1.5;
   }
 
-  article h3 {
+  .domain {
+    margin-top: 0.4rem;
+    color: var(--accent-strong);
+    font-family: var(--font-mono);
+    font-size: var(--font-meta);
+    line-height: 1.5;
+  }
+
+  .additional-break {
+    padding-bottom: 0.25rem;
+  }
+
+  .additional-heading {
+    color: var(--text);
+    font-size: var(--font-lead);
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .additional-note {
+    max-width: 68ch;
+    margin-top: 0.65rem;
+    color: var(--muted);
+    font-size: var(--font-small);
+    line-height: 1.55;
+  }
+
+  article h3,
+  article h4 {
     display: grid;
     gap: 0.35rem;
   }
@@ -191,7 +259,8 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
     font-weight: 650;
   }
 
-  article h3 {
+  article h3,
+  article h4 {
     color: var(--text);
     font-size: var(--font-title);
     font-weight: 650;
@@ -303,6 +372,10 @@ const experiences = (experiencesData as ExperienceEntry[]).map((experience) => (
     .experience-list > li {
       grid-template-columns: minmax(9rem, 0.35fr) minmax(0, 1fr);
       gap: 2rem;
+    }
+
+    .additional-copy {
+      grid-column: 2;
     }
   }
 </style>
