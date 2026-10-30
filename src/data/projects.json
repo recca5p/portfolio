@@ -21,8 +21,8 @@
       }
     },
     "description": {
-      "en": "I build Go and gRPC services for ANZ Plus: payments, disputes, self-service, customer profiles and international transfers (PayID, PayTo and IMT). I use Claude Code (after starting with GitHub Copilot) to plan, refactor and draft tests. AI-written code passes the same CI and security gates as any other change.",
-      "vi": "Tôi đang xây dựng dịch vụ Go và gRPC cho ANZ Plus: thanh toán, khiếu nại, tự phục vụ, hồ sơ khách hàng và chuyển tiền quốc tế (PayID, PayTo và IMT). Tôi dùng Claude Code (trước đó là GitHub Copilot) để lên kế hoạch, refactor và soạn test. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác."
+      "en": "I build Go and gRPC services for ANZ Plus: payments, disputes, self-service, customer profiles and international transfers (PayID, PayTo and IMT). I use Claude Code to plan, refactor and draft tests. AI-written code passes the same CI and security gates as any other change.",
+      "vi": "Tôi đang xây dựng dịch vụ Go và gRPC cho ANZ Plus: thanh toán, khiếu nại, tự phục vụ, hồ sơ khách hàng và chuyển tiền quốc tế (PayID, PayTo và IMT). Tôi dùng Claude Code để lên kế hoạch, refactor và soạn test. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác."
     },
     "tags": [
       "Go",

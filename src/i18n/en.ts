@@ -13,7 +13,7 @@ export const en = {
       'Go services for ANZ Plus today. Before that, .NET at Halliburton and .NET and Java at Sacombank. Freelance: .NET for Bolloré.',
     greeting: 'Tan Phat Vo',
     heroSummary:
-      'I build Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers. I plan, write and test that work with Claude Code (after starting with GitHub Copilot).',
+      'I build Go and gRPC services for ANZ Plus payments, disputes, customer profiles and international transfers. I plan, write and test that work with Claude Code.',
     emailCta: 'Email me',
     downloadCv: 'Download CV',
     years: '6+ years',
@@ -22,7 +22,7 @@ export const en = {
     bio: 'Senior software engineer with 6+ years on production systems for <strong>ANZ Bank</strong>, <strong>Halliburton</strong> and <strong>Sacombank</strong>, plus freelance work alongside full-time roles for Bolloré Logistics and IOGA.fr. I started on bank systems at Sacombank, then oil and gas software at Halliburton, and now digital banking at ANZ.',
     aiTitle: 'How I use AI',
     aiBody:
-      "At ANZ I use Claude Code (after starting with GitHub Copilot) every day to write code and tests, so a change reaches review sooner. I also use AI for field auto-mapping and to learn a client's business domain before consulting. At IOGA.fr I built a pipeline that transcribes video and translates the subtitles.",
+      "At ANZ I use Claude Code every day to write code and tests, so a change reaches review sooner. I also use AI for field auto-mapping and to learn a client's business domain before consulting. At IOGA.fr I built a pipeline that transcribes video and translates the subtitles.",
     metrics: [
       { value: '~30%', label: 'Contributed to shorter time-to-market at ANZ' },
       { value: '90%+', label: 'IMT gRPC contract coverage at ANZ' },
@@ -77,7 +77,7 @@ export const en = {
         description:
           'Daily coding and testing, field mapping, domain support, and video subtitles.',
         details: [
-          'Claude Code (after starting with GitHub Copilot), used daily for coding and testing at ANZ',
+          'Claude Code, used daily for coding and testing at ANZ',
           'AI-assisted field auto-mapping',
           'AI that learns a business domain to support customer consulting',
           'Video transcription and subtitle translation at IOGA.fr with Azure OpenAI and Azure AI Speech',

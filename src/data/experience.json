@@ -30,14 +30,14 @@
       "en": [
         "Build and maintain Go and gRPC microservices for ANZ Plus, ANZ's digital bank: PayID aliases, PayTo and PayTo event handling, transaction disputes, customer self-service, customer profile, and International Money Transfer (IMT).",
         "Build migration services in Go on GCP for Project Bifrost, moving customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus.",
-        "Use Claude Code (after starting with GitHub Copilot) to plan changes, write code, and draft tests, contributing to ~30% shorter time-to-market. AI-written code passes the same CI and security gates as any other change.",
+        "Started with GitHub Copilot, now use Claude Code to plan changes, write code and draft tests, contributing to ~30% shorter time-to-market. AI-written code passes the same CI and security gates as any other change.",
         "Use AI to draft unit tests and edge cases for gRPC contracts, then review and extend them, including the IMT contracts (90%+ test coverage).",
         "Run services on GCP (Pub/Sub, BigQuery, Cloud Run) and GKE with Helm, shipped through GitHub Actions with SonarQube and Fortify gates on every deployment."
       ],
       "vi": [
         "Xây dựng và duy trì microservices Go và gRPC cho ANZ Plus, ngân hàng số của ANZ: PayID alias, PayTo và xử lý sự kiện PayTo, khiếu nại giao dịch, tự phục vụ cho khách hàng, hồ sơ khách hàng, và Chuyển tiền quốc tế (IMT).",
         "Xây dựng dịch vụ chuyển dữ liệu bằng Go trên GCP cho dự án Bifrost, đưa dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus.",
-        "Dùng Claude Code (trước đó là GitHub Copilot) để lên kế hoạch, viết code và soạn test, góp phần rút ngắn khoảng 30% thời gian ra thị trường. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác.",
+        "Ban đầu dùng GitHub Copilot, nay dùng Claude Code để lên kế hoạch, viết code và soạn test, góp phần rút ngắn khoảng 30% thời gian ra thị trường. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác.",
         "Dùng AI để soạn unit test và trường hợp biên cho giao diện gRPC, rồi rà lại và bổ sung, gồm giao diện IMT (độ phủ test 90%+).",
         "Vận hành dịch vụ trên GCP (Pub/Sub, BigQuery, Cloud Run) và GKE với Helm, triển khai qua GitHub Actions với cổng SonarQube và Fortify ở mỗi lần deploy."
       ]
