@@ -287,7 +287,8 @@ check(english.includes('6+ years'), 'missing 6+ years');
 check(english.includes('HCLTech'), 'missing HCLTech');
 check(english.includes('making search 20x faster'), 'missing directional 20x label');
 check((english.match(/20x/g) ?? []).length <= 2, '20x appears more than twice on the homepage');
-check((english.match(/~30%/g) ?? []).length <= 2, '~30% appears more than twice on the homepage');
+check(!english.includes('~30%'), '~30% time-to-market figure is still present');
+check((english.match(/~2x/g) ?? []).length <= 2, '~2x appears more than twice on the homepage');
 check((english.match(/90%\+/g) ?? []).length <= 2, '90%+ appears more than twice on the homepage');
 check(english.includes('more than 60%'), 'missing directional 60% label');
 check(english.includes('Azure AI Speech'), 'homepage is missing the IOGA pipeline');
@@ -295,9 +296,9 @@ check(
   !english.includes('making search 20x faster on large drilling datasets, and moved'),
   'eCompletion card still copies the experience metric'
 );
-check(english.includes('~30%'), 'missing ANZ time-to-market figure');
-check(english.includes('Contributed to shorter time-to-market'), 'missing contributed wording');
-check(english.includes('90%+'), 'missing IMT coverage figure');
+check(english.includes('~2x'), 'missing ANZ delivery figure');
+check(english.includes('one sprint to about 3 days'), 'missing ANZ lead time');
+check(english.includes('90%+'), 'missing ANZ coverage figure');
 check(!english.includes('Project Bifrost —'), 'Bifrost card is still on the homepage');
 check(!english.includes('Architected'), 'still says Architected');
 check(!english.includes('Apple Pay'), 'Apple Pay is still present');

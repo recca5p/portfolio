@@ -22,10 +22,10 @@ export const en = {
     bio: 'Senior software engineer with 6+ years on production systems for <strong>ANZ Bank</strong>, <strong>Halliburton</strong> and <strong>Sacombank</strong>, plus freelance work alongside full-time roles for Bolloré Logistics and IOGA.fr. I started on bank systems at Sacombank, then oil and gas software at Halliburton, and now digital banking at ANZ.',
     aiTitle: 'How I use AI',
     aiBody:
-      "At ANZ I use Claude Code every day to write code and tests, so a change reaches review sooner. I also use AI for field auto-mapping and to learn a client's business domain before consulting. At IOGA.fr I built a pipeline that transcribes video and translates the subtitles.",
+      "At ANZ I use Claude Code every day to write code and tests, so a change reaches review sooner. I also use AI for field auto-mapping and to learn a client's business domain before consulting. At IOGA.fr I built a pipeline that transcribes video and translates the subtitles. It has processed 500+ hours of video in about 70% less time.",
     metrics: [
-      { value: '~30%', label: 'Contributed to shorter time-to-market at ANZ' },
-      { value: '90%+', label: 'IMT gRPC contract coverage at ANZ' },
+      { value: '~2x', label: 'Feature delivery at ANZ, one sprint to about 3 days' },
+      { value: '90%+', label: 'Test coverage at ANZ' },
       { value: '20x', label: 'Faster document search, Halliburton' },
       { value: '>60%', label: 'Lower observability cost, Bolloré' },
     ],

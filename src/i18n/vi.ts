@@ -22,10 +22,10 @@ export const vi = {
     bio: 'Kỹ sư phần mềm senior với hơn 6 năm trên hệ thống production cho <strong>ANZ Bank</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong>, cùng việc freelance song song công việc full-time cho Bolloré Logistics và IOGA.fr. Tôi bắt đầu với hệ thống ngân hàng tại Sacombank, rồi phần mềm dầu khí tại Halliburton, và hiện làm ngân hàng số tại ANZ.',
     aiTitle: 'Cách tôi dùng AI',
     aiBody:
-      'Tại ANZ, tôi dùng Claude Code mỗi ngày để viết code và kiểm thử, nên thay đổi được đưa vào review sớm hơn. Tôi cũng dùng AI để ánh xạ trường tự động và để học nghiệp vụ của khách trước khi tư vấn. Tại IOGA.fr, tôi đã xây dựng một pipeline phiên âm video rồi dịch phụ đề.',
+      'Tại ANZ, tôi dùng Claude Code mỗi ngày để viết code và kiểm thử, nên thay đổi được đưa vào review sớm hơn. Tôi cũng dùng AI để ánh xạ trường tự động và để học nghiệp vụ của khách trước khi tư vấn. Tại IOGA.fr, tôi đã xây dựng một pipeline phiên âm video rồi dịch phụ đề. Pipeline đã xử lý hơn 500 giờ video, với thời gian giảm khoảng 70%.',
     metrics: [
-      { value: '~30%', label: 'Đóng góp vào việc rút ngắn thời gian ra thị trường tại ANZ' },
-      { value: '90%+', label: 'Độ phủ test giao diện gRPC của IMT tại ANZ' },
+      { value: '~2x', label: 'Giao tính năng tại ANZ, từ một sprint còn khoảng 3 ngày' },
+      { value: '90%+', label: 'Độ phủ test tại ANZ' },
       { value: '20x', label: 'Tìm kiếm tài liệu nhanh hơn, Halliburton' },
       { value: '>60%', label: 'Giảm chi phí observability, Bolloré' },
     ],
