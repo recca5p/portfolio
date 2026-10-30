@@ -13,7 +13,7 @@ export const vi = {
       'Hiện làm dịch vụ Go cho ANZ Plus. Trước đó: .NET tại Halliburton, .NET và Java tại Sacombank; freelance .NET cho Bolloré.',
     greeting: 'Võ Tấn Phát',
     heroSummary:
-      'Tôi xây dựng dịch vụ Go và gRPC cho ANZ Plus, gồm thanh toán, khiếu nại, hồ sơ khách hàng và chuyển tiền quốc tế. Tôi lên kế hoạch, viết và kiểm thử công việc đó bằng Cursor và Claude Code.',
+      'Tôi xây dựng dịch vụ Go và gRPC cho ANZ Plus, gồm thanh toán, khiếu nại, hồ sơ khách hàng và chuyển tiền quốc tế. Tôi lên kế hoạch, viết và kiểm thử công việc đó bằng Claude Code (trước đó là GitHub Copilot).',
     emailCta: 'Gửi email',
     downloadCv: 'Tải CV',
     years: 'Hơn 6 năm',
@@ -22,7 +22,7 @@ export const vi = {
     bio: 'Kỹ sư phần mềm senior với hơn 6 năm trên hệ thống production cho <strong>ANZ Bank</strong>, <strong>Halliburton</strong> và <strong>Sacombank</strong>, cùng việc freelance song song công việc full-time cho Bolloré Logistics và IOGA.fr. Tôi bắt đầu với hệ thống ngân hàng tại Sacombank, rồi phần mềm dầu khí tại Halliburton, và hiện làm ngân hàng số tại ANZ.',
     aiTitle: 'Cách tôi dùng AI',
     aiBody:
-      'Tôi dùng Cursor và Claude Code mỗi ngày để viết code và kiểm thử, nên thay đổi được đưa vào review sớm hơn. Tôi cũng dùng AI để ánh xạ trường tự động và để học nghiệp vụ của khách trước khi tư vấn. Tại IOGA.fr, tôi đã xây dựng một pipeline phiên âm video rồi dịch phụ đề.',
+      'Tại ANZ, tôi dùng Claude Code (trước đó là GitHub Copilot) mỗi ngày để viết code và kiểm thử, nên thay đổi được đưa vào review sớm hơn. Tôi cũng dùng AI để ánh xạ trường tự động và để học nghiệp vụ của khách trước khi tư vấn. Tại IOGA.fr, tôi đã xây dựng một pipeline phiên âm video rồi dịch phụ đề.',
     metrics: [
       { value: '~30%', label: 'Đóng góp vào việc rút ngắn thời gian ra thị trường tại ANZ' },
       { value: '90%+', label: 'Độ phủ test giao diện gRPC của IMT tại ANZ' },
@@ -77,7 +77,7 @@ export const vi = {
         description:
           'Viết code và kiểm thử hằng ngày, ánh xạ trường, hỗ trợ nghiệp vụ, và phụ đề video.',
         details: [
-          'Cursor và Claude Code, dùng mỗi ngày để viết code và kiểm thử',
+          'Claude Code (trước đó là GitHub Copilot), dùng mỗi ngày để viết code và kiểm thử tại ANZ',
           'Ánh xạ trường tự động có AI hỗ trợ',
           'AI học một miền nghiệp vụ để hỗ trợ tư vấn khách hàng',
           'Phiên âm video và dịch phụ đề tại IOGA.fr bằng Azure OpenAI và Azure AI Speech',
@@ -102,6 +102,7 @@ export const vi = {
         description: 'Màn hình Angular cho hóa đơn điện tử Sacombank và ERP Apollo English.',
         details: [
           'Hệ thống hóa đơn điện tử Sacombank trên ABP Framework',
+          'Dẫn dắt chuyển ứng dụng CRM di động Sacombank từ Xamarin sang React Native',
           'Apollo English ERP cho CRM, lớp học và thanh toán',
         ],
       },

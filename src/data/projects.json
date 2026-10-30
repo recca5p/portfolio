@@ -21,8 +21,8 @@
       }
     },
     "description": {
-      "en": "I build Go and gRPC services for ANZ Plus: payments, disputes, self-service, customer profiles and international transfers (PayID, PayTo and IMT). I use Cursor and Claude Code to plan, refactor and draft tests. AI-written code passes the same CI and security gates as any other change.",
-      "vi": "Tôi đang xây dựng dịch vụ Go và gRPC cho ANZ Plus: thanh toán, khiếu nại, tự phục vụ, hồ sơ khách hàng và chuyển tiền quốc tế (PayID, PayTo và IMT). Tôi dùng Cursor và Claude Code để lên kế hoạch, refactor và soạn test. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác."
+      "en": "I build Go and gRPC services for ANZ Plus: payments, disputes, self-service, customer profiles and international transfers (PayID, PayTo and IMT). I use Claude Code (after starting with GitHub Copilot) to plan, refactor and draft tests. AI-written code passes the same CI and security gates as any other change.",
+      "vi": "Tôi đang xây dựng dịch vụ Go và gRPC cho ANZ Plus: thanh toán, khiếu nại, tự phục vụ, hồ sơ khách hàng và chuyển tiền quốc tế (PayID, PayTo và IMT). Tôi dùng Claude Code (trước đó là GitHub Copilot) để lên kế hoạch, refactor và soạn test. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác."
     },
     "tags": [
       "Go",
@@ -35,6 +35,7 @@
       "Cloud Run",
       "Helm",
       "GitHub Actions",
+      "GitHub Copilot",
       "Claude Code"
     ]
   },
@@ -355,8 +356,8 @@
   {
     "id": "sacombank-crm",
     "title": {
-      "en": "Sacombank — CRM mobile app (Xamarin)",
-      "vi": "Sacombank — ứng dụng CRM di động (Xamarin)"
+      "en": "Sacombank — CRM mobile app (Xamarin to React Native)",
+      "vi": "Sacombank — ứng dụng CRM di động (từ Xamarin sang React Native)"
     },
     "role": {
       "en": "Full-stack Developer",
@@ -375,10 +376,10 @@
       }
     },
     "description": {
-      "en": "Worked on the internal CRM system, including its Xamarin mobile app, with BA and QA.",
-      "vi": "Phát triển hệ thống CRM nội bộ, gồm ứng dụng di động Xamarin, phối hợp cùng BA và QA."
+      "en": "Worked on the internal CRM system and led the migration of its mobile app from Xamarin to React Native, with BA and QA.",
+      "vi": "Phát triển hệ thống CRM nội bộ và dẫn dắt việc chuyển ứng dụng di động từ Xamarin sang React Native, phối hợp cùng BA và QA."
     },
-    "tags": ["Xamarin", "C# .NET", "iOS", "Android"]
+    "tags": ["Xamarin", "React Native", "C# .NET", "iOS", "Android"]
   },
   {
     "id": "apollo-erp",
