@@ -260,6 +260,9 @@ check(menuLabel === 'Menu', `VI menu label is ${menuLabel}`);
 
 const copy = await page.evaluate(() => document.body.innerText);
 check(copy.includes('Tháng 5/2020') && copy.includes('Tháng 1/2022'), 'missing Sacombank dates');
+check(copy.includes('Kỹ sư backend senior'), 'missing Vietnamese headline');
+check(copy.includes('Kinh nghiệm bổ sung'), 'missing Vietnamese additional experience');
+check(copy.includes('Tally Group'), 'missing Tally on the Vietnamese homepage');
 check(!copy.includes('(2023)'), '2023 label is still present');
 check(!copy.includes('MAUI'), 'MAUI claim is still present');
 check(!copy.includes('Apple Pay'), 'Apple Pay claim is still present');
@@ -274,15 +277,71 @@ check(projectCopy.includes('song song công việc full-time'), 'missing freelan
 check(!projectCopy.includes('MAUI'), 'MAUI claim is still on the project page');
 check(!projectCopy.includes('200.000'), 'old POS terminal figure is still present');
 check(!projectCopy.includes('508'), 'old transaction figure is still present');
+check(projectCopy.includes('Late Payment Fee'), 'missing Late Payment Fee in Vietnamese projects');
+check(projectCopy.includes('OrgId'), 'missing OrgId in Vietnamese projects');
+check(projectCopy.includes('Kinh nghiệm bổ sung'), 'Tally projects are not marked additional');
 
 await page.goto('http://127.0.0.1:4178/en/', { waitUntil: 'networkidle' });
 const english = await page.evaluate(() => document.body.innerText);
 check(english.includes('Download CV'), 'missing Download CV');
 check(english.includes('recca5p'), 'missing GitHub profile');
 check(
-  english.includes('Senior Software Engineer') && english.includes('Applied AI & Backend'),
-  'missing new headline'
+  english.includes('Senior Backend Engineer') &&
+    english.includes('.NET & Go') &&
+    english.includes('DevOps & Cloud') &&
+    english.includes('Applied AI'),
+  'missing CV v7 headline'
 );
+check(english.includes('Additional experience'), 'missing additional experience label');
+check(english.includes('Tally Group'), 'missing Tally Group');
+check(english.includes('BANKING') && english.includes('ENERGY'), 'missing domain labels');
+const roleClaims = await page.evaluate(() =>
+  [...document.querySelectorAll('#experience article')].map((article) => article.innerText)
+);
+const anzArticle = roleClaims.find((text) => text.includes('HCLTech')) ?? '';
+const hallArticle = roleClaims.find((text) => text.includes('Halliburton')) ?? '';
+const tallyArticle = roleClaims.find((text) => text.includes('Tally Group')) ?? '';
+check(
+  anzArticle.length > 0 && !anzArticle.includes('.NET') && !anzArticle.includes('Cursor'),
+  'ANZ article claims .NET or Cursor'
+);
+check(
+  hallArticle.length > 0 && !/\bGo\b/.test(hallArticle) && !hallArticle.includes('gRPC'),
+  'Halliburton article claims Go or gRPC'
+);
+check(tallyArticle.includes('Alinta Energy'), 'Tally article is missing the CORE retailers');
+await page.goto('http://127.0.0.1:4178/en/projects/', { waitUntil: 'networkidle' });
+const englishProjects = await page.evaluate(() => document.body.innerText);
+check(englishProjects.includes('Late Payment Fee'), 'missing Late Payment Fee');
+check(englishProjects.includes('best-offer list'), 'missing Late Payment Fee detail');
+check(englishProjects.includes('Paper Bill Fee'), 'missing Paper Bill Fee');
+check(englishProjects.includes('Australia Post'), 'missing Over the Counter Fee detail');
+check(englishProjects.includes('Victorian standing offers'), 'missing Welcome Pack detail');
+check(englishProjects.includes('fail closed on OrgId'), 'missing tenant filter detail');
+check(englishProjects.includes('confidence-scored matching'), 'missing email-to-case detail');
+check(englishProjects.includes('reconcile-instead-of-retry'), 'missing rate card detail');
+check(englishProjects.includes('one child per NMI'), 'missing billing hierarchy detail');
+check(
+  englishProjects.includes('Additional experience'),
+  'Tally projects are not marked additional'
+);
+const projectArticles = await page.evaluate(() =>
+  [...document.querySelectorAll('.archive-list article')].map((article) => article.innerText)
+);
+check(
+  projectArticles.filter((text) => text.startsWith('Halliburton')).length === 3 &&
+    projectArticles
+      .filter((text) => text.startsWith('Halliburton'))
+      .every((text) => !/\bGo\b/.test(text) && !text.includes('gRPC')),
+  'Go is claimed on a Halliburton project'
+);
+check(
+  projectArticles
+    .filter((text) => text.startsWith('ANZ Plus') || text.startsWith('Project Bifrost'))
+    .every((text) => !text.includes('.NET') && !text.includes('Cursor')),
+  '.NET or Cursor is claimed on an ANZ project'
+);
+await page.goto('http://127.0.0.1:4178/en/', { waitUntil: 'networkidle' });
 check(english.includes('6+ years'), 'missing 6+ years');
 check(english.includes('HCLTech'), 'missing HCLTech');
 check(english.includes('making search 20x faster'), 'missing directional 20x label');
@@ -403,6 +462,14 @@ for (const path of pages) {
     failures.push(`${path} axe ${violation.id}: ${violation.help}`);
   }
 }
+
+const expectedCv = readFileSync(new URL('../public/cv/Tan-Phat-Vo-CV.pdf', import.meta.url));
+const cvResponse = await fetch('http://127.0.0.1:4178/cv/Tan-Phat-Vo-CV.pdf');
+const servedCv = Buffer.from(await cvResponse.arrayBuffer());
+check(
+  cvResponse.ok && servedCv.equals(expectedCv) && servedCv.subarray(0, 5).toString() === '%PDF-',
+  'served CV does not match public/cv/Tan-Phat-Vo-CV.pdf'
+);
 
 await browser.close();
 server.close();

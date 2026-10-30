@@ -12,6 +12,10 @@
       "en": "Dec 2024 - Present",
       "vi": "Tháng 12/2024 - Hiện tại"
     },
+    "domain": {
+      "en": "BANKING & Fintech",
+      "vi": "Ngân hàng và fintech"
+    },
     "context": {
       "en": "ANZ Plus backend team, through HCLTech Vietnam. The team is spread across Vietnam, Australia and India.",
       "vi": "Nhóm backend ANZ Plus, thông qua HCLTech Việt Nam. Nhóm làm việc ở Việt Nam, Úc và Ấn Độ."
@@ -58,6 +62,10 @@
       "en": "Jan 2022 - Dec 2024",
       "vi": "Tháng 1/2022 - Tháng 12/2024"
     },
+    "domain": {
+      "en": "ENERGY / Oil & Gas",
+      "vi": "Năng lượng / Dầu khí"
+    },
     "bullets": {
       "en": [
         "Reworked document search with stored procedures and EF Core, making search 20x faster on large drilling datasets.",
@@ -90,6 +98,10 @@
       "en": "May 2020 - Jan 2022",
       "vi": "Tháng 5/2020 - Tháng 1/2022"
     },
+    "domain": {
+      "en": "BANKING",
+      "vi": "Ngân hàng"
+    },
     "context": {
       "en": "Bank scale at the end of 2021: ~10 million customers and ~122,000 POS/mPOS/QR acceptance points.",
       "vi": "Quy mô ngân hàng cuối năm 2021: gần 10 triệu khách hàng và gần 122.000 điểm chấp nhận thanh toán POS/mPOS/QR."
@@ -117,6 +129,39 @@
         "Phát triển hệ thống CRM nội bộ và dẫn dắt việc chuyển ứng dụng di động từ Xamarin sang React Native trong nhóm 5 người (lập trình viên full-stack chính, 1 lập trình viên backend, cùng QA và BA). Việc chuyển này gần như loại bỏ crash của ứng dụng.",
         "Viết unit test và kịch bản integration để dữ liệu và giao diện API nhất quán giữa các module.",
         "Công nghệ: .NET Core / ABP Framework, Golang, Java Spring Boot, Angular, Xamarin, React Native, Oracle, SQL Server, Jenkins."
+      ]
+    }
+  },
+  {
+    "group": "additional",
+    "company": {
+      "en": "Tally Group (Australia)",
+      "vi": "Tally Group (Úc)"
+    },
+    "role": {
+      "en": "Software Engineer, Tally Plus CORE · Full-stack Developer, Tally CRM",
+      "vi": "Kỹ sư phần mềm, Tally Plus CORE · Lập trình viên full-stack, Tally CRM"
+    },
+    "period": {
+      "en": "May 2026 - Present",
+      "vi": "Tháng 5/2026 - Hiện tại"
+    },
+    "domain": {
+      "en": "ENERGY retail",
+      "vi": "Bán lẻ năng lượng"
+    },
+    "bullets": {
+      "en": [
+        "Work on Tally Plus CORE (Oct 2026 - Present), a multi-brand billing and customer platform for Australian energy retailers (Alinta Energy, EnergyCo, Indigo, Sumo). It is built from an Angular 12/NgRx agent UI, a Java/Play billing API, a MySQL 8 rules layer (stored procedures, functions and triggers deployed with Flyway) and a Node.js Handlebars correspondence service.",
+        "Delivered regulated customer fees for Alinta's mass-market brand: Late Payment, Paper Bill and Over the Counter (Australia Post), including GST-inclusive reversals, role-based access and audit extracts, plus a Welcome Pack template change for Victorian standing offers. Releases run across feature, dev, test, UAT, prod and off-cycle lines, with Flyway ordering and migration validation and no data loss. Tooling: GitLab CI/CD, Docker, AWS ECR/S3, Helm/Kubernetes and Auth0 SSO.",
+        "Main contributor on Tally CRM (May 2026 - Oct 2026), a production multi-tenant CRM for energy retailers on the TallyIT billing platform. It covers SLA case management and a B2B pipeline from lead to contract. Stack includes .NET 10, CQRS with MassTransit, and Azure. About 190 REST operations, 47 EF Core migrations and about 16 ADRs. Tenant queries use EF Core filters that fail closed on OrgId, plus RBAC.",
+        "Quotes are priced from live billing through APIM. An async billing hierarchy (up to about 5,000 nodes) runs on Azure Service Bus with an outbox and a dead-letter queue. Contract PDFs come from Azure Functions. About 260 backend and about 200 frontend test files sit under an 80% coverage gate. The UI is Next.js 16 and React 19."
+      ],
+      "vi": [
+        "Làm Tally Plus CORE (tháng 10/2026 - hiện tại), nền tảng tính cước và khách hàng đa thương hiệu cho các nhà bán lẻ năng lượng Úc (Alinta Energy, EnergyCo, Indigo, Sumo). Hệ thống gồm giao diện agent Angular 12/NgRx, API tính cước Java/Play, lớp quy tắc MySQL 8 (stored procedure, function và trigger triển khai bằng Flyway) và dịch vụ thư từ Node.js dùng Handlebars.",
+        "Triển khai các khoản phí khách hàng theo quy định cho thương hiệu đại chúng của Alinta: Late Payment, Paper Bill và Over the Counter (Australia Post), gồm reversal đã gồm GST, phân quyền theo vai trò và bản trích audit, cùng thay đổi mẫu Welcome Pack cho standing offer tại Victoria. Bản phát hành chạy qua feature, dev, test, UAT, prod và off-cycle, với thứ tự Flyway và kiểm tra migration, không mất dữ liệu. Công cụ: GitLab CI/CD, Docker, AWS ECR/S3, Helm/Kubernetes và Auth0 SSO.",
+        "Người đóng góp chính cho Tally CRM (tháng 5/2026 - tháng 10/2026), CRM đa tenant đang chạy production cho các nhà bán lẻ năng lượng trên nền tảng tính cước TallyIT. Phần việc gồm quản lý case theo SLA và pipeline B2B từ lead đến hợp đồng. Công nghệ gồm .NET 10, CQRS với MassTransit, và Azure. Khoảng 190 thao tác REST, 47 migration EF Core và khoảng 16 ADR. Truy vấn tenant dùng bộ lọc EF Core đóng khi thiếu OrgId (fail closed), cùng RBAC.",
+        "Báo giá được tính từ hệ thống billing đang chạy qua APIM. Cây phân cấp billing bất đồng bộ (tới khoảng 5.000 nút) chạy trên Azure Service Bus với outbox và dead-letter queue. PDF hợp đồng tạo bằng Azure Functions. Khoảng 260 file test backend và khoảng 200 file test frontend nằm dưới cổng độ phủ 80%. Giao diện là Next.js 16 và React 19."
       ]
     }
   }
