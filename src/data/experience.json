@@ -31,7 +31,7 @@
         "Build and maintain Go and gRPC microservices for ANZ Plus, ANZ's digital bank. The work spans 9 services, including PayID aliases, PayTo and PayTo event handling, transaction disputes, customer self-service, customer profile, and International Money Transfer (IMT).",
         "Build migration services in Go on GCP for Project Bifrost, moving customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. The move from ANZ classic covered about 2 million users with under 1% errors.",
         "Started with GitHub Copilot, now use Claude Code to plan changes, write code and draft tests. About 80% of my pull requests are written with Claude Code, and feature lead time dropped from one sprint to about 3 days, about 2x delivery. AI-written code passes the same CI and security gates as any other change.",
-        "Share Claude Code practices (skills, templates and hooks) with other teams. Onboarding to a new service dropped from 1-2 months to about 2 weeks.",
+        "Share Claude Code practices (skills, templates and hooks) with other teams. Onboarding to a new service dropped from 1–2 months to about 2 weeks.",
         "Use AI to draft unit tests and edge cases for gRPC contracts, then review and extend them, including the IMT contracts (90%+ test coverage).",
         "Run services on GCP (Pub/Sub, BigQuery, Cloud Run) and GKE with Helm, shipped through GitHub Actions with SonarQube and Fortify gates on every deployment."
       ],
@@ -39,7 +39,7 @@
         "Xây dựng và duy trì microservices Go và gRPC cho ANZ Plus, ngân hàng số của ANZ. Công việc trải trên 9 dịch vụ, trong đó có PayID alias, PayTo và xử lý sự kiện PayTo, khiếu nại giao dịch, tự phục vụ cho khách hàng, hồ sơ khách hàng, và Chuyển tiền quốc tế (IMT).",
         "Xây dựng dịch vụ chuyển dữ liệu bằng Go trên GCP cho dự án Bifrost, đưa dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. Phần chuyển từ ANZ classic gồm khoảng 2 triệu người dùng, với tỷ lệ lỗi dưới 1%.",
         "Ban đầu dùng GitHub Copilot, nay dùng Claude Code để lên kế hoạch, viết code và soạn test. Khoảng 80% pull request của tôi được viết bằng Claude Code, và thời gian đưa một tính năng giảm từ một sprint còn khoảng 3 ngày, nhanh hơn khoảng 2 lần. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác.",
-        "Chia sẻ cách dùng Claude Code (skills, templates và hooks) với các nhóm khác. Thời gian làm quen một dịch vụ mới giảm từ 1-2 tháng còn khoảng 2 tuần.",
+        "Chia sẻ cách dùng Claude Code (skills, templates và hooks) với các nhóm khác. Thời gian làm quen một dịch vụ mới giảm từ 1–2 tháng còn khoảng 2 tuần.",
         "Dùng AI để soạn unit test và trường hợp biên cho giao diện gRPC, rồi rà lại và bổ sung, gồm giao diện IMT (độ phủ test 90%+).",
         "Vận hành dịch vụ trên GCP (Pub/Sub, BigQuery, Cloud Run) và GKE với Helm, triển khai qua GitHub Actions với cổng SonarQube và Fortify ở mỗi lần deploy."
       ]

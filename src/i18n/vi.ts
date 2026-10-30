@@ -25,7 +25,7 @@ export const vi = {
       'Tại ANZ, tôi dùng Claude Code mỗi ngày để viết code và kiểm thử, nên thay đổi được đưa vào review sớm hơn. Tôi cũng dùng AI để ánh xạ trường tự động và để học nghiệp vụ của khách trước khi tư vấn. Tại IOGA.fr, tôi đã xây dựng một pipeline phiên âm video rồi dịch phụ đề. Pipeline đã xử lý hơn 500 giờ video, với thời gian giảm khoảng 70%.',
     metrics: [
       { value: '~2x', label: 'Giao tính năng tại ANZ, từ một sprint còn khoảng 3 ngày' },
-      { value: '90%+', label: 'Độ phủ test tại ANZ' },
+      { value: '90%+', label: 'Độ phủ test giao diện gRPC của IMT tại ANZ' },
       { value: '20x', label: 'Tìm kiếm tài liệu nhanh hơn, Halliburton' },
       { value: '>60%', label: 'Giảm chi phí observability, Bolloré' },
     ],

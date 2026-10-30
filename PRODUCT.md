@@ -31,8 +31,9 @@ template of placeholder projects.
 
 ## Operating Context
 
-Cloudflare Pages serves the static build and permanently redirects `/` to
-`/en/`. There is no account, search, or application form. Contact is email,
+Cloudflare Pages serves the static build. `/` returns the English page with
+status 200, and the canonical URL remains `/en/`. There is no account, search,
+or application form. Contact is email,
 LinkedIn, WhatsApp, and Zalo, including QR codes for the chat apps.
 
 ## Capabilities and Constraints

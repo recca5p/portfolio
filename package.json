@@ -9,7 +9,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/normalize-redirect.mjs",
+    "build": "astro build",
     "preview": "astro preview",
     "typecheck": "astro check",
     "lint": "eslint .",

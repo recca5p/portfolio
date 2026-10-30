@@ -21,8 +21,8 @@
       }
     },
     "description": {
-      "en": "I build Go and gRPC services for 9 ANZ Plus services, including payments, disputes, self-service, customer profiles and international transfers (PayID, PayTo and IMT). About 80% of my pull requests are written with Claude Code, and feature lead time dropped from one sprint to about 3 days. AI-written code passes the same CI and security gates as any other change.",
-      "vi": "Tôi đang xây dựng dịch vụ Go và gRPC cho 9 dịch vụ ANZ Plus, gồm thanh toán, khiếu nại, tự phục vụ, hồ sơ khách hàng và chuyển tiền quốc tế (PayID, PayTo và IMT). Khoảng 80% pull request của tôi được viết bằng Claude Code, và thời gian đưa một tính năng giảm từ một sprint còn khoảng 3 ngày. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác."
+      "en": "I build and maintain 9 Go and gRPC services for ANZ Plus, including payments, disputes, self-service, customer profiles and international transfers (PayID, PayTo and IMT). About 80% of my pull requests are written with Claude Code, and feature lead time dropped from one sprint to about 3 days. AI-written code passes the same CI and security gates as any other change.",
+      "vi": "Tôi xây dựng và duy trì 9 dịch vụ Go và gRPC cho ANZ Plus, gồm thanh toán, khiếu nại, tự phục vụ, hồ sơ khách hàng và chuyển tiền quốc tế (PayID, PayTo và IMT). Khoảng 80% pull request của tôi được viết bằng Claude Code, và thời gian đưa một tính năng giảm từ một sprint còn khoảng 3 ngày. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác."
     },
     "tags": [
       "Go",

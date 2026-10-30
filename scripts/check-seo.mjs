@@ -209,8 +209,48 @@ if (!notFound.includes('href="/en/"') || !notFound.includes('href="/vi/projects/
 if (!robots.includes(`Sitemap: ${siteUrl}/sitemap-index.xml`)) {
   failures.push('robots.txt: sitemap discovery URL is incorrect');
 }
-if (!redirects.split('\n').some((line) => line.trim() === '/ /en/ 301')) {
-  failures.push('_redirects: root must permanently redirect to /en/');
+if (!redirects.split('\n').some((line) => line.trim() === '/ /en/ 200')) {
+  failures.push('_redirects: root must rewrite to /en/ with status 200');
+}
+const root = readDistFile('index.html');
+const rootCanonical = getTagAttribute(root, /<link\b[^>]*rel="canonical"[^>]*>/, 'href');
+const rootOgUrl = getTagAttribute(root, /<meta\b(?=[^>]*property="og:url")[^>]*>/, 'content');
+const rootOgDescription = getTagAttribute(
+  root,
+  /<meta\b(?=[^>]*property="og:description")[^>]*>/,
+  'content'
+);
+const rootTwitterDescription = getTagAttribute(
+  root,
+  /<meta\b[^>]*name="twitter:description"[^>]*>/,
+  'content'
+);
+if (rootCanonical !== `${siteUrl}/en/`) {
+  failures.push(`index.html: canonical is "${rootCanonical}", expected ${siteUrl}/en/`);
+}
+if (rootOgUrl !== `${siteUrl}/en/`) {
+  failures.push(`index.html: og:url is "${rootOgUrl}", expected ${siteUrl}/en/`);
+}
+if (!rootOgDescription || rootOgDescription !== rootTwitterDescription) {
+  failures.push('index.html: Open Graph and Twitter descriptions must match');
+}
+if (/http-equiv="refresh"/i.test(root)) {
+  failures.push('index.html: meta refresh must not replace the English page');
+}
+for (const [hreflang, expectedUrl] of Object.entries({
+  en: `${siteUrl}/en/`,
+  vi: `${siteUrl}/vi/`,
+  'x-default': `${siteUrl}/en/`,
+})) {
+  const linkPattern = new RegExp(
+    `<link\\b(?=[^>]*rel="alternate")(?=[^>]*hreflang="${hreflang}")[^>]*>`
+  );
+  const alternateUrl = getTagAttribute(root, linkPattern, 'href');
+  if (alternateUrl !== expectedUrl) {
+    failures.push(
+      `index.html: hreflang ${hreflang} is "${alternateUrl}", expected "${expectedUrl}"`
+    );
+  }
 }
 
 if (failures.length > 0) {
