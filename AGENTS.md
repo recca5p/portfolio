@@ -10,8 +10,9 @@ with Tailwind CSS 4. There is no UI framework integration and no server
 runtime: all routes must remain compatible with static generation.
 
 Supported languages are English (`en`, the default) and Vietnamese (`vi`).
-Cloudflare Pages permanently redirects the root route to the canonical English
-homepage at `/en/`.
+The site root serves the English homepage so link previews can read its Open
+Graph tags. Canonical, `og:url`, and `hreflang` still point at `/en/`, and
+`_redirects` rewrites `/` to `/en/` with status 200.
 
 ## Runtime and package manager
 
@@ -185,8 +186,9 @@ islands.
 - Cloudflare Pages serves directory routes with a trailing slash. Canonical
   URLs, `hreflang` links, sitemap URLs, and internal links must use the same
   trailing-slash form to avoid redirect hops and conflicting signals.
-- `/` is a duplicate fallback page and permanently redirects to `/en/`.
-  Exclude it from the sitemap and do not use it as a canonical URL.
+- `/` serves the English homepage. Its canonical URL, `og:url`, and hreflang
+  set point at `/en/`. Exclude `/` from the sitemap and do not use it as a
+  canonical URL. `_redirects` rewrites `/` to `/en/` with status 200.
 - Every indexable page needs one descriptive, language-matched `<title>`, one
   unique meta description, one visible `<h1>`, and a self-referencing
   canonical URL.

@@ -19,9 +19,6 @@ const lastmod = (() => {
 export default defineConfig({
   site,
   trailingSlash: 'always',
-  redirects: {
-    '/': '/en/',
-  },
   build: {
     inlineStylesheets: 'always',
   },

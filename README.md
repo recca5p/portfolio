@@ -54,10 +54,10 @@ src/
 └── types/            Shared TypeScript data contracts
 ```
 
-The production root route permanently redirects to the canonical English page
-at `/en/`. Content changes should preserve parity between English and
-Vietnamese. See `AGENTS.md` for the repository conventions and the expected
-change workflow.
+The production root serves the English page, with its canonical URL at `/en/`,
+so link previews can read the Open Graph tags. Content changes should preserve
+parity between English and Vietnamese. See `AGENTS.md` for the repository
+conventions and the expected change workflow.
 
 Agent skills and MCP servers used for design and writing live in the repo.
 `docs/ai-tooling.md` lists each one, where it came from, and how to update it.
@@ -71,5 +71,5 @@ The Astro configuration produces a static build:
 - Node.js: 24
 
 The canonical site URL and generated sitemap are configured in
-`astro.config.mjs`. Cloudflare Pages permanently redirects `/` to the canonical
-English homepage at `/en/`.
+`astro.config.mjs`. Cloudflare Pages rewrites `/` to `/en/` with status 200.
+The root document uses the same canonical URL.
