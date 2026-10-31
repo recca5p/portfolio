@@ -2,7 +2,7 @@
 
 ## Round 2 content update
 
-Page copy follows the content brief. The downloadable file at `/cv/Tan-Phat-Vo-CV.pdf` is the owner's original CV, byte for byte. The rewritten CV is not in the repo. The owner will update that PDF later. The visible headline is **Senior Software Engineer - Applied AI & Backend** (Vietnamese: **Kỹ sư Phần mềm Senior - AI ứng dụng & Backend**). Years of experience are **6+**.
+Page copy follows the content brief. The downloadable file at `/cv/Tan-Phat-Vo-CV.pdf` is the owner's CV v9 (two pages), including 5x faster document search. The visible headline is **Senior Software Engineer - Applied AI & Backend** (Vietnamese: **Kỹ sư Phần mềm Senior - AI ứng dụng & Backend**). Years of experience are **6+**.
 
 What the brief changed:
 
