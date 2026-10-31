@@ -363,6 +363,43 @@
     "tags": ["C# .NET", "Azure", "Knockout.js", "Blazor", "MongoDB", "MS SQL", "Search"]
   },
   {
+    "id": "culture-kings",
+    "title": {
+      "en": "Culture Kings — inventory across sales channels",
+      "vi": "Culture Kings — tồn kho trên các kênh bán"
+    },
+    "role": {
+      "en": "Backend Developer",
+      "vi": "Lập trình viên backend"
+    },
+    "engagement": {
+      "en": "Freelance, alongside full-time roles",
+      "vi": "Freelance, song song công việc full-time"
+    },
+    "company": {
+      "name": {
+        "en": "Culture Kings",
+        "vi": "Culture Kings"
+      },
+      "url": "https://www.culturekings.com.au/",
+      "description": {
+        "en": "Australian e-commerce retailer for streetwear.",
+        "vi": "Nhà bán lẻ thương mại điện tử streetwear tại Úc."
+      }
+    },
+    "description": {
+      "en": "I built the inventory management system for Culture Kings, an Australian streetwear retailer, as the backend developer. Stock has to stay current on the web store, Shopify and the other marketplaces. The system is written in .NET, is 100% serverless, and runs on AWS Lambda.",
+      "vi": "Tôi xây dựng hệ thống quản lý tồn kho cho Culture Kings, nhà bán lẻ streetwear tại Úc, với vai trò lập trình viên backend. Tồn kho phải luôn đúng trên web store, Shopify và các marketplace khác. Hệ thống viết bằng .NET, 100% serverless, và chạy trên AWS Lambda."
+    },
+    "highlights": [
+      {
+        "en": "An inventory change publishes an SQS message. Lambda consumers sync that change and fan out to other Lambdas that push the full inventory to every sales channel. The system also uses S3, CloudWatch and a load balancer.",
+        "vi": "Mỗi thay đổi tồn kho gửi một message SQS. Lambda consumer đồng bộ thay đổi đó và fan-out sang các Lambda khác, rồi những Lambda đó đẩy toàn bộ tồn kho lên từng kênh bán. Hệ thống còn dùng S3, CloudWatch và Load Balancer."
+      }
+    ],
+    "tags": [".NET", "AWS Lambda", "SQS", "AWS S3", "CloudWatch", "Load Balancer", "Shopify"]
+  },
+  {
     "id": "halliburton-ecompletion",
     "title": {
       "en": "Halliburton — eCompletion Tools desktop application",

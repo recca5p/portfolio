@@ -61,7 +61,7 @@ role, city, and current employer. Do not put a stock photograph back.
 - Mark: `src/assets/logo-192.png`
 - CV: `public/cv/Tan-Phat-Vo-CV.pdf`
 
-Personal metrics already recorded, and only these: 6+ years, 20x document
+Personal metrics already recorded, and only these: 6+ years, 5x document
 search, more than 60% lower observability cost, about 30% shorter
 time-to-market (a contribution, not a solo claim), 90%+ test coverage on ANZ
 IMT gRPC contracts, and 5x faster quote search. Bank-scale figures need a
