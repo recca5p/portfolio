@@ -25,7 +25,7 @@ export const en = {
     metrics: [
       { value: '~2x', label: 'Feature delivery at ANZ, one sprint to about 3 days' },
       { value: '90%+', label: 'IMT gRPC contract coverage at ANZ' },
-      { value: '20x', label: 'Faster document search, Halliburton' },
+      { value: '5x', label: 'Faster document search, Halliburton' },
       { value: '>60%', label: 'Lower observability cost, Bolloré' },
     ],
   },
@@ -66,7 +66,7 @@ export const en = {
         title: 'DevOps & Cloud',
         description: 'AWS, Azure and GCP, with containers and CI/CD.',
         details: [
-          'AWS: Lambda, SQS, S3, ECR, ECS, EKS, Secrets Manager.',
+          'AWS: Lambda, SQS, S3, CloudWatch, Load Balancer, ECR, ECS, EKS, Secrets Manager.',
           'Azure: App Service, Functions, APIM, Azure SQL, Blob, Service Bus, Azure AD.',
           'GCP: Cloud Run, GKE, Pub/Sub, BigQuery. Auth0 SSO.',
           'Containers and IaC: Docker, docker-compose, Kubernetes (GKE and EKS), Helm, Terraform.',
@@ -110,7 +110,7 @@ export const en = {
       'Banking and energy systems, including Australian energy retail, plus logistics, manufacturing and applied AI.',
     viewAll: 'View all projects',
     viewAllSubtitle:
-      'Banking, energy, logistics and manufacturing systems, plus an LLM subtitle pipeline.',
+      'Banking, energy, logistics, e-commerce and manufacturing systems, plus an LLM subtitle pipeline.',
     solo: 'Solo',
     allTitle: 'Projects',
   },

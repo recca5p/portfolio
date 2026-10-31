@@ -25,7 +25,7 @@ export const vi = {
     metrics: [
       { value: '~2x', label: 'Giao tính năng tại ANZ, từ một sprint còn khoảng 3 ngày' },
       { value: '90%+', label: 'Độ phủ test giao diện gRPC của IMT tại ANZ' },
-      { value: '20x', label: 'Tìm kiếm tài liệu nhanh hơn, Halliburton' },
+      { value: '5x', label: 'Tìm kiếm tài liệu nhanh hơn, Halliburton' },
       { value: '>60%', label: 'Giảm chi phí observability, Bolloré' },
     ],
   },
@@ -66,7 +66,7 @@ export const vi = {
         title: 'DevOps và Cloud',
         description: 'AWS, Azure và GCP, với container và CI/CD.',
         details: [
-          'AWS: Lambda, SQS, S3, ECR, ECS, EKS, Secrets Manager.',
+          'AWS: Lambda, SQS, S3, CloudWatch, Load Balancer, ECR, ECS, EKS, Secrets Manager.',
           'Azure: App Service, Functions, APIM, Azure SQL, Blob, Service Bus, Azure AD.',
           'GCP: Cloud Run, GKE, Pub/Sub, BigQuery. Auth0 SSO.',
           'Container và IaC: Docker, docker-compose, Kubernetes (GKE và EKS), Helm, Terraform.',
@@ -110,7 +110,7 @@ export const vi = {
       'Hệ thống ngân hàng và năng lượng, gồm bán lẻ năng lượng tại Úc, cùng logistics, sản xuất và AI ứng dụng.',
     viewAll: 'Xem tất cả dự án',
     viewAllSubtitle:
-      'Hệ thống ngân hàng, năng lượng, logistics và sản xuất, cùng pipeline phụ đề bằng LLM.',
+      'Hệ thống ngân hàng, năng lượng, logistics, thương mại điện tử và sản xuất, cùng pipeline phụ đề bằng LLM.',
     solo: 'Một mình',
     allTitle: 'Dự án',
   },

@@ -9,7 +9,7 @@ What the brief changed:
 - ANZ is "ANZ Bank (via HCLTech Vietnam) - ANZ Plus, Backend Team". The entry covers PayID, PayTo, disputes, self-service, customer profile, IMT, Project Bifrost, agentic work with Claude Code, and AI-assisted tests. The ~30% figure is worded as a contribution. Coverage is 90%+ on the IMT gRPC contracts. Apple Pay, .NET-at-ANZ, and "Architected" are gone.
 - ANZ Plus and Project Bifrost have their own project cards. Public bank figures sit next to source links and are labeled as the bank's numbers.
 - Sacombank is a full-time Full-stack Developer role. The CRM app is Xamarin. The old 20 million, 508 million, 200,000 terminals, zero-downtime, Circular 78, and MAUI claims are gone. Bank scale uses the 2021 annual report (~10 million customers, ~122,000 POS/mPOS/QR points) with a source link.
-- Bolloré (both), Apollo, Rozitek, IOGA.fr, Reveal BI, and the freight-quote search are labeled part-time / freelance. Personal metrics on the site are only 20x, more than 60%, 5x, ~30%, and 90%+.
+- Bolloré (both), Apollo, Rozitek, IOGA.fr, Reveal BI, and the freight-quote search are labeled part-time / freelance. Personal metrics on the site are only 5x document search, more than 60%, 5x quote search, ~30%, and 90%+.
 - GitHub `https://github.com/recca5p` is in the hero, contact, footer, and `sameAs`.
 - Open questions from the brief are comments in `src/components/Experience.astro`, not visible copy.
 

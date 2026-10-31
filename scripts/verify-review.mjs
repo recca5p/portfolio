@@ -269,6 +269,8 @@ check(!copy.includes('Apple Pay'), 'Apple Pay claim is still present');
 check(copy.includes('Xamarin'), 'missing Xamarin');
 check(copy.includes('Tải CV'), 'missing Vietnamese CV label');
 check(copy.includes('Hơn 6 năm'), 'missing 6+ years in Vietnamese');
+check(copy.includes('nhanh gấp 5 lần'), 'missing Vietnamese 5x document search');
+check(!copy.includes('20x') && !copy.includes('gấp 20 lần'), 'Vietnamese page still says 20x');
 await page.goto('http://127.0.0.1:4178/vi/projects/', { waitUntil: 'networkidle' });
 const projectCopy = await page.evaluate(() => document.body.innerText);
 check(projectCopy.includes('logistics nội bộ nhà máy'), 'missing intralogistics wording');
@@ -280,6 +282,12 @@ check(!projectCopy.includes('508'), 'old transaction figure is still present');
 check(projectCopy.includes('Late Payment Fee'), 'missing Late Payment Fee in Vietnamese projects');
 check(projectCopy.includes('OrgId'), 'missing OrgId in Vietnamese projects');
 check(projectCopy.includes('Kinh nghiệm bổ sung'), 'Tally projects are not marked additional');
+check(projectCopy.includes('Culture Kings'), 'missing Culture Kings in Vietnamese projects');
+check(projectCopy.includes('100% serverless'), 'missing Culture Kings serverless claim');
+check(
+  !projectCopy.includes('20x') && !projectCopy.includes('gấp 20 lần'),
+  '20x remains on Vietnamese projects'
+);
 
 await page.goto('http://127.0.0.1:4178/en/', { waitUntil: 'networkidle' });
 const english = await page.evaluate(() => document.body.innerText);
@@ -325,6 +333,13 @@ check(
   englishProjects.includes('Additional experience'),
   'Tally projects are not marked additional'
 );
+check(englishProjects.includes('Culture Kings'), 'missing Culture Kings');
+check(
+  englishProjects.includes('100% serverless') && englishProjects.includes('AWS Lambda'),
+  'missing Culture Kings architecture'
+);
+check(englishProjects.includes('Freelance, alongside full-time roles'), 'missing freelance label');
+check(!englishProjects.includes('20x'), '20x remains on the English projects page');
 const projectArticles = await page.evaluate(() =>
   [...document.querySelectorAll('.archive-list article')].map((article) => article.innerText)
 );
@@ -344,15 +359,16 @@ check(
 await page.goto('http://127.0.0.1:4178/en/', { waitUntil: 'networkidle' });
 check(english.includes('6+ years'), 'missing 6+ years');
 check(english.includes('HCLTech'), 'missing HCLTech');
-check(english.includes('making search 20x faster'), 'missing directional 20x label');
-check((english.match(/20x/g) ?? []).length <= 2, '20x appears more than twice on the homepage');
+check(english.includes('making search 5x faster'), 'missing directional 5x document-search label');
+check(!english.includes('20x'), '20x document search figure is still present');
+check((english.match(/5x/g) ?? []).length <= 2, '5x appears more than twice on the homepage');
 check(!english.includes('~30%'), '~30% time-to-market figure is still present');
 check((english.match(/~2x/g) ?? []).length <= 2, '~2x appears more than twice on the homepage');
 check((english.match(/90%\+/g) ?? []).length <= 2, '90%+ appears more than twice on the homepage');
 check(english.includes('more than 60%'), 'missing directional 60% label');
 check(english.includes('Azure AI Speech'), 'homepage is missing the IOGA pipeline');
 check(
-  !english.includes('making search 20x faster on large drilling datasets, and moved'),
+  !english.includes('making search 5x faster on large drilling datasets, and moved'),
   'eCompletion card still copies the experience metric'
 );
 check(english.includes('~2x'), 'missing ANZ delivery figure');
