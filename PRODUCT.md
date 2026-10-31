@@ -42,9 +42,9 @@ LinkedIn, WhatsApp, and Zalo, including QR codes for the chat apps.
 - No React islands, no server runtime, no secrets in the repo.
 - English and Vietnamese strings stay aligned and carry the same facts.
 - Do not invent employers, dates, metrics, or achievements. Site copy follows
-  the content brief. `public/cv/Tan-Phat-Vo-CV.pdf` is the owner's CV (v9, two
-  pages). Keep the public path `/cv/Tan-Phat-Vo-CV.pdf`. Replace that file only
-  when the owner supplies a new PDF.
+  the content brief. `public/cv/Tan-Phat-Vo-CV.pdf` is the owner's CV (v10, two
+  pages, no GitHub link). Keep the public path `/cv/Tan-Phat-Vo-CV.pdf`. Replace
+  that file only when the owner supplies a new PDF.
 - Critical copy, headings, and contact links stay in the server-rendered HTML.
 
 ## Brand Commitments
@@ -67,8 +67,8 @@ search, more than 60% lower observability cost, about 30% shorter
 time-to-market (a contribution, not a solo claim), 90%+ test coverage on ANZ
 IMT gRPC contracts, and 5x faster quote search. Bank-scale figures need a
 year and a source, and they describe the bank. The file at
-`public/cv/Tan-Phat-Vo-CV.pdf` is CV v9, including 5x faster document search
-at Halliburton.
+`public/cv/Tan-Phat-Vo-CV.pdf` is CV v10. It includes 5x faster document search
+at Halliburton and does not list a GitHub link.
 GitHub is https://github.com/recca5p.
 
 ## Product Principles
