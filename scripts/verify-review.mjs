@@ -269,7 +269,26 @@ check(!copy.includes('Apple Pay'), 'Apple Pay claim is still present');
 check(copy.includes('Xamarin'), 'missing Xamarin');
 check(copy.includes('Tải CV'), 'missing Vietnamese CV label');
 check(copy.includes('Hơn 6 năm'), 'missing 6+ years in Vietnamese');
-check(copy.includes('nhanh gấp 5 lần'), 'missing Vietnamese 5x document search');
+check(
+  copy.includes('LiteDB') && copy.includes('nhanh gấp 5 lần'),
+  'missing Vietnamese LiteDB 5x search'
+);
+check(copy.includes('3-5 giây'), 'missing Vietnamese LiteDB search timing');
+check(copy.includes('WPF'), 'Vietnamese eCompletion is not described as WPF');
+check(!copy.includes('WinForms'), 'Vietnamese page still says WinForms');
+check(copy.includes('sau đó lên lead'), 'Vietnamese Halliburton role is missing later lead');
+check(
+  copy.includes('3 lập trình viên mid-level, 1 thực tập sinh'),
+  'missing Vietnamese team makeup'
+);
+check(copy.includes('2 triệu khách hàng cần chuyển'), 'missing Vietnamese Bifrost target');
+check(!copy.includes('2 triệu người dùng'), 'Vietnamese Bifrost still says users migrated');
+check(!copy.includes('tỷ lệ lỗi dưới 1%'), 'Vietnamese Bifrost error rate remains');
+check(copy.includes('Azure AD SSO'), 'missing Vietnamese Azure AD SSO');
+check(
+  !copy.includes('lên Azure SQL') && !copy.includes('sang Azure SQL'),
+  'Vietnamese page still claims the Azure SQL move'
+);
 check(!copy.includes('20x') && !copy.includes('gấp 20 lần'), 'Vietnamese page still says 20x');
 await page.goto('http://127.0.0.1:4178/vi/projects/', { waitUntil: 'networkidle' });
 const projectCopy = await page.evaluate(() => document.body.innerText);
@@ -284,6 +303,21 @@ check(projectCopy.includes('OrgId'), 'missing OrgId in Vietnamese projects');
 check(projectCopy.includes('Kinh nghiệm bổ sung'), 'Tally projects are not marked additional');
 check(projectCopy.includes('Culture Kings'), 'missing Culture Kings in Vietnamese projects');
 check(projectCopy.includes('100% serverless'), 'missing Culture Kings serverless claim');
+check(projectCopy.includes('WPF'), 'Vietnamese projects still omit WPF');
+check(!projectCopy.includes('WinForms'), 'WinForms remains on Vietnamese projects');
+check(
+  projectCopy.includes('chưa lên production'),
+  'Vietnamese Bifrost is not marked as not in production'
+);
+check(
+  projectCopy.includes('2 triệu khách hàng cần chuyển'),
+  'Vietnamese projects omit the Bifrost target'
+);
+check(
+  !projectCopy.includes('tỷ lệ lỗi dưới 1%'),
+  'Vietnamese projects still state the Bifrost error rate'
+);
+check(projectCopy.includes('sau đó lên lead'), 'Vietnamese project role is missing later lead');
 check(
   !projectCopy.includes('20x') && !projectCopy.includes('gấp 20 lần'),
   '20x remains on Vietnamese projects'
@@ -340,6 +374,27 @@ check(
 );
 check(englishProjects.includes('Freelance, alongside full-time roles'), 'missing freelance label');
 check(!englishProjects.includes('20x'), '20x remains on the English projects page');
+check(englishProjects.includes('WPF'), 'eCompletion is not described as WPF');
+check(!englishProjects.includes('WinForms'), 'WinForms remains on the English projects page');
+check(!englishProjects.includes('Entity Framework'), 'Entity Framework tag remains on a project');
+check(englishProjects.includes('not in production'), 'Bifrost is not marked as not in production');
+check(
+  englishProjects.includes('2 million customers to migrate'),
+  'missing Bifrost migration target'
+);
+check(!englishProjects.includes('2 million users'), 'Bifrost still says users migrated');
+check(!englishProjects.includes('under 1%'), 'Bifrost error rate remains on the projects page');
+check(englishProjects.includes('later Lead'), 'Halliburton project role is missing later Lead');
+check(
+  englishProjects.includes('LiteDB document search 5x faster'),
+  '5x search is not on eCompletion'
+);
+check(englishProjects.includes('Azure AD SSO'), 'eCompletion sign-in is not Azure AD SSO');
+check(
+  !englishProjects.includes('moved its database to Azure SQL') &&
+    !englishProjects.includes('moved the database to Azure SQL'),
+  'a project still claims he moved the database to Azure SQL'
+);
 const projectArticles = await page.evaluate(() =>
   [...document.querySelectorAll('.archive-list article')].map((article) => article.innerText)
 );
@@ -359,17 +414,37 @@ check(
 await page.goto('http://127.0.0.1:4178/en/', { waitUntil: 'networkidle' });
 check(english.includes('6+ years'), 'missing 6+ years');
 check(english.includes('HCLTech'), 'missing HCLTech');
-check(english.includes('making search 5x faster'), 'missing directional 5x document-search label');
+check(
+  english.includes('LiteDB document search 5x faster'),
+  'missing LiteDB 5x document-search label'
+);
+check(english.includes('30s down to 3-5s'), 'missing LiteDB search timing');
+check(english.includes('30s to 3-5s'), 'missing homepage LiteDB metric timing');
+check(!english.includes('making search 5x faster'), '5x search is still tied to stored procedures');
+check(!english.includes('large drilling datasets'), '5x search is still tied to drilling datasets');
 check(!english.includes('20x'), '20x document search figure is still present');
-check((english.match(/5x/g) ?? []).length <= 2, '5x appears more than twice on the homepage');
+check((english.match(/5x/g) ?? []).length <= 3, '5x appears more than three times on the homepage');
 check(!english.includes('~30%'), '~30% time-to-market figure is still present');
 check((english.match(/~2x/g) ?? []).length <= 2, '~2x appears more than twice on the homepage');
 check((english.match(/90%\+/g) ?? []).length <= 2, '90%+ appears more than twice on the homepage');
 check(english.includes('more than 60%'), 'missing directional 60% label');
 check(english.includes('Azure AI Speech'), 'homepage is missing the IOGA pipeline');
+check(english.includes('still being built'), 'Bifrost is not marked as still being built');
+check(english.includes('2 million customers to migrate'), 'missing Bifrost migration target');
+check(!english.includes('2 million users'), 'Bifrost still says users migrated');
+check(!english.includes('under 1%'), 'Bifrost error rate remains on the homepage');
 check(
-  !english.includes('making search 5x faster on large drilling datasets, and moved'),
-  'eCompletion card still copies the experience metric'
+  english.includes('WPF') && !english.includes('WinForms'),
+  'eCompletion is not described as WPF'
+);
+check(english.includes('later Lead'), 'Halliburton role is missing later Lead');
+check(english.includes('3 mid-level, 1 intern'), 'missing Halliburton team makeup');
+check(english.includes('Azure AD SSO'), 'missing Azure AD SSO');
+check(
+  !english.includes('SQL Server to Azure SQL') &&
+    !english.includes('Moved the on-premise MS SQL') &&
+    !english.includes('moved its database to Azure SQL'),
+  'homepage still claims he moved the database to Azure SQL'
 );
 check(english.includes('~2x'), 'missing ANZ delivery figure');
 check(english.includes('one sprint to about 3 days'), 'missing ANZ lead time');

@@ -25,7 +25,7 @@ export const en = {
     metrics: [
       { value: '~2x', label: 'Feature delivery at ANZ, one sprint to about 3 days' },
       { value: '90%+', label: 'IMT gRPC contract coverage at ANZ' },
-      { value: '5x', label: 'Faster document search, Halliburton' },
+      { value: '5x', label: 'Faster LiteDB document search at Halliburton (30s to 3-5s)' },
       { value: '>60%', label: 'Lower observability cost, Bolloré' },
     ],
   },
@@ -71,7 +71,7 @@ export const en = {
           'GCP: Cloud Run, GKE, Pub/Sub, BigQuery. Auth0 SSO.',
           'Containers and IaC: Docker, docker-compose, Kubernetes (GKE and EKS), Helm, Terraform.',
           'CI/CD: GitHub Actions, GitLab CI (80% coverage gate, SAST, secret detection), Azure DevOps and Jenkins with SonarQube, Fortify and OWASP gates.',
-          'Reliability: OpenTelemetry to Splunk, p95/p99 latency, JMeter load tests. SQL Server to Azure SQL, and RabbitMQ to Azure Service Bus.',
+          'Reliability: OpenTelemetry to Splunk, p95/p99 latency, JMeter load tests. RabbitMQ to Azure Service Bus.',
           'Selenium WebDriver end-to-end suites.',
         ],
       },

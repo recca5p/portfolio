@@ -33,7 +33,7 @@
     "bullets": {
       "en": [
         "Build and maintain Go and gRPC microservices for ANZ Plus, ANZ's digital bank. The work spans 9 services, including PayID aliases, PayTo and PayTo event handling, transaction disputes, customer self-service, customer profile, and International Money Transfer (IMT).",
-        "Build migration services in Go on GCP for Project Bifrost, moving customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. The move from ANZ classic covered about 2 million users with under 1% errors.",
+        "Build migration services in Go on GCP for Project Bifrost, still being built, to move customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. I joined from planning and am building the scheduler, the worker and the CRN creation flow. Target is about 2 million customers to migrate.",
         "Started with GitHub Copilot, now use Claude Code to plan changes, write code and draft tests. About 80% of my pull requests are written with Claude Code, and feature lead time dropped from one sprint to about 3 days, about 2x delivery. AI-written code passes the same CI and security gates as any other change.",
         "Share Claude Code practices (skills, templates and hooks) with other teams. Onboarding to a new service dropped from 1–2 months to about 2 weeks.",
         "Use AI to draft unit tests and edge cases for gRPC contracts, then review and extend them, including the IMT contracts (90%+ test coverage).",
@@ -41,7 +41,7 @@
       ],
       "vi": [
         "Xây dựng và duy trì microservices Go và gRPC cho ANZ Plus, ngân hàng số của ANZ. Công việc trải trên 9 dịch vụ, trong đó có PayID alias, PayTo và xử lý sự kiện PayTo, khiếu nại giao dịch, tự phục vụ cho khách hàng, hồ sơ khách hàng, và Chuyển tiền quốc tế (IMT).",
-        "Xây dựng dịch vụ chuyển dữ liệu bằng Go trên GCP cho dự án Bifrost, đưa dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. Phần chuyển từ ANZ classic gồm khoảng 2 triệu người dùng, với tỷ lệ lỗi dưới 1%.",
+        "Đang xây dịch vụ chuyển dữ liệu bằng Go trên GCP cho dự án Bifrost, để đưa dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. Tôi tham gia từ lúc lập kế hoạch và đang code scheduler, worker và luồng tạo CRN. Mục tiêu là khoảng 2 triệu khách hàng cần chuyển.",
         "Ban đầu dùng GitHub Copilot, nay dùng Claude Code để lên kế hoạch, viết code và soạn test. Khoảng 80% pull request của tôi được viết bằng Claude Code, và thời gian đưa một tính năng giảm từ một sprint còn khoảng 3 ngày, nhanh hơn khoảng 2 lần. Code do AI viết qua cùng cổng CI và bảo mật như mọi thay đổi khác.",
         "Chia sẻ cách dùng Claude Code (skills, templates và hooks) với các nhóm khác. Thời gian làm quen một dịch vụ mới giảm từ 1–2 tháng còn khoảng 2 tuần.",
         "Dùng AI để soạn unit test và trường hợp biên cho giao diện gRPC, rồi rà lại và bổ sung, gồm giao diện IMT (độ phủ test 90%+).",
@@ -55,8 +55,8 @@
       "vi": "FPT Software — offshore cho Halliburton (dầu khí)"
     },
     "role": {
-      "en": "Senior Backend Developer",
-      "vi": "Lập trình viên backend senior"
+      "en": "Senior Backend Developer, later Lead",
+      "vi": "Lập trình viên backend senior, sau đó lên lead"
     },
     "period": {
       "en": "Jan 2022 - Dec 2024",
@@ -66,19 +66,21 @@
       "en": "ENERGY / Oil & Gas",
       "vi": "Năng lượng / Dầu khí"
     },
+    "context": {
+      "en": "Team of 5 (3 mid-level, 1 intern).",
+      "vi": "Nhóm 5 người (3 lập trình viên mid-level, 1 thực tập sinh)."
+    },
     "bullets": {
       "en": [
-        "Reworked document search with stored procedures and EF Core, making search 5x faster on large drilling datasets.",
-        "Built eCompletion Tools, a WinForms app used by 3,000-5,000 rig engineers worldwide. On offshore rigs with no internet, LiteDB keeps data on the machine and syncs to the central server when the connection returns.",
-        "Moved the on-premise MS SQL database to Azure SQL and replaced legacy Active Directory sign-in with Azure AD.",
+        "Built eCompletion Tools, a WPF app used by 3,000-5,000 rig engineers worldwide. On offshore rigs with no internet, LiteDB keeps data on the machine and syncs to the central server when the connection returns. Made LiteDB document search 5x faster (30s down to 3-5s).",
+        "Replaced legacy Active Directory sign-in with Azure AD SSO.",
         "Moved sync-server messaging from RabbitMQ to Azure Service Bus with dead-lettering, so downstream services receive events.",
         "Maintained SAMS (Sub-Atmospheric Mud System), a WebForms app that normalizes well data and decides whether a dataset is a SAMS event, working with petroleum engineers on the domain rules.",
         "Wrote MSTest unit and integration tests for the three Halliburton projects so QA could run regression, and kept Azure DevOps pipelines with Fortify scan gates."
       ],
       "vi": [
-        "Làm lại chức năng tìm kiếm tài liệu bằng stored procedure và EF Core, giúp tìm kiếm nhanh gấp 5 lần trên bộ dữ liệu khoan lớn.",
-        "Xây dựng ứng dụng WinForms eCompletion Tools cho 3.000-5.000 kỹ sư giàn khoan trên toàn cầu. Trên giàn khoan không có internet, LiteDB lưu dữ liệu ngay trên máy và đồng bộ lên máy chủ trung tâm khi có kết nối trở lại.",
-        "Chuyển cơ sở dữ liệu MS SQL tại chỗ lên Azure SQL và thay đăng nhập Active Directory cũ bằng Azure AD.",
+        "Xây dựng ứng dụng WPF eCompletion Tools cho 3.000-5.000 kỹ sư giàn khoan trên toàn cầu. Trên giàn khoan không có internet, LiteDB lưu dữ liệu ngay trên máy và đồng bộ lên máy chủ trung tâm khi có kết nối trở lại. Làm tìm kiếm tài liệu LiteDB nhanh gấp 5 lần (từ 30 giây xuống 3-5 giây).",
+        "Thay đăng nhập Active Directory cũ bằng Azure AD SSO.",
         "Chuyển messaging của máy chủ đồng bộ từ RabbitMQ sang Azure Service Bus, có dead-letter, để các dịch vụ phía sau nhận sự kiện.",
         "Duy trì SAMS (Sub-Atmospheric Mud System), ứng dụng WebForms chuẩn hóa dữ liệu giếng và xác định một tập dữ liệu có phải sự kiện SAMS hay không; làm việc với kỹ sư dầu khí về quy tắc nghiệp vụ.",
         "Viết unit test và integration test bằng MSTest cho ba dự án Halliburton để QA chạy hồi quy, và duy trì pipeline Azure DevOps với cổng quét Fortify."

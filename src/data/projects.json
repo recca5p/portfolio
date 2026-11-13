@@ -61,8 +61,8 @@
       }
     },
     "description": {
-      "en": "I build migration services in Go on GCP to move customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. The move from ANZ classic covered about 2 million users with under 1% errors. ANZ completed its acquisition of Suncorp Bank on 31 July 2024, adding about 1.2 million customers, and has committed to moving those customers onto its systems and digital platforms by June 2027.",
-      "vi": "Tôi đang xây dựng dịch vụ chuyển dữ liệu bằng Go trên GCP để đưa dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. Phần chuyển từ ANZ classic gồm khoảng 2 triệu người dùng, với tỷ lệ lỗi dưới 1%. ANZ hoàn tất mua Suncorp Bank ngày 31/7/2024, thêm khoảng 1,2 triệu khách hàng, và cam kết chuyển những khách hàng đó sang hệ thống và nền tảng số của ANZ trước tháng 6/2027."
+      "en": "I am building migration services in Go on GCP to move customer and account data from ANZ classic banking and Suncorp Bank into ANZ Plus. The project is still being built and is not in production. I joined from planning and am building the scheduler, the worker and the CRN creation flow. Target is about 2 million customers to migrate. ANZ completed its acquisition of Suncorp Bank on 31 July 2024, adding about 1.2 million customers, and has committed to moving those customers onto its systems and digital platforms by June 2027.",
+      "vi": "Tôi đang xây dịch vụ chuyển dữ liệu bằng Go trên GCP để đưa dữ liệu khách hàng và tài khoản từ ANZ classic và Suncorp Bank sang ANZ Plus. Dự án vẫn đang được xây, chưa lên production. Tôi tham gia từ lúc lập kế hoạch và đang code scheduler, worker và luồng tạo CRN. Mục tiêu là khoảng 2 triệu khách hàng cần chuyển. ANZ hoàn tất mua Suncorp Bank ngày 31/7/2024, thêm khoảng 1,2 triệu khách hàng, và cam kết chuyển những khách hàng đó sang hệ thống và nền tảng số của ANZ trước tháng 6/2027."
     },
     "sources": [
       {
@@ -406,8 +406,8 @@
       "vi": "Halliburton — ứng dụng desktop eCompletion Tools"
     },
     "role": {
-      "en": "Senior Backend Developer",
-      "vi": "Lập trình viên backend senior"
+      "en": "Senior Backend Developer, later Lead",
+      "vi": "Lập trình viên backend senior, sau đó lên lead"
     },
     "teamSize": 5,
     "company": {
@@ -422,19 +422,10 @@
       }
     },
     "description": {
-      "en": "Engineers on offshore rigs often have no internet, so the tool cannot assume a live link to the central server. eCompletion Tools is a WinForms app used by 3,000-5,000 rig engineers worldwide. It stores the job in LiteDB on the machine and syncs to that server when the connection returns. I later moved its database to Azure SQL and its sign-in to Azure AD.",
-      "vi": "Kỹ sư trên giàn khoan thường không có internet, nên công cụ không thể giả định luôn có đường truyền tới máy chủ trung tâm. eCompletion Tools là ứng dụng WinForms được 3.000-5.000 kỹ sư giàn khoan trên toàn cầu sử dụng. Ứng dụng lưu phần việc bằng LiteDB trên máy và đồng bộ lên máy chủ khi kết nối trở lại. Sau đó tôi chuyển cơ sở dữ liệu lên Azure SQL và đăng nhập sang Azure AD."
+      "en": "Engineers on offshore rigs often have no internet, so the tool cannot assume a live link to the central server. eCompletion Tools is a WPF app used by 3,000-5,000 rig engineers worldwide. It stores the job in LiteDB on the machine and syncs to that server when the connection returns. I made LiteDB document search 5x faster (30s down to 3-5s). I later moved its sign-in to Azure AD SSO.",
+      "vi": "Kỹ sư trên giàn khoan thường không có internet, nên công cụ không thể giả định luôn có đường truyền tới máy chủ trung tâm. eCompletion Tools là ứng dụng WPF được 3.000-5.000 kỹ sư giàn khoan trên toàn cầu sử dụng. Ứng dụng lưu phần việc bằng LiteDB trên máy và đồng bộ lên máy chủ khi kết nối trở lại. Tôi làm tìm kiếm tài liệu LiteDB nhanh gấp 5 lần (từ 30 giây xuống 3-5 giây). Sau đó tôi chuyển đăng nhập sang Azure AD SSO."
     },
-    "tags": [
-      "C# .NET",
-      "WinForms",
-      "Azure SQL",
-      "LiteDB",
-      "Entity Framework",
-      "Stored Procedures",
-      "Azure AD",
-      "MSTest"
-    ]
+    "tags": ["C# .NET", "WPF", "LiteDB", "Azure AD SSO", "MSTest"]
   },
   {
     "id": "halliburton-sync",
@@ -443,8 +434,8 @@
       "vi": "Halliburton — máy chủ đồng bộ eCompletion Tools"
     },
     "role": {
-      "en": "Senior Backend Developer",
-      "vi": "Lập trình viên backend senior"
+      "en": "Senior Backend Developer, later Lead",
+      "vi": "Lập trình viên backend senior, sau đó lên lead"
     },
     "teamSize": 5,
     "company": {
@@ -471,8 +462,8 @@
       "vi": "Halliburton — kiểm tra dữ liệu SAMS"
     },
     "role": {
-      "en": "Senior Backend Developer",
-      "vi": "Lập trình viên backend senior"
+      "en": "Senior Backend Developer, later Lead",
+      "vi": "Lập trình viên backend senior, sau đó lên lead"
     },
     "teamSize": 5,
     "company": {
@@ -490,7 +481,7 @@
       "en": "Maintained SAMS (Sub-Atmospheric Mud System), a WebForms app that normalizes well data and decides whether a dataset is a SAMS event. Classification rules agreed with petroleum engineers live in tested code, so rule changes can be checked by QA before release.",
       "vi": "Duy trì SAMS (Sub-Atmospheric Mud System), ứng dụng WebForms chuẩn hóa dữ liệu giếng và xác định một tập dữ liệu có phải sự kiện SAMS hay không. Quy tắc phân loại thống nhất với kỹ sư dầu khí nằm trong code có test, nên QA kiểm tra được mỗi lần đổi quy tắc trước khi phát hành."
     },
-    "tags": ["C# .NET", "WebForms", "MS SQL", "MSTest", "Stored Procedures"]
+    "tags": ["C# .NET", "WebForms", "MS SQL", "MSTest", "Stored Procedures", "EF Core"]
   },
   {
     "id": "sacombank-einvoice",
