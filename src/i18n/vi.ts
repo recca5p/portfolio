@@ -25,7 +25,10 @@ export const vi = {
     metrics: [
       { value: '~2x', label: 'Giao tính năng tại ANZ, từ một sprint còn khoảng 3 ngày' },
       { value: '90%+', label: 'Độ phủ test giao diện gRPC của IMT tại ANZ' },
-      { value: '5x', label: 'Tìm kiếm tài liệu nhanh hơn, Halliburton' },
+      {
+        value: '5x',
+        label: 'Tìm kiếm tài liệu LiteDB nhanh hơn tại Halliburton (30 giây xuống 3-5 giây)',
+      },
       { value: '>60%', label: 'Giảm chi phí observability, Bolloré' },
     ],
   },
@@ -71,7 +74,7 @@ export const vi = {
           'GCP: Cloud Run, GKE, Pub/Sub, BigQuery. Auth0 SSO.',
           'Container và IaC: Docker, docker-compose, Kubernetes (GKE và EKS), Helm, Terraform.',
           'CI/CD: GitHub Actions, GitLab CI (cổng độ phủ 80%, SAST, quét secret), Azure DevOps và Jenkins với cổng SonarQube, Fortify và OWASP.',
-          'Độ tin cậy: OpenTelemetry sang Splunk, theo dõi độ trễ p95/p99, kiểm thử tải bằng JMeter. Chuyển SQL Server sang Azure SQL, và RabbitMQ sang Azure Service Bus.',
+          'Độ tin cậy: OpenTelemetry sang Splunk, theo dõi độ trễ p95/p99, kiểm thử tải bằng JMeter. Chuyển RabbitMQ sang Azure Service Bus.',
           'Bộ kiểm thử end-to-end bằng Selenium WebDriver.',
         ],
       },

@@ -62,13 +62,18 @@ role, city, and current employer. Do not put a stock photograph back.
 - Mark: `src/assets/logo-192.png`
 - CV: `public/cv/Tan-Phat-Vo-CV.pdf`
 
-Personal metrics already recorded, and only these: 6+ years, 5x document
-search, more than 60% lower observability cost, about 30% shorter
-time-to-market (a contribution, not a solo claim), 90%+ test coverage on ANZ
-IMT gRPC contracts, and 5x faster quote search. Bank-scale figures need a
-year and a source, and they describe the bank. The file at
-`public/cv/Tan-Phat-Vo-CV.pdf` is CV v10. It includes 5x faster document search
-at Halliburton and does not list a GitHub link.
+Personal metrics already recorded, and only these: 6+ years, 5x LiteDB
+document search at Halliburton (30s to 3-5s), more than 60% lower
+observability cost, about 30% shorter time-to-market (a contribution, not a
+solo claim), 90%+ test coverage on ANZ IMT gRPC contracts, and 5x faster
+quote search. The 5x search figure belongs to eCompletion LiteDB, not SAMS.
+Bifrost's about 2 million customers is a migration target. The project is
+still being built and is not in production. Do not claim users migrated, an
+error rate under 1%, or 20x. He moved Halliburton sign-in to Azure AD SSO. A
+teammate moved that database to Azure SQL. Bank-scale figures need a year
+and a source, and they describe the bank. The file at
+`public/cv/Tan-Phat-Vo-CV.pdf` is the 13 Nov 2026 CV. It includes the LiteDB
+5x figure and does not list a GitHub link.
 GitHub is https://github.com/recca5p.
 
 ## Product Principles
