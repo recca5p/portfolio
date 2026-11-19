@@ -118,7 +118,16 @@ const personSchema = {
   hasCredential: [
     {
       '@type': 'EducationalOccupationalCredential',
-      name: 'Microsoft Power Platform Developer Associate',
+      name: 'Microsoft Certified: Power Platform Developer Associate (PL-400)',
+      description:
+        lang === 'en'
+          ? 'Earned 2024, expired 05/2026. Earned 6 May 2024. Renewal assessment passed December 2024. Expired 7 May 2026. Credential ID B86BA4FDF064E24.'
+          : 'Đạt năm 2024, hết hạn 05/2026. Đạt ngày 6 tháng 5 năm 2024. Đã vượt bài đánh giá gia hạn vào tháng 12 năm 2024. Hết hạn ngày 7 tháng 5 năm 2026. Mã chứng chỉ B86BA4FDF064E24.',
+      identifier: 'B86BA4FDF064E24',
+      recognizedBy: {
+        '@type': 'Organization',
+        name: 'Microsoft',
+      },
     },
     {
       '@type': 'EducationalOccupationalCredential',
