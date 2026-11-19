@@ -1,4 +1,5 @@
 ---
+import { certificationLabel, certifications } from '../data/certifications';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -22,10 +23,22 @@ const t = useTranslations(lang);
       <div class="credentials">
         <h3>{t('education.certTitle')}</h3>
         <dl>
-          <div>
-            <dt translate="no">Microsoft</dt>
-            <dd>Power Platform Developer Associate</dd>
-          </div>
+          {certifications.map((cert) => (
+            <div>
+              <dt class="cert-year">{cert.earnedYear}</dt>
+              <dd>
+                <a
+                  class="cert-link"
+                  href={`/certs/${encodeURIComponent(cert.file)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  translate="no"
+                >
+                  {certificationLabel(cert.name)}
+                </a>
+              </dd>
+            </div>
+          ))}
           <div>
             <dt>{t('education.englishProficiency')}</dt>
             <dd translate="no">IELTS 6.5 (IDP), TOEIC 700+</dd>
@@ -102,6 +115,37 @@ const t = useTranslations(lang);
   .credentials dt {
     color: var(--muted);
     font-size: var(--font-small);
+  }
+
+  .credentials .cert-year {
+    color: var(--accent-strong);
+    font-family: var(--font-mono);
+    font-size: var(--font-meta);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+
+  .cert-link {
+    color: var(--text);
+    font-weight: 650;
+    line-height: 1.35;
+    text-wrap: balance;
+    text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.22em;
+    transition:
+      color 160ms ease,
+      text-decoration-color 160ms ease;
+  }
+
+  .cert-link:hover {
+    color: var(--accent-strong);
+    text-decoration-color: var(--accent);
+  }
+
+  .cert-link:active {
+    color: var(--accent);
   }
 
   .credentials dd {

@@ -26,7 +26,7 @@ const roleRest = roleParts.length > 1 ? roleParts.slice(1).join(' — ') : '';
       </p>
       <p class="hero-summary">{t('home.heroSummary')}</p>
       <div class="hero-actions">
-        <a class="button-primary" href={profile.cvPath} download>
+        <a class="button-primary" href={profile.cvPath} target="_blank" rel="noopener noreferrer">
           {t('home.downloadCv')}
         </a>
         <a class="button-secondary" href={`mailto:${profile.email}`}>

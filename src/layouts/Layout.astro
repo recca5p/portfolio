@@ -5,6 +5,7 @@ import { getImage } from 'astro:assets';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import logo from '../assets/logo-192.png';
+import { certifications } from '../data/certifications';
 import { profile } from '../data/profile';
 import type { Lang } from '../i18n/utils';
 import manropeLatinUrl from '@fontsource-variable/manrope/files/manrope-latin-wght-normal.woff2?url';
@@ -116,10 +117,10 @@ const personSchema = {
     },
   },
   hasCredential: [
-    {
+    ...certifications.map((cert) => ({
       '@type': 'EducationalOccupationalCredential',
-      name: 'Microsoft Power Platform Developer Associate',
-    },
+      name: cert.name,
+    })),
     {
       '@type': 'EducationalOccupationalCredential',
       name: 'IELTS 6.5 (IDP)',

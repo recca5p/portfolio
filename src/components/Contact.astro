@@ -37,7 +37,7 @@ const zaloQr = await toQr(zaloUrl, lang === 'en' ? 'Zalo contact QR code' : 'Mã
         <a class="button-primary" href={`mailto:${profile.email}`}>
           {t('home.emailCta')}
         </a>
-        <a class="button-secondary" href={profile.cvPath} download>
+        <a class="button-secondary" href={profile.cvPath} target="_blank" rel="noopener noreferrer">
           {t('home.downloadCv')}
         </a>
       </div>
